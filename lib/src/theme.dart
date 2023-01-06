@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_nes/flutter_nes.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 /// {@template nes_theme}
@@ -154,6 +155,7 @@ extension NesBuildContext on BuildContext {
 
 /// Creates a Flutter Nes [ThemeData].
 ThemeData flutterNesTheme({
+  Color primaryColor = const Color(0xffb4b6f6),
   Brightness brightness = Brightness.light,
   NesTheme nesTheme = const NesTheme(pixelSize: 4),
   NesButtonTheme nesButtonTheme = const NesButtonTheme(
@@ -166,11 +168,48 @@ ThemeData flutterNesTheme({
     darkLabelColor: Color(0xff000000),
   ),
 }) {
-  return ThemeData(brightness: brightness).copyWith(
-    textTheme: GoogleFonts.pressStart2pTextTheme(),
+  final textTheme = GoogleFonts.pressStart2pTextTheme();
+
+  final themeData = ThemeData(
+    brightness: brightness,
+    colorSchemeSeed: primaryColor,
+    textTheme: textTheme,
     extensions: [
       nesTheme,
       nesButtonTheme,
     ],
+  );
+
+  return themeData.copyWith(
+    inputDecorationTheme: InputDecorationTheme(
+      border: NesInputBorder(
+        borderSide: BorderSide(
+          width: nesTheme.pixelSize.toDouble(),
+        ),
+      ),
+      enabledBorder: NesInputBorder(
+        borderSide: BorderSide(
+          width: nesTheme.pixelSize.toDouble(),
+        ),
+      ),
+      focusedBorder: NesInputBorder(
+        borderSide: BorderSide(
+          width: nesTheme.pixelSize.toDouble(),
+          color: themeData.colorScheme.primary,
+        ),
+      ),
+      errorBorder: NesInputBorder(
+        borderSide: BorderSide(
+          width: nesTheme.pixelSize.toDouble(),
+          color: themeData.colorScheme.error,
+        ),
+      ),
+      focusedErrorBorder: NesInputBorder(
+        borderSide: BorderSide(
+          width: nesTheme.pixelSize.toDouble(),
+          color: themeData.colorScheme.error,
+        ),
+      ),
+    ),
   );
 }
