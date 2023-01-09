@@ -5,6 +5,9 @@ concurrency:
   cancel-in-progress: true
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
@@ -18,3 +21,4 @@ jobs:
     with:
       flutter_channel: stable
       flutter_version: 3.3.7
+      min_coverage: 50
