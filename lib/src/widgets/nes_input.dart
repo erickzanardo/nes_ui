@@ -121,6 +121,18 @@ class NesInputBorder extends InputBorder {
         ),
         paint,
       );
+
+    if (gapStart != null && gapPercentage >= 0) {
+      canvas.drawRect(
+        Rect.fromLTWH(
+          gapStart,
+          -1,
+          gapExtent * gapPercentage,
+          pixelSize * 2,
+        ),
+        Paint()..blendMode = BlendMode.clear,
+      );
+    }
   }
 
   @override
