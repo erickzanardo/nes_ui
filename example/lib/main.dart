@@ -37,6 +37,8 @@ void main() {
                 const SizedBox(height: 32),
                 const TextSection(),
                 const SizedBox(height: 32),
+                const IconsSection(),
+                const SizedBox(height: 32),
                 const TextFieldsSection(),
                 const SizedBox(height: 32),
                 const ContainersSection(),

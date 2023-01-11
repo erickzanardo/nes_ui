@@ -132,6 +132,50 @@ class NesButtonTheme extends ThemeExtension<NesButtonTheme> {
   }
 }
 
+/// {@template nes_icon_theme}
+/// Class with information regarding icons inside Flutter Nes.
+/// {@endtemplate}
+class NesIconTheme extends ThemeExtension<NesIconTheme> {
+  /// {@macro nes_icon_theme}
+  const NesIconTheme({
+    required this.primary,
+    required this.secondary,
+  });
+
+  /// Primary color of the icon palette.
+  final Color primary;
+
+  /// Secondary color of the icon palette.
+  final Color secondary;
+
+  @override
+  NesIconTheme copyWith({
+    Color? primary,
+    Color? secondary,
+  }) {
+    return NesIconTheme(
+      primary: primary ?? this.primary,
+      secondary: secondary ?? this.secondary,
+    );
+  }
+
+  @override
+  NesIconTheme lerp(NesIconTheme? other, double t) {
+    return NesIconTheme(
+      primary: ColorTween(
+            begin: primary,
+            end: other?.primary,
+          ).lerp(t) ??
+          primary,
+      secondary: ColorTween(
+            begin: secondary,
+            end: other?.secondary,
+          ).lerp(t) ??
+          secondary,
+    );
+  }
+}
+
 /// Helper methods on [BuildContext] for the Flutter Nes.
 extension NesBuildContext on BuildContext {
   /// Returns the extension of type [T] from the context.
@@ -167,6 +211,10 @@ ThemeData flutterNesTheme({
     lightLabelColor: Color(0xffffffff),
     darkLabelColor: Color(0xff000000),
   ),
+  NesIconTheme nesIconTheme = const NesIconTheme(
+    primary: Color(0xff000000),
+    secondary: Color(0xffffffff),
+  ),
 }) {
   final textTheme = GoogleFonts.pressStart2pTextTheme();
 
@@ -177,6 +225,7 @@ ThemeData flutterNesTheme({
     extensions: [
       nesTheme,
       nesButtonTheme,
+      nesIconTheme,
     ],
   );
 
