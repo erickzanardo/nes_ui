@@ -33,6 +33,14 @@ class IconsSection extends StatelessWidget {
               data: NesIcons.instance.shield,
               label: 'shield',
             ),
+            _IconEntry(
+              data: NesIcons.instance.axe,
+              label: 'axe',
+            ),
+            _IconEntry(
+              data: NesIcons.instance.arrow,
+              label: 'arrow',
+            ),
           ],
         ),
       ],

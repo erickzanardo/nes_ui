@@ -1,3 +1,4 @@
+import 'package:example/sections/checkboxes.dart';
 import 'package:example/sections/sections.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_nes/flutter_nes.dart';
@@ -36,6 +37,8 @@ void main() {
                 const Divider(height: 4, color: Colors.black),
                 const SizedBox(height: 32),
                 const TextSection(),
+                const SizedBox(height: 32),
+                const CheckBoxesSection(),
                 const SizedBox(height: 32),
                 const IconsSection(),
                 const SizedBox(height: 32),
