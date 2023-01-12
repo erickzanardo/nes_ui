@@ -53,6 +53,14 @@ class IconsSection extends StatelessWidget {
               data: NesIcons.instance.arrow,
               label: 'arrow',
             ),
+            _IconEntry(
+              data: NesIcons.instance.sun,
+              label: 'sun',
+            ),
+            _IconEntry(
+              data: NesIcons.instance.moon,
+              label: 'moon',
+            ),
           ],
         ),
       ],
