@@ -64,6 +64,27 @@ class NesIcons {
       '8,8;6,-1;1,0;1,1;5,-1;1,0;1,1;1,0;5,-1;2,0;5,-1;1,0;6,-1;1,0;4,-1;1,0;1,-1;1,0;5,-1;2,0;6,-1;3,0;5,-1',
     ),
   );
+
+  /// A hand pointing right.
+  late final handPointingRight = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;2,-1;2,0;5,-1;1,0;2,1;5,0;6,1;2,0;2,1;6,0;4,1;1,0;2,-1;1,0;2,1;3,0;3,-1;1,0;3,1;1,0;4,-1;3,0;3,-1',
+    ),
+  );
+
+  /// An arrow pointing left.
+  late final leftArrowIndicator = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;3,-1;3,0;4,-1;4,0;3,-1;5,0;2,-1;6,0;2,-1;1,0;1,1;4,0;3,-1;1,0;1,1;3,0;4,-1;1,0;2,1;1,0;5,-1;3,0;2,-1',
+    ),
+  );
+
+  /// An arrow pointing right.
+  late final rightArrowIndicator = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;2,-1;3,0;5,-1;4,0;4,-1;5,0;3,-1;6,0;2,-1;4,0;1,1;1,0;2,-1;3,0;1,1;1,0;3,-1;1,0;2,1;1,0;4,-1;3,0;3,-1',
+    ),
+  );
 }
 
 /// {@template nes_icon}

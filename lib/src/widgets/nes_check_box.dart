@@ -39,7 +39,7 @@ class NesCheckBox extends StatelessWidget {
         ),
         child: value
             ? Transform.translate(
-              offset: const Offset(2, -6),
+                offset: const Offset(2, -6),
                 child: NesIcon(iconData: NesIcons.instance.check),
               )
             : null,

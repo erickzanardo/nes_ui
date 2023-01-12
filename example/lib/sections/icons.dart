@@ -26,6 +26,18 @@ class IconsSection extends StatelessWidget {
               label: 'close',
             ),
             _IconEntry(
+              data: NesIcons.instance.handPointingRight,
+              label: 'handPointingRight',
+            ),
+            _IconEntry(
+              data: NesIcons.instance.leftArrowIndicator,
+              label: 'leftArrowIndicator',
+            ),
+            _IconEntry(
+              data: NesIcons.instance.rightArrowIndicator,
+              label: 'rightArrowIndicator',
+            ),
+            _IconEntry(
               data: NesIcons.instance.sword,
               label: 'sword',
             ),
@@ -65,7 +77,13 @@ class _IconEntry extends StatelessWidget {
         children: [
           NesIcon(iconData: data),
           const SizedBox(height: 8),
-          Text(label),
+          SizedBox(
+            width: 120,
+            child: Text(
+              label,
+              textAlign: TextAlign.center,
+            ),
+          ),
         ],
       ),
     );
