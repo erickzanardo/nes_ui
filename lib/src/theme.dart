@@ -211,33 +211,45 @@ ThemeData flutterNesTheme({
     lightLabelColor: Color(0xffffffff),
     darkLabelColor: Color(0xff000000),
   ),
-  NesIconTheme nesIconTheme = const NesIconTheme(
-    primary: Color(0xff000000),
-    secondary: Color(0xffffffff),
-  ),
+  NesIconTheme? nesIconTheme,
 }) {
-  final textTheme = GoogleFonts.pressStart2pTextTheme();
+  final iconTheme = nesIconTheme ??
+      (brightness == Brightness.light
+          ? const NesIconTheme(
+              primary: Color(0xff000000),
+              secondary: Color(0xffffffff),
+            )
+          : const NesIconTheme(
+              primary: Color(0xff808080),
+              secondary: Color(0xffe5e5e5),
+            ));
 
   final themeData = ThemeData(
     brightness: brightness,
     colorSchemeSeed: primaryColor,
-    textTheme: textTheme,
     extensions: [
       nesTheme,
       nesButtonTheme,
-      nesIconTheme,
+      iconTheme,
     ],
   );
 
+  final textTheme = GoogleFonts.pressStart2pTextTheme(
+    themeData.textTheme,
+  );
+
   return themeData.copyWith(
+    textTheme: textTheme,
     inputDecorationTheme: InputDecorationTheme(
       border: NesInputBorder(
         borderSide: BorderSide(
+          color: textTheme.bodyMedium?.color ?? Colors.black,
           width: nesTheme.pixelSize.toDouble(),
         ),
       ),
       enabledBorder: NesInputBorder(
         borderSide: BorderSide(
+          color: textTheme.bodyMedium?.color ?? Colors.black,
           width: nesTheme.pixelSize.toDouble(),
         ),
       ),

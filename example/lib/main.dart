@@ -6,10 +6,37 @@ import 'package:flutter_nes/flutter_nes.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
-  runApp(
-    MaterialApp(
-      theme: flutterNesTheme(),
+  runApp(const Gallery());
+}
+
+class Gallery extends StatefulWidget {
+  const Gallery({
+    super.key,
+  });
+
+  @override
+  State<Gallery> createState() => _GalleryState();
+}
+
+class _GalleryState extends State<Gallery> {
+  bool _lightMode = true;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: flutterNesTheme(
+        brightness: _lightMode ? Brightness.light : Brightness.dark,
+      ),
       home: Scaffold(
+        floatingActionButton: NesButton(
+          type: NesButtonType.normal,
+          onPressed: () {
+            setState(() => _lightMode = !_lightMode);
+          },
+          child: _lightMode
+              ? NesIcon(iconData: NesIcons.instance.sun)
+              : NesIcon(iconData: NesIcons.instance.moon),
+        ),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 32),
@@ -53,6 +80,6 @@ void main() {
           ),
         ),
       ),
-    ),
-  );
+    );
+  }
 }

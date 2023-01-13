@@ -65,9 +65,9 @@ class _ContainerPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()..color = textStyle.color ?? Colors.black;
-
-    // Top bar
     canvas
+      ..saveLayer(Rect.largest, Paint())
+      // Top bar
       ..drawRect(
         Rect.fromLTWH(
           pixelSize * 2,
@@ -172,6 +172,7 @@ class _ContainerPainter extends CustomPainter {
         Offset(pixelSize * 8, 0),
       );
     }
+    canvas.restore();
   }
 
   @override

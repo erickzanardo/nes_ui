@@ -75,6 +75,8 @@ class NesInputBorder extends InputBorder {
     double gapPercentage = 0.0,
     TextDirection? textDirection,
   }) {
+    canvas.saveLayer(Rect.largest, Paint());
+
     final paint = Paint()..color = borderSide.color;
 
     final pixelSize = borderSide.width;
@@ -133,6 +135,8 @@ class NesInputBorder extends InputBorder {
         Paint()..blendMode = BlendMode.clear,
       );
     }
+
+    canvas.restore();
   }
 
   @override
