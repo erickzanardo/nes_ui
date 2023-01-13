@@ -240,6 +240,10 @@ ThemeData flutterNesTheme({
 
   return themeData.copyWith(
     textTheme: textTheme,
+    dividerTheme: DividerThemeData(
+      thickness: nesTheme.pixelSize.toDouble(),
+      color: textTheme.bodyMedium?.color,
+    ),
     inputDecorationTheme: InputDecorationTheme(
       border: NesInputBorder(
         borderSide: BorderSide(
