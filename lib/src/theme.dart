@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 /// {@template nes_theme}
 /// Class with general theme information for Flutter Nes.
 /// {@endtemplate}
+@immutable
 class NesTheme extends ThemeExtension<NesTheme> {
   /// {@macro nes_theme}
   const NesTheme({
@@ -23,11 +24,12 @@ class NesTheme extends ThemeExtension<NesTheme> {
   }
 
   @override
-  NesTheme lerp(NesTheme? other, double t) {
+  ThemeExtension<NesTheme> lerp(ThemeExtension<NesTheme>? other, double t) {
+    final otherExt = other as NesTheme?;
     return NesTheme(
       pixelSize: IntTween(
         begin: pixelSize,
-        end: other?.pixelSize ?? pixelSize,
+        end: otherExt?.pixelSize ?? pixelSize,
       ).lerp(t),
     );
   }
@@ -91,41 +93,46 @@ class NesButtonTheme extends ThemeExtension<NesButtonTheme> {
   }
 
   @override
-  NesButtonTheme lerp(NesButtonTheme? other, double t) {
+  ThemeExtension<NesButtonTheme> lerp(
+    ThemeExtension<NesButtonTheme>? other,
+    double t,
+  ) {
+    final otherExt = other as NesButtonTheme?;
+
     return NesButtonTheme(
       normal: ColorTween(
             begin: normal,
-            end: other?.normal,
+            end: otherExt?.normal,
           ).lerp(t) ??
           normal,
       primary: ColorTween(
             begin: primary,
-            end: other?.primary,
+            end: otherExt?.primary,
           ).lerp(t) ??
           primary,
       success: ColorTween(
             begin: success,
-            end: other?.success,
+            end: otherExt?.success,
           ).lerp(t) ??
           success,
       warning: ColorTween(
             begin: warning,
-            end: other?.warning,
+            end: otherExt?.warning,
           ).lerp(t) ??
           warning,
       error: ColorTween(
             begin: error,
-            end: other?.error,
+            end: otherExt?.error,
           ).lerp(t) ??
           error,
       lightLabelColor: ColorTween(
             begin: lightLabelColor,
-            end: other?.lightLabelColor,
+            end: otherExt?.lightLabelColor,
           ).lerp(t) ??
           lightLabelColor,
       darkLabelColor: ColorTween(
             begin: darkLabelColor,
-            end: other?.darkLabelColor,
+            end: otherExt?.darkLabelColor,
           ).lerp(t) ??
           darkLabelColor,
     );
@@ -160,16 +167,17 @@ class NesIconTheme extends ThemeExtension<NesIconTheme> {
   }
 
   @override
-  NesIconTheme lerp(NesIconTheme? other, double t) {
+  NesIconTheme lerp(ThemeExtension<NesIconTheme>? other, double t) {
+    final otherExt = other as NesIconTheme?;
     return NesIconTheme(
       primary: ColorTween(
             begin: primary,
-            end: other?.primary,
+            end: otherExt?.primary,
           ).lerp(t) ??
           primary,
       secondary: ColorTween(
             begin: secondary,
-            end: other?.secondary,
+            end: otherExt?.secondary,
           ).lerp(t) ??
           secondary,
     );
