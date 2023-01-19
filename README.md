@@ -77,8 +77,8 @@ Check the gallery of all widgets [here](https://erickzanardo.github.io/nes_ui/#/
 
 ## Material Customized Widgets
 
-Nes UI trives to use the most out of material that it can, customizing their looks to fit
-the package desired look, here is the list of widgets from Material that are customized by
+Nes UI tries to use the most out of material that it can, customizing their looks to fit
+the package's desired look, here is the list of widgets from Material that is customized by
 Nes UI
 
  - Text
