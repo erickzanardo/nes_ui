@@ -1,11 +1,11 @@
 name: flutter_nes
 description: UI library inspired by old retro video game console
-version: 0.1.0+1
-publish_to: none
+version: 0.1.0
+repository: https://github.com/erickzanardo/flutter_nes
 
 environment:
   sdk: ">=2.18.6 <3.0.0"
-  flutter: 3.3.10
+  flutter: ">=3.3.10"
 
 dependencies:
   flutter:
