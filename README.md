@@ -73,6 +73,8 @@ void main() {
 
 More about font license [here](https://pub.dev/packages/google_fonts#licensing-fonts).
 
+Check the gallery of all widgets [here](https://erickzanardo.github.io/flutter_nes/#/).
+
 ## Material Customized Widgets
 
 Nes UI trives to use the most out of material that it can, customizing their looks to fit
