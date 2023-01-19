@@ -73,7 +73,7 @@ void main() {
 
 More about font license [here](https://pub.dev/packages/google_fonts#licensing-fonts).
 
-Check the gallery of all widgets [here](https://erickzanardo.github.io/flutter_nes/#/).
+Check the gallery of all widgets [here](https://erickzanardo.github.io/nes_ui/#/).
 
 ## Material Customized Widgets
 
