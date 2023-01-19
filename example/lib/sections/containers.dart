@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nes_ui/nes.dart';
+import 'package:nes_ui/nes_ui.dart';
 
 class ContainersSection extends StatelessWidget {
   const ContainersSection({super.key});

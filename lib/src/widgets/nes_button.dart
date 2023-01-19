@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nes_ui/nes.dart';
+import 'package:nes_ui/nes_ui.dart';
 import 'package:nes_ui/src/extensions/color.dart';
 
 /// Defines the type of a [NesButton].

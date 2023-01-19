@@ -1,4 +1,4 @@
 /// UI library inspired by old retro video game console
-library nes;
+library nes_ui;
 
-export 'src/nes.dart';
+export 'src/nes_ui.dart';

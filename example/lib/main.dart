@@ -1,7 +1,7 @@
 import 'package:example/sections/checkboxes.dart';
 import 'package:example/sections/sections.dart';
 import 'package:flutter/material.dart';
-import 'package:nes_ui/nes.dart';
+import 'package:nes_ui/nes_ui.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
