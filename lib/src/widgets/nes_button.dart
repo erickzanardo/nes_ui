@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nes/nes.dart';
-import 'package:nes/src/extensions/color.dart';
+import 'package:nes_ui/nes.dart';
+import 'package:nes_ui/src/extensions/color.dart';
 
 /// Defines the type of a [NesButton].
 enum NesButtonType {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nes/nes.dart';
+import 'package:nes_ui/nes.dart';
 
 class IconsSection extends StatelessWidget {
   const IconsSection({super.key});

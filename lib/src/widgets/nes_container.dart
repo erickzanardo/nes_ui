@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nes/nes.dart';
+import 'package:nes_ui/nes.dart';
 
 /// {@template nes_container}
 /// A bordered container, with an optional label.

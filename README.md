@@ -10,13 +10,13 @@ UI library inspired by old retro video game console
 
 ## Installation 💻
 
-**❗ In order to start using Flutter Nes you must have the [Flutter SDK][flutter_install_link] installed on your machine.**
+**❗ In order to start using Nes UI you must have the [Flutter SDK][flutter_install_link] installed on your machine.**
 
-Add `nes` to your `pubspec.yaml`:
+Add `nes_ui` to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  nes:
+  nes_ui:
 ```
 
 Install it:
@@ -29,11 +29,11 @@ flutter packages get
 
 ## Configure it
 
-Flutter Nes provides a `ThemeData` that you can add to your `MaterialApp`, that theme can be obtained
+Nes UI provides a `ThemeData` that you can add to your `MaterialApp`, that theme can be obtained
 from the `flutterNesTheme` method:
 
 ```dart
-import 'package:nes/nes.dart';
+import 'package:nes_ui/nes_ui.dart';
 
 MaterialApp(
   theme: flutterNesTheme(),
@@ -44,7 +44,7 @@ Check the many arguments on the method to customize the theme.
 
 ## Font
 
-Flutter Nes uses the [Press start 2P](https://fonts.google.com/specimen/Press+Start+2P)
+Nes UI uses the [Press start 2P](https://fonts.google.com/specimen/Press+Start+2P)
 from the [Google Fonts package](https://pub.dev/packages/google_fonts).
 
 Google fonts will fetch the files in runtime over http. To keep that behaviour and unsure that it works,
@@ -75,9 +75,9 @@ More about font license [here](https://pub.dev/packages/google_fonts#licensing-f
 
 ## Material Customized Widgets
 
-Flutter Nes trives to use the most out of material that it can, customizing their looks to fit
+Nes UI trives to use the most out of material that it can, customizing their looks to fit
 the package desired look, here is the list of widgets from Material that are customized by
-Flutter Nes
+Nes UI
 
  - Text
  - TextField/TextFormField
@@ -86,7 +86,7 @@ Flutter Nes
 ## Custom Widgets
 
 Some widgets are too different from the Material look and structure, which was not possible to
-achieve without building the whole widget from scratch, this is the list of widgets that Flutter Nes
+achieve without building the whole widget from scratch, this is the list of widgets that Nes UI
 provides:
 
  - NesButton
