@@ -1,4 +1,4 @@
-# Flutter Nes
+# Nes
 
 [![style: very good analysis][very_good_analysis_badge]][very_good_analysis_link]
 [![Powered by Mason](https://img.shields.io/endpoint?url=https%3A%2F%2Ftinyurl.com%2Fmason-badge)](https://github.com/felangel/mason)
@@ -12,11 +12,11 @@ UI library inspired by old retro video game console
 
 **❗ In order to start using Flutter Nes you must have the [Flutter SDK][flutter_install_link] installed on your machine.**
 
-Add `flutter_nes` to your `pubspec.yaml`:
+Add `nes` to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  flutter_nes:
+  nes:
 ```
 
 Install it:
@@ -33,7 +33,7 @@ Flutter Nes provides a `ThemeData` that you can add to your `MaterialApp`, that 
 from the `flutterNesTheme` method:
 
 ```dart
-import 'package:flutter_nes/flutter_nes.dart';
+import 'package:nes/nes.dart';
 
 MaterialApp(
   theme: flutterNesTheme(),

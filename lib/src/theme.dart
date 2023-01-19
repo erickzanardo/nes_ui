@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_nes/flutter_nes.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nes/nes.dart';
 
 /// {@template nes_theme}
 /// Class with general theme information for Flutter Nes.

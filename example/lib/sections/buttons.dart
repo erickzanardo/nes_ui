@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_nes/flutter_nes.dart';
+import 'package:nes/nes.dart';
 
 class ButtonsSection extends StatelessWidget {
   const ButtonsSection({super.key});

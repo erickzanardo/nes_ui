@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_mini_sprite/flutter_mini_sprite.dart';
-import 'package:flutter_nes/flutter_nes.dart';
 import 'package:mini_sprite/mini_sprite.dart';
+import 'package:nes/nes.dart';
 
 /// {@nes_icon_data}
 /// Model class holding the data of for a [NesIcon].

@@ -1,4 +1,4 @@
 /// UI library inspired by old retro video game console
-library flutter_nes;
+library nes;
 
-export 'src/flutter_nes.dart';
+export 'src/nes.dart';
