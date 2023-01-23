@@ -47,7 +47,7 @@ Check the many arguments on the method to customize the theme.
 Nes UI uses the [Press start 2P](https://fonts.google.com/specimen/Press+Start+2P)
 from the [Google Fonts package](https://pub.dev/packages/google_fonts).
 
-Google fonts will fetch the files in runtime over http. To keep that behaviour and unsure that it works,
+Google fonts will fetch the files in runtime over http. To keep that behaviour and ensure that it works,
 be sure to call `WidgetsFlutterBinding.ensureInitialized();` at your main method.
 
 For more info on that follow this [Google Fonts package guide](https://pub.dev/packages/google_fonts#http-fetching).
