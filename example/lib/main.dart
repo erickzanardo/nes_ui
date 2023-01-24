@@ -64,6 +64,8 @@ class _GalleryState extends State<Gallery> {
                 const SizedBox(height: 32),
                 const TextSection(),
                 const SizedBox(height: 32),
+                const SelectionListSection(),
+                const SizedBox(height: 32),
                 const CheckBoxesSection(),
                 const SizedBox(height: 32),
                 const IconsSection(),

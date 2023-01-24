@@ -184,6 +184,53 @@ class NesIconTheme extends ThemeExtension<NesIconTheme> {
   }
 }
 
+/// {@template nes_selection_list_them}
+/// Class with information regarding Selection Lists.
+/// {@endtemplate}
+class NesSelectionListTheme extends ThemeExtension<NesSelectionListTheme> {
+  /// {@macro nes_selection_list_theme}
+  const NesSelectionListTheme({
+    required this.markerSize,
+    required this.itemHeight,
+  });
+
+  /// The size of marker widget.
+  final Size markerSize;
+
+  /// The height of the line of each item.
+  final double itemHeight;
+
+  @override
+  ThemeExtension<NesSelectionListTheme> lerp(
+    ThemeExtension<NesSelectionListTheme>? other,
+    double t,
+  ) {
+    final otherExt = other as NesSelectionListTheme?;
+    return NesSelectionListTheme(
+      markerSize: SizeTween(
+            begin: markerSize,
+            end: otherExt?.markerSize,
+          ).lerp(t) ??
+          markerSize,
+      itemHeight: Tween<double>(
+        begin: itemHeight,
+        end: otherExt?.itemHeight ?? itemHeight,
+      ).transform(t),
+    );
+  }
+
+  @override
+  ThemeExtension<NesSelectionListTheme> copyWith({
+    Size? markerSize,
+    double? itemHeight,
+  }) {
+    return NesSelectionListTheme(
+      markerSize: markerSize ?? this.markerSize,
+      itemHeight: itemHeight ?? this.itemHeight,
+    );
+  }
+}
+
 /// Helper methods on [BuildContext] for the Flutter Nes.
 extension NesBuildContext on BuildContext {
   /// Returns the extension of type [T] from the context.
@@ -220,6 +267,10 @@ ThemeData flutterNesTheme({
     darkLabelColor: Color(0xff000000),
   ),
   NesIconTheme? nesIconTheme,
+  NesSelectionListTheme nesSelectionListTheme = const NesSelectionListTheme(
+    markerSize: Size(24, 24),
+    itemHeight: 32,
+  ),
 }) {
   final iconTheme = nesIconTheme ??
       (brightness == Brightness.light
@@ -239,6 +290,7 @@ ThemeData flutterNesTheme({
       nesTheme,
       nesButtonTheme,
       iconTheme,
+      nesSelectionListTheme,
     ],
   );
 
