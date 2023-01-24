@@ -95,6 +95,7 @@ provides:
  - NesCheckbox
  - NesContainer
  - NesIcon
+ - NesSelectionList
 
 More to come!
 

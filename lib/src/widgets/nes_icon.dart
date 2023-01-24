@@ -1,4 +1,5 @@
 // ignore_for_file: lines_longer_than_80_chars
+import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_mini_sprite/flutter_mini_sprite.dart';
@@ -111,18 +112,38 @@ class NesIcon extends StatelessWidget {
   const NesIcon({
     super.key,
     required this.iconData,
+    this.size,
   });
 
   /// Data of this icon.
   final NesIconData iconData;
+
+  /// An optional size for the icon.
+  ///
+  /// When ommited the icon will be in its "original"
+  /// size concerning the current pixel size of the theme.
+  final Size? size;
 
   @override
   Widget build(BuildContext context) {
     final nesTheme = context.nesThemeExtension<NesTheme>();
     final nesIconTheme = context.nesThemeExtension<NesIconTheme>();
 
+    var pixelSize = nesTheme.pixelSize.toDouble();
+
+    final customSize = size;
+    if (customSize != null) {
+      final spriteHorizontalUnits = iconData.sprite.pixels[0].length;
+      final spriteVerticalUnits = iconData.sprite.pixels.length;
+
+      final width = customSize.width / spriteHorizontalUnits;
+      final height = customSize.height / spriteVerticalUnits;
+
+      pixelSize = math.min(width, height).roundToDouble();
+    }
+
     return MiniSpriteWidget(
-      pixelSize: nesTheme.pixelSize.toDouble(),
+      pixelSize: pixelSize,
       palette: [nesIconTheme.primary, nesIconTheme.secondary],
       sprite: iconData.sprite,
     );
