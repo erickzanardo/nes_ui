@@ -3,6 +3,7 @@
 - feat: add `NesSelectionList`
 - feat: `NesIcon` supports custom size
 - feat: add `NesIcons.gallery`
+- feat: add `NesIcons.delete`
 
 # 0.1.0
 
