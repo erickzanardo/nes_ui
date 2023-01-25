@@ -191,14 +191,14 @@ class NesSelectionListTheme extends ThemeExtension<NesSelectionListTheme> {
   /// {@macro nes_selection_list_theme}
   const NesSelectionListTheme({
     required this.markerSize,
-    required this.itemHeight,
+    required this.itemMinHeight,
   });
 
   /// The size of marker widget.
   final Size markerSize;
 
-  /// The height of the line of each item.
-  final double itemHeight;
+  /// The min height of the line of each item.
+  final double itemMinHeight;
 
   @override
   ThemeExtension<NesSelectionListTheme> lerp(
@@ -212,9 +212,9 @@ class NesSelectionListTheme extends ThemeExtension<NesSelectionListTheme> {
             end: otherExt?.markerSize,
           ).lerp(t) ??
           markerSize,
-      itemHeight: Tween<double>(
-        begin: itemHeight,
-        end: otherExt?.itemHeight ?? itemHeight,
+      itemMinHeight: Tween<double>(
+        begin: itemMinHeight,
+        end: otherExt?.itemMinHeight ?? itemMinHeight,
       ).transform(t),
     );
   }
@@ -222,11 +222,11 @@ class NesSelectionListTheme extends ThemeExtension<NesSelectionListTheme> {
   @override
   ThemeExtension<NesSelectionListTheme> copyWith({
     Size? markerSize,
-    double? itemHeight,
+    double? itemMinHeight,
   }) {
     return NesSelectionListTheme(
       markerSize: markerSize ?? this.markerSize,
-      itemHeight: itemHeight ?? this.itemHeight,
+      itemMinHeight: itemMinHeight ?? this.itemMinHeight,
     );
   }
 }
@@ -269,7 +269,7 @@ ThemeData flutterNesTheme({
   NesIconTheme? nesIconTheme,
   NesSelectionListTheme nesSelectionListTheme = const NesSelectionListTheme(
     markerSize: Size(24, 24),
-    itemHeight: 32,
+    itemMinHeight: 32,
   ),
 }) {
   final iconTheme = nesIconTheme ??
