@@ -69,6 +69,10 @@ class IconsSection extends StatelessWidget {
               data: NesIcons.instance.gamepad,
               label: 'gamepad',
             ),
+            _IconEntry(
+              data: NesIcons.instance.delete,
+              label: 'delete',
+            ),
           ],
         ),
       ],
