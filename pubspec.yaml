@@ -15,7 +15,14 @@ dependencies:
   mini_sprite: ^0.1.0
 
 dev_dependencies:
+  alchemist: ^0.5.1
   flutter_test:
     sdk: flutter
   mocktail: ^0.3.0
   very_good_analysis: ^3.1.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - google_fonts/
