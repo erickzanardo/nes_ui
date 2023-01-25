@@ -21,5 +21,23 @@ void main() {
       await tester.tap(find.byType(NesCheckBox));
       expect(value, isTrue);
     });
+
+    testWidgets('renders [NesIcons.check] when true', (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: flutterNesTheme(),
+          home: NesCheckBox(
+            value: true,
+            onChange: (_) {},
+          ),
+        ),
+      );
+
+      await tester.tap(find.byType(NesCheckBox));
+
+      final icon = tester.widget<NesIcon>(find.byType(NesIcon));
+
+      expect(icon.iconData, equals(NesIcons.instance.check));
+    });
   });
 }
