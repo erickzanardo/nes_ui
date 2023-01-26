@@ -9,14 +9,16 @@ class NesCheckBox extends StatelessWidget {
   const NesCheckBox({
     super.key,
     required this.value,
-    this.onChange,
+    this.onChange
   });
 
   /// Value (Checked or not)
   final bool value;
 
   /// Called with the new value and received a change input.
-  final void Function(bool)? onChange;
+  final 
+    void Function(bool)?
+    onChange;
 
   @override
   Widget build(BuildContext context) {
