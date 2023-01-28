@@ -41,3 +41,6 @@ app.*.map.json
 
 # Test related
 coverage
+
+# Golden failure folder
+test/src/widgets/failures
