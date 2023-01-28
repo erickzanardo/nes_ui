@@ -73,6 +73,18 @@ class IconsSection extends StatelessWidget {
               data: NesIcons.instance.delete,
               label: 'delete',
             ),
+            _IconEntry(
+              data: NesIcons.instance.add,
+              label: 'add',
+            ),
+            _IconEntry(
+              data: NesIcons.instance.remove,
+              label: 'remove',
+            ),
+            _IconEntry(
+              data: NesIcons.instance.redo,
+              label: 'redo',
+            ),
           ],
         ),
       ],
