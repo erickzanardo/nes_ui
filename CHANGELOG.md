@@ -4,6 +4,9 @@
 - feat: `NesIcon` supports custom size
 - feat: add `NesIcons.gallery`
 - feat: add `NesIcons.delete`
+- feat: add `NesIcons.add`
+- feat: add `NesIcons.remove`
+- feat: add `NesIcons.redo`
 
 # 0.1.0
 
