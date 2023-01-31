@@ -27,7 +27,7 @@ class RpgMenuPage extends StatelessWidget {
             NesContainer(
               width: 250,
               child: NesSelectionList(
-                onSelect: (i) {},
+                onSelect: (_) {},
                 children: const [
                   Text('items'),
                   Text('magic'),
