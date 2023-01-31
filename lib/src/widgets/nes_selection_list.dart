@@ -65,7 +65,7 @@ class _NesSelectionListState extends State<NesSelectionList> {
             });
             widget.onSelect(i);
           },
-          itemHeight: nesSelectionListTheme.itemHeight,
+          itemMinHeight: nesSelectionListTheme.itemMinHeight,
           selected: i == _index,
           marker: marker,
           markerSize: markerSize,
@@ -91,7 +91,7 @@ class _SelectionItem extends StatelessWidget {
     required this.marker,
     required this.child,
     required this.markerSize,
-    required this.itemHeight,
+    required this.itemMinHeight,
   });
 
   final Widget marker;
@@ -99,14 +99,16 @@ class _SelectionItem extends StatelessWidget {
   final bool selected;
   final Size markerSize;
   final Widget child;
-  final double itemHeight;
+  final double itemMinHeight;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: SizedBox(
-        height: itemHeight,
+      child: ConstrainedBox(
+        constraints: BoxConstraints(
+          minHeight: itemMinHeight,
+        ),
         child: Row(
           children: [
             SizedBox(
