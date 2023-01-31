@@ -7,6 +7,7 @@
 - feat: add `NesIcons.add`
 - feat: add `NesIcons.remove`
 - feat: add `NesIcons.redo`
+- feat: add `customExtensions`
 
 # 0.1.0
 
