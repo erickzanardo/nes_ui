@@ -19,8 +19,6 @@ class RpgMenuPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cubit = context.watch<RpgMenuCubit>();
-
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -65,12 +63,14 @@ class RpgMenuPage extends StatelessWidget {
 class CharAttributes {
   const CharAttributes({
     required this.name,
+    required this.avatar,
     required this.charClass,
     required this.maxHp,
     required this.maxMp,
   });
 
   final String name;
+  final String avatar;
   final String charClass;
   final int maxHp;
   final int maxMp;
@@ -82,6 +82,7 @@ extension CharX on Char {
       case Char.dash:
         return const CharAttributes(
           name: 'Dash',
+          avatar: 'assets/avatars/dash.png',
           charClass: 'Scout',
           maxHp: 10,
           maxMp: 8,
@@ -89,13 +90,15 @@ extension CharX on Char {
       case Char.ember:
         return const CharAttributes(
           name: 'Ember',
-          charClass: 'Fire Mage',
+          avatar: 'assets/avatars/ember.png',
+          charClass: 'Fire Elemental',
           maxHp: 8,
           maxMp: 12,
         );
       case Char.hank:
         return const CharAttributes(
           name: 'Hank',
+          avatar: 'assets/avatars/hank.png',
           charClass: 'Open Sourcerer',
           maxHp: 7,
           maxMp: 14,
@@ -112,16 +115,18 @@ class CharRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 16),
+      padding: const EdgeInsets.only(bottom: 32),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
+          SizedBox(
             width: 100,
             height: 100,
-            color: Colors.grey,
+            child: Image.asset(
+              char.attributes.avatar,
+              fit: BoxFit.fill,
+            ),
           ),
-          const SizedBox(width: 16),
+          const SizedBox(width: 64),
           Expanded(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -151,7 +156,8 @@ class CharRow extends StatelessWidget {
                       ),
                       const SizedBox(height: 8),
                       Text(
-                          '${char.attributes.maxHp} / ${char.attributes.maxHp}'),
+                        '${char.attributes.maxHp} / ${char.attributes.maxHp}',
+                      ),
                     ],
                   ),
                 ),
@@ -166,7 +172,8 @@ class CharRow extends StatelessWidget {
                       ),
                       const SizedBox(height: 8),
                       Text(
-                          '${char.attributes.maxMp} / ${char.attributes.maxMp}'),
+                        '${char.attributes.maxMp} / ${char.attributes.maxMp}',
+                      ),
                     ],
                   ),
                 ),

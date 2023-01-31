@@ -24,3 +24,4 @@ flutter:
 
   assets:
     - assets/
+    - assets/avatars/
