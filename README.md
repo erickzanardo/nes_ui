@@ -99,6 +99,23 @@ provides:
 
 More to come!
 
+## Custom Extension
+
+Nes UI is built taking advantage of the Theme Extensions and custom extensions can also be provided.
+In order to provide your own extension, you need to create it, and provide it to the `flutterNesTheme`:
+
+```dart
+    theme: flutterNesTheme(
+      brightness: state.lightMode ? Brightness.light : Brightness.dark,
+      customExtensions: [
+        CustomExampleExtension.light, // Your custom extension goes here.
+      ],
+    ),
+
+```
+
+For more information, look at the example code.
+
 [flutter_install_link]: https://docs.flutter.dev/get-started/install
 [github_actions_link]: https://docs.github.com/en/actions/learn-github-actions
 [license_badge]: https://img.shields.io/badge/license-MIT-blue.svg
