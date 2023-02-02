@@ -22,7 +22,6 @@ void main() {
 
       expect(find.text('Items'), findsOneWidget);
       expect(find.text('Quests'), findsOneWidget);
-      expect(find.byType(NesIcon), findsOneWidget);
     });
 
     testWidgets('renders correctly in horizontal mode', (tester) async {
@@ -44,10 +43,31 @@ void main() {
 
       expect(find.text('Items'), findsOneWidget);
       expect(find.text('Quests'), findsOneWidget);
+    });
+
+    testWidgets('on a tap, renders the marker', (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: flutterNesTheme(),
+          home: Scaffold(
+            body: NesSelectionList(
+              children: const [
+                Text('Items'),
+                Text('Quests'),
+              ],
+              onSelect: (_) {},
+            ),
+          ),
+        ),
+      );
+
+      await tester.tap(find.text('Quests'));
+      await tester.pump();
+
       expect(find.byType(NesIcon), findsOneWidget);
     });
 
-    testWidgets('selects an item', (tester) async {
+    testWidgets('selects an item on double tap', (tester) async {
       int? selected;
       await tester.pumpWidget(
         MaterialApp(
@@ -66,6 +86,8 @@ void main() {
         ),
       );
 
+      await tester.tap(find.text('Quests'));
+      await tester.pump();
       await tester.tap(find.text('Quests'));
       await tester.pump();
 

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nes_ui/nes_ui.dart';
 
-class RpgMenuPage extends StatelessWidget {
+class RpgMenuPage extends StatefulWidget {
   const RpgMenuPage({super.key});
 
   static Route<void> route() {
@@ -18,42 +18,88 @@ class RpgMenuPage extends StatelessWidget {
   }
 
   @override
+  State<RpgMenuPage> createState() => _RpgMenuPageState();
+}
+
+class _RpgMenuPageState extends State<RpgMenuPage> {
+  late final _categoryNode = FocusNode();
+  late final _characterNode = FocusNode();
+
+  @override
+  void initState() {
+    super.initState();
+
+    _categoryNode.requestFocus();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Row(
-          children: [
-            NesContainer(
-              width: 250,
-              child: NesSelectionList(
-                onSelect: (_) {},
-                children: const [
-                  Text('items'),
-                  Text('magic'),
-                  Text('weapon'),
-                  Text('armor'),
-                  Text('status'),
-                ],
-              ),
-            ),
-            const SizedBox(width: 16),
-            Expanded(
-              child: NesContainer(
-                child: NesSelectionList(
-                  onSelect: (i) {},
+    final cubit = context.watch<RpgMenuCubit>();
+    final state = cubit.state;
+
+    return BlocListener<RpgMenuCubit, RpgMenuState>(
+      listener: (BuildContext context, RpgMenuState state) {
+        if (state.category != null && state.char == null) {
+          _characterNode.requestFocus();
+        }
+      },
+      child: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Row(
+            children: [
+              SizedBox(
+                width: 250,
+                child: Column(
                   children: [
-                    for (var char in Char.values)
-                      Expanded(
-                        child: CharRow(
-                          char: char,
+                    Expanded(
+                      child: NesContainer(
+                        child: NesSelectionList(
+                          focusNode: _categoryNode,
+                          onSelect: (value) {
+                            cubit.selectCategory(Category.values[value]);
+                          },
+                          children: Category.values.map((v) {
+                            return Expanded(child: Text(v.name));
+                          }).toList(),
                         ),
                       ),
+                    ),
+                    const SizedBox(height: 16),
+                    const NesContainer(
+                      width: double.infinity,
+                      label: 'Time Played',
+                      child: Text('00:02'),
+                    ),
+                    const SizedBox(height: 16),
+                    const NesContainer(
+                      width: double.infinity,
+                      label: 'Money',
+                      child: Text(r'$200'),
+                    ),
                   ],
                 ),
               ),
-            ),
-          ],
+              const SizedBox(width: 16),
+              Expanded(
+                child: NesContainer(
+                  child: NesSelectionList(
+                    canAutoFocus: state.category != null,
+                    focusNode: _characterNode,
+                    onSelect: (i) {},
+                    children: [
+                      for (var char in Char.values)
+                        Expanded(
+                          child: CharRow(
+                            char: char,
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
