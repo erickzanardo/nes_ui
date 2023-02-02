@@ -101,7 +101,7 @@ More to come!
 
 ## Custom Extension
 
-Nes UI has built taking advantage of the Theme Extension, so that means, you can also provide your own extension.
+Nes UI is built taking advantage of the Theme Extensions and custom extensions can also be provided.
 In order to provide your own extension, you need to create it, and provide it to the `flutterNesTheme`:
 
 ```dart
