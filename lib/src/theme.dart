@@ -271,10 +271,8 @@ ThemeData flutterNesTheme({
     markerSize: Size(24, 24),
     itemMinHeight: 32,
   ),
-  Iterable<ThemeExtension<dynamic>>? customExtensions,
+  Iterable<ThemeExtension<dynamic>> customExtensions = [],
 }) {
-  final extraExtensions = customExtensions ?? [];
-
   final iconTheme = nesIconTheme ??
       (brightness == Brightness.light
           ? const NesIconTheme(
