@@ -24,5 +24,8 @@ class RpgMenuState extends Equatable {
   final Char? char;
 
   @override
-  List<Object?> get props => [category, char,];
+  List<Object?> get props => [
+        category,
+        char,
+      ];
 }
