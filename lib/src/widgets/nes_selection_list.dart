@@ -111,6 +111,7 @@ class _NesSelectionListState extends State<NesSelectionList> {
                 _selected = i;
                 _cursorIndex = i;
               });
+              widget.onSelect(i);
             }
           },
           onHover: () {

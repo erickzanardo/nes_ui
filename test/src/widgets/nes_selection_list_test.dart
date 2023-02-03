@@ -67,7 +67,7 @@ void main() {
       expect(find.byType(NesIcon), findsOneWidget);
     });
 
-    testWidgets('selects an item on double tap', (tester) async {
+    testWidgets('selects an item on click', (tester) async {
       int? selected;
       await tester.pumpWidget(
         MaterialApp(
@@ -88,10 +88,34 @@ void main() {
 
       await tester.tap(find.text('Quests'));
       await tester.pump();
+
+      expect(selected, equals(1));
+    });
+
+    testWidgets('can not select if can not auto focus', (tester) async {
+      int? selected;
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: flutterNesTheme(),
+          home: Scaffold(
+            body: NesSelectionList(
+              canAutoFocus: false,
+              children: const [
+                Text('Items'),
+                Text('Quests'),
+              ],
+              onSelect: (value) {
+                selected = value;
+              },
+            ),
+          ),
+        ),
+      );
+
       await tester.tap(find.text('Quests'));
       await tester.pump();
 
-      expect(selected, equals(1));
+      expect(selected, isNull);
     });
   });
 }
