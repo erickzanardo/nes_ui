@@ -57,6 +57,7 @@ class _NesSelectionListState extends State<NesSelectionList> {
   late bool _hasFocus = _focusNode.hasFocus;
 
   late final _markerKey = GlobalKey();
+  late final NesInputController _nesInputController;
 
   @override
   void initState() {
@@ -69,14 +70,14 @@ class _NesSelectionListState extends State<NesSelectionList> {
   void didChangeDependencies() {
     super.didChangeDependencies();
 
-    final nesController = NesInput.of(context);
+    _nesInputController = NesController.of(context);
 
     final nextEvent =
         widget.axis == Axis.vertical ? NesInputEvent.down : NesInputEvent.right;
     final previousEvent =
         widget.axis == Axis.vertical ? NesInputEvent.up : NesInputEvent.left;
 
-    nesController
+    _nesInputController
       ..addListener(_focusNode, nextEvent, _next)
       ..addListener(_focusNode, previousEvent, _previous)
       ..addListener(_focusNode, NesInputEvent.confirm, _confirm);
@@ -112,6 +113,8 @@ class _NesSelectionListState extends State<NesSelectionList> {
   void dispose() {
     _focusNode.removeListener(_onFocusChange);
 
+    _nesInputController.disposeListeners(_focusNode);
+
     if (widget.focusNode == null) {
       _focusNode.dispose();
     }
@@ -121,8 +124,11 @@ class _NesSelectionListState extends State<NesSelectionList> {
 
   void _onFocusChange() {
     setState(() {
+      if (!_hasFocus && _focusNode.hasFocus) {
+        _cursorIndex ??= _selected ?? 0;
+        _selected = null;
+      }
       _hasFocus = _focusNode.hasFocus;
-      _cursorIndex ??= 0;
     });
   }
 
@@ -243,6 +249,7 @@ class _SelectionItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final itemMarker = cursor && hasFocus
         ? _Blinker(
+            key: markerKey,
             child: marker,
           )
         : (selected ? marker : null);

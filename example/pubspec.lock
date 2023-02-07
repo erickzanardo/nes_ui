@@ -217,10 +217,10 @@ packages:
     dependency: transitive
     description:
       name: phased
-      sha256: "0dbf42414a708850647bf6394f5df533a6bf37f3bdbd508c421ebe4b46f96aa0"
+      sha256: "4dc19d589fd059268b07357767ac96eef2861eb5e8ceedf9d23fb933f0128396"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.2"
+    version: "0.0.3"
   platform:
     dependency: transitive
     description:

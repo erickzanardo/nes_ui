@@ -103,10 +103,9 @@ class NesKeyboardInputAdapter extends NesInputAdapter {
   final Map<FocusNode, Map<NesInputEvent, List<VoidCallback>>> _events = {};
 
   KeyEventResult _handle(FocusNode node, RawKeyEvent event) {
-    if (event is RawKeyUpEvent) {
-      final events = _events[node];
-      if (events != null) {
-
+    final events = _events[node];
+    if (events != null) {
+      if (event is RawKeyUpEvent) {
         if (!node.hasPrimaryFocus) {
           return KeyEventResult.handled;
         }
@@ -130,9 +129,9 @@ class NesKeyboardInputAdapter extends NesInputAdapter {
           for (final listener in listeners) {
             listener();
           }
-          return KeyEventResult.handled;
         }
       }
+      return KeyEventResult.handled;
     }
 
     return KeyEventResult.ignored;
@@ -188,9 +187,9 @@ class NesInputController {
 }
 
 ///
-class NesInput extends InheritedWidget {
+class NesController extends InheritedWidget {
   ///
-  const NesInput({
+  const NesController({
     super.key,
     required super.child,
     required this.controller,
@@ -210,8 +209,7 @@ class NesInput extends InheritedWidget {
 
   ///
   static NesInputController of(BuildContext context) {
-    final widget =
-        context.dependOnInheritedWidgetOfExactType<NesInput>();
+    final widget = context.dependOnInheritedWidgetOfExactType<NesController>();
 
     if (widget == null) {
       return _default;

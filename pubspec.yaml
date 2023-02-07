@@ -13,7 +13,7 @@ dependencies:
   flutter_mini_sprite: ^0.0.1
   google_fonts: ">=3.0.1 <5.0.0"
   mini_sprite: ^0.1.0
-  phased: ^0.0.2
+  phased: ^0.0.3
 
 dev_dependencies:
   alchemist: ^0.6.0
