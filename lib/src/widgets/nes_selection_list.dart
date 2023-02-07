@@ -56,11 +56,56 @@ class _NesSelectionListState extends State<NesSelectionList> {
   late final _focusNode = widget.focusNode ?? FocusNode();
   late bool _hasFocus = _focusNode.hasFocus;
 
+  late final _markerKey = GlobalKey();
+
   @override
   void initState() {
     super.initState();
 
     _focusNode.addListener(_onFocusChange);
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    final nesController = NesInput.of(context);
+
+    final nextEvent =
+        widget.axis == Axis.vertical ? NesInputEvent.down : NesInputEvent.right;
+    final previousEvent =
+        widget.axis == Axis.vertical ? NesInputEvent.up : NesInputEvent.left;
+
+    nesController
+      ..addListener(_focusNode, nextEvent, _next)
+      ..addListener(_focusNode, previousEvent, _previous)
+      ..addListener(_focusNode, NesInputEvent.confirm, _confirm);
+  }
+
+  void _confirm() {
+    if (_cursorIndex != null) {
+      setState(() {
+        _selected = _cursorIndex;
+      });
+      widget.onSelect(_cursorIndex!);
+    }
+  }
+
+  void _next() {
+    final cursor = _cursorIndex ?? 0;
+    final value = cursor + 1 < widget.children.length ? cursor + 1 : 0;
+    setState(() {
+      _cursorIndex = value;
+    });
+  }
+
+  void _previous() {
+    final cursor = _cursorIndex ?? 0;
+    final value = cursor - 1 >= 0 ? cursor - 1 : widget.children.length - 1;
+
+    setState(() {
+      _cursorIndex = value;
+    });
   }
 
   @override
@@ -98,6 +143,7 @@ class _NesSelectionListState extends State<NesSelectionList> {
     final children = [
       for (var i = 0; i < widget.children.length; i++)
         _SelectionItem(
+          markerKey: _markerKey,
           onTap: () {
             if (_focusNode.hasFocus) {
               setState(() {
@@ -147,6 +193,7 @@ class _NesSelectionListState extends State<NesSelectionList> {
 
 class _Blinker extends Phased<bool> {
   _Blinker({
+    super.key,
     required this.child,
   }) : super(
           state: PhasedState<bool>(
@@ -169,6 +216,7 @@ class _Blinker extends Phased<bool> {
 
 class _SelectionItem extends StatelessWidget {
   const _SelectionItem({
+    required this.markerKey,
     required this.onTap,
     required this.onHover,
     required this.selected,
@@ -180,6 +228,7 @@ class _SelectionItem extends StatelessWidget {
     required this.hasFocus,
   });
 
+  final Key markerKey;
   final Widget marker;
   final VoidCallback onTap;
   final VoidCallback onHover;
@@ -193,7 +242,9 @@ class _SelectionItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final itemMarker = cursor && hasFocus
-        ? _Blinker(child: marker)
+        ? _Blinker(
+            child: marker,
+          )
         : (selected ? marker : null);
 
     return MouseRegion(
