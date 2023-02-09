@@ -43,11 +43,11 @@ class NesKeyboardKeyMapping {
     ],
     this.confirm = const [
       LogicalKeyboardKey.enter,
-      LogicalKeyboardKey.gameButton1,
+      LogicalKeyboardKey.gameButtonA,
     ],
     this.cancel = const [
       LogicalKeyboardKey.escape,
-      LogicalKeyboardKey.gameButton2,
+      LogicalKeyboardKey.gameButtonB,
     ],
   });
 
