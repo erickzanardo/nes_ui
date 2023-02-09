@@ -70,19 +70,22 @@ class NesKeyboardKeyMapping {
   final List<LogicalKeyboardKey> cancel;
 }
 
-///
+/// {@template nes_input_adapter}
+/// Base class for Nes UI controller adapters. Implement it
+/// to add a new adapter to the library.
+/// {@endtemplate}
 abstract class NesInputAdapter {
-  ///
+  /// {@macro nes_input_adapter}
   NesInputAdapter();
 
-  ///
+  /// Adds a listener to the adapter.
   void addListener(
     FocusNode node,
     NesInputEvent event,
     VoidCallback callback,
   );
 
-  ///
+  /// Disposes all listeners on the adapater.
   void disposeListeners(
     FocusNode node,
   );
@@ -140,7 +143,6 @@ class NesKeyboardInputAdapter extends NesInputAdapter {
   @override
   void addListener(FocusNode node, NesInputEvent event, VoidCallback callback) {
     if (!_events.containsKey(node)) {
-      node.onKey = _handle;
       _events[node] = {};
     }
 
@@ -151,21 +153,24 @@ class NesKeyboardInputAdapter extends NesInputAdapter {
   @override
   void disposeListeners(FocusNode node) {
     _events.remove(node);
-    node.onKey = null;
   }
 }
 
+/// {@template nes_input_controller}
+/// The central class that controls all controller adapters of Nes UI.
 ///
+/// Use [NesController.of] to obtain an instance of it.
+/// {@endtemplate}
 class NesInputController {
-  ///
+  /// {@macro nes_input_controller}
   const NesInputController({
     required this.adapters,
   });
 
-  ///
+  /// All adapters on this controller.
   final List<NesInputAdapter> adapters;
 
-  ///
+  /// Add a listener to the adapters.
   void addListener(
     FocusNode node,
     NesInputEvent event,
@@ -176,7 +181,7 @@ class NesInputController {
     }
   }
 
-  ///
+  /// Remove all listeners from the given [node].
   void disposeListeners(
     FocusNode node,
   ) {
@@ -184,21 +189,36 @@ class NesInputController {
       adapter.disposeListeners(node);
     }
   }
+
+  /// Process keyboard inputs events.
+  KeyEventResult processKeyBoardInput(FocusNode node, RawKeyEvent event) {
+    final keyboardAdapters = adapters.whereType<NesKeyboardInputAdapter>();
+    for (final adapter in keyboardAdapters) {
+      return adapter._handle(node, event);
+    }
+    return KeyEventResult.ignored;
+  }
 }
 
+/// {@template nes_controller}
+/// Provides a [NesInputController] down the widget tree.
 ///
+/// Call [NesController.of] to get the instance, when no [NesInputController]
+/// is found on the widget tree, [NesController.defaultController] is returned.
+/// {@endtemplate}
 class NesController extends InheritedWidget {
-  ///
+  /// {@macro nes_controller}
   const NesController({
     super.key,
     required super.child,
     required this.controller,
   });
 
-  ///
+  /// The controller of this widget.
   final NesInputController controller;
 
-  static final _default = NesInputController(
+  /// Default instance.
+  static final defaultController = NesInputController(
     adapters: [
       NesKeyboardInputAdapter(mapping: const NesKeyboardKeyMapping()),
     ],
@@ -207,12 +227,12 @@ class NesController extends InheritedWidget {
   @override
   bool updateShouldNotify(InheritedWidget oldWidget) => true;
 
-  ///
+  /// {@macro nes_controller}
   static NesInputController of(BuildContext context) {
     final widget = context.dependOnInheritedWidgetOfExactType<NesController>();
 
     if (widget == null) {
-      return _default;
+      return defaultController;
     }
 
     return widget.controller;

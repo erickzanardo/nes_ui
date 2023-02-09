@@ -183,7 +183,7 @@ class _NesSelectionListState extends State<NesSelectionList> {
         )
     ];
 
-    return Focus(
+    return NesControllerFocus(
       focusNode: _focusNode,
       child: widget.axis == Axis.vertical
           ? Column(

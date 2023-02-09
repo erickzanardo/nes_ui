@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:nes_ui/nes_ui.dart';
 
@@ -116,6 +117,32 @@ void main() {
       await tester.pump();
 
       expect(selected, isNull);
+    });
+
+    testWidgets('can use keyboard to select items', (tester) async {
+      int? selected;
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: flutterNesTheme(),
+          home: Scaffold(
+            body: NesSelectionList(
+              children: const [
+                Text('Items'),
+                Text('Quests'),
+              ],
+              onSelect: (value) {
+                selected = value;
+              },
+            ),
+          ),
+        ),
+      );
+
+      await tester.sendKeyEvent(LogicalKeyboardKey.arrowDown);
+      await tester.pump();
+      await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+
+      expect(selected, equals(1));
     });
   });
 }
