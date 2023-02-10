@@ -60,6 +60,7 @@ class _ItemsMenuState extends State<ItemsMenu> {
                   canAutoFocus: _selected == null,
                   onSelect: (i) {
                     setState(() => _selected = i);
+                    _listNode.canRequestFocus = false;
                     _confirmationNode.requestFocus();
                   },
                   children: [
@@ -82,6 +83,9 @@ class _ItemsMenuState extends State<ItemsMenu> {
                   axis: Axis.horizontal,
                   onSelect: (v) {
                     setState(() => _selected = null);
+                    _listNode
+                      ..canRequestFocus = true
+                      ..requestFocus();
                   },
                   children: const [
                     Text('Yes'),

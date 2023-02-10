@@ -56,6 +56,9 @@ class _NesSelectionListState extends State<NesSelectionList> {
   late final _focusNode = widget.focusNode ?? FocusNode();
   late bool _hasFocus = _focusNode.hasFocus;
 
+  late final _markerKey = GlobalKey();
+  late final NesInputController _nesInputController;
+
   @override
   void initState() {
     super.initState();
@@ -64,8 +67,53 @@ class _NesSelectionListState extends State<NesSelectionList> {
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    _nesInputController = NesController.of(context);
+
+    final nextEvent =
+        widget.axis == Axis.vertical ? NesInputEvent.down : NesInputEvent.right;
+    final previousEvent =
+        widget.axis == Axis.vertical ? NesInputEvent.up : NesInputEvent.left;
+
+    _nesInputController
+      ..addListener(_focusNode, nextEvent, _next)
+      ..addListener(_focusNode, previousEvent, _previous)
+      ..addListener(_focusNode, NesInputEvent.confirm, _confirm);
+  }
+
+  void _confirm() {
+    if (_cursorIndex != null) {
+      setState(() {
+        _selected = _cursorIndex;
+      });
+      widget.onSelect(_cursorIndex!);
+    }
+  }
+
+  void _next() {
+    final cursor = _cursorIndex ?? 0;
+    final value = cursor + 1 < widget.children.length ? cursor + 1 : 0;
+    setState(() {
+      _cursorIndex = value;
+    });
+  }
+
+  void _previous() {
+    final cursor = _cursorIndex ?? 0;
+    final value = cursor - 1 >= 0 ? cursor - 1 : widget.children.length - 1;
+
+    setState(() {
+      _cursorIndex = value;
+    });
+  }
+
+  @override
   void dispose() {
     _focusNode.removeListener(_onFocusChange);
+
+    _nesInputController.disposeListeners(_focusNode);
 
     if (widget.focusNode == null) {
       _focusNode.dispose();
@@ -76,8 +124,11 @@ class _NesSelectionListState extends State<NesSelectionList> {
 
   void _onFocusChange() {
     setState(() {
+      if (!_hasFocus && _focusNode.hasFocus) {
+        _cursorIndex ??= _selected ?? 0;
+        _selected = null;
+      }
       _hasFocus = _focusNode.hasFocus;
-      _cursorIndex ??= 0;
     });
   }
 
@@ -98,6 +149,7 @@ class _NesSelectionListState extends State<NesSelectionList> {
     final children = [
       for (var i = 0; i < widget.children.length; i++)
         _SelectionItem(
+          markerKey: _markerKey,
           onTap: () {
             if (_focusNode.hasFocus) {
               setState(() {
@@ -131,7 +183,7 @@ class _NesSelectionListState extends State<NesSelectionList> {
         )
     ];
 
-    return Focus(
+    return NesControllerFocus(
       focusNode: _focusNode,
       child: widget.axis == Axis.vertical
           ? Column(
@@ -147,6 +199,7 @@ class _NesSelectionListState extends State<NesSelectionList> {
 
 class _Blinker extends Phased<bool> {
   _Blinker({
+    super.key,
     required this.child,
   }) : super(
           state: PhasedState<bool>(
@@ -169,6 +222,7 @@ class _Blinker extends Phased<bool> {
 
 class _SelectionItem extends StatelessWidget {
   const _SelectionItem({
+    required this.markerKey,
     required this.onTap,
     required this.onHover,
     required this.selected,
@@ -180,6 +234,7 @@ class _SelectionItem extends StatelessWidget {
     required this.hasFocus,
   });
 
+  final Key markerKey;
   final Widget marker;
   final VoidCallback onTap;
   final VoidCallback onHover;
@@ -193,7 +248,10 @@ class _SelectionItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final itemMarker = cursor && hasFocus
-        ? _Blinker(child: marker)
+        ? _Blinker(
+            key: markerKey,
+            child: marker,
+          )
         : (selected ? marker : null);
 
     return MouseRegion(

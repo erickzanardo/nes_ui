@@ -8,6 +8,7 @@
 - feat: add `NesIcons.remove`
 - feat: add `NesIcons.redo`
 - feat: add `customExtensions`
+- feat: add keyboard support 
 
 # 0.1.0
 
