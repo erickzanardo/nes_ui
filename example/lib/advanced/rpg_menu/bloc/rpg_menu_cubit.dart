@@ -6,6 +6,10 @@ part 'rpg_menu_state.dart';
 class RpgMenuCubit extends Cubit<RpgMenuState> {
   RpgMenuCubit() : super(const RpgMenuState());
 
+  void reset() {
+    emit(const RpgMenuState());
+  }
+
   void selectCategory(Category category) {
     emit(
       RpgMenuState(

@@ -1,14 +1,17 @@
 import 'package:example/advanced/rpg_menu/rpg_menu.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nes_ui/nes_ui.dart';
 
 class ItemsMenu extends StatefulWidget {
   const ItemsMenu({
     super.key,
     required this.char,
+    required this.onBack,
   });
 
   final Char char;
+  final VoidCallback onBack;
 
   @override
   State<ItemsMenu> createState() => _ItemsMenuState();
@@ -58,6 +61,10 @@ class _ItemsMenuState extends State<ItemsMenu> {
                 NesSelectionList(
                   focusNode: _listNode,
                   canAutoFocus: _selected == null,
+                  onCancelSelection: () {
+                    context.read<RpgMenuCubit>().reset();
+                    widget.onBack();
+                  },
                   onSelect: (i) {
                     setState(() => _selected = i);
                     _listNode.canRequestFocus = false;
@@ -81,6 +88,11 @@ class _ItemsMenuState extends State<ItemsMenu> {
                 child: NesSelectionList(
                   focusNode: _confirmationNode,
                   axis: Axis.horizontal,
+                  onCancelSelection: () {
+                    _listNode
+                      ..canRequestFocus = true
+                      ..requestFocus();
+                  },
                   onSelect: (v) {
                     setState(() => _selected = null);
                     _listNode
