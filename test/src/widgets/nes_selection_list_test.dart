@@ -144,5 +144,66 @@ void main() {
 
       expect(selected, equals(1));
     });
+
+    testWidgets('can cancel the selection with the cancel key', (tester) async {
+      var called = false;
+      final node = FocusNode()..requestFocus();
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: flutterNesTheme(),
+          home: Scaffold(
+            body: NesSelectionList(
+              focusNode: node,
+              children: const [
+                Text('Items'),
+                Text('Quests'),
+              ],
+              onCancelSelection: () {
+                called = true;
+              },
+              onSelect: (_) {},
+            ),
+          ),
+        ),
+      );
+
+      await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+      await tester.pump();
+
+      expect(called, isTrue);
+    });
+
+    testWidgets(
+      'can not cancel the selection with the cancel key when '
+      'canCancelSelection is false',
+      (tester) async {
+        var called = false;
+        final node = FocusNode()..requestFocus();
+        await tester.pumpWidget(
+          MaterialApp(
+            theme: flutterNesTheme(),
+            home: Scaffold(
+              body: NesSelectionList(
+                focusNode: node,
+                canCancelSelection: false,
+                children: const [
+                  Text('Items'),
+                  Text('Quests'),
+                ],
+                onCancelSelection: () {
+                  called = true;
+                },
+                onSelect: (_) {},
+              ),
+            ),
+          ),
+        );
+
+        await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+        await tester.pump();
+
+        expect(called, isFalse);
+      },
+    );
   });
 }

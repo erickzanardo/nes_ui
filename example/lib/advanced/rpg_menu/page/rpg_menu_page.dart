@@ -59,6 +59,7 @@ class _RpgMenuPageState extends State<RpgMenuPage> {
                             Expanded(
                               child: NesContainer(
                                 child: NesSelectionList(
+                                  canCancelSelection: false,
                                   focusNode: _categoryNode,
                                   onSelect: (value) {
                                     cubit
@@ -91,6 +92,7 @@ class _RpgMenuPageState extends State<RpgMenuPage> {
                           child: NesSelectionList(
                             canAutoFocus: state.category != null,
                             focusNode: _characterNode,
+                            onCancelSelection: _categoryNode.requestFocus,
                             onSelect: (i) {
                               cubit.selectChar(
                                 Char.values[i],
@@ -112,7 +114,10 @@ class _RpgMenuPageState extends State<RpgMenuPage> {
                 ),
               if (state.char != null && state.category == Category.items)
                 Positioned.fill(
-                  child: ItemsMenu(char: state.char!),
+                  child: ItemsMenu(
+                    char: state.char!,
+                    onBack: _categoryNode.requestFocus,
+                  ),
                 ),
             ],
           ),

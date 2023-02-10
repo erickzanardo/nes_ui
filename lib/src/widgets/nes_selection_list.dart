@@ -16,6 +16,8 @@ class NesSelectionList extends StatefulWidget {
     this.axis = Axis.vertical,
     this.canAutoFocus = true,
     this.focusNode,
+    this.onCancelSelection,
+    this.canCancelSelection = true,
   }) : assert(
           initialIndex == null || initialIndex < children.length,
           'initialIndex must be less than children.length',
@@ -44,6 +46,18 @@ class NesSelectionList extends StatefulWidget {
   /// If true, means that the component can receive focus when the user taps in
   /// an option, if false, the the focus will only be set by the [focusNode].
   final bool canAutoFocus;
+
+  /// Called when the selection has been cancelled.
+  ///
+  /// This is called only when selection is explicit cancelled by the user
+  /// when a [NesInputEvent.cancel] is triggered by a keyboard or gamepad.
+  final VoidCallback? onCancelSelection;
+
+  /// When false, the selection will not be canceled when a
+  /// [NesInputEvent.cancel] is triggered.
+  ///
+  /// This can be useful in lists that are the "root" of a page or section.
+  final bool canCancelSelection;
 
   @override
   State<NesSelectionList> createState() => _NesSelectionListState();
@@ -80,7 +94,15 @@ class _NesSelectionListState extends State<NesSelectionList> {
     _nesInputController
       ..addListener(_focusNode, nextEvent, _next)
       ..addListener(_focusNode, previousEvent, _previous)
-      ..addListener(_focusNode, NesInputEvent.confirm, _confirm);
+      ..addListener(_focusNode, NesInputEvent.confirm, _confirm)
+      ..addListener(_focusNode, NesInputEvent.cancel, _cancel);
+  }
+
+  void _cancel() {
+    if (widget.canCancelSelection) {
+      _focusNode.unfocus();
+      widget.onCancelSelection?.call();
+    }
   }
 
   void _confirm() {
