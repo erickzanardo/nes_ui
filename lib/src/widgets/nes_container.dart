@@ -28,7 +28,7 @@ class NesContainer extends StatelessWidget {
   final double? height;
 
   /// Background color of this container,
-  /// When null, defaults to [ThemeData.cardColor].
+  /// when null, defaults to [ThemeData.cardColor].
   final Color? backgroundColor;
 
   @override
