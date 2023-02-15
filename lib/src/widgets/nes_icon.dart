@@ -142,6 +142,20 @@ class NesIcons {
       '8,8;2,-1;4,0;3,-1;1,0;4,-1;1,0;1,-1;1,0;6,-1;1,0;2,-1;1,0;4,-1;1,0;1,-1;1,0;1,-1;1,0;3,-1;2,0;1,-1;1,0;1,-1;1,0;2,-1;1,0;2,-1;1,0;3,-1;1,0;4,-1;3,0;2,-1',
     ),
   );
+
+  /// An unpressed button icon.
+  late final unpressedButton = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;2,-1;4,0;3,-1;6,0;1,-1;25,0;1,1;4,0;1,1;1,0;1,-1;1,0;4,1;1,0;3,-1;4,0;2,-1',
+    ),
+  );
+
+  /// A pressed button icon.
+  late final pressedButton = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;10,-1;4,0;3,-1;6,0;1,-1;24,0;1,-1;6,0;3,-1;4,0;2,-1',
+    ),
+  );
 }
 
 /// {@template nes_icon}
