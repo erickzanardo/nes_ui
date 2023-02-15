@@ -214,7 +214,7 @@ packages:
     source: hosted
     version: "2.1.3"
   phased:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: phased
       sha256: "4dc19d589fd059268b07357767ac96eef2861eb5e8ceedf9d23fb933f0128396"
