@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:nes_ui/nes_ui.dart';
 
 /// {@template nes_key_icon}
