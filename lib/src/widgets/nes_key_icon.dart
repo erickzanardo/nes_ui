@@ -17,7 +17,7 @@ class NesKeyIcon extends StatelessWidget {
     this.size,
   }) : assert(buttonKey.length == 1, 'buttonKey must be a single character');
 
-  /// The key that this icon represents
+  /// The key that this icon represents.
   final String buttonKey;
 
   /// If this button is in a pressed state or not.
@@ -48,9 +48,7 @@ class NesKeyIcon extends StatelessWidget {
         Positioned(
           child: NesIcon(
             size: buttonSize,
-            iconData: pressed
-                ? NesIcons.instance.pressedButton
-                : NesIcons.instance.unpressedButton,
+            iconData: iconData,
           ),
         ),
         Positioned(
