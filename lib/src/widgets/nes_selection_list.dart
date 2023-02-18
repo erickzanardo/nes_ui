@@ -71,7 +71,7 @@ class _NesSelectionListState extends State<NesSelectionList> {
   late bool _hasFocus = _focusNode.hasFocus;
 
   late final _markerKey = GlobalKey();
-  late final NesInputController _nesInputController;
+  late NesInputController _nesInputController;
 
   @override
   void initState() {

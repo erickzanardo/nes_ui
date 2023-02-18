@@ -26,7 +26,7 @@ class NesControllerFocus extends StatefulWidget {
 
 class _NesControllerFocusState extends State<NesControllerFocus> {
   late final _focusNode = widget.focusNode ?? FocusNode();
-  late final NesInputController _nesInputController;
+  late NesInputController _nesInputController;
 
   @override
   void didChangeDependencies() {
