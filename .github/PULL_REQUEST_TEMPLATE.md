@@ -25,3 +25,4 @@
 - [ ] ✅ Build configuration change
 - [ ] 📝 Documentation
 - [ ] 🗑️ Chore
+- [ ] 🧪 Tests
