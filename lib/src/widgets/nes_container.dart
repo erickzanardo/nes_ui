@@ -12,6 +12,7 @@ class NesContainer extends StatelessWidget {
     this.child,
     this.width,
     this.height,
+    this.backgroundColor,
   });
 
   /// An optional label for the container.
@@ -26,10 +27,16 @@ class NesContainer extends StatelessWidget {
   /// Container height.
   final double? height;
 
+  /// Background color of this container,
+  /// when null, defaults to [ThemeData.cardColor].
+  final Color? backgroundColor;
+
   @override
   Widget build(BuildContext context) {
     final textStyle =
         Theme.of(context).textTheme.labelMedium ?? const TextStyle();
+
+    final containerColor = backgroundColor ?? Theme.of(context).cardColor;
 
     final nesTheme = context.nesThemeExtension<NesTheme>();
 
@@ -38,6 +45,7 @@ class NesContainer extends StatelessWidget {
         label: label,
         pixelSize: nesTheme.pixelSize,
         textStyle: textStyle,
+        backgroundColor: containerColor,
       ),
       child: SizedBox(
         width: width,
@@ -56,17 +64,29 @@ class _ContainerPainter extends CustomPainter {
     this.label,
     required this.pixelSize,
     required this.textStyle,
+    required this.backgroundColor,
   });
 
   final String? label;
   final int pixelSize;
   final TextStyle textStyle;
+  final Color backgroundColor;
 
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()..color = textStyle.color ?? Colors.black;
+    final backgroundPaint = Paint()..color = backgroundColor;
     canvas
-      ..saveLayer(Rect.largest, Paint())
+      // Background rect
+      ..drawRect(
+        Rect.fromLTWH(
+          pixelSize.toDouble(),
+          pixelSize.toDouble(),
+          size.width - pixelSize * 2,
+          size.height - pixelSize * 2,
+        ),
+        backgroundPaint,
+      )
       // Top bar
       ..drawRect(
         Rect.fromLTWH(
@@ -160,11 +180,11 @@ class _ContainerPainter extends CustomPainter {
       canvas.drawRect(
         Rect.fromLTWH(
           pixelSize * 6,
-          0,
+          -1,
           painter.width + pixelSize * 2,
           painter.height,
         ),
-        Paint()..blendMode = BlendMode.clear,
+        backgroundPaint,
       );
 
       painter.paint(
@@ -172,7 +192,6 @@ class _ContainerPainter extends CustomPainter {
         Offset(pixelSize * 8, 0),
       );
     }
-    canvas.restore();
   }
 
   @override

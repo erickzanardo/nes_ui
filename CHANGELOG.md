@@ -1,3 +1,7 @@
+# 0.3.0
+
+- feat: add `backgroundColor` to `NesContainer`
+
 # 0.2.0
 
 - feat: add `NesSelectionList`
@@ -8,6 +12,7 @@
 - feat: add `NesIcons.remove`
 - feat: add `NesIcons.redo`
 - feat: add `customExtensions`
+- feat: add keyboard support
 - feat: add keyboard support 
 - feat: add `NesIcons.unpressedButton`
 - feat: add `NesIcons.pressedButton`
