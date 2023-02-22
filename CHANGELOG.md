@@ -1,6 +1,7 @@
 # 0.3.0
 
 - feat: add `backgroundColor` to `NesContainer`
+- fix: `NesController` throwing initialization errors
 
 # 0.2.0
 
