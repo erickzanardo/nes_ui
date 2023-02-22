@@ -1,3 +1,7 @@
+# 0.2.1
+
+- fix: `NesController` throwing initialization errors
+
 # 0.2.0
 
 - feat: add `NesSelectionList`
