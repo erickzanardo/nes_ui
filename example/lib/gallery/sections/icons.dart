@@ -85,6 +85,14 @@ class IconsSection extends StatelessWidget {
               data: NesIcons.instance.redo,
               label: 'redo',
             ),
+            _IconEntry(
+              data: NesIcons.instance.openFolder,
+              label: 'openFolder',
+            ),
+            _IconEntry(
+              data: NesIcons.instance.closedFolder,
+              label: 'closedFolder',
+            ),
           ],
         ),
       ],
