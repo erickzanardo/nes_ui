@@ -156,6 +156,20 @@ class NesIcons {
       '8,8;10,-1;4,0;3,-1;6,0;1,-1;24,0;1,-1;6,0;3,-1;4,0;2,-1',
     ),
   );
+
+  /// A closed folder.
+  late final closedFolder = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;2,-1;9,0;4,1;10,0;6,1;2,0;6,1;2,0;6,1;1,0;1,-1;1,0;5,1;1,0;1,-1;7,0',
+    ),
+  );
+
+  /// An open folder.
+  late final openFolder = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;2,-1;6,0;2,-1;1,0;4,1;3,0;5,1;6,0;2,1;2,0;4,1;1,0;1,1;1,0;1,-1;1,0;4,1;2,0;1,-1;2,0;4,1;1,0;2,-1;6,0',
+    ),
+  );
 }
 
 /// {@template nes_icon}
