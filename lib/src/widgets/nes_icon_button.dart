@@ -16,7 +16,7 @@ class NesIconButton extends StatelessWidget {
   /// Icon of the button.
   final NesIconData icon;
 
-  /// Caleed when the button is pressed.
+  /// Called when the button is pressed.
   final VoidCallback onPress;
 
   /// An optional size for the icon button.
