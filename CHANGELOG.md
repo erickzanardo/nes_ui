@@ -4,6 +4,8 @@
 - fix: `NesController` throwing initialization errors
 - feat: add `NesIcons.openFolder`
 - feat: add `NesIcons.closedFolder`
+- feat: add `NesPressable`
+- feat: add `NesIconButton`
 
 # 0.2.0
 
