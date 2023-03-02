@@ -2,6 +2,7 @@ export 'buttons.dart';
 export 'checkboxes.dart';
 export 'containers.dart';
 export 'custom_extensions.dart';
+export 'icon_buttons.dart';
 export 'icons.dart';
 export 'key_icons.dart';
 export 'selection_list.dart';
