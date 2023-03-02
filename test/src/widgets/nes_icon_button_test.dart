@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:nes_ui/nes_ui.dart';
 
 void main() {
-  group('NesPressable', () {
+  group('NesIconButton', () {
     testWidgets('renders correctly', (tester) async {
       await tester.pumpWidget(
         MaterialApp(
