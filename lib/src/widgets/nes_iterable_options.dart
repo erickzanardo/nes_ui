@@ -4,7 +4,7 @@ import 'package:nes_ui/nes_ui.dart';
 /// {@template nes_iterable_options}
 /// A widget that allows users to cycle through options.
 ///
-/// By default it the indicator of the selected option is [value].toString()
+/// By default, the indicator of the selected option is [value].toString()
 /// inside a [Text] widget. That can be customized by informing a
 /// [optionBuilder].
 ///
