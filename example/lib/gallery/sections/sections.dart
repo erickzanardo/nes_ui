@@ -4,6 +4,7 @@ export 'containers.dart';
 export 'custom_extensions.dart';
 export 'icon_buttons.dart';
 export 'icons.dart';
+export 'iterable_options.dart';
 export 'key_icons.dart';
 export 'selection_list.dart';
 export 'text_fields.dart';

@@ -5,6 +5,7 @@ export 'nes_controller_focus.dart';
 export 'nes_icon.dart';
 export 'nes_icon_button.dart';
 export 'nes_input.dart';
+export 'nes_iterable_options.dart';
 export 'nes_key_icon.dart';
 export 'nes_pressabled.dart';
 export 'nes_selection_list.dart';
