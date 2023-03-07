@@ -96,6 +96,7 @@ provides:
  - NesContainer
  - NesIcon
  - NesSelectionList
+ - NesIterableOptions
 
 More to come!
 

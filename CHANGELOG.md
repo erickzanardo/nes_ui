@@ -6,6 +6,9 @@
 - feat: add `NesIcons.closedFolder`
 - feat: add `NesPressable`
 - feat: add `NesIconButton`
+- feat: add `NesIcons.thinArrowLeft`
+- feat: add `NesIcons.thinArrowRight`
+- feat: add `NesIterableOptions`
 
 # 0.2.0
 

@@ -170,6 +170,20 @@ class NesIcons {
       '8,8;2,-1;6,0;2,-1;1,0;4,1;3,0;5,1;6,0;2,1;2,0;4,1;1,0;1,1;1,0;1,-1;1,0;4,1;2,0;1,-1;2,0;4,1;1,0;2,-1;6,0',
     ),
   );
+
+  /// A thin arrow pointing left.
+  late final thinArrowLeft = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;3,-1;1,0;6,-1;1,0;6,-1;2,0;5,-1;16,0;1,-1;2,0;7,-1;1,0;8,-1;1,0;4,-1',
+    ),
+  );
+
+  /// A thin arrow pointing right.
+  late final thinArrowRight = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;4,-1;1,0;8,-1;1,0;7,-1;2,0;1,-1;16,0;5,-1;2,0;6,-1;1,0;6,-1;1,0;3,-1',
+    ),
+  );
 }
 
 /// {@template nes_icon}

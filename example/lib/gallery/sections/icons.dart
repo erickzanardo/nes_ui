@@ -93,6 +93,14 @@ class IconsSection extends StatelessWidget {
               data: NesIcons.instance.closedFolder,
               label: 'closedFolder',
             ),
+            _IconEntry(
+              data: NesIcons.instance.thinArrowLeft,
+              label: 'thinArrowLeft',
+            ),
+            _IconEntry(
+              data: NesIcons.instance.thinArrowRight,
+              label: 'thinArrowRight',
+            ),
           ],
         ),
       ],
