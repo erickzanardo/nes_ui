@@ -1,3 +1,7 @@
+# 0.4.0
+
+ - feat: add 'NesConfirmDialog'
+
 # 0.3.0
 
 - feat: add `backgroundColor` to `NesContainer`

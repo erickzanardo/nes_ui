@@ -94,6 +94,7 @@ provides:
  - NesButton
  - NesCheckbox
  - NesContainer
+ - NesConfirmDialog
  - NesIcon
  - NesSelectionList
  - NesIterableOptions
