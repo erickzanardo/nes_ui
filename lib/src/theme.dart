@@ -184,6 +184,44 @@ class NesIconTheme extends ThemeExtension<NesIconTheme> {
   }
 }
 
+/// {@template nes_overlay_transition_theme}
+/// Class with information regarding overlay transitions.
+/// {@endtemplate}
+class NesOverlayTransitionTheme
+    extends ThemeExtension<NesOverlayTransitionTheme> {
+  /// {@macro nes_overlay_transition_theme}
+  const NesOverlayTransitionTheme({
+    required this.color,
+  });
+
+  /// Color of the overlay.
+  final Color color;
+
+  @override
+  NesOverlayTransitionTheme copyWith({
+    Color? color,
+  }) {
+    return NesOverlayTransitionTheme(
+      color: color ?? this.color,
+    );
+  }
+
+  @override
+  NesOverlayTransitionTheme lerp(
+    ThemeExtension<NesOverlayTransitionTheme>? other,
+    double t,
+  ) {
+    final otherExt = other as NesOverlayTransitionTheme?;
+    return NesOverlayTransitionTheme(
+      color: ColorTween(
+            begin: color,
+            end: otherExt?.color,
+          ).lerp(t) ??
+          color,
+    );
+  }
+}
+
 /// {@template nes_selection_list_them}
 /// Class with information regarding Selection Lists.
 /// {@endtemplate}
@@ -271,6 +309,7 @@ ThemeData flutterNesTheme({
     markerSize: Size(24, 24),
     itemMinHeight: 32,
   ),
+  NesOverlayTransitionTheme? nesOverlayTransitionTheme,
   Iterable<ThemeExtension<dynamic>> customExtensions = const [],
 }) {
   final iconTheme = nesIconTheme ??
@@ -284,6 +323,11 @@ ThemeData flutterNesTheme({
               secondary: Color(0xffe5e5e5),
             ));
 
+  final overlayTransitionTheme = nesOverlayTransitionTheme ??
+      (brightness == Brightness.light
+          ? const NesOverlayTransitionTheme(color: Color(0xff0d0d0d))
+          : const NesOverlayTransitionTheme(color: Color(0xff8c8c8c)));
+
   final themeData = ThemeData(
     brightness: brightness,
     colorSchemeSeed: primaryColor,
@@ -292,6 +336,7 @@ ThemeData flutterNesTheme({
       nesButtonTheme,
       iconTheme,
       nesSelectionListTheme,
+      overlayTransitionTheme,
       ...customExtensions,
     ],
   );

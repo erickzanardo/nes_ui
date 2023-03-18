@@ -7,6 +7,7 @@ export 'icon_buttons.dart';
 export 'icons.dart';
 export 'iterable_options.dart';
 export 'key_icons.dart';
+export 'screen_transitions.dart';
 export 'selection_list.dart';
 export 'text_fields.dart';
 export 'texts.dart';
