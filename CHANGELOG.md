@@ -1,9 +1,9 @@
 # 0.4.0
 
- - feat: add 'NesConfirmDialog'
- - feat: add 'NesFillTransition'
- - feat: add 'NesHorizontalCloseTransition'
- - feat: add 'NesVerticalCloseTransition'
+ - feat: add `NesConfirmDialog`
+ - feat: add `NesFillTransition`
+ - feat: add `NesHorizontalCloseTransition`
+ - feat: add `NesVerticalCloseTransition`
 
 # 0.3.0
 
