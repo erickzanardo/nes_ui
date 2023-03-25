@@ -184,6 +184,48 @@ class NesIcons {
       '8,8;4,-1;1,0;8,-1;1,0;7,-1;2,0;1,-1;16,0;5,-1;2,0;6,-1;1,0;6,-1;1,0;3,-1',
     ),
   );
+
+  /// A music note icon.
+  late final musicNote = NesIconData(
+    MiniSprite.fromDataString(
+        '8,8;3,-1;4,0;4,-1;5,0;3,-1;2,0;2,-1;1,0;3,-1;2,0;4,-1;4,0;3,-1;5,0;3,-1;4,0;5,-1;2,0;5,-1'),
+  );
+
+  /// A key hole.
+  late final keyHole = NesIconData(
+    MiniSprite.fromDataString(
+        '8,8;3,-1;2,0;5,-1;4,0;4,-1;4,0;5,-1;2,0;5,-1;4,0;4,-1;4,0;3,-1;6,0;2,-1;6,0;1,-1'),
+  );
+
+  /// A Question mark.
+  late final questionMark = NesIconData(
+    MiniSprite.fromDataString(
+        '8,8;2,-1;4,0;3,-1;2,0;2,-1;2,0;2,-1;1,0;3,-1;2,0;5,-1;2,0;5,-1;2,0;14,-1;2,0;6,-1;2,0;3,-1'),
+  );
+
+  /// A dart lang icon.
+  late final dartLang = NesIconData(
+    MiniSprite.fromDataString(
+        '8,8;10,0;3,-1;6,0;3,-1;6,0;3,-1;6,0;2,-1;7,0;1,-1;2,0;1,-1;13,0;1,-1'),
+  );
+
+  /// A middle connection icon.
+  late final middleConnection = NesIconData(
+    MiniSprite.fromDataString(
+        '8,8;2,-1;1,0;7,-1;1,0;7,-1;1,0;7,-1;1,0;7,-1;6,0;2,-1;1,0;7,-1;1,0;7,-1;1,0;5,-1'),
+  );
+
+  /// A bottom connection icon.
+  late final bottomConnection = NesIconData(
+    MiniSprite.fromDataString(
+        '8,8;2,-1;1,0;7,-1;1,0;7,-1;1,0;7,-1;1,0;7,-1;6,0;24,-1'),
+  );
+
+  /// A top connection icon.
+  late final topConnection = NesIconData(
+    MiniSprite.fromDataString(
+        '8,8;26,-1;6,0;2,-1;1,0;7,-1;1,0;7,-1;1,0;7,-1;1,0;5,-1'),
+  );
 }
 
 /// {@template nes_icon}

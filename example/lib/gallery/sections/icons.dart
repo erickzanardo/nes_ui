@@ -101,6 +101,34 @@ class IconsSection extends StatelessWidget {
               data: NesIcons.instance.thinArrowRight,
               label: 'thinArrowRight',
             ),
+            _IconEntry(
+              data: NesIcons.instance.musicNote,
+              label: 'musicNote',
+            ),
+            _IconEntry(
+              data: NesIcons.instance.keyHole,
+              label: 'keyHole',
+            ),
+            _IconEntry(
+              data: NesIcons.instance.questionMark,
+              label: 'questionMark',
+            ),
+            _IconEntry(
+              data: NesIcons.instance.dartLang,
+              label: 'dartLang',
+            ),
+            _IconEntry(
+              data: NesIcons.instance.bottomConnection,
+              label: 'bottomConnection',
+            ),
+            _IconEntry(
+              data: NesIcons.instance.middleConnection,
+              label: 'middleConnection',
+            ),
+            _IconEntry(
+              data: NesIcons.instance.topConnection,
+              label: 'topConnection',
+            ),
           ],
         ),
       ],
