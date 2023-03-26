@@ -4,6 +4,53 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:nes_ui/nes_ui.dart';
 
+/// {@template nes_file_entity}
+/// Describes a file or folder.
+/// {@endtemplate}
+abstract class NesFileEntity {
+  /// {@macro nes_file_entity}
+  const NesFileEntity(this.path);
+
+  /// The path of the entity.
+  final String path;
+
+  String _separator() {
+    if (kIsWeb) {
+      return '/';
+    }
+    return Platform.isWindows ? r'\' : '/';
+  }
+
+  /// The name of the entity.
+  String get name => path.split(_separator()).last;
+
+  /// The path of the entity split into parts.
+  List<String> split() => path.split(_separator());
+
+  /// The parent folder of the entity.
+  String parentPath() {
+    final parts = split()..removeLast();
+
+    return parts.join(_separator());
+  }
+}
+
+/// {@template nes_file}
+/// Describes a file.
+/// {@endtemplate}
+class NesFile extends NesFileEntity {
+  /// {@macro nes_file}
+  const NesFile(super.path);
+}
+
+/// {@template nes_folder}
+/// Describes a folder.
+/// {@endtemplate}
+class NesFolder extends NesFileEntity {
+  /// {@macro nes_folder}
+  const NesFolder(super.path);
+}
+
 /// {@template nes_file_explorer}
 /// A widget that displays a list of folders and files in a tree format.
 /// {@endtemplate}
@@ -11,19 +58,23 @@ class NesFileExplorer extends StatefulWidget {
   /// {@macro nes_file_explorer}
   const NesFileExplorer({
     required this.entries,
+    required this.onOpenFile,
     super.key,
   });
 
   /// The lists of files and folders to display.
-  final List<FileSystemEntity> entries;
+  final List<NesFileEntity> entries;
+
+  /// The callback to call when a file is opened.
+  final void Function(NesFile file) onOpenFile;
 
   @override
   State createState() => _NesFileExplorerState();
 }
 
 class _NesFileExplorerState extends State<NesFileExplorer> {
-  final Map<String, List<FileSystemEntity>> _files = {};
-  final List<FileSystemEntity> _root = [];
+  final Map<String, List<NesFileEntity>> _files = {};
+  final List<NesFileEntity> _root = [];
 
   List<String> openFolders = [];
 
@@ -31,39 +82,35 @@ class _NesFileExplorerState extends State<NesFileExplorer> {
   void didChangeDependencies() {
     super.didChangeDependencies();
 
-    widget.entries.whereType<Directory>().forEach((directory) {
+    widget.entries.whereType<NesFolder>().forEach((directory) {
       _files[directory.path] = [];
     });
 
     for (final entry in widget.entries) {
-      final parent = entry.parent;
-      if (_files.containsKey(parent.path)) {
-        _files[parent.path]!.add(entry);
+      final parent = entry.parentPath();
+      if (_files.containsKey(parent)) {
+        _files[parent]!.add(entry);
       } else {
         _root.add(entry);
       }
     }
   }
 
-  void _onToggleFolder(Directory directory) {
-    if (openFolders.contains(directory.path)) {
+  void _onToggleFolder(NesFolder folder) {
+    if (openFolders.contains(folder.path)) {
       setState(() {
         openFolders = [
-          ...openFolders.where((path) => path != directory.path),
+          ...openFolders.where((path) => path != folder.path),
         ];
       });
     } else {
       setState(() {
         openFolders = [
-          directory.path,
+          folder.path,
           ...openFolders,
         ];
       });
     }
-  }
-
-  void _onOpenFile(File file) {
-    print(file);
   }
 
   @override
@@ -74,7 +121,7 @@ class _NesFileExplorerState extends State<NesFileExplorer> {
         for (final entry in _root)
           _Entry(
             entry: entry,
-            onOpenFile: _onOpenFile,
+            onOpenFile: widget.onOpenFile,
             onToggleFolder: _onToggleFolder,
             openFolders: openFolders,
             files: _files,
@@ -93,25 +140,18 @@ class _Entry extends StatelessWidget {
     required this.files,
   });
 
-  final Map<String, List<FileSystemEntity>> files;
-  final FileSystemEntity entry;
-  final void Function(Directory) onToggleFolder;
-  final void Function(File) onOpenFile;
+  final Map<String, List<NesFileEntity>> files;
+  final NesFileEntity entry;
+  final void Function(NesFolder) onToggleFolder;
+  final void Function(NesFile) onOpenFile;
   final List<String> openFolders;
-
-  String separator() => !kIsWeb && Platform.isWindows ? r'\' : '/';
-
-  String getEntryName() {
-    return entry.path.split(separator()).last;
-  }
 
   static const _itemHeight = 36.0;
 
-  NesIconData _fileIcon(File file) {
-    final name = file.path.split(separator()).last;
+  NesIconData _fileIcon(NesFile file) {
     final extension = file.path.split('.').last.toLowerCase();
 
-    switch (name) {
+    switch (file.name) {
       case 'LICENSE':
         return NesIcons.instance.keyHole;
     }
@@ -145,9 +185,9 @@ class _Entry extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     late Widget child;
-    if (entry is File) {
+    if (entry is NesFile) {
       child = NesPressable(
-        onPress: () => onOpenFile(entry as File),
+        onPress: () => onOpenFile(entry as NesFile),
         child: SizedBox(
           height: _itemHeight,
           child: Align(
@@ -155,23 +195,23 @@ class _Entry extends StatelessWidget {
             child: Row(
               children: [
                 NesIcon(
-                  iconData: _fileIcon(entry as File),
+                  iconData: _fileIcon(entry as NesFile),
                 ),
                 const SizedBox(width: 8),
-                Text(getEntryName()),
+                Text(entry.name),
               ],
             ),
           ),
         ),
       );
-    } else if (entry is Directory) {
+    } else if (entry is NesFolder) {
       final isOpen = openFolders.contains(entry.path);
       child = Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           NesPressable(
             onPress: () {
-              onToggleFolder(entry as Directory);
+              onToggleFolder(entry as NesFolder);
             },
             child: SizedBox(
               height: _itemHeight,
@@ -183,7 +223,7 @@ class _Entry extends StatelessWidget {
                         : NesIcons.instance.closedFolder,
                   ),
                   const SizedBox(width: 8),
-                  Text(getEntryName()),
+                  Text(entry.name),
                 ],
               ),
             ),

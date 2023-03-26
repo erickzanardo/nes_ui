@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:nes_ui/nes_ui.dart';
 
@@ -13,7 +11,7 @@ class FileExplorerSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'File Explorer',
+          'NesFile Explorer',
           style: theme.textTheme.displayMedium,
         ),
         const SizedBox(height: 16),
@@ -23,18 +21,19 @@ class FileExplorerSection extends StatelessWidget {
           child: SingleChildScrollView(
             physics: const ClampingScrollPhysics(),
             child: NesFileExplorer(
-              entries: [
-                Directory('/assets'),
-                Directory('/assets/images'),
-                File('/assets/images/sprite-sheet.png'),
-                File('/assets/images/char.png'),
-                Directory('/assets/music'),
-                File('/assets/music/battle.mp3'),
-                File('/assets/music/title.mp3'),
-                File('/assets/LICENSE'),
-                Directory('/src'),
-                File('/src/char.dart'),
-                File('/src/map.dart'),
+              onOpenFile: (_) {},
+              entries: const [
+                NesFolder('/assets'),
+                NesFolder('/assets/images'),
+                NesFile('/assets/images/sprite-sheet.png'),
+                NesFile('/assets/images/char.png'),
+                NesFolder('/assets/music'),
+                NesFile('/assets/music/battle.mp3'),
+                NesFile('/assets/music/title.mp3'),
+                NesFile('/assets/LICENSE'),
+                NesFolder('/src'),
+                NesFile('/src/char.dart'),
+                NesFile('/src/map.dart'),
               ],
             ),
           ),
