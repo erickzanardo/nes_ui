@@ -1,3 +1,14 @@
+# 0.5.0
+
+ - feat: add `NesIcons.musicNote`
+ - feat: add `NesIcons.keyHole`
+ - feat: add `NesIcons.questionMark`
+ - feat: add `NesIcons.dartLang`
+ - feat: add `NesIcons.middleConnection`
+ - feat: add `NesIcons.topConnection`
+ - feat: add `NesIcons.bottomConnection`
+ - feat: add `NesFileExplorer`
+
 # 0.4.0
 
  - feat: add `NesConfirmDialog`
@@ -28,7 +39,6 @@
 - feat: add `NesIcons.redo`
 - feat: add `customExtensions`
 - feat: add keyboard support
-- feat: add keyboard support 
 - feat: add `NesIcons.unpressedButton`
 - feat: add `NesIcons.pressedButton`
 - feat: add `NesKeyButton`
