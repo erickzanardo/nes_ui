@@ -38,6 +38,14 @@ class IconsSection extends StatelessWidget {
               label: 'rightArrowIndicator',
             ),
             _IconEntry(
+              data: NesIcons.instance.topArrowIndicator,
+              label: 'topArrowIndicator',
+            ),
+            _IconEntry(
+              data: NesIcons.instance.bottomArrowIndicator,
+              label: 'bottomArrowIndicator',
+            ),
+            _IconEntry(
               data: NesIcons.instance.sword,
               label: 'sword',
             ),

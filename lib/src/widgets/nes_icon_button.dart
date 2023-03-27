@@ -9,7 +9,9 @@ class NesIconButton extends StatelessWidget {
   const NesIconButton({
     super.key,
     required this.icon,
-    required this.onPress,
+    this.onPress,
+    this.onPressStart,
+    this.onPressEnd,
     this.size,
   });
 
@@ -17,7 +19,13 @@ class NesIconButton extends StatelessWidget {
   final NesIconData icon;
 
   /// Called when the button is pressed.
-  final VoidCallback onPress;
+  final VoidCallback? onPress;
+
+  /// Called when the button is pressed.
+  final VoidCallback? onPressStart;
+
+  /// Called when pressed has ended.
+  final VoidCallback? onPressEnd;
 
   /// An optional size for the icon button.
   final Size? size;
@@ -26,6 +34,8 @@ class NesIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return NesPressable(
       onPress: onPress,
+      onPressStart: onPressStart,
+      onPressEnd: onPressEnd,
       child: NesIcon(iconData: icon, size: size),
     );
   }

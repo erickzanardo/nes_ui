@@ -10,4 +10,6 @@ export 'nes_input.dart';
 export 'nes_iterable_options.dart';
 export 'nes_key_icon.dart';
 export 'nes_pressabled.dart';
+export 'nes_scrollbar.dart';
 export 'nes_selection_list.dart';
+export 'nes_single_child_scroll_view.dart';

@@ -8,6 +8,10 @@
  - feat: add `NesIcons.topConnection`
  - feat: add `NesIcons.bottomConnection`
  - feat: add `NesFileExplorer`
+ - feat: add `NesIcons.topArrowIndicator`
+ - feat: add `NesIcons.bottomArrowIndicator`
+ - feat: add `NesScrollbar`
+ - feat: add `NesSingleChildScrollview`
 
 # 0.4.0
 
