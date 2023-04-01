@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:nes_ui/nes_ui.dart';
 
@@ -9,19 +12,28 @@ class NesScrollbar extends StatefulWidget {
   const NesScrollbar({
     super.key,
     required this.scrollController,
+    required this.direction,
   });
 
   /// The scroll controller attached to this scrollbar.
   final ScrollController scrollController;
+
+  /// The direction of the scrollbar.
+  final Axis direction;
 
   @override
   State<NesScrollbar> createState() => _NesScrollbarState();
 }
 
 class _NesScrollbarState extends State<NesScrollbar> {
+  Timer? _timer;
+  bool _isScrollingForward = false;
 
-  /// TODO finish this
-  bool _isPressed = false;
+  static const _initialScrollSpeed = 10.0;
+  static const _maxScrollSpeed = 100.0;
+  static const _scrollIncrease = 1.5;
+
+  double _scrollSpeed = _initialScrollSpeed;
 
   @override
   void initState() {
@@ -40,32 +52,90 @@ class _NesScrollbarState extends State<NesScrollbar> {
     setState(() {});
   }
 
-  double _calculateHandlerHeight(double widgetHeight) {
-    return (widget.scrollController.position.maxScrollExtent / widgetHeight) *
-        3;
+  double _calculateHandlerSize(double widgetSize) {
+    return max(
+      (widgetSize / widget.scrollController.position.maxScrollExtent) * 10,
+      widgetSize / 10,
+    );
+  }
+
+  void _scroll() {
+    if (_isScrollingForward &&
+        widget.scrollController.offset <
+            widget.scrollController.position.maxScrollExtent) {
+      widget.scrollController.jumpTo(
+        widget.scrollController.offset + _scrollSpeed,
+      );
+    } else if (!_isScrollingForward && widget.scrollController.offset > 0) {
+      widget.scrollController.jumpTo(
+        widget.scrollController.offset - _scrollSpeed,
+      );
+    }
+  }
+
+  void _startScrolling(bool isScrollingForward) {
+    _isScrollingForward = isScrollingForward;
+    _scroll();
+    _timer = Timer.periodic(const Duration(milliseconds: 100), (timer) {
+      final value = _scrollSpeed * _scrollIncrease;
+      _scrollSpeed = min(value, _maxScrollSpeed);
+      _scroll();
+    });
+  }
+
+  void _stopScrolling() {
+    _scrollSpeed = _initialScrollSpeed;
+    _timer?.cancel();
+  }
+
+  void _panScroll(
+    double offset,
+    BoxConstraints constraints,
+    double handlerSize,
+  ) {
+    final constraintSize = widget.direction == Axis.vertical
+        ? constraints.maxHeight
+        : constraints.maxWidth;
+
+    final maxOffset = constraintSize - handlerSize - 48;
+    final newOffset = widget.scrollController.offset +
+        (offset / maxOffset) * widget.scrollController.position.maxScrollExtent;
+    widget.scrollController.jumpTo(newOffset);
+  }
+
+  bool _isScrollable() {
+    return widget.scrollController.position.maxScrollExtent > 0;
   }
 
   @override
   Widget build(BuildContext context) {
-    // TODO(erickzanardo): make a theme.
+    final textStyle =
+        Theme.of(context).textTheme.labelMedium ?? const TextStyle();
+    final containerColor = textStyle.color ?? Colors.black;
+
     return LayoutBuilder(
       builder: (context, constraints) {
-        final handlerHeight = _calculateHandlerHeight(constraints.maxHeight);
+        final constraintSize = widget.direction == Axis.vertical
+            ? constraints.maxHeight
+            : constraints.maxWidth;
 
+        final handlerSize = _calculateHandlerSize(constraintSize);
 
-        final handlerTop = 20 +
+        final handlerPosition = 20 +
             ((widget.scrollController.offset /
                     widget.scrollController.position.maxScrollExtent) *
-                (constraints.maxHeight - handlerHeight - 48));
+                (constraintSize - handlerSize - 48));
+
+        const scrollBarSize = 28.0;
 
         return Container(
-          width: 28,
-          decoration: BoxDecoration(
-            border: Border.all(
-              width: 4,
-            ),
-          ),
-          height: double.infinity,
+          width: widget.direction == Axis.vertical
+              ? scrollBarSize
+              : constraintSize,
+          height: widget.direction == Axis.horizontal
+              ? scrollBarSize
+              : constraintSize,
+          decoration: BoxDecoration(border: Border.all(width: 4)),
           child: Stack(
             children: [
               Positioned(
@@ -73,34 +143,53 @@ class _NesScrollbarState extends State<NesScrollbar> {
                 left: 2,
                 child: NesIconButton(
                   size: const Size(16, 16),
-                  icon: NesIcons.instance.topArrowIndicator,
+                  icon: widget.direction == Axis.vertical
+                      ? NesIcons.instance.topArrowIndicator
+                      : NesIcons.instance.leftArrowIndicator,
                   onPressStart: () {
-                    print('press start');
+                    _startScrolling(false);
                   },
-                  onPressEnd: () {
-                    print('press end');
-                  },
+                  onPressEnd: _stopScrolling,
                 ),
               ),
-              Positioned(
-                top: handlerTop,
-                left: 2,
-                child: ColoredBox(
-                  color: Colors.black,
-                  child: SizedBox(
-                    width: 16,
-                    height: handlerHeight,
+              if (_isScrollable())
+                Positioned(
+                  top: widget.direction == Axis.vertical ? handlerPosition : 2,
+                  left:
+                      widget.direction == Axis.horizontal ? handlerPosition : 2,
+                  child: GestureDetector(
+                    onPanUpdate: (details) {
+                      final offset = widget.direction == Axis.vertical
+                          ? details.delta.dy
+                          : details.delta.dx;
+                      _panScroll(offset, constraints, handlerSize);
+                    },
+                    child: ColoredBox(
+                      color: containerColor,
+                      child: SizedBox(
+                        width: widget.direction == Axis.vertical
+                            ? 16
+                            : handlerSize,
+                        height: widget.direction == Axis.horizontal
+                            ? 16
+                            : handlerSize,
+                      ),
+                    ),
                   ),
                 ),
-              ),
               Positioned(
                 bottom: 2,
-                left: 2,
+                left: widget.direction == Axis.vertical ? 2 : null,
+                right: widget.direction == Axis.horizontal ? 2 : null,
                 child: NesIconButton(
                   size: const Size(16, 16),
-                  icon: NesIcons.instance.bottomArrowIndicator,
-                  onPressStart: () {},
-                  onPressEnd: () {},
+                  icon: widget.direction == Axis.vertical
+                      ? NesIcons.instance.bottomArrowIndicator
+                      : NesIcons.instance.rightArrowIndicator,
+                  onPressStart: () {
+                    _startScrolling(true);
+                  },
+                  onPressEnd: _stopScrolling,
                 ),
               ),
             ],

@@ -9,10 +9,14 @@ class NesSingleChildScrollView extends StatefulWidget {
   const NesSingleChildScrollView({
     super.key,
     required this.child,
+    this.direction = Axis.vertical,
   });
 
   /// The child widget.
   final Widget child;
+
+  /// The direction of the scroll view.
+  final Axis direction;
 
   @override
   State<NesSingleChildScrollView> createState() =>
@@ -30,19 +34,43 @@ class _NesSingleChildScrollViewState extends State<NesSingleChildScrollView> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO(erickzanardo): we can receive a scroll controller.
-    return Row(
-      children: [
-        ScrollConfiguration(
-          behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
-          child: SingleChildScrollView(
-            controller: _scrollController,
-            child: widget.child,
-          ),
-        ),
-        const SizedBox(width: 8),
-        NesScrollbar(scrollController: _scrollController),
-      ],
+    final children = [
+      SingleChildScrollView(
+        scrollDirection: widget.direction,
+        controller: _scrollController,
+        child: SizeChangedLayoutNotifier(child: widget.child),
+      ),
+      if (widget.direction == Axis.vertical)
+        const SizedBox(width: 8)
+      else if (widget.direction == Axis.horizontal)
+        const SizedBox(height: 8),
+      NesScrollbar(
+        scrollController: _scrollController,
+        direction: widget.direction,
+      ),
+    ];
+
+    return NotificationListener<SizeChangedLayoutNotification>(
+      onNotification: (notification) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          setState(() {});
+        });
+        return true;
+      },
+      child: ScrollConfiguration(
+        behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+        child: widget.direction == Axis.vertical
+            ? Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: children,
+              )
+            : Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: children,
+              ),
+      ),
     );
   }
 }
