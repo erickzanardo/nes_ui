@@ -21,6 +21,9 @@ class NesScrollbar extends StatefulWidget {
   /// The direction of the scrollbar.
   final Axis direction;
 
+  /// The size of the scrollbar.
+  static const scrollbarSize = 28.0;
+
   @override
   State<NesScrollbar> createState() => _NesScrollbarState();
 }
@@ -126,14 +129,12 @@ class _NesScrollbarState extends State<NesScrollbar> {
                     widget.scrollController.position.maxScrollExtent) *
                 (constraintSize - handlerSize - 48));
 
-        const scrollBarSize = 28.0;
-
         return Container(
           width: widget.direction == Axis.vertical
-              ? scrollBarSize
+              ? NesScrollbar.scrollbarSize
               : constraintSize,
           height: widget.direction == Axis.horizontal
-              ? scrollBarSize
+              ? NesScrollbar.scrollbarSize
               : constraintSize,
           decoration: BoxDecoration(border: Border.all(width: 4)),
           child: Stack(

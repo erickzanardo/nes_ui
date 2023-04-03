@@ -10,6 +10,7 @@ class NesSingleChildScrollView extends StatefulWidget {
     super.key,
     required this.child,
     this.direction = Axis.vertical,
+    this.scrollController,
   });
 
   /// The child widget.
@@ -18,59 +19,81 @@ class NesSingleChildScrollView extends StatefulWidget {
   /// The direction of the scroll view.
   final Axis direction;
 
+  /// The scroll controller attached to this scroll view.
+  ///
+  /// When omitted, a new [ScrollController] will be created.
+  /// When one is provided, it will be used instead the it will
+  /// not be automatically disposed when this widget is disposed.
+  final ScrollController? scrollController;
+
   @override
   State<NesSingleChildScrollView> createState() =>
       _NesSingleChildScrollViewState();
 }
 
 class _NesSingleChildScrollViewState extends State<NesSingleChildScrollView> {
-  late final ScrollController _scrollController = ScrollController();
+  late final ScrollController _scrollController =
+      widget.scrollController ?? ScrollController();
 
   @override
   void dispose() {
-    _scrollController.dispose();
+    if (widget.scrollController == null) {
+      _scrollController.dispose();
+    }
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final children = [
-      SingleChildScrollView(
-        scrollDirection: widget.direction,
-        controller: _scrollController,
-        child: SizeChangedLayoutNotifier(child: widget.child),
-      ),
-      if (widget.direction == Axis.vertical)
-        const SizedBox(width: 8)
-      else if (widget.direction == Axis.horizontal)
-        const SizedBox(height: 8),
-      NesScrollbar(
-        scrollController: _scrollController,
-        direction: widget.direction,
-      ),
-    ];
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        const gap = NesScrollbar.scrollbarSize + 8;
+        final children = [
+          SizedBox(
+            width: widget.direction == Axis.vertical
+                ? constraints.maxWidth - gap
+                : constraints.maxWidth,
+            height: widget.direction == Axis.horizontal
+                ? constraints.maxHeight - gap
+                : constraints.maxHeight,
+            child: SingleChildScrollView(
+              scrollDirection: widget.direction,
+              controller: _scrollController,
+              child: SizeChangedLayoutNotifier(child: widget.child),
+            ),
+          ),
+          if (widget.direction == Axis.vertical)
+            const SizedBox(width: 8)
+          else if (widget.direction == Axis.horizontal)
+            const SizedBox(height: 8),
+          NesScrollbar(
+            scrollController: _scrollController,
+            direction: widget.direction,
+          ),
+        ];
 
-    return NotificationListener<SizeChangedLayoutNotification>(
-      onNotification: (notification) {
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          setState(() {});
-        });
-        return true;
+        return NotificationListener<SizeChangedLayoutNotification>(
+          onNotification: (notification) {
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              setState(() {});
+            });
+            return true;
+          },
+          child: ScrollConfiguration(
+            behavior:
+                ScrollConfiguration.of(context).copyWith(scrollbars: false),
+            child: widget.direction == Axis.vertical
+                ? Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: children,
+                  )
+                : Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: children,
+                  ),
+          ),
+        );
       },
-      child: ScrollConfiguration(
-        behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
-        child: widget.direction == Axis.vertical
-            ? Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: children,
-              )
-            : Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: children,
-              ),
-      ),
     );
   }
 }

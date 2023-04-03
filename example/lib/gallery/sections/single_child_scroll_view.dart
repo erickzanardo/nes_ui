@@ -15,36 +15,40 @@ class SingleChildScrollViewSection extends StatelessWidget {
           style: theme.textTheme.displayMedium,
         ),
         const SizedBox(height: 16),
-        SizedBox(
-          height: 300,
-          width: 600,
-          child: NesSingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: List.generate(
-                100,
-                (index) => Text('Item $index'),
-              ),
-            ),
-          ),
-        ),
-        const SizedBox(height: 16),
-        SizedBox(
-          height: 100,
-          width: 300,
-          child: NesSingleChildScrollView(
-            direction: Axis.horizontal,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: List.generate(
-                100,
-                (index) => Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: Text('Item $index'),
+        Wrap(
+          children: [
+            NesContainer(
+              height: 300,
+              width: 300,
+              child: NesSingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: List.generate(
+                    100,
+                    (index) => Text('Item $index'),
+                  ),
                 ),
               ),
             ),
-          ),
+            const SizedBox(width: 32),
+            NesContainer(
+              height: 200,
+              width: 300,
+              child: NesSingleChildScrollView(
+                direction: Axis.horizontal,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: List.generate(
+                    100,
+                    (index) => Padding(
+                      padding: const EdgeInsets.all(8),
+                      child: Text('Item $index'),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ],
     );
