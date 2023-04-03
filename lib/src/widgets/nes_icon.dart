@@ -87,6 +87,20 @@ class NesIcons {
     ),
   );
 
+  /// An arrow pointing up.
+  late final topArrowIndicator = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;3,-1;2,0;5,-1;1,0;1,1;2,0;3,-1;1,0;1,1;4,0;1,-1;1,0;1,1;7,0;1,1;14,0;16,-1',
+    ),
+  );
+
+  /// An arrow pointing down.
+  late final bottomArrowIndicator = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;16,-1;9,0;1,1;7,0;1,1;6,0;1,-1;1,0;1,1;4,0;3,-1;1,0;1,1;2,0;5,-1;2,0;3,-1',
+    ),
+  );
+
   /// A sun
   late final sun = NesIconData(
     MiniSprite.fromDataString(

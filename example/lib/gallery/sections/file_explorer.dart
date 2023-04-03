@@ -18,8 +18,7 @@ class FileExplorerSection extends StatelessWidget {
         NesContainer(
           height: 300,
           width: 600,
-          child: SingleChildScrollView(
-            physics: const ClampingScrollPhysics(),
+          child: NesSingleChildScrollView(
             child: NesFileExplorer(
               onOpenFile: (_) {},
               entries: const [
