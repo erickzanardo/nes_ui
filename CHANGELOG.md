@@ -1,3 +1,7 @@
+# 0.6.0
+
+ - feat: add `NesIcons.threeVerticalDots`
+
 # 0.5.0
 
  - feat: add `NesIcons.musicNote`

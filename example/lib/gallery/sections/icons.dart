@@ -137,6 +137,10 @@ class IconsSection extends StatelessWidget {
               data: NesIcons.instance.topConnection,
               label: 'topConnection',
             ),
+            _IconEntry(
+              data: NesIcons.instance.threeVerticalDots,
+              label: 'threeVerticalDots',
+            ),
           ],
         ),
       ],
