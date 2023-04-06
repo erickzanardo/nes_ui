@@ -89,5 +89,25 @@ void main() {
 
       expect(find.text('The Child 20'), findsNothing);
     });
+
+    testWidgets('clips the child when clipContent is true', (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: flutterNesTheme(),
+          home: SizedBox(
+            width: 200,
+            height: 200,
+            child: NesSingleChildScrollView(
+              clipContent: true,
+              child: Column(
+                children: List.generate(20, (i) => Text('The Child $i')),
+              ),
+            ),
+          ),
+        ),
+      );
+
+      expect(find.byType(UnconstrainedBox), findsOneWidget);
+    });
   });
 }
