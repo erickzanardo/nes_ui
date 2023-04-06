@@ -1,6 +1,8 @@
 # 0.6.0
 
  - feat: add `NesIcons.threeVerticalDots`
+ - fix: `NesScrollbar` has the wrong border colors
+ - fix: `NesFileExplorer` clips its content to avoid overflow
 
 # 0.5.0
 

@@ -136,7 +136,12 @@ class _NesScrollbarState extends State<NesScrollbar> {
           height: widget.direction == Axis.horizontal
               ? NesScrollbar.scrollbarSize
               : constraintSize,
-          decoration: BoxDecoration(border: Border.all(width: 4)),
+          decoration: BoxDecoration(
+            border: Border.all(
+              width: 4,
+              color: containerColor,
+            ),
+          ),
           child: Stack(
             children: [
               Positioned(

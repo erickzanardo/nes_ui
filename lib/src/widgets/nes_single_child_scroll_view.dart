@@ -59,7 +59,13 @@ class _NesSingleChildScrollViewState extends State<NesSingleChildScrollView> {
             child: SingleChildScrollView(
               scrollDirection: widget.direction,
               controller: _scrollController,
-              child: SizeChangedLayoutNotifier(child: widget.child),
+              child: SizeChangedLayoutNotifier(
+                child: UnconstrainedBox(
+                  alignment: Alignment.topLeft,
+                  clipBehavior: Clip.hardEdge,
+                  child: widget.child,
+                ),
+              ),
             ),
           ),
           if (widget.direction == Axis.vertical)
