@@ -11,6 +11,7 @@ class NesSingleChildScrollView extends StatefulWidget {
     required this.child,
     this.direction = Axis.vertical,
     this.scrollController,
+    this.clipContent = false,
   });
 
   /// The child widget.
@@ -18,6 +19,13 @@ class NesSingleChildScrollView extends StatefulWidget {
 
   /// The direction of the scroll view.
   final Axis direction;
+
+  /// When true will clip this content of the child,
+  /// Ensuring that the child will not "overflow" the oposite
+  /// [direction] of the scroll view.
+  ///
+  /// Defaults to false.
+  final bool clipContent;
 
   /// The scroll controller attached to this scroll view.
   ///
@@ -60,11 +68,13 @@ class _NesSingleChildScrollViewState extends State<NesSingleChildScrollView> {
               scrollDirection: widget.direction,
               controller: _scrollController,
               child: SizeChangedLayoutNotifier(
-                child: UnconstrainedBox(
-                  alignment: Alignment.topLeft,
-                  clipBehavior: Clip.hardEdge,
-                  child: widget.child,
-                ),
+                child: widget.clipContent
+                    ? UnconstrainedBox(
+                        alignment: Alignment.topLeft,
+                        clipBehavior: Clip.hardEdge,
+                        child: widget.child,
+                      )
+                    : widget.child,
               ),
             ),
           ),
