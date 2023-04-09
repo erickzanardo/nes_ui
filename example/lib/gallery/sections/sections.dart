@@ -11,5 +11,6 @@ export 'key_icons.dart';
 export 'screen_transitions.dart';
 export 'selection_list.dart';
 export 'single_child_scroll_view.dart';
+export 'tab_view.dart';
 export 'text_fields.dart';
 export 'texts.dart';

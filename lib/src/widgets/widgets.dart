@@ -13,3 +13,5 @@ export 'nes_pressabled.dart';
 export 'nes_scrollbar.dart';
 export 'nes_selection_list.dart';
 export 'nes_single_child_scroll_view.dart';
+export 'nes_tab.dart';
+export 'nes_tab_view.dart';
