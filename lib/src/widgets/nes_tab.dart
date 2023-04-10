@@ -95,7 +95,6 @@ class _NesTabCustomPainter extends CustomPainter {
         Rect.fromLTWH(pixelSize, 0, size.width - pixelSize * 2, pixelSize),
         paint,
       )
-
       // Left border.
       ..drawRect(
         Rect.fromLTWH(0, pixelSize, pixelSize, size.height - pixelSize),

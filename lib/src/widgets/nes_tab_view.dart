@@ -11,7 +11,7 @@ class NesTabItem {
     required this.label,
   });
 
-  /// The widget to display as the contents of the tab.
+  /// The widget to display tab contents.
   final Widget child;
 
   /// The label of the tab.
