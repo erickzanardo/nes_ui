@@ -3,6 +3,7 @@
  - feat: add `NesIcons.threeVerticalDots`
  - fix: `NesScrollbar` has the wrong border colors
  - feat: add `NesSingleChildScrollview.clipContent`
+ - feat: add `NesTabView`
 
 # 0.5.0
 
