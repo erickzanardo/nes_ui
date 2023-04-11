@@ -44,8 +44,8 @@ class NesButton extends StatefulWidget {
     super.key,
     required this.type,
     required this.child,
-    required this.onPressed,
-  });
+    this.onPressed,
+  }) : _isDisabled = onPressed == null;
 
   /// Determines the colors used to render the button.
   final NesButtonType type;
@@ -54,7 +54,10 @@ class NesButton extends StatefulWidget {
   final Widget child;
 
   /// The callback called the button is pressed.
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
+
+  /// Whether the button is disabled.
+  final bool _isDisabled;
 
   @override
   State<NesButton> createState() => _NesButtonState();
@@ -97,8 +100,8 @@ class _NesButtonState extends State<NesButton> {
             color: buttonColor,
             borderColor: textStyle.color ?? Colors.black,
             pixelSize: nesTheme.pixelSize,
-            pressed: _pressed,
-            hovered: _hovered,
+            pressed: widget._isDisabled ? widget._isDisabled : _pressed,
+            hovered: widget._isDisabled ? widget._isDisabled : _hovered,
           ),
           child: DefaultTextStyle(
             style: textStyle.copyWith(
