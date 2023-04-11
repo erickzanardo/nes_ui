@@ -69,7 +69,8 @@ class _NesButtonState extends State<NesButton> {
 
   @override
   Widget build(BuildContext context) {
-    final textStyle = Theme.of(context).textTheme.labelMedium ?? const TextStyle();
+    final textStyle =
+        Theme.of(context).textTheme.labelMedium ?? const TextStyle();
 
     final nesTheme = context.nesThemeExtension<NesTheme>();
     final nesButtonTheme = context.nesThemeExtension<NesButtonTheme>();
@@ -104,7 +105,9 @@ class _NesButtonState extends State<NesButton> {
           ),
           child: DefaultTextStyle(
             style: textStyle.copyWith(
-              color: buttonColor.isLight() ? nesButtonTheme.darkLabelColor : nesButtonTheme.lightLabelColor,
+              color: buttonColor.isLight()
+                  ? nesButtonTheme.darkLabelColor
+                  : nesButtonTheme.lightLabelColor,
             ),
             child: Padding(
               padding: EdgeInsets.all(nesTheme.pixelSize * 4),
