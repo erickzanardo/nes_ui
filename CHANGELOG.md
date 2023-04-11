@@ -4,6 +4,7 @@
  - fix: `NesScrollbar` has the wrong border colors
  - feat: add `NesSingleChildScrollview.clipContent`
  - feat: add `NesTabView`
+ - feat: Update `NesButton` widget to enable/disable based on onPressed value
 
 # 0.5.0
 
