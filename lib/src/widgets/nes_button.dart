@@ -44,7 +44,7 @@ class NesButton extends StatefulWidget {
     super.key,
     required this.type,
     required this.child,
-    required this.onPressed,
+    this.onPressed,
   }) : _isDisabled = onPressed == null;
 
   /// Determines the colors used to render the button.
@@ -69,7 +69,8 @@ class _NesButtonState extends State<NesButton> {
 
   @override
   Widget build(BuildContext context) {
-    final textStyle = Theme.of(context).textTheme.labelMedium ?? const TextStyle();
+    final textStyle =
+        Theme.of(context).textTheme.labelMedium ?? const TextStyle();
 
     final nesTheme = context.nesThemeExtension<NesTheme>();
     final nesButtonTheme = context.nesThemeExtension<NesButtonTheme>();
@@ -104,7 +105,9 @@ class _NesButtonState extends State<NesButton> {
           ),
           child: DefaultTextStyle(
             style: textStyle.copyWith(
-              color: buttonColor.isLight() ? nesButtonTheme.darkLabelColor : nesButtonTheme.lightLabelColor,
+              color: buttonColor.isLight()
+                  ? nesButtonTheme.darkLabelColor
+                  : nesButtonTheme.lightLabelColor,
             ),
             child: Padding(
               padding: EdgeInsets.all(nesTheme.pixelSize * 4),

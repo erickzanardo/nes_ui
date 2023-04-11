@@ -15,7 +15,7 @@ extension PumpNessButton on WidgetTester {
         theme: flutterNesTheme(),
         home: NesButton(
           type: buttonType ?? NesButtonType.error,
-          onPressed: onPressed ?? () {},
+          onPressed: onPressed,
           child: child ?? const Text('The Child'),
         ),
       ),
@@ -39,10 +39,11 @@ void main() {
       expect(pressed, isTrue);
     });
 
-    group('reders correctly based on the NesButtonType', () {
+    group('renders correctly based on the NesButtonType', () {
       testWidgets('when [NesButtonType.normal]', (tester) async {
         await tester.pumpButton(
           buttonType: NesButtonType.normal,
+          onPressed: () {},
         );
 
         expect(find.byType(NesButton), findsOneWidget);
@@ -51,6 +52,7 @@ void main() {
       testWidgets('when [NesButtonType.success]', (tester) async {
         await tester.pumpButton(
           buttonType: NesButtonType.success,
+          onPressed: () {},
         );
 
         expect(find.byType(NesButton), findsOneWidget);
@@ -59,6 +61,7 @@ void main() {
       testWidgets('when [NesButtonType.error]', (tester) async {
         await tester.pumpButton(
           buttonType: NesButtonType.error,
+          onPressed: () {},
         );
 
         expect(find.byType(NesButton), findsOneWidget);
@@ -67,10 +70,38 @@ void main() {
       testWidgets('when [NesButtonType.warning]', (tester) async {
         await tester.pumpButton(
           buttonType: NesButtonType.warning,
+          onPressed: () {},
         );
 
         expect(find.byType(NesButton), findsOneWidget);
       });
+
+      testWidgets('when disabled', (tester) async {
+        await tester.pumpButton(
+          buttonType: NesButtonType.warning,
+        );
+
+        expect(find.byType(NesButton), findsOneWidget);
+      });
+
+      for (final buttonType in NesButtonType.values) {
+        goldenTest(
+          'renders layout',
+          builder: () => GoldenTestGroup(
+            children: [
+              GoldenTestScenario(
+                name: '[$buttonType]',
+                child: NesButton(
+                  onPressed: () {},
+                  type: buttonType,
+                  child: const Text('Child'),
+                ),
+              ),
+            ],
+          ),
+          fileName: 'nes_button/${buttonType.name}_button',
+        );
+      }
     });
 
     group('hover layout', () {
@@ -150,6 +181,23 @@ void main() {
           await tester.pump();
           return null;
         },
+      );
+
+      goldenTest(
+        'renders layout',
+        builder: () => GoldenTestGroup(
+          scenarioConstraints: const BoxConstraints(maxWidth: 600),
+          children: [
+            GoldenTestScenario(
+              name: 'when is disabled',
+              child: const NesButton(
+                type: NesButtonType.normal,
+                child: Text('child'),
+              ),
+            ),
+          ],
+        ),
+        fileName: 'nes_button/disabled_button',
       );
     });
   });
