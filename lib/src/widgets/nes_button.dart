@@ -45,7 +45,7 @@ class NesButton extends StatefulWidget {
     required this.type,
     required this.child,
     required this.onPressed,
-  }) : isDisabled = onPressed == null;
+  }) : _isDisabled = onPressed == null;
 
   /// Determines the colors used to render the button.
   final NesButtonType type;
@@ -57,7 +57,7 @@ class NesButton extends StatefulWidget {
   final VoidCallback? onPressed;
 
   /// Whether the button is disabled.
-  final bool isDisabled;
+  final bool _isDisabled;
 
   @override
   State<NesButton> createState() => _NesButtonState();
@@ -69,8 +69,7 @@ class _NesButtonState extends State<NesButton> {
 
   @override
   Widget build(BuildContext context) {
-    final textStyle =
-        Theme.of(context).textTheme.labelMedium ?? const TextStyle();
+    final textStyle = Theme.of(context).textTheme.labelMedium ?? const TextStyle();
 
     final nesTheme = context.nesThemeExtension<NesTheme>();
     final nesButtonTheme = context.nesThemeExtension<NesButtonTheme>();
@@ -100,14 +99,12 @@ class _NesButtonState extends State<NesButton> {
             color: buttonColor,
             borderColor: textStyle.color ?? Colors.black,
             pixelSize: nesTheme.pixelSize,
-            pressed: widget.isDisabled ? widget.isDisabled : _pressed,
-            hovered: widget.isDisabled ? widget.isDisabled : _hovered,
+            pressed: widget._isDisabled ? widget._isDisabled : _pressed,
+            hovered: widget._isDisabled ? widget._isDisabled : _hovered,
           ),
           child: DefaultTextStyle(
             style: textStyle.copyWith(
-              color: buttonColor.isLight()
-                  ? nesButtonTheme.darkLabelColor
-                  : nesButtonTheme.lightLabelColor,
+              color: buttonColor.isLight() ? nesButtonTheme.darkLabelColor : nesButtonTheme.lightLabelColor,
             ),
             child: Padding(
               padding: EdgeInsets.all(nesTheme.pixelSize * 4),
