@@ -254,6 +254,13 @@ class NesIcons {
       '8,8;3,-1;2,0;6,-1;2,0;14,-1;2,0;6,-1;2,0;14,-1;2,0;6,-1;2,0;3,-1',
     ),
   );
+
+  /// Three horizontal dots.
+  late final threeHorizontalDots = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;24,-1;2,0;1,-1;2,0;1,-1;4,0;1,-1;2,0;1,-1;2,0;24,-1',
+    ),
+  );
 }
 
 /// {@template nes_icon}

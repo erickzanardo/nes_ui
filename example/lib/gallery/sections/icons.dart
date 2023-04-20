@@ -141,6 +141,10 @@ class IconsSection extends StatelessWidget {
               data: NesIcons.instance.threeVerticalDots,
               label: 'threeVerticalDots',
             ),
+            _IconEntry(
+              data: NesIcons.instance.threeHorizontalDots,
+              label: 'threeHorizontalDots',
+            ),
           ],
         ),
       ],
