@@ -5,7 +5,7 @@ import 'package:nes_ui/nes_ui.dart';
 /// {@template nes_split_panel}
 /// A widget that splits the available space into multiple panes.
 ///
-/// It can have both a vertical or horizontal orientation and
+/// It can have either a vertical or horizontal orientation and
 /// the initial size of the panels can be specified in the [initialSizes]
 /// parameter.
 ///
