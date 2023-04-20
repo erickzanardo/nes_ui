@@ -66,7 +66,7 @@ class _NesSplitPanelState extends State<NesSplitPanel> {
         1 / widget.children.length,
       );
     } else {
-      _sizePoints = widget.initialSizes!;
+      _sizePoints = [...widget.initialSizes!];
     }
   }
 
