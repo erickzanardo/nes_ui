@@ -111,6 +111,59 @@ void main() {
       expect(rightPanelText, isNot(equals(updatedRightPanelText)));
     });
 
+    testWidgets('can resize with initial values', (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: flutterNesTheme(),
+          home: SizedBox(
+            width: 300,
+            height: 300,
+            child: NesSplitPanel(
+              initialSizes: const [.2, .8],
+              children: [
+                LayoutBuilder(
+                  builder: (context, constraints) {
+                    return Text(
+                      'W: ${constraints.maxWidth}',
+                      key: const Key('left_panel'),
+                    );
+                  },
+                ),
+                LayoutBuilder(
+                  builder: (context, constraints) {
+                    return Text(
+                      'W: ${constraints.maxWidth}',
+                      key: const Key('right_panel'),
+                    );
+                  },
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+
+      final leftPanelText =
+          tester.widget<Text>(find.byKey(const Key('left_panel'))).data;
+      final rightPanelText =
+          tester.widget<Text>(find.byKey(const Key('right_panel'))).data;
+
+      await tester.drag(
+        find.byType(NesIcon),
+        const Offset(-100, 0),
+      );
+
+      await tester.pumpAndSettle();
+
+      final updatedLeftPanelText =
+          tester.widget<Text>(find.byKey(const Key('left_panel'))).data;
+      final updatedRightPanelText =
+          tester.widget<Text>(find.byKey(const Key('right_panel'))).data;
+
+      expect(leftPanelText, isNot(equals(updatedLeftPanelText)));
+      expect(rightPanelText, isNot(equals(updatedRightPanelText)));
+    });
+
     testWidgets('can resize vertically', (tester) async {
       await tester.pumpWidget(
         MaterialApp(
