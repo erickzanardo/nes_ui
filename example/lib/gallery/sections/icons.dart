@@ -145,6 +145,14 @@ class IconsSection extends StatelessWidget {
               data: NesIcons.instance.threeHorizontalDots,
               label: 'threeHorizontalDots',
             ),
+            _IconEntry(
+              data: NesIcons.instance.newFile,
+              label: 'newFile',
+            ),
+            _IconEntry(
+              data: NesIcons.instance.saveFile,
+              label: 'saveFile',
+            ),
           ],
         ),
       ],

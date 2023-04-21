@@ -14,8 +14,8 @@ class TextFieldsSection extends StatelessWidget {
           style: theme.textTheme.displayMedium,
         ),
         const SizedBox(height: 16),
-        Column(
-          children: const [
+        const Column(
+          children: [
             TextField(),
             SizedBox(height: 16),
             TextField(
