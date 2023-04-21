@@ -269,6 +269,77 @@ class NesSelectionListTheme extends ThemeExtension<NesSelectionListTheme> {
   }
 }
 
+/// {@template nes_button_theme}
+/// Class with information regarding buttons inside Flutter Nes.
+/// {@endtemplate}
+class NesSnackbarTheme extends ThemeExtension<NesSnackbarTheme> {
+  /// {@macro nes_button_theme}
+  const NesSnackbarTheme({
+    required this.normal,
+    required this.success,
+    required this.warning,
+    required this.error,
+  });
+
+  /// The color for the normal type of the snackbar.
+  final Color normal;
+
+  /// The color for the success type of the snackbar.
+  final Color success;
+
+  /// The color for the warning type of the snackbar.
+  final Color warning;
+
+  /// The color for the error type of the snackbar.
+  final Color error;
+
+  @override
+  NesSnackbarTheme copyWith({
+    Color? normal,
+    Color? success,
+    Color? warning,
+    Color? error,
+  }) {
+    return NesSnackbarTheme(
+      normal: normal ?? this.normal,
+      success: success ?? this.success,
+      warning: warning ?? this.warning,
+      error: error ?? this.error,
+    );
+  }
+
+  @override
+  ThemeExtension<NesSnackbarTheme> lerp(
+    ThemeExtension<NesSnackbarTheme>? other,
+    double t,
+  ) {
+    final otherExt = other as NesSnackbarTheme?;
+
+    return NesSnackbarTheme(
+      normal: ColorTween(
+            begin: normal,
+            end: otherExt?.normal,
+          ).lerp(t) ??
+          normal,
+      success: ColorTween(
+            begin: success,
+            end: otherExt?.success,
+          ).lerp(t) ??
+          success,
+      warning: ColorTween(
+            begin: warning,
+            end: otherExt?.warning,
+          ).lerp(t) ??
+          warning,
+      error: ColorTween(
+            begin: error,
+            end: otherExt?.error,
+          ).lerp(t) ??
+          error,
+    );
+  }
+}
+
 /// Helper methods on [BuildContext] for the Flutter Nes.
 extension NesBuildContext on BuildContext {
   /// Returns the extension of type [T] from the context.
@@ -310,6 +381,12 @@ ThemeData flutterNesTheme({
     itemMinHeight: 32,
   ),
   NesOverlayTransitionTheme? nesOverlayTransitionTheme,
+  NesSnackbarTheme nesSnackbarTheme = const NesSnackbarTheme(
+    normal: Color(0xffffffff),
+    success: Color(0xff92cc41),
+    warning: Color(0xfff7d51d),
+    error: Color(0xffe76e55),
+  ),
   Iterable<ThemeExtension<dynamic>> customExtensions = const [],
 }) {
   final iconTheme = nesIconTheme ??
@@ -337,6 +414,7 @@ ThemeData flutterNesTheme({
       iconTheme,
       nesSelectionListTheme,
       overlayTransitionTheme,
+      nesSnackbarTheme,
       ...customExtensions,
     ],
   );
