@@ -9,6 +9,7 @@
  - feat: add `NesTabView`
  - feat: Update `NesButton` widget to enable/disable based on onPressed value
  - feat: add `NesSplitPanel`
+ - feat: add `NesSnackbar`
 
 # 0.5.0
 
