@@ -15,8 +15,8 @@ class CheckBoxesSection extends StatelessWidget {
           style: theme.textTheme.displayMedium,
         ),
         const SizedBox(height: 16),
-        Wrap(
-          children: const [
+        const Wrap(
+          children: [
             NesCheckBox(
               value: true,
             ),
