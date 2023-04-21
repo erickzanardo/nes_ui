@@ -6,7 +6,7 @@ extension NesUIScreenSizeTester on WidgetTester {
   Future<void> setDisplaySize(Size size) async {
     await binding.setSurfaceSize(size);
     addTearDown(() {
-      binding.window.clearPhysicalSizeTestValue();
+      view.resetPhysicalSize();
     });
   }
 }
