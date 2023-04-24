@@ -10,6 +10,7 @@
  - feat: Update `NesButton` widget to enable/disable based on onPressed value
  - feat: add `NesSplitPanel`
  - feat: add `NesSnackbar`
+ - fix: `NesFileExplorer` entries update.
 
 # 0.5.0
 

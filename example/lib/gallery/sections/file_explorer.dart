@@ -1,8 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:nes_ui/nes_ui.dart';
 
-class FileExplorerSection extends StatelessWidget {
+class FileExplorerSection extends StatefulWidget {
   const FileExplorerSection({super.key});
+
+  @override
+  State<FileExplorerSection> createState() => _FileExplorerSectionState();
+}
+
+class _FileExplorerSectionState extends State<FileExplorerSection> {
+  var _wasAdded = false;
+  var _entries = [
+    const NesFolder('/assets'),
+    const NesFolder('/assets/images'),
+    const NesFile('/assets/images/sprite-sheet.png'),
+    const NesFile('/assets/images/char.png'),
+    const NesFolder('/assets/music'),
+    const NesFile('/assets/music/battle.mp3'),
+    const NesFile('/assets/music/title.mp3'),
+    const NesFile('/assets/LICENSE'),
+    const NesFolder('/src'),
+    const NesFile('/src/char.dart'),
+    const NesFile('/src/map.dart'),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -18,23 +38,39 @@ class FileExplorerSection extends StatelessWidget {
         NesContainer(
           height: 300,
           width: 600,
-          child: NesSingleChildScrollView(
-            child: NesFileExplorer(
-              onOpenFile: (_) {},
-              entries: const [
-                NesFolder('/assets'),
-                NesFolder('/assets/images'),
-                NesFile('/assets/images/sprite-sheet.png'),
-                NesFile('/assets/images/char.png'),
-                NesFolder('/assets/music'),
-                NesFile('/assets/music/battle.mp3'),
-                NesFile('/assets/music/title.mp3'),
-                NesFile('/assets/LICENSE'),
-                NesFolder('/src'),
-                NesFile('/src/char.dart'),
-                NesFile('/src/map.dart'),
-              ],
-            ),
+          child: Stack(
+            children: [
+              Positioned.fill(
+                child: NesSingleChildScrollView(
+                  child: NesFileExplorer(
+                    onOpenFile: (_) {},
+                    entries: _entries,
+                  ),
+                ),
+              ),
+              if (!_wasAdded)
+                Positioned(
+                  left: 0,
+                  bottom: 0,
+                  child: NesIconButton(
+                    icon: NesIcons.instance.newFile,
+                    onPress: () {
+                      setState(() {
+                        _wasAdded = true;
+                        _entries = [
+                          ..._entries,
+                          const NesFile('/src/new_char.dart'),
+                        ];
+                      });
+                      NesSnackbar.show(
+                        context,
+                        text: 'Added new file: /src/new_char.dart',
+                        type: NesSnackbarType.success,
+                      );
+                    },
+                  ),
+                ),
+            ],
           ),
         ),
       ],

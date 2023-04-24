@@ -26,6 +26,49 @@ void main() {
       expect(find.text('LICENSE'), findsOneWidget);
     });
 
+    testWidgets('entries can be added to the entries', (tester) async {
+      var entries = [
+        const NesFolder('/assets'),
+        const NesFile('/LICENSE'),
+      ];
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: flutterNesTheme(),
+          home: StatefulBuilder(
+            builder: (context, setState) {
+              return Row(
+                children: [
+                  NesFileExplorer(
+                    onOpenFile: (_) {},
+                    entries: entries,
+                  ),
+                  NesButton(
+                    type: NesButtonType.primary,
+                    onPressed: () {
+                      setState(() {
+                        entries = [
+                          ...entries,
+                          const NesFile('/new_char'),
+                        ];
+                      });
+                    },
+                    child: const Text('Add'),
+                  ),
+                ],
+              );
+            },
+          ),
+        ),
+      );
+
+      await tester.tap(find.text('Add'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('assets'), findsOneWidget);
+      expect(find.text('LICENSE'), findsOneWidget);
+      expect(find.text('new_char'), findsOneWidget);
+    });
+
     testWidgets('can select a root file', (tester) async {
       NesFile? selectedFile;
       await tester.pumpWidget(

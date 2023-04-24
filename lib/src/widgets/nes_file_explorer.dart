@@ -76,17 +76,14 @@ class _NesFileExplorerState extends State<NesFileExplorer> {
   final Map<String, List<NesFileEntity>> _files = {};
   final List<NesFileEntity> _root = [];
 
-  List<String> openFolders = [];
+  List<String> _openFolders = [];
 
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-
-    widget.entries.whereType<NesFolder>().forEach((directory) {
+  void _loadEntries(List<NesFileEntity> entries) {
+    entries.whereType<NesFolder>().forEach((directory) {
       _files[directory.path] = [];
     });
 
-    for (final entry in widget.entries) {
+    for (final entry in entries) {
       final parent = entry.parentPath();
       if (_files.containsKey(parent)) {
         _files[parent]!.add(entry);
@@ -96,18 +93,39 @@ class _NesFileExplorerState extends State<NesFileExplorer> {
     }
   }
 
-  void _onToggleFolder(NesFolder folder) {
-    if (openFolders.contains(folder.path)) {
+  @override
+  void initState() {
+    super.initState();
+    _loadEntries(widget.entries);
+  }
+
+  @override
+  void didUpdateWidget(NesFileExplorer oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    if (oldWidget.entries != widget.entries) {
+      _root.clear();
+      _files.clear();
+
       setState(() {
-        openFolders = [
-          ...openFolders.where((path) => path != folder.path),
+        _loadEntries(widget.entries);
+        _openFolders.removeWhere((path) => !_files.containsKey(path));
+      });
+    }
+  }
+
+  void _onToggleFolder(NesFolder folder) {
+    if (_openFolders.contains(folder.path)) {
+      setState(() {
+        _openFolders = [
+          ..._openFolders.where((path) => path != folder.path),
         ];
       });
     } else {
       setState(() {
-        openFolders = [
+        _openFolders = [
           folder.path,
-          ...openFolders,
+          ..._openFolders,
         ];
       });
     }
@@ -123,7 +141,7 @@ class _NesFileExplorerState extends State<NesFileExplorer> {
             entry: entry,
             onOpenFile: widget.onOpenFile,
             onToggleFolder: _onToggleFolder,
-            openFolders: openFolders,
+            openFolders: _openFolders,
             files: _files,
           ),
       ],
