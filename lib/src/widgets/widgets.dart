@@ -17,3 +17,4 @@ export 'nes_snackbar.dart';
 export 'nes_split_panel.dart';
 export 'nes_tab.dart';
 export 'nes_tab_view.dart';
+export 'nes_window.dart';

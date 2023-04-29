@@ -16,3 +16,4 @@ export 'split_panel.dart';
 export 'tab_view.dart';
 export 'text_fields.dart';
 export 'texts.dart';
+export 'windows.dart';

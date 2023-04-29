@@ -12,6 +12,8 @@
  - feat: add `NesSnackbar`
  - fix: `NesFileExplorer` entries update.
  - feat: Add disabled state to `NesIconButton`.
+ - feat: Add option to individual custom color for `NesIcon`s.
+ - feat: Add `NesWindow`.
 
 # 0.5.0
 
