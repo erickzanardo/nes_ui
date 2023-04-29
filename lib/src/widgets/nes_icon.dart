@@ -288,6 +288,8 @@ class NesIcon extends StatelessWidget {
     super.key,
     required this.iconData,
     this.size,
+    this.primaryColor,
+    this.secondaryColor,
   });
 
   /// Data of this icon.
@@ -298,6 +300,14 @@ class NesIcon extends StatelessWidget {
   /// When ommited the icon will be in its "original"
   /// size concerning the current pixel size of the theme.
   final Size? size;
+
+  /// Optional primary color for the icon.
+  /// Will use value from the theme if none is provided.
+  final Color? primaryColor;
+
+  /// Optional secondary color for the icon.
+  /// Will use value from the theme if none is provided.
+  final Color? secondaryColor;
 
   @override
   Widget build(BuildContext context) {
@@ -319,7 +329,10 @@ class NesIcon extends StatelessWidget {
 
     return MiniSpriteWidget(
       pixelSize: pixelSize,
-      palette: [nesIconTheme.primary, nesIconTheme.secondary],
+      palette: [
+        primaryColor ?? nesIconTheme.primary,
+        secondaryColor ?? nesIconTheme.secondary,
+      ],
       sprite: iconData.sprite,
     );
   }
