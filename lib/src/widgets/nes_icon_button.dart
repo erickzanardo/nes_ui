@@ -30,13 +30,19 @@ class NesIconButton extends StatelessWidget {
   /// An optional size for the icon button.
   final Size? size;
 
+  bool _isDisabled() =>
+      onPress == null && onPressStart == null && onPressEnd == null;
+
   @override
   Widget build(BuildContext context) {
     return NesPressable(
       onPress: onPress,
       onPressStart: onPressStart,
       onPressEnd: onPressEnd,
-      child: NesIcon(iconData: icon, size: size),
+      child: Opacity(
+        opacity: _isDisabled() ? .2 : 1.0,
+        child: NesIcon(iconData: icon, size: size),
+      ),
     );
   }
 }

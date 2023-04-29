@@ -11,6 +11,7 @@
  - feat: add `NesSplitPanel`
  - feat: add `NesSnackbar`
  - fix: `NesFileExplorer` entries update.
+ - feat: Add disabled state to `NesIconButton`.
 
 # 0.5.0
 
