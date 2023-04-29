@@ -41,6 +41,10 @@ class IconButtonsSection extends StatelessWidget {
             _IconEntry(
               data: NesIcons.instance.redo,
             ),
+            _IconEntry(
+              data: NesIcons.instance.redo,
+              disabled: true,
+            ),
           ],
         ),
       ],
@@ -51,15 +55,17 @@ class IconButtonsSection extends StatelessWidget {
 class _IconEntry extends StatelessWidget {
   const _IconEntry({
     required this.data,
+    this.disabled = false,
   });
 
   final NesIconData data;
+  final bool disabled;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8),
-      child: NesIconButton(icon: data, onPress: () {}),
+      child: NesIconButton(icon: data, onPress: disabled ? null : () {}),
     );
   }
 }
