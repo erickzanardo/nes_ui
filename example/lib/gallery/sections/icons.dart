@@ -153,6 +153,14 @@ class IconsSection extends StatelessWidget {
               data: NesIcons.instance.saveFile,
               label: 'saveFile',
             ),
+            _IconEntry(
+              data: NesIcons.instance.openEye,
+              label: 'openEye',
+            ),
+            _IconEntry(
+              data: NesIcons.instance.closedEye,
+              label: 'closedEye',
+            ),
           ],
         ),
       ],

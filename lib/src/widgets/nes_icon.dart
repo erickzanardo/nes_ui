@@ -275,6 +275,20 @@ class NesIcons {
       '8,8;7,0;1,-1;2,0;2,1;1,0;1,1;4,0;4,1;11,0;6,1;2,0;6,1;2,0;6,1;9,0',
     ),
   );
+
+  /// Open eye.
+  late final openEye = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;10,-1;4,0;3,-1;1,0;4,1;1,0;1,-1;1,0;2,1;2,0;2,1;2,0;2,1;2,0;2,1;3,0;4,1;2,0;1,-1;6,0;3,-1;4,0;2,-1',
+    ),
+  );
+
+  /// Closed eye.
+  late final closedEye = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;10,-1;4,0;3,-1;6,0;1,-1;18,0;1,1;2,0;1,1;2,0;1,-1;6,0;3,-1;4,0;2,-1',
+    ),
+  );
 }
 
 /// {@template nes_icon}
