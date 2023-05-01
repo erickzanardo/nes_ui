@@ -4,6 +4,8 @@
  - feat: add `NesIcons.threeHorizontalDots`
  - feat: add `NesIcons.newFile`
  - feat: add `NesIcons.saveFile`
+ - feat: add `NesIcons.openEye`
+ - feat: add `NesIcons.closedEye`
  - fix: `NesScrollbar` has the wrong border colors
  - feat: add `NesSingleChildScrollview.clipContent`
  - feat: add `NesTabView`
