@@ -16,6 +16,7 @@
  - feat: Add disabled state to `NesIconButton`.
  - feat: Add option to individual custom color for `NesIcon`s.
  - feat: Add `NesWindow`.
+ - feat: Add `NesDropshadow`.
 
 # 0.5.0
 
