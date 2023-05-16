@@ -17,6 +17,7 @@
  - feat: Add option to individual custom color for `NesIcon`s.
  - feat: Add `NesWindow`.
  - feat: Add `NesDropshadow`.
+ - feat: Upgrade to Flutter 3.10.0.
 
 # 0.5.0
 
