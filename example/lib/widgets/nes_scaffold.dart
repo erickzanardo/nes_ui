@@ -1,4 +1,5 @@
 import 'package:example/advanced/rpg_menu/rpg_menu.dart';
+import 'package:example/advanced/window_manager/window_manager.dart';
 import 'package:example/app/app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,6 +21,16 @@ class NesScaffold extends StatelessWidget {
       floatingActionButton: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
+          NesButton(
+            type: NesButtonType.normal,
+            onPressed: () {
+              Navigator.of(context).push(
+                WindowManagerPage.route(),
+              );
+            },
+            child: NesIcon(iconData: NesIcons.instance.window),
+          ),
+          const SizedBox(height: 16),
           NesButton(
             type: NesButtonType.normal,
             onPressed: () {

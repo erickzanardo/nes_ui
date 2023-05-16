@@ -18,6 +18,8 @@
  - feat: Add `NesWindow`.
  - feat: Add `NesDropshadow`.
  - feat: Upgrade to Flutter 3.10.0.
+ - feat: add `NesIcons.window`
+ - feat: add `NesIcons.textFile`
 
 # 0.5.0
 
