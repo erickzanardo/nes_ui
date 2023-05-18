@@ -169,6 +169,10 @@ class IconsSection extends StatelessWidget {
               data: NesIcons.instance.textFile,
               label: 'textFile',
             ),
+            _IconEntry(
+              data: NesIcons.instance.download,
+              label: 'download',
+            ),
           ],
         ),
       ],

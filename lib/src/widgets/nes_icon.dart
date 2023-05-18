@@ -303,6 +303,13 @@ class NesIcons {
       '8,8;6,0;2,-1;7,0;1,-1;2,0;4,1;12,0;4,1;12,0;4,1;10,0',
     ),
   );
+
+  /// Download file
+  late final download = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;3,-1;2,0;6,-1;2,0;4,-1;1,0;1,-1;2,0;1,-1;1,0;2,-1;6,0;3,-1;4,0;5,-1;2,0;11,-1;8,0',
+    ),
+  );
 }
 
 /// {@template nes_icon}

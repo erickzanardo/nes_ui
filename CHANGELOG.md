@@ -1,3 +1,7 @@
+# 0.7.0
+
+ - feat: add `NesIcons.download`
+
 # 0.6.0
 
  - feat: add `NesIcons.threeVerticalDots`
