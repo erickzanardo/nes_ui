@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:nes_ui/nes_ui.dart';
 
@@ -46,6 +49,13 @@ class NesWindow extends StatelessWidget {
 
   /// The window child.
   final Widget? child;
+
+  MouseCursor _cursorFallback(MouseCursor cursor) {
+    if (!kIsWeb && Platform.isMacOS) {
+      return SystemMouseCursors.grab;
+    }
+    return cursor;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -116,7 +126,7 @@ class NesWindow extends StatelessWidget {
             titleBar
           else
             MouseRegion(
-              cursor: SystemMouseCursors.move,
+              cursor: _cursorFallback(SystemMouseCursors.move),
               child: GestureDetector(
                 onPanUpdate: (details) {
                   onMove?.call(details.delta);
@@ -144,7 +154,9 @@ class NesWindow extends StatelessWidget {
               top: 0,
               left: 0,
               child: _ResizeHandler(
-                cursor: SystemMouseCursors.resizeUpLeft,
+                cursor: _cursorFallback(
+                  SystemMouseCursors.resizeUpLeftDownRight,
+                ),
                 width: 12,
                 height: 12,
                 handleDelta: (offset) {
@@ -166,7 +178,9 @@ class NesWindow extends StatelessWidget {
               top: 0,
               right: 0,
               child: _ResizeHandler(
-                cursor: SystemMouseCursors.resizeUpRight,
+                cursor: _cursorFallback(
+                  SystemMouseCursors.resizeUpRightDownLeft,
+                ),
                 width: 12,
                 height: 12,
                 handleDelta: (offset) {
@@ -188,7 +202,9 @@ class NesWindow extends StatelessWidget {
               bottom: 0,
               left: 0,
               child: _ResizeHandler(
-                cursor: SystemMouseCursors.resizeDownLeft,
+                cursor: _cursorFallback(
+                  SystemMouseCursors.resizeUpRightDownLeft,
+                ),
                 width: 12,
                 height: 12,
                 handleDelta: (offset) {
@@ -210,7 +226,9 @@ class NesWindow extends StatelessWidget {
               bottom: 0,
               right: 0,
               child: _ResizeHandler(
-                cursor: SystemMouseCursors.resizeDownRight,
+                cursor: _cursorFallback(
+                  SystemMouseCursors.resizeUpLeftDownRight,
+                ),
                 width: 12,
                 height: 12,
                 handleDelta: (offset) {
