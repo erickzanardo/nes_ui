@@ -1,6 +1,7 @@
 # 0.7.0
 
  - feat: add `NesIcons.download`
+ - fix: add icon fallbacks for MacOS on `NesWindow`.
 
 # 0.6.0
 
