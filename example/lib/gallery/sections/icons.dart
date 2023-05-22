@@ -173,6 +173,14 @@ class IconsSection extends StatelessWidget {
               data: NesIcons.instance.download,
               label: 'download',
             ),
+            _IconEntry(
+              data: NesIcons.instance.zoomIn,
+              label: 'zoomIn',
+            ),
+            _IconEntry(
+              data: NesIcons.instance.zoomOut,
+              label: 'zoomOut',
+            ),
           ],
         ),
       ],

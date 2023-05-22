@@ -2,6 +2,8 @@
 
  - feat: add `NesIcons.download`
  - fix: add icon fallbacks for MacOS on `NesWindow`.
+ - feat: add `NesIcons.zoomIn`
+ - feat: add `NesIcons.zoomOut`
 
 # 0.6.0
 
