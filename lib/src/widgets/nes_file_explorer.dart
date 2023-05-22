@@ -185,6 +185,13 @@ class _Entry extends StatelessWidget {
         return NesIcons.instance.gallery;
       case 'dart':
         return NesIcons.instance.dartLang;
+      case 'txt':
+        return NesIcons.instance.textFile;
+      case 'yml':
+      case 'yaml':
+        return NesIcons.instance.yamlFile;
+      case 'xml':
+        return NesIcons.instance.xmlFile;
       default:
         return NesIcons.instance.questionMark;
     }
