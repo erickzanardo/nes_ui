@@ -181,6 +181,14 @@ class IconsSection extends StatelessWidget {
               data: NesIcons.instance.zoomOut,
               label: 'zoomOut',
             ),
+            _IconEntry(
+              data: NesIcons.instance.yamlFile,
+              label: 'yamlFile',
+            ),
+            _IconEntry(
+              data: NesIcons.instance.xmlFile,
+              label: 'xmlFile',
+            ),
           ],
         ),
       ],
