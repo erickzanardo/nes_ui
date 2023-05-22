@@ -22,6 +22,10 @@ class _FileExplorerSectionState extends State<FileExplorerSection> {
     const NesFolder('/src'),
     const NesFile('/src/char.dart'),
     const NesFile('/src/map.dart'),
+    const NesFile('/pubspec.yaml'),
+    const NesFile('/ci.yml'),
+    const NesFolder('/android'),
+    const NesFile('/android/AndroidManifest.xml'),
   ];
 
   @override
