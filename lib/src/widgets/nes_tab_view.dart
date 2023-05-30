@@ -91,22 +91,18 @@ class _NesTabViewState extends State<NesTabView> {
           ),
         ),
         Expanded(
-          child: Stack(
+          child: IndexedStack(
+            index: _selectedIndex,
             children: [
               for (var i = 0; i < widget.tabs.length; i++)
-                Positioned.fill(
-                  child: Visibility(
-                    visible: _selectedIndex == i,
-                    child: CustomPaint(
-                      painter: _NesTabViewPainter(
-                        color: textStyle.color ?? Colors.black,
-                        pixelSize: nesTheme.pixelSize.toDouble(),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.all(nesTheme.pixelSize.toDouble()),
-                        child: widget.tabs[i].child,
-                      ),
-                    ),
+                CustomPaint(
+                  painter: _NesTabViewPainter(
+                    color: textStyle.color ?? Colors.black,
+                    pixelSize: nesTheme.pixelSize.toDouble(),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.all(nesTheme.pixelSize.toDouble()),
+                    child: widget.tabs[i].child,
                   ),
                 ),
             ],
