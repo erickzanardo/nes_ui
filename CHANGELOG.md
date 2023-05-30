@@ -6,6 +6,7 @@
  - feat: add `NesIcons.zoomOut`
  - feat: add `NesIcons.yamlFile`
  - feat: add `NesIcons.xmlFile`
+ - fix: `NesTabView` didn't keept state on tab change.
 
 # 0.6.0
 
