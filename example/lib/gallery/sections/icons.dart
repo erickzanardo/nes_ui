@@ -189,6 +189,14 @@ class IconsSection extends StatelessWidget {
               data: NesIcons.instance.xmlFile,
               label: 'xmlFile',
             ),
+            _IconEntry(
+              data: NesIcons.instance.exclamationMarkBlock,
+              label: 'exclamationMarkBlock',
+            ),
+            _IconEntry(
+              data: NesIcons.instance.questionMarkBlock,
+              label: 'questionMarkBlock',
+            ),
           ],
         ),
       ],
