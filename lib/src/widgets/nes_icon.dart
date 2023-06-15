@@ -338,6 +338,20 @@ class NesIcons {
       '8,8;6,0;2,-1;7,0;1,-1;2,0;1,1;2,0;1,1;3,0;1,1;4,0;1,1;2,0;1,1;4,0;1,1;3,0;1,1;2,0;1,1;18,0',
     ),
   );
+
+  /// Exclamation mark block
+  late final exclamationMarkBlock = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;1,-1;6,0;1,-1;3,0;2,1;6,0;2,1;6,0;2,1;6,0;2,1;14,0;2,1;3,0;1,-1;6,0;1,-1',
+    ),
+  );
+
+  /// Question mark block
+  late final questionMarkBlock = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;1,-1;6,0;1,-1;2,0;4,1;4,0;1,1;2,0;1,1;6,0;2,1;5,0;2,1;14,0;2,1;3,0;1,-1;6,0;1,-1',
+    ),
+  );
 }
 
 /// {@template nes_icon}

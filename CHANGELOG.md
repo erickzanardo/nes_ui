@@ -7,6 +7,8 @@
  - feat: add `NesIcons.yamlFile`
  - feat: add `NesIcons.xmlFile`
  - fix: `NesTabView` didn't keept state on tab change.
+ - feat: add `NesIcons.exclamationMarkBlock`
+ - feat: add `NesIcons.questionMarkBlock`
 
 # 0.6.0
 
