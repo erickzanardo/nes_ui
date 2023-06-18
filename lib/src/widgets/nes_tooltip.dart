@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/semantics.dart';
 import 'package:nes_ui/nes_ui.dart';
 
 /// Enum with the possible placements for the arrow of the tooltip.
@@ -110,6 +111,19 @@ class _TooltipPainter extends CustomPainter {
   final TextStyle textStyle;
   final Color textColor;
   final String message;
+
+  @override
+  SemanticsBuilderCallback? get semanticsBuilder => (size) {
+        return [
+          CustomPainterSemantics(
+            rect: Rect.fromLTWH(0, 0, size.width, size.height),
+            properties: SemanticsProperties(
+              label: message,
+              textDirection: TextDirection.ltr,
+            ),
+          ),
+        ];
+      };
 
   @override
   void paint(Canvas canvas, Size childSize) {
