@@ -340,6 +340,57 @@ class NesSnackbarTheme extends ThemeExtension<NesSnackbarTheme> {
   }
 }
 
+/// {@template nes_tooltip_theme}
+/// Class with information regarding tooltips inside NesUI.
+/// {@endtemplate}
+class NesTooltipTheme extends ThemeExtension<NesTooltipTheme> {
+  /// {@macro nes_tooltip_theme}
+  const NesTooltipTheme({
+    required this.background,
+    required this.textColor,
+  });
+
+  /// The color for the tooltip background.
+  /// Defaults to TextTheme.bodyMedium.
+  final Color background;
+
+  /// The color for the text message.
+  /// Defaults to  Theme.background.
+  final Color textColor;
+
+  @override
+  NesTooltipTheme copyWith({
+    Color? background,
+    Color? textColor,
+  }) {
+    return NesTooltipTheme(
+      background: background ?? this.background,
+      textColor: textColor ?? this.textColor,
+    );
+  }
+
+  @override
+  ThemeExtension<NesTooltipTheme> lerp(
+    ThemeExtension<NesTooltipTheme>? other,
+    double t,
+  ) {
+    final otherExt = other as NesTooltipTheme?;
+
+    return NesTooltipTheme(
+      background: ColorTween(
+            begin: background,
+            end: otherExt?.background,
+          ).lerp(t) ??
+          background,
+      textColor: ColorTween(
+            begin: textColor,
+            end: otherExt?.textColor,
+          ).lerp(t) ??
+          textColor,
+    );
+  }
+}
+
 /// Helper methods on [BuildContext] for the Flutter Nes.
 extension NesBuildContext on BuildContext {
   /// Returns the extension of type [T] from the context.
@@ -387,6 +438,7 @@ ThemeData flutterNesTheme({
     warning: Color(0xfff7d51d),
     error: Color(0xffe76e55),
   ),
+  NesTooltipTheme? nesTooltipTheme,
   Iterable<ThemeExtension<dynamic>> customExtensions = const [],
 }) {
   final iconTheme = nesIconTheme ??
@@ -408,6 +460,20 @@ ThemeData flutterNesTheme({
   final themeData = ThemeData(
     brightness: brightness,
     colorSchemeSeed: primaryColor,
+  );
+
+  final textTheme = GoogleFonts.pressStart2pTextTheme(
+    themeData.textTheme,
+  );
+
+  final toolTipTheme = nesTooltipTheme ??
+      NesTooltipTheme(
+        background: textTheme.bodyMedium?.color ?? Colors.black,
+        textColor: themeData.colorScheme.background,
+      );
+
+  return themeData.copyWith(
+    textTheme: textTheme,
     extensions: [
       nesTheme,
       nesButtonTheme,
@@ -415,16 +481,9 @@ ThemeData flutterNesTheme({
       nesSelectionListTheme,
       overlayTransitionTheme,
       nesSnackbarTheme,
+      toolTipTheme,
       ...customExtensions,
     ],
-  );
-
-  final textTheme = GoogleFonts.pressStart2pTextTheme(
-    themeData.textTheme,
-  );
-
-  return themeData.copyWith(
-    textTheme: textTheme,
     dividerTheme: DividerThemeData(
       thickness: nesTheme.pixelSize.toDouble(),
       color: textTheme.bodyMedium?.color,

@@ -9,6 +9,7 @@
  - fix: `NesTabView` didn't keept state on tab change.
  - feat: add `NesIcons.exclamationMarkBlock`
  - feat: add `NesIcons.questionMarkBlock`
+ - feat: add `NesTooltip`
 
 # 0.6.0
 
