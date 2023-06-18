@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_mini_sprite: ^0.0.1
-  google_fonts: ">=4.0.3 <5.0.0"
+  google_fonts: ">=4.0.3 <6.0.0"
   mini_sprite: ^0.1.0
   phased: ^0.0.3
 
