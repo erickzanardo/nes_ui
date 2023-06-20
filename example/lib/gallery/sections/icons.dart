@@ -197,6 +197,26 @@ class IconsSection extends StatelessWidget {
               data: NesIcons.instance.questionMarkBlock,
               label: 'questionMarkBlock',
             ),
+            _IconEntry(
+              data: NesIcons.instance.leftHand,
+              label: 'leftHand',
+            ),
+            _IconEntry(
+              data: NesIcons.instance.rightHand,
+              label: 'rightHand',
+            ),
+            _IconEntry(
+              data: NesIcons.instance.helm,
+              label: 'helm',
+            ),
+            _IconEntry(
+              data: NesIcons.instance.upperArmor,
+              label: 'upperArmor',
+            ),
+            _IconEntry(
+              data: NesIcons.instance.lowerArmor,
+              label: 'lowerArmor',
+            ),
           ],
         ),
       ],
