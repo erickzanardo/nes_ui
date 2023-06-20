@@ -1,3 +1,10 @@
+# 0.8.0
+ - feat: add `NesIcons.leftHand`
+ - feat: add `NesIcons.rightHand`
+ - feat: add `NesIcons.helm`
+ - feat: add `NesIcons.upperArmor`
+ - feat: add `NesIcons.lowerArmor`
+
 # 0.7.0
 
  - feat: add `NesIcons.download`
