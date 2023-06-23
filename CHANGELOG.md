@@ -4,6 +4,7 @@
  - feat: add `NesIcons.helm`
  - feat: add `NesIcons.upperArmor`
  - feat: add `NesIcons.lowerArmor`
+ - feat: add `NesIcons.exchange`
 
 # 0.7.0
 

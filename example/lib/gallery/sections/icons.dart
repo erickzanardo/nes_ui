@@ -217,6 +217,10 @@ class IconsSection extends StatelessWidget {
               data: NesIcons.instance.lowerArmor,
               label: 'lowerArmor',
             ),
+            _IconEntry(
+              data: NesIcons.instance.exchange,
+              label: 'exchange',
+            ),
           ],
         ),
       ],
