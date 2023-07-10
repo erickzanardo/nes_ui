@@ -5,6 +5,8 @@
  - feat: add `NesIcons.upperArmor`
  - feat: add `NesIcons.lowerArmor`
  - feat: add `NesIcons.exchange`
+ - feat: add `NesVerticalGridTransition`
+ - feat: add `NesHorizontalGridTransition`
 
 # 0.7.0
 
