@@ -58,6 +58,34 @@ class ScreenTransitionsSection extends StatelessWidget {
                 );
               },
             ),
+            const SizedBox(width: 16),
+            NesButton(
+              type: NesButtonType.normal,
+              child: const Text('Horizontal Grid'),
+              onPressed: () {
+                Navigator.of(context).push(
+                  NesHorizontalGridTransition.route<void>(
+                    pageBuilder: (_, __, ___) {
+                      return _MockPage();
+                    },
+                  ),
+                );
+              },
+            ),
+            const SizedBox(width: 16),
+            NesButton(
+              type: NesButtonType.normal,
+              child: const Text('Vertical Grid'),
+              onPressed: () {
+                Navigator.of(context).push(
+                  NesVerticalGridTransition.route<void>(
+                    pageBuilder: (_, __, ___) {
+                      return _MockPage();
+                    },
+                  ),
+                );
+              },
+            ),
           ],
         ),
       ],
