@@ -7,6 +7,7 @@
  - feat: add `NesIcons.exchange`
  - feat: add `NesVerticalGridTransition`
  - feat: add `NesHorizontalGridTransition`
+ - feat: change `NesTabView` to hide close icons when no handler is informed
 
 # 0.7.0
 

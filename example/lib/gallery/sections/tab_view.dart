@@ -16,6 +16,13 @@ class TabViewSection extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         const _Example(),
+        const SizedBox(height: 16),
+        Text(
+          'Non closable TabView',
+          style: theme.textTheme.displayMedium,
+        ),
+        const SizedBox(height: 16),
+        const _NonClosableExample(),
       ],
     );
   }
@@ -72,6 +79,33 @@ class _ExampleState extends State<_Example> {
           },
         ),
       ],
+    );
+  }
+}
+
+class _NonClosableExample extends StatelessWidget {
+  const _NonClosableExample();
+
+  @override
+  Widget build(BuildContext context) {
+    return const SizedBox(
+      height: 350,
+      child: NesTabView(
+        tabs: [
+          NesTabItem(
+            child: Center(child: Text('Tab 1')),
+            label: 'Tab 1',
+          ),
+          NesTabItem(
+            child: Center(child: Text('Tab 2')),
+            label: 'Tab 2',
+          ),
+          NesTabItem(
+            child: Center(child: Text('Tab 3')),
+            label: 'Tab 3',
+          ),
+        ],
+      ),
     );
   }
 }

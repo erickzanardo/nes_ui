@@ -73,9 +73,11 @@ class _NesTabViewState extends State<NesTabView> {
               });
               widget.onTabChanged?.call(index);
             },
-            onClosed: () {
-              widget.onTabClosed?.call(index);
-            },
+            onClosed: widget.onTabClosed != null
+                ? () {
+                    widget.onTabClosed?.call(index);
+                  }
+                : null,
           ),
         );
       },
