@@ -49,14 +49,15 @@ class NesTab extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 16),
                 child: Text(tab.label),
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 16),
-                child: NesIconButton(
-                  size: const Size.square(24),
-                  icon: NesIcons.instance.close,
-                  onPress: onClosed,
+              if (onClosed != null)
+                Padding(
+                  padding: const EdgeInsets.only(right: 16),
+                  child: NesIconButton(
+                    size: const Size.square(24),
+                    icon: NesIcons.instance.close,
+                    onPress: onClosed,
+                  ),
                 ),
-              ),
             ],
           ),
         ),
