@@ -391,6 +391,73 @@ class NesTooltipTheme extends ThemeExtension<NesTooltipTheme> {
   }
 }
 
+/// {@template nes_container_theme}
+/// Class with information regarding containers inside NesUI.
+///
+/// A [NesContainerTheme] is an optional custom theme for NesUI containers,
+/// by default, [flutterNesTheme] will create a [NesContainerTheme] where:
+///
+///  - [backgroundColor] is [ThemeData.cardColor]
+///  - [borderColor] is [ThemeData.textTheme.labelMedium.color]
+///  - [labelTextStyle] is [ThemeData.textTheme.labelMedium]
+///
+/// {@endtemplate}
+class NesContainerTheme extends ThemeExtension<NesContainerTheme> {
+  /// {@macro nes_container_theme}
+  const NesContainerTheme({
+    required this.backgroundColor,
+    required this.borderColor,
+    required this.labelTextStyle,
+  });
+
+  /// The background color of the container.
+  final Color backgroundColor;
+
+  /// The border color of the container.
+  final Color borderColor;
+
+  /// The text style of the label.
+  final TextStyle labelTextStyle;
+
+  @override
+  ThemeExtension<NesContainerTheme> copyWith({
+    Color? backgroundColor,
+    Color? borderColor,
+    TextStyle? labelTextStyle,
+  }) {
+    return NesContainerTheme(
+      backgroundColor: backgroundColor ?? this.backgroundColor,
+      borderColor: borderColor ?? this.borderColor,
+      labelTextStyle: labelTextStyle ?? this.labelTextStyle,
+    );
+  }
+
+  @override
+  ThemeExtension<NesContainerTheme> lerp(
+    covariant ThemeExtension<NesContainerTheme>? other,
+    double t,
+  ) {
+    final otherExt = other as NesContainerTheme?;
+
+    return NesContainerTheme(
+      backgroundColor: ColorTween(
+            begin: backgroundColor,
+            end: otherExt?.backgroundColor,
+          ).lerp(t) ??
+          backgroundColor,
+      borderColor: ColorTween(
+            begin: borderColor,
+            end: otherExt?.borderColor,
+          ).lerp(t) ??
+          borderColor,
+      labelTextStyle: TextStyleTween(
+        begin: labelTextStyle,
+        end: otherExt?.labelTextStyle,
+      ).lerp(t),
+    );
+  }
+}
+
 /// Helper methods on [BuildContext] for the Flutter Nes.
 extension NesBuildContext on BuildContext {
   /// Returns the extension of type [T] from the context.
@@ -439,6 +506,7 @@ ThemeData flutterNesTheme({
     error: Color(0xffe76e55),
   ),
   NesTooltipTheme? nesTooltipTheme,
+  NesContainerTheme? nesContainerTheme,
   Iterable<ThemeExtension<dynamic>> customExtensions = const [],
 }) {
   final iconTheme = nesIconTheme ??
@@ -472,6 +540,13 @@ ThemeData flutterNesTheme({
         textColor: themeData.colorScheme.background,
       );
 
+  final containerTheme = nesContainerTheme ??
+      NesContainerTheme(
+        backgroundColor: themeData.cardColor,
+        borderColor: textTheme.labelMedium?.color ?? Colors.black,
+        labelTextStyle: textTheme.labelMedium ?? const TextStyle(),
+      );
+
   return themeData.copyWith(
     textTheme: textTheme,
     extensions: [
@@ -482,6 +557,7 @@ ThemeData flutterNesTheme({
       overlayTransitionTheme,
       nesSnackbarTheme,
       toolTipTheme,
+      containerTheme,
       ...customExtensions,
     ],
     dividerTheme: DividerThemeData(

@@ -8,6 +8,7 @@
  - feat: add `NesVerticalGridTransition`
  - feat: add `NesHorizontalGridTransition`
  - feat: change `NesTabView` to hide close icons when no handler is informed
+ - feat: add `NesContainerTheme` to theming for improved customization of `NesContainer`s
 
 # 0.7.0
 
