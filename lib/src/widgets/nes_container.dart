@@ -33,10 +33,11 @@ class NesContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textStyle =
-        Theme.of(context).textTheme.labelMedium ?? const TextStyle();
+    final nesContainerTheme = context.nesThemeExtension<NesContainerTheme>();
 
-    final containerColor = backgroundColor ?? Theme.of(context).cardColor;
+    final textStyle = nesContainerTheme.labelTextStyle;
+
+    final containerColor = backgroundColor ?? nesContainerTheme.backgroundColor;
 
     final nesTheme = context.nesThemeExtension<NesTheme>();
 
@@ -46,6 +47,7 @@ class NesContainer extends StatelessWidget {
         pixelSize: nesTheme.pixelSize,
         textStyle: textStyle,
         backgroundColor: containerColor,
+        borderColor: nesContainerTheme.borderColor,
       ),
       child: SizedBox(
         width: width,
@@ -65,16 +67,18 @@ class _ContainerPainter extends CustomPainter {
     required this.pixelSize,
     required this.textStyle,
     required this.backgroundColor,
+    required this.borderColor,
   });
 
   final String? label;
   final int pixelSize;
   final TextStyle textStyle;
   final Color backgroundColor;
+  final Color borderColor;
 
   @override
   void paint(Canvas canvas, Size size) {
-    final paint = Paint()..color = textStyle.color ?? Colors.black;
+    final paint = Paint()..color = borderColor;
     final backgroundPaint = Paint()..color = backgroundColor;
     canvas
       // Background rect
