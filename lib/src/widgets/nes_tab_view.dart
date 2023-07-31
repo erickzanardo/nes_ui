@@ -57,8 +57,7 @@ class _NesTabViewState extends State<NesTabView> {
   @override
   Widget build(BuildContext context) {
     final nesTheme = context.nesThemeExtension<NesTheme>();
-    final textStyle =
-        Theme.of(context).textTheme.labelMedium ?? const TextStyle();
+    final nesContainerTheme = context.nesThemeExtension<NesContainerTheme>();
 
     final tabs = widget.tabs.map(
       (tab) {
@@ -99,7 +98,7 @@ class _NesTabViewState extends State<NesTabView> {
               for (var i = 0; i < widget.tabs.length; i++)
                 CustomPaint(
                   painter: _NesTabViewPainter(
-                    color: textStyle.color ?? Colors.black,
+                    color: nesContainerTheme.borderColor,
                     pixelSize: nesTheme.pixelSize.toDouble(),
                   ),
                   child: Padding(
