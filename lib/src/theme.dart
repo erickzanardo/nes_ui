@@ -48,6 +48,7 @@ class NesButtonTheme extends ThemeExtension<NesButtonTheme> {
     required this.error,
     required this.lightLabelColor,
     required this.darkLabelColor,
+    this.borderColor,
   });
 
   /// The color for the normal type of button.
@@ -71,6 +72,10 @@ class NesButtonTheme extends ThemeExtension<NesButtonTheme> {
   /// The color for the labels used on a light colored button.
   final Color darkLabelColor;
 
+  /// The color of the button border. When null, fallbacks
+  /// to the [TextTheme.labelMedium] color.
+  final Color? borderColor;
+
   @override
   NesButtonTheme copyWith({
     Color? normal,
@@ -80,6 +85,7 @@ class NesButtonTheme extends ThemeExtension<NesButtonTheme> {
     Color? error,
     Color? lightLabelColor,
     Color? darkLabelColor,
+    Color? borderColor,
   }) {
     return NesButtonTheme(
       normal: normal ?? this.normal,
@@ -89,6 +95,7 @@ class NesButtonTheme extends ThemeExtension<NesButtonTheme> {
       error: error ?? this.error,
       lightLabelColor: lightLabelColor ?? this.lightLabelColor,
       darkLabelColor: darkLabelColor ?? this.darkLabelColor,
+      borderColor: borderColor ?? this.borderColor,
     );
   }
 
@@ -135,6 +142,11 @@ class NesButtonTheme extends ThemeExtension<NesButtonTheme> {
             end: otherExt?.darkLabelColor,
           ).lerp(t) ??
           darkLabelColor,
+      borderColor: ColorTween(
+            begin: borderColor,
+            end: otherExt?.borderColor,
+          ).lerp(t) ??
+          borderColor,
     );
   }
 }
