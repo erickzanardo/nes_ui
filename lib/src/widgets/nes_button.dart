@@ -98,7 +98,8 @@ class _NesButtonState extends State<NesButton> {
         child: CustomPaint(
           painter: _ButtonPainer(
             color: buttonColor,
-            borderColor: textStyle.color ?? Colors.black,
+            borderColor:
+                nesButtonTheme.borderColor ?? textStyle.color ?? Colors.black,
             pixelSize: nesTheme.pixelSize,
             pressed: widget._isDisabled ? widget._isDisabled : _pressed,
             hovered: widget._isDisabled ? widget._isDisabled : _hovered,
