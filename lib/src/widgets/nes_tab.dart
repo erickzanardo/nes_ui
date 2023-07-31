@@ -29,12 +29,11 @@ class NesTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final nesTheme = context.nesThemeExtension<NesTheme>();
-    final textStyle =
-        Theme.of(context).textTheme.labelMedium ?? const TextStyle();
+    final nesContainerTheme = context.nesThemeExtension<NesContainerTheme>();
 
     final child = CustomPaint(
       painter: _NesTabCustomPainter(
-        color: textStyle.color ?? Colors.black,
+        color: nesContainerTheme.borderColor,
         pixelSize: nesTheme.pixelSize.toDouble(),
         selected: selected,
       ),
