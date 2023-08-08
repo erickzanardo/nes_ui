@@ -15,12 +15,27 @@ class DialogsSection extends StatelessWidget {
           style: theme.textTheme.displayMedium,
         ),
         const SizedBox(height: 16),
-        NesButton(
-          type: NesButtonType.normal,
-          child: const Text('Confirmation'),
-          onPressed: () {
-            NesConfirmDialog.show(context: context);
-          },
+        Row(
+          children: [
+            NesButton(
+              type: NesButtonType.normal,
+              child: const Text('Plain'),
+              onPressed: () {
+                NesDialog.show(
+                  context: context,
+                  builder: (_) => const Text('Hello World'),
+                );
+              },
+            ),
+            const SizedBox(width: 16),
+            NesButton(
+              type: NesButtonType.normal,
+              child: const Text('Confirmation'),
+              onPressed: () {
+                NesConfirmDialog.show(context: context);
+              },
+            ),
+          ],
         ),
       ],
     );
