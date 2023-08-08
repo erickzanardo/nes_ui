@@ -420,6 +420,7 @@ class NesContainerTheme extends ThemeExtension<NesContainerTheme> {
     required this.backgroundColor,
     required this.borderColor,
     required this.labelTextStyle,
+    this.padding = const EdgeInsets.all(32),
   });
 
   /// The background color of the container.
@@ -431,16 +432,21 @@ class NesContainerTheme extends ThemeExtension<NesContainerTheme> {
   /// The text style of the label.
   final TextStyle labelTextStyle;
 
+  /// The padding of the containers, defaults to 32 in all directions.
+  final EdgeInsets padding;
+
   @override
   ThemeExtension<NesContainerTheme> copyWith({
     Color? backgroundColor,
     Color? borderColor,
     TextStyle? labelTextStyle,
+    EdgeInsets? padding,
   }) {
     return NesContainerTheme(
       backgroundColor: backgroundColor ?? this.backgroundColor,
       borderColor: borderColor ?? this.borderColor,
       labelTextStyle: labelTextStyle ?? this.labelTextStyle,
+      padding: padding ?? this.padding,
     );
   }
 
@@ -465,6 +471,10 @@ class NesContainerTheme extends ThemeExtension<NesContainerTheme> {
       labelTextStyle: TextStyleTween(
         begin: labelTextStyle,
         end: otherExt?.labelTextStyle,
+      ).lerp(t),
+      padding: EdgeInsetsTween(
+        begin: padding,
+        end: otherExt?.padding,
       ).lerp(t),
     );
   }

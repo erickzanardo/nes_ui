@@ -13,6 +13,7 @@ class NesContainer extends StatelessWidget {
     this.width,
     this.height,
     this.backgroundColor,
+    this.padding,
   });
 
   /// An optional label for the container.
@@ -31,6 +32,11 @@ class NesContainer extends StatelessWidget {
   /// when null, defaults to [ThemeData.cardColor].
   final Color? backgroundColor;
 
+  /// An optional padding to apply to the container.
+  ///
+  /// When omitted, defaults to [NesContainerTheme.padding].
+  final EdgeInsets? padding;
+
   @override
   Widget build(BuildContext context) {
     final nesContainerTheme = context.nesThemeExtension<NesContainerTheme>();
@@ -38,6 +44,8 @@ class NesContainer extends StatelessWidget {
     final textStyle = nesContainerTheme.labelTextStyle;
 
     final containerColor = backgroundColor ?? nesContainerTheme.backgroundColor;
+
+    final padding = this.padding ?? nesContainerTheme.padding;
 
     final nesTheme = context.nesThemeExtension<NesTheme>();
 
@@ -53,7 +61,7 @@ class NesContainer extends StatelessWidget {
         width: width,
         height: height,
         child: Padding(
-          padding: const EdgeInsets.all(32),
+          padding: padding,
           child: child,
         ),
       ),
