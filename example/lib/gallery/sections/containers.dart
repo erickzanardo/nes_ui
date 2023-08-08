@@ -26,6 +26,13 @@ class ContainersSection extends StatelessWidget {
           child: Text('Hello'),
         ),
         const SizedBox(height: 16),
+        const NesContainer(
+          width: double.infinity,
+          label: 'With a custom padding',
+          padding: EdgeInsets.all(16),
+          child: Text('Hello'),
+        ),
+        const SizedBox(height: 16),
         NesContainer(
           width: double.infinity,
           label: 'With a custom backgroundColor',

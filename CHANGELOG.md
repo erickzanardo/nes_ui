@@ -11,6 +11,7 @@
  - feat: add `NesContainerTheme` to theming for improved customization of `NesContainer`s
  - feat: add `NesButtonTheme`.borderColor for improved customization of `NesButton`s
  - feat: change `NesTab`to use the same border color as `NesContainer`s for design consistency. 
+ - feat: allow `NesContainer` to have a customizable `padding`.
 
 # 0.7.0
 
