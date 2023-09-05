@@ -202,7 +202,7 @@ class _NesSelectionListState extends State<NesSelectionList> {
           markerSize: markerSize,
           hasFocus: _hasFocus,
           child: widget.children[i],
-        )
+        ),
     ];
 
     return NesControllerFocus(

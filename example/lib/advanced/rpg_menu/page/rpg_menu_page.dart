@@ -99,7 +99,7 @@ class _RpgMenuPageState extends State<RpgMenuPage> {
                               );
                             },
                             children: [
-                              for (var char in Char.values)
+                              for (final char in Char.values)
                                 Expanded(
                                   child: CharRow(
                                     char: char,
