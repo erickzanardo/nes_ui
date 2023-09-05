@@ -52,7 +52,7 @@ class NesHorizontalCloseTransition extends NesOverlayTransitionWidget {
           right: 0,
           left: width - (half * value),
           child: ColoredBox(color: overlayTransitionTheme.color),
-        )
+        ),
       ],
     );
   }

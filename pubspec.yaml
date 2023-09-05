@@ -16,7 +16,9 @@ dependencies:
   phased: ^0.0.3
 
 dev_dependencies:
-  alchemist: ^0.6.0
+  alchemist:
+    git:
+      url: https://github.com/erickzanardo/alchemist
   flutter_test:
     sdk: flutter
   mocktail: ">=0.3.0 <2.0.0"
