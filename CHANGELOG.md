@@ -14,6 +14,7 @@
  - feat: allow `NesContainer` to have a customizable `padding`.
  - feat: add `NesDialog`.
  - feat: `NesButton` font colors applies to material icons.
+ - feat: add `NesIcons.edit`
 
 # 0.7.0
 
