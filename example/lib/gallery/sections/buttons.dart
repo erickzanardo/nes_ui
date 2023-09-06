@@ -49,6 +49,76 @@ class ButtonsSection extends StatelessWidget {
             const SizedBox(width: 8),
           ],
         ),
+        const SizedBox(height: 32),
+        Text(
+          'With icons',
+          style: theme.textTheme.displayMedium,
+        ),
+        const SizedBox(height: 16),
+        Wrap(
+          children: [
+            NesButton(
+              type: NesButtonType.normal,
+              onPressed: () {},
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  NesIcon(iconData: NesIcons.instance.check),
+                  const SizedBox(width: 8),
+                  const Text('Normal'),
+                ],
+              ),
+            ),
+            const SizedBox(width: 8),
+            NesButton(
+              type: NesButtonType.primary,
+              onPressed: () {},
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  NesIcon(iconData: NesIcons.instance.check),
+                  const SizedBox(width: 8),
+                  const Text('Primary'),
+                ],
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 32),
+        Text(
+          'With material icons',
+          style: theme.textTheme.displayMedium,
+        ),
+        const SizedBox(height: 16),
+        Wrap(
+          children: [
+            NesButton(
+              type: NesButtonType.normal,
+              onPressed: () {},
+              child: const Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.check),
+                  SizedBox(width: 8),
+                  Text('Normal'),
+                ],
+              ),
+            ),
+            const SizedBox(width: 8),
+            NesButton(
+              type: NesButtonType.primary,
+              onPressed: () {},
+              child: const Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.check),
+                  SizedBox(width: 8),
+                  Text('Primary'),
+                ],
+              ),
+            ),
+          ],
+        ),
       ],
     );
   }

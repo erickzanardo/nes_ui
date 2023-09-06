@@ -49,6 +49,15 @@ class AppPage extends StatelessWidget {
         builder: (context, state) {
           return MaterialApp(
             theme: flutterNesTheme(
+              nesButtonTheme: NesButtonTheme(
+                normal: Colors.white,
+                primary: Colors.blue.shade900,
+                success: Colors.green.shade900,
+                warning: Colors.yellow.shade900,
+                error: Colors.red.shade900,
+                lightLabelColor: Colors.white,
+                darkLabelColor: Colors.black,
+              ),
               brightness: state.lightMode ? Brightness.light : Brightness.dark,
               customExtensions: [
                 CustomExampleExtension.light,

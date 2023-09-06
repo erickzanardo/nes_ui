@@ -13,6 +13,7 @@
  - feat: change `NesTab`to use the same border color as `NesContainer`s for design consistency. 
  - feat: allow `NesContainer` to have a customizable `padding`.
  - feat: add `NesDialog`.
+ - feat: `NesButton` font colors applies to material icons.
 
 # 0.7.0
 

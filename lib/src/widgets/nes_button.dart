@@ -69,13 +69,21 @@ class _NesButtonState extends State<NesButton> {
 
   @override
   Widget build(BuildContext context) {
-    final textStyle =
-        Theme.of(context).textTheme.labelMedium ?? const TextStyle();
+    final materialTheme = Theme.of(context);
+    final textStyle = materialTheme.textTheme.labelMedium ?? const TextStyle();
 
     final nesTheme = context.nesThemeExtension<NesTheme>();
     final nesButtonTheme = context.nesThemeExtension<NesButtonTheme>();
 
     final buttonColor = _mapButtonColor(widget.type, nesButtonTheme);
+
+    final fontColor = buttonColor.isLight()
+        ? nesButtonTheme.darkLabelColor
+        : nesButtonTheme.lightLabelColor;
+
+    final materialIconData = materialTheme.iconTheme.copyWith(
+      color: fontColor,
+    );
 
     return MouseRegion(
       onEnter: (_) {
@@ -104,15 +112,16 @@ class _NesButtonState extends State<NesButton> {
             pressed: widget._isDisabled ? widget._isDisabled : _pressed,
             hovered: widget._isDisabled ? widget._isDisabled : _hovered,
           ),
-          child: DefaultTextStyle(
-            style: textStyle.copyWith(
-              color: buttonColor.isLight()
-                  ? nesButtonTheme.darkLabelColor
-                  : nesButtonTheme.lightLabelColor,
-            ),
-            child: Padding(
-              padding: EdgeInsets.all(nesTheme.pixelSize * 4),
-              child: widget.child,
+          child: Padding(
+            padding: EdgeInsets.all(nesTheme.pixelSize * 4),
+            child: DefaultTextStyle(
+              style: textStyle.copyWith(
+                color: fontColor,
+              ),
+              child: IconTheme(
+                data: materialIconData,
+                child: widget.child,
+              ),
             ),
           ),
         ),
