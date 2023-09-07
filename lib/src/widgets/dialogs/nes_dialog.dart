@@ -17,11 +17,11 @@ class NesDialog extends StatelessWidget {
   final Widget child;
 
   /// A shortcut method that can be used to show this dialog.
-  static Future<bool?> show({
+  static Future<T?> show<T>({
     required BuildContext context,
     required WidgetBuilder builder,
   }) {
-    return showGeneralDialog<bool>(
+    return showGeneralDialog<T>(
       context: context,
       transitionBuilder: (context, animation, secondaryAnimation, child) {
         return Transform.scale(

@@ -1,5 +1,6 @@
 # 0.9.0
  - feat: add `NesIcons.expand`
+ - fix: `NesDialog` allows a generic to be informed.
 
 # 0.8.0
  - feat: add `NesIcons.leftHand`
