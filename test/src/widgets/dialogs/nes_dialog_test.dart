@@ -14,7 +14,7 @@ extension NesDialogTest on WidgetTester {
             return NesButton(
               type: NesButtonType.normal,
               onPressed: () async {
-                final value = await NesDialog.show(
+                final value = await NesDialog.show<bool>(
                   context: context,
                   builder: (_) => const Text('Hello World'),
                 );

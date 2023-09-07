@@ -21,7 +21,7 @@ class DialogsSection extends StatelessWidget {
               type: NesButtonType.normal,
               child: const Text('Plain'),
               onPressed: () {
-                NesDialog.show(
+                NesDialog.show<void>(
                   context: context,
                   builder: (_) => const Text('Hello World'),
                 );
