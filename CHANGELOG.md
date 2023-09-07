@@ -1,3 +1,6 @@
+# 0.9.0
+ - feat: add `NesIcons.expand`
+
 # 0.8.0
  - feat: add `NesIcons.leftHand`
  - feat: add `NesIcons.rightHand`
