@@ -236,6 +236,7 @@ class IconsSection extends StatelessWidget {
             _IconEntry(
               data: NesIcons.instance.eraser,
               label: 'eraser',
+            ),
           ],
         ),
       ],
