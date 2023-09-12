@@ -3,6 +3,8 @@
  - fix: `NesDialog` allows a generic to be informed.
  - feat: add `NesIcons.cut` 
  - feat: add `NesIcons.eraser`
+ - feat: add `NesIcons.copy`
+ - feat: add `NesIcons.paste`
 
 # 0.8.0
  - feat: add `NesIcons.leftHand`
