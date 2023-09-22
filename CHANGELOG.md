@@ -6,6 +6,7 @@
  - feat: add `NesIcons.copy`
  - feat: add `NesIcons.paste`
  - feat: add `NesIcons.tv`
+ - feat: add `NesIcons.radio`
 
 # 0.8.0
  - feat: add `NesIcons.leftHand`
