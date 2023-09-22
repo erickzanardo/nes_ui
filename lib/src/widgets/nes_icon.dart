@@ -430,10 +430,17 @@ class NesIcons {
     ),
   );
 
-  ///Paste
+  /// Paste
   late final paste = NesIconData(
     MiniSprite.fromDataString(
       '8,8;3,-1;2,0;4,-1;6,0;1,-1;1,0;1,1;4,0;1,1;2,0;6,1;2,0;6,1;2,0;6,1;2,0;6,1;9,0',
+    ),
+  );
+
+  /// TV
+  late final tv = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;2,-1;1,0;1,-1;1,0;6,-1;1,0;4,-1;9,0;4,1;1,0;1,1;2,0;4,1;4,0;4,1;1,0;1,1;2,0;4,1;11,0',
     ),
   );
 }

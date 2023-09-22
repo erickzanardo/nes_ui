@@ -5,6 +5,7 @@
  - feat: add `NesIcons.eraser`
  - feat: add `NesIcons.copy`
  - feat: add `NesIcons.paste`
+ - feat: add `NesIcons.tv`
 
 # 0.8.0
  - feat: add `NesIcons.leftHand`
