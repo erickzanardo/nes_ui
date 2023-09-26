@@ -58,12 +58,12 @@ class AppPage extends StatelessWidget {
                 lightLabelColor: Colors.white,
                 darkLabelColor: Colors.black,
                 lightIconTheme: const NesIconTheme(
-                  primary: Color(0xff000000),
-                  secondary: Color(0xffffffff),
+                  primary: Colors.white,
+                  secondary: Colors.black,
                 ),
                 darkIconTheme: const NesIconTheme(
-                  primary: Color(0xffffffff),
-                  secondary: Color(0xff000000),
+                  primary: Colors.black,
+                  secondary: Colors.white,
                 ),
               ),
               brightness: state.lightMode ? Brightness.light : Brightness.dark,

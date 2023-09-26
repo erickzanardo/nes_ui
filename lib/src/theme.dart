@@ -529,12 +529,12 @@ ThemeData flutterNesTheme({
     lightLabelColor: Color(0xffffffff),
     darkLabelColor: Color(0xff000000),
     lightIconTheme: NesIconTheme(
-      primary: Color(0xff000000),
-      secondary: Color(0xffffffff),
-    ),
-    darkIconTheme: NesIconTheme(
       primary: Color(0xffffffff),
       secondary: Color(0xff000000),
+    ),
+    darkIconTheme: NesIconTheme(
+      primary: Color(0xff000000),
+      secondary: Color(0xffffffff),
     ),
   ),
   NesIconTheme? nesIconTheme,
