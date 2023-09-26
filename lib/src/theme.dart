@@ -48,6 +48,8 @@ class NesButtonTheme extends ThemeExtension<NesButtonTheme> {
     required this.error,
     required this.lightLabelColor,
     required this.darkLabelColor,
+    required this.lightIconTheme,
+    required this.darkIconTheme,
     this.borderColor,
   });
 
@@ -72,6 +74,12 @@ class NesButtonTheme extends ThemeExtension<NesButtonTheme> {
   /// The color for the labels used on a light colored button.
   final Color darkLabelColor;
 
+  /// The icon theme used on a dark colored button.
+  final NesIconTheme lightIconTheme;
+
+  /// The icon theme used on a light colored button.
+  final NesIconTheme darkIconTheme;
+
   /// The color of the button border. When null, fallbacks
   /// to the [TextTheme.labelMedium] color.
   final Color? borderColor;
@@ -85,6 +93,8 @@ class NesButtonTheme extends ThemeExtension<NesButtonTheme> {
     Color? error,
     Color? lightLabelColor,
     Color? darkLabelColor,
+    NesIconTheme? lightIconTheme,
+    NesIconTheme? darkIconTheme,
     Color? borderColor,
   }) {
     return NesButtonTheme(
@@ -95,6 +105,8 @@ class NesButtonTheme extends ThemeExtension<NesButtonTheme> {
       error: error ?? this.error,
       lightLabelColor: lightLabelColor ?? this.lightLabelColor,
       darkLabelColor: darkLabelColor ?? this.darkLabelColor,
+      lightIconTheme: lightIconTheme ?? this.lightIconTheme,
+      darkIconTheme: darkIconTheme ?? this.darkIconTheme,
       borderColor: borderColor ?? this.borderColor,
     );
   }
@@ -142,6 +154,8 @@ class NesButtonTheme extends ThemeExtension<NesButtonTheme> {
             end: otherExt?.darkLabelColor,
           ).lerp(t) ??
           darkLabelColor,
+      lightIconTheme: lightIconTheme.lerp(otherExt?.lightIconTheme, t),
+      darkIconTheme: darkIconTheme.lerp(otherExt?.darkIconTheme, t),
       borderColor: ColorTween(
             begin: borderColor,
             end: otherExt?.borderColor,
@@ -514,6 +528,14 @@ ThemeData flutterNesTheme({
     error: Color(0xffe76e55),
     lightLabelColor: Color(0xffffffff),
     darkLabelColor: Color(0xff000000),
+    lightIconTheme: NesIconTheme(
+      primary: Color(0xff000000),
+      secondary: Color(0xffffffff),
+    ),
+    darkIconTheme: NesIconTheme(
+      primary: Color(0xffffffff),
+      secondary: Color(0xff000000),
+    ),
   ),
   NesIconTheme? nesIconTheme,
   NesSelectionListTheme nesSelectionListTheme = const NesSelectionListTheme(
