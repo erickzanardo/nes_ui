@@ -11,7 +11,7 @@ void main() {
           home: Scaffold(
             body: NesIconButton(
               onPress: () {},
-              icon: NesIcons.instance.add,
+              icon: NesIcons.add,
             ),
           ),
         ),
@@ -29,7 +29,7 @@ void main() {
           home: Scaffold(
             body: NesIconButton(
               onPress: () => calls++,
-              icon: NesIcons.instance.add,
+              icon: NesIcons.add,
             ),
           ),
         ),

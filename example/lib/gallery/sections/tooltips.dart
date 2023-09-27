@@ -22,20 +22,20 @@ class TooltipsSection extends StatelessWidget {
               message: 'This is a tooltip',
               arrowPlacement: NesTooltipArrowPlacement.left,
               child: NesIcon(
-                iconData: NesIcons.instance.exclamationMarkBlock,
+                iconData: NesIcons.exclamationMarkBlock,
               ),
             ),
             NesTooltip(
               message: 'This is a tooltip',
               child: NesIcon(
-                iconData: NesIcons.instance.exclamationMarkBlock,
+                iconData: NesIcons.exclamationMarkBlock,
               ),
             ),
             NesTooltip(
               message: 'This is a tooltip',
               arrowPlacement: NesTooltipArrowPlacement.right,
               child: NesIcon(
-                iconData: NesIcons.instance.exclamationMarkBlock,
+                iconData: NesIcons.exclamationMarkBlock,
               ),
             ),
           ],

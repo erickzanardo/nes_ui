@@ -63,7 +63,7 @@ class ButtonsSection extends StatelessWidget {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  NesIcon(iconData: NesIcons.instance.check),
+                  NesIcon(iconData: NesIcons.check),
                   const SizedBox(width: 8),
                   const Text('Normal'),
                 ],
@@ -76,7 +76,7 @@ class ButtonsSection extends StatelessWidget {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  NesIcon(iconData: NesIcons.instance.check),
+                  NesIcon(iconData: NesIcons.check),
                   const SizedBox(width: 8),
                   const Text('Primary'),
                 ],

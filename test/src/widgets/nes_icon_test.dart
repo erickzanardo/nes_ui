@@ -10,7 +10,7 @@ void main() {
           theme: flutterNesTheme(),
           home: Scaffold(
             body: NesIcon(
-              iconData: NesIcons.instance.check,
+              iconData: NesIcons.check,
             ),
           ),
         ),

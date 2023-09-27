@@ -171,39 +171,39 @@ class _Entry extends StatelessWidget {
 
     switch (file.name) {
       case 'LICENSE':
-        return NesIcons.instance.keyHole;
+        return NesIcons.keyHole;
     }
 
     switch (extension) {
       case 'mp3':
       case 'wav':
       case 'ogg':
-        return NesIcons.instance.musicNote;
+        return NesIcons.musicNote;
       case 'png':
       case 'jpg':
       case 'jpeg':
-        return NesIcons.instance.gallery;
+        return NesIcons.gallery;
       case 'dart':
-        return NesIcons.instance.dartLang;
+        return NesIcons.dartLang;
       case 'txt':
-        return NesIcons.instance.textFile;
+        return NesIcons.textFile;
       case 'yml':
       case 'yaml':
-        return NesIcons.instance.yamlFile;
+        return NesIcons.yamlFile;
       case 'xml':
-        return NesIcons.instance.xmlFile;
+        return NesIcons.xmlFile;
       default:
-        return NesIcons.instance.questionMark;
+        return NesIcons.questionMark;
     }
   }
 
   NesIconData _getConnectionIcon(int i, int length) {
     if (i == 0 && length == 1) {
-      return NesIcons.instance.bottomConnection;
+      return NesIcons.bottomConnection;
     } else if (i == length - 1) {
-      return NesIcons.instance.bottomConnection;
+      return NesIcons.bottomConnection;
     } else {
-      return NesIcons.instance.middleConnection;
+      return NesIcons.middleConnection;
     }
   }
 
@@ -244,8 +244,8 @@ class _Entry extends StatelessWidget {
                 children: [
                   NesIcon(
                     iconData: isOpen
-                        ? NesIcons.instance.openFolder
-                        : NesIcons.instance.closedFolder,
+                        ? NesIcons.openFolder
+                        : NesIcons.closedFolder,
                   ),
                   const SizedBox(width: 8),
                   Text(entry.name),

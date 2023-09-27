@@ -181,8 +181,8 @@ class NesSplitPanelResizeHandler extends StatelessWidget {
             child: NesIcon(
               size: const Size.square(16),
               iconData: orientation == Axis.horizontal
-                  ? NesIcons.instance.threeVerticalDots
-                  : NesIcons.instance.threeHorizontalDots,
+                  ? NesIcons.threeVerticalDots
+                  : NesIcons.threeHorizontalDots,
             ),
           ),
         ),

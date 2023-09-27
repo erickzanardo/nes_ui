@@ -63,7 +63,7 @@ class NesDialog extends StatelessWidget {
                     },
                     child: NesIcon(
                       size: const Size(16, 16),
-                      iconData: NesIcons.instance.close,
+                      iconData: NesIcons.close,
                     ),
                   ),
                 ),

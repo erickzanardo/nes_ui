@@ -38,7 +38,7 @@ void main() {
           theme: flutterNesTheme(),
           home: Scaffold(
             body: NesWindow(
-              icon: NesIcons.instance.sword,
+              icon: NesIcons.sword,
             ),
           ),
         ),
@@ -146,7 +146,7 @@ void main() {
             theme: flutterNesTheme(),
             home: Scaffold(
               body: NesWindow(
-                icon: NesIcons.instance.sword,
+                icon: NesIcons.sword,
                 onMove: (_) {},
                 onResize: (_) {},
               ),

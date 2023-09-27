@@ -34,8 +34,8 @@ class NesKeyIcon extends StatelessWidget {
     final pixelSize = nesTheme.pixelSize.toDouble();
 
     final iconData = pressed
-        ? NesIcons.instance.pressedButton
-        : NesIcons.instance.unpressedButton;
+        ? NesIcons.pressedButton
+        : NesIcons.unpressedButton;
 
     final buttonSize = size ??
         Size(

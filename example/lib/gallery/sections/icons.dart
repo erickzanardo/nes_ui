@@ -18,239 +18,239 @@ class IconsSection extends StatelessWidget {
         Wrap(
           children: [
             _IconEntry(
-              data: NesIcons.instance.check,
+              data: NesIcons.check,
               label: 'check',
             ),
             _IconEntry(
-              data: NesIcons.instance.close,
+              data: NesIcons.close,
               label: 'close',
             ),
             _IconEntry(
-              data: NesIcons.instance.handPointingRight,
+              data: NesIcons.handPointingRight,
               label: 'handPointingRight',
             ),
             _IconEntry(
-              data: NesIcons.instance.leftArrowIndicator,
+              data: NesIcons.leftArrowIndicator,
               label: 'leftArrowIndicator',
             ),
             _IconEntry(
-              data: NesIcons.instance.rightArrowIndicator,
+              data: NesIcons.rightArrowIndicator,
               label: 'rightArrowIndicator',
             ),
             _IconEntry(
-              data: NesIcons.instance.topArrowIndicator,
+              data: NesIcons.topArrowIndicator,
               label: 'topArrowIndicator',
             ),
             _IconEntry(
-              data: NesIcons.instance.bottomArrowIndicator,
+              data: NesIcons.bottomArrowIndicator,
               label: 'bottomArrowIndicator',
             ),
             _IconEntry(
-              data: NesIcons.instance.sword,
+              data: NesIcons.sword,
               label: 'sword',
             ),
             _IconEntry(
-              data: NesIcons.instance.shield,
+              data: NesIcons.shield,
               label: 'shield',
             ),
             _IconEntry(
-              data: NesIcons.instance.axe,
+              data: NesIcons.axe,
               label: 'axe',
             ),
             _IconEntry(
-              data: NesIcons.instance.arrow,
+              data: NesIcons.arrow,
               label: 'arrow',
             ),
             _IconEntry(
-              data: NesIcons.instance.sun,
+              data: NesIcons.sun,
               label: 'sun',
             ),
             _IconEntry(
-              data: NesIcons.instance.moon,
+              data: NesIcons.moon,
               label: 'moon',
             ),
             _IconEntry(
-              data: NesIcons.instance.gallery,
+              data: NesIcons.gallery,
               label: 'gallery',
             ),
             _IconEntry(
-              data: NesIcons.instance.gamepad,
+              data: NesIcons.gamepad,
               label: 'gamepad',
             ),
             _IconEntry(
-              data: NesIcons.instance.delete,
+              data: NesIcons.delete,
               label: 'delete',
             ),
             _IconEntry(
-              data: NesIcons.instance.add,
+              data: NesIcons.add,
               label: 'add',
             ),
             _IconEntry(
-              data: NesIcons.instance.remove,
+              data: NesIcons.remove,
               label: 'remove',
             ),
             _IconEntry(
-              data: NesIcons.instance.redo,
+              data: NesIcons.redo,
               label: 'redo',
             ),
             _IconEntry(
-              data: NesIcons.instance.openFolder,
+              data: NesIcons.openFolder,
               label: 'openFolder',
             ),
             _IconEntry(
-              data: NesIcons.instance.closedFolder,
+              data: NesIcons.closedFolder,
               label: 'closedFolder',
             ),
             _IconEntry(
-              data: NesIcons.instance.thinArrowLeft,
+              data: NesIcons.thinArrowLeft,
               label: 'thinArrowLeft',
             ),
             _IconEntry(
-              data: NesIcons.instance.thinArrowRight,
+              data: NesIcons.thinArrowRight,
               label: 'thinArrowRight',
             ),
             _IconEntry(
-              data: NesIcons.instance.musicNote,
+              data: NesIcons.musicNote,
               label: 'musicNote',
             ),
             _IconEntry(
-              data: NesIcons.instance.keyHole,
+              data: NesIcons.keyHole,
               label: 'keyHole',
             ),
             _IconEntry(
-              data: NesIcons.instance.questionMark,
+              data: NesIcons.questionMark,
               label: 'questionMark',
             ),
             _IconEntry(
-              data: NesIcons.instance.dartLang,
+              data: NesIcons.dartLang,
               label: 'dartLang',
             ),
             _IconEntry(
-              data: NesIcons.instance.bottomConnection,
+              data: NesIcons.bottomConnection,
               label: 'bottomConnection',
             ),
             _IconEntry(
-              data: NesIcons.instance.middleConnection,
+              data: NesIcons.middleConnection,
               label: 'middleConnection',
             ),
             _IconEntry(
-              data: NesIcons.instance.topConnection,
+              data: NesIcons.topConnection,
               label: 'topConnection',
             ),
             _IconEntry(
-              data: NesIcons.instance.threeVerticalDots,
+              data: NesIcons.threeVerticalDots,
               label: 'threeVerticalDots',
             ),
             _IconEntry(
-              data: NesIcons.instance.threeHorizontalDots,
+              data: NesIcons.threeHorizontalDots,
               label: 'threeHorizontalDots',
             ),
             _IconEntry(
-              data: NesIcons.instance.newFile,
+              data: NesIcons.newFile,
               label: 'newFile',
             ),
             _IconEntry(
-              data: NesIcons.instance.saveFile,
+              data: NesIcons.saveFile,
               label: 'saveFile',
             ),
             _IconEntry(
-              data: NesIcons.instance.openEye,
+              data: NesIcons.openEye,
               label: 'openEye',
             ),
             _IconEntry(
-              data: NesIcons.instance.closedEye,
+              data: NesIcons.closedEye,
               label: 'closedEye',
             ),
             _IconEntry(
-              data: NesIcons.instance.window,
+              data: NesIcons.window,
               label: 'window',
             ),
             _IconEntry(
-              data: NesIcons.instance.textFile,
+              data: NesIcons.textFile,
               label: 'textFile',
             ),
             _IconEntry(
-              data: NesIcons.instance.download,
+              data: NesIcons.download,
               label: 'download',
             ),
             _IconEntry(
-              data: NesIcons.instance.zoomIn,
+              data: NesIcons.zoomIn,
               label: 'zoomIn',
             ),
             _IconEntry(
-              data: NesIcons.instance.zoomOut,
+              data: NesIcons.zoomOut,
               label: 'zoomOut',
             ),
             _IconEntry(
-              data: NesIcons.instance.yamlFile,
+              data: NesIcons.yamlFile,
               label: 'yamlFile',
             ),
             _IconEntry(
-              data: NesIcons.instance.xmlFile,
+              data: NesIcons.xmlFile,
               label: 'xmlFile',
             ),
             _IconEntry(
-              data: NesIcons.instance.exclamationMarkBlock,
+              data: NesIcons.exclamationMarkBlock,
               label: 'exclamationMarkBlock',
             ),
             _IconEntry(
-              data: NesIcons.instance.questionMarkBlock,
+              data: NesIcons.questionMarkBlock,
               label: 'questionMarkBlock',
             ),
             _IconEntry(
-              data: NesIcons.instance.leftHand,
+              data: NesIcons.leftHand,
               label: 'leftHand',
             ),
             _IconEntry(
-              data: NesIcons.instance.rightHand,
+              data: NesIcons.rightHand,
               label: 'rightHand',
             ),
             _IconEntry(
-              data: NesIcons.instance.helm,
+              data: NesIcons.helm,
               label: 'helm',
             ),
             _IconEntry(
-              data: NesIcons.instance.upperArmor,
+              data: NesIcons.upperArmor,
               label: 'upperArmor',
             ),
             _IconEntry(
-              data: NesIcons.instance.lowerArmor,
+              data: NesIcons.lowerArmor,
               label: 'lowerArmor',
             ),
             _IconEntry(
-              data: NesIcons.instance.exchange,
+              data: NesIcons.exchange,
               label: 'exchange',
             ),
             _IconEntry(
-              data: NesIcons.instance.edit,
+              data: NesIcons.edit,
               label: 'edit',
             ),
             _IconEntry(
-              data: NesIcons.instance.expand,
+              data: NesIcons.expand,
               label: 'expand',
             ),
             _IconEntry(
-              data: NesIcons.instance.cut,
+              data: NesIcons.cut,
               label: 'cut',
             ),
             _IconEntry(
-              data: NesIcons.instance.eraser,
+              data: NesIcons.eraser,
               label: 'eraser',
             ),
             _IconEntry(
-              data: NesIcons.instance.copy,
+              data: NesIcons.copy,
               label: 'copy',
             ),
             _IconEntry(
-              data: NesIcons.instance.paste,
+              data: NesIcons.paste,
               label: 'paste',
             ),
             _IconEntry(
-              data: NesIcons.instance.tv,
+              data: NesIcons.tv,
               label: 'tv',
             ),
             _IconEntry(
-              data: NesIcons.instance.radio,
+              data: NesIcons.radio,
               label: 'radio',
             ),
           ],
