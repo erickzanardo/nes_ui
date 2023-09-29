@@ -1,3 +1,3 @@
 import 'package:nes_ui/nes_ui.dart';
 
-final icon = NesIcons.add;
+final icon = NesIcons.instance.add;
