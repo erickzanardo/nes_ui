@@ -1,6 +1,6 @@
 version: 1
 transforms:
-  - title: 'Use NesIcons instead of NesIcons'
+  - title: 'Use NesIcons instead of NesIcons.instance'
     date: 2023-09-27
     element:
       uris:
