@@ -80,9 +80,12 @@ class _NesButtonState extends State<NesButton> {
     final fontColor = buttonColor.isLight()
         ? nesButtonTheme.darkLabelColor
         : nesButtonTheme.lightLabelColor;
+    final nesIconTheme = buttonColor.isLight()
+        ? nesButtonTheme.darkIconTheme
+        : nesButtonTheme.lightIconTheme;
 
     final materialIconData = materialTheme.iconTheme.copyWith(
-      color: fontColor,
+      color: nesIconTheme.primary,
     );
 
     return MouseRegion(
@@ -118,8 +121,14 @@ class _NesButtonState extends State<NesButton> {
               style: textStyle.copyWith(
                 color: fontColor,
               ),
-              child: IconTheme(
-                data: materialIconData,
+              child: Theme(
+                data: materialTheme.copyWith(
+                  iconTheme: materialIconData,
+                  extensions: [
+                    ...materialTheme.extensions.values,
+                    nesIconTheme,
+                  ],
+                ),
                 child: widget.child,
               ),
             ),
