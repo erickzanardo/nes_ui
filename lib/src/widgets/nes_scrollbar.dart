@@ -150,8 +150,8 @@ class _NesScrollbarState extends State<NesScrollbar> {
                 child: NesIconButton(
                   size: const Size(16, 16),
                   icon: widget.direction == Axis.vertical
-                      ? NesIcons.instance.topArrowIndicator
-                      : NesIcons.instance.leftArrowIndicator,
+                      ? NesIcons.topArrowIndicator
+                      : NesIcons.leftArrowIndicator,
                   onPressStart: () {
                     _startScrolling(false);
                   },
@@ -190,8 +190,8 @@ class _NesScrollbarState extends State<NesScrollbar> {
                 child: NesIconButton(
                   size: const Size(16, 16),
                   icon: widget.direction == Axis.vertical
-                      ? NesIcons.instance.bottomArrowIndicator
-                      : NesIcons.instance.rightArrowIndicator,
+                      ? NesIcons.bottomArrowIndicator
+                      : NesIcons.rightArrowIndicator,
                   onPressStart: () {
                     _startScrolling(true);
                   },

@@ -25,12 +25,12 @@ class WindowsSection extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         NesWindow(
-          icon: NesIcons.instance.sword,
+          icon: NesIcons.sword,
           child: const Center(child: Text('With icon')),
         ),
         const SizedBox(height: 16),
         NesWindow(
-          icon: NesIcons.instance.sword,
+          icon: NesIcons.sword,
           title: 'Sword',
           child: const Center(child: Text('With title and icon')),
         ),

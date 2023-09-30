@@ -49,7 +49,7 @@ class _WindowManagerPageState extends State<WindowManagerPage> {
                         });
                       }
                     },
-                    icon: NesIcons.instance.textFile,
+                    icon: NesIcons.textFile,
                   ),
                   const SizedBox(height: 8),
                   const Text('nes.txt'),
@@ -63,7 +63,7 @@ class _WindowManagerPageState extends State<WindowManagerPage> {
               top: entry.value.y,
               child: NesDropshadow(
                 child: NesWindow(
-                  icon: NesIcons.instance.textFile,
+                  icon: NesIcons.textFile,
                   title: entry.key,
                   width: entry.value.w,
                   height: entry.value.h,

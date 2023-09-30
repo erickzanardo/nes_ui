@@ -8,9 +8,9 @@ import 'package:nes_ui/nes_ui.dart';
 /// inside a [Text] widget. That can be customized by informing a
 /// [optionBuilder].
 ///
-/// The default selection controllers are [NesIcons.leftArrowIndicator] and
-/// [NesIcons.rightArrowIndicator], that can be also be customized by passing
-/// a [leftIndicatorBuilder] and [rightIndicatorBuilder].
+/// The default selection controllers are [NesIconCollection.leftArrowIndicator]
+/// and [NesIconCollection.rightArrowIndicator], that can be also be customized
+/// by passing a [leftIndicatorBuilder] and [rightIndicatorBuilder].
 /// {@endtemplate}
 class NesIterableOptions<T> extends StatelessWidget {
   /// {@template nes_iterable_options}
@@ -63,7 +63,7 @@ class NesIterableOptions<T> extends StatelessWidget {
       children: [
         NesPressable(
           child: leftIndicatorBuilder?.call(context) ??
-              NesIcon(iconData: NesIcons.instance.leftArrowIndicator),
+              NesIcon(iconData: NesIcons.leftArrowIndicator),
           onPress: () {
             _select(-1);
           },
@@ -71,7 +71,7 @@ class NesIterableOptions<T> extends StatelessWidget {
         optionBuilder?.call(context, value) ?? Text(value.toString()),
         NesPressable(
           child: rightIndicatorBuilder?.call(context) ??
-              NesIcon(iconData: NesIcons.instance.rightArrowIndicator),
+              NesIcon(iconData: NesIcons.rightArrowIndicator),
           onPress: () {
             _select(1);
           },

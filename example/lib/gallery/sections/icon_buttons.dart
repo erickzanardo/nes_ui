@@ -18,31 +18,31 @@ class IconButtonsSection extends StatelessWidget {
         Wrap(
           children: [
             _IconEntry(
-              data: NesIcons.instance.close,
+              data: NesIcons.close,
             ),
             _IconEntry(
-              data: NesIcons.instance.handPointingRight,
+              data: NesIcons.handPointingRight,
             ),
             _IconEntry(
-              data: NesIcons.instance.leftArrowIndicator,
+              data: NesIcons.leftArrowIndicator,
             ),
             _IconEntry(
-              data: NesIcons.instance.rightArrowIndicator,
+              data: NesIcons.rightArrowIndicator,
             ),
             _IconEntry(
-              data: NesIcons.instance.delete,
+              data: NesIcons.delete,
             ),
             _IconEntry(
-              data: NesIcons.instance.add,
+              data: NesIcons.add,
             ),
             _IconEntry(
-              data: NesIcons.instance.remove,
+              data: NesIcons.remove,
             ),
             _IconEntry(
-              data: NesIcons.instance.redo,
+              data: NesIcons.redo,
             ),
             _IconEntry(
-              data: NesIcons.instance.redo,
+              data: NesIcons.redo,
               disabled: true,
             ),
           ],

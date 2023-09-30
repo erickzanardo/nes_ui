@@ -28,7 +28,7 @@ class NesScaffold extends StatelessWidget {
                 WindowManagerPage.route(),
               );
             },
-            child: NesIcon(iconData: NesIcons.instance.window),
+            child: NesIcon(iconData: NesIcons.window),
           ),
           const SizedBox(height: 16),
           NesButton(
@@ -38,15 +38,15 @@ class NesScaffold extends StatelessWidget {
                 RpgMenuPage.route(),
               );
             },
-            child: NesIcon(iconData: NesIcons.instance.gamepad),
+            child: NesIcon(iconData: NesIcons.gamepad),
           ),
           const SizedBox(height: 16),
           NesButton(
             type: NesButtonType.normal,
             onPressed: cubit.toogleLightMode,
             child: state.lightMode
-                ? NesIcon(iconData: NesIcons.instance.sun)
-                : NesIcon(iconData: NesIcons.instance.moon),
+                ? NesIcon(iconData: NesIcons.sun)
+                : NesIcon(iconData: NesIcons.moon),
           ),
         ],
       ),

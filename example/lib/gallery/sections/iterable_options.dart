@@ -9,11 +9,11 @@ enum CustomHeroClass {
   NesIconData toIcon() {
     switch (this) {
       case CustomHeroClass.knight:
-        return NesIcons.instance.sword;
+        return NesIcons.sword;
       case CustomHeroClass.archer:
-        return NesIcons.instance.arrow;
+        return NesIcons.arrow;
       case CustomHeroClass.barbarian:
-        return NesIcons.instance.axe;
+        return NesIcons.axe;
     }
   }
 }
@@ -65,10 +65,10 @@ class _IterableOptionsSectionState extends State<IterableOptionsSection> {
               setState(() => customValue = value);
             },
             leftIndicatorBuilder: (_) => NesIcon(
-              iconData: NesIcons.instance.thinArrowLeft,
+              iconData: NesIcons.thinArrowLeft,
             ),
             rightIndicatorBuilder: (_) => NesIcon(
-              iconData: NesIcons.instance.thinArrowRight,
+              iconData: NesIcons.thinArrowRight,
             ),
             optionBuilder: (_, value) => NesIcon(iconData: value.toIcon()),
             value: customValue,

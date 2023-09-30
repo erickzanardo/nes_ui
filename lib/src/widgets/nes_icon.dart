@@ -18,11 +18,17 @@ class NesIconData {
 }
 
 /// Built in library of icons for the Flutter Nes Design library.
-class NesIcons {
-  NesIcons._();
+// ignore: non_constant_identifier_names
+final NesIcons = NesIconCollection._singleton();
 
-  /// Instance of [NesIcons].
-  static final NesIcons instance = NesIcons._();
+/// This is the internal class that holds the data for [NesIcons].
+/// Use [NesIcons] to access the icons.
+class NesIconCollection {
+  NesIconCollection._singleton();
+
+  /// Instance of [NesIconCollection].
+  @Deprecated('Instance is no longer needed. Use NesIcons directly.')
+  late final NesIconCollection instance = NesIcons;
 
   /// A check icon.
   late final check = NesIconData(

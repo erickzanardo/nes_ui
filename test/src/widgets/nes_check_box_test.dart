@@ -37,7 +37,7 @@ void main() {
 
       final icon = tester.widget<NesIcon>(find.byType(NesIcon));
 
-      expect(icon.iconData, equals(NesIcons.instance.check));
+      expect(icon.iconData, equals(NesIcons.check));
     });
   });
 }

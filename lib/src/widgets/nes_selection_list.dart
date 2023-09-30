@@ -25,7 +25,7 @@ class NesSelectionList extends StatefulWidget {
 
   /// A [WidgetBuilder] used to create the marker widget.
   ///
-  /// If ommited [NesIcons.instances.handPointingRight] is used.
+  /// If ommited [NesIconCollection.handPointingRight] is used.
   final Widget Function(BuildContext, Size)? markerBuilder;
 
   /// List of items tha can be selected.
@@ -158,7 +158,7 @@ class _NesSelectionListState extends State<NesSelectionList> {
   Widget build(BuildContext context) {
     final markerBuilder = widget.markerBuilder ??
         (_, size) => NesIcon(
-              iconData: NesIcons.instance.handPointingRight,
+              iconData: NesIcons.handPointingRight,
               size: size,
             );
 

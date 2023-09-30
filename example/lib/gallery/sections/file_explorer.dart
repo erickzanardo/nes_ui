@@ -57,7 +57,7 @@ class _FileExplorerSectionState extends State<FileExplorerSection> {
                   left: 0,
                   bottom: 0,
                   child: NesIconButton(
-                    icon: NesIcons.instance.newFile,
+                    icon: NesIcons.newFile,
                     onPress: () {
                       setState(() {
                         _wasAdded = true;

@@ -100,7 +100,7 @@ class NesWindow extends StatelessWidget {
               ),
             if (onClose != null)
               NesIconButton(
-                icon: NesIcons.instance.close,
+                icon: NesIcons.close,
                 size: iconSize,
                 onPress: onClose,
               ),
