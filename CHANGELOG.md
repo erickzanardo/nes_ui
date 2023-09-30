@@ -1,12 +1,14 @@
 # 0.9.0
  - feat: add `NesIcons.expand`
  - fix: `NesDialog` allows a generic to be informed.
- - feat: add `NesIcons.cut` 
+ - feat: add `NesIcons.cut`
  - feat: add `NesIcons.eraser`
  - feat: add `NesIcons.copy`
  - feat: add `NesIcons.paste`
  - feat: add `NesIcons.tv`
  - feat: add `NesIcons.radio`
+ - feat!: add button icon themes
+ - refactor: Use NesIcons.someIcon instead of NesIcons.instance.someIcon
 
 # 0.8.0
  - feat: add `NesIcons.leftHand`
@@ -20,7 +22,7 @@
  - feat: change `NesTabView` to hide close icons when no handler is informed
  - feat: add `NesContainerTheme` to theming for improved customization of `NesContainer`s
  - feat: add `NesButtonTheme`.borderColor for improved customization of `NesButton`s
- - feat: change `NesTab`to use the same border color as `NesContainer`s for design consistency. 
+ - feat: change `NesTab`to use the same border color as `NesContainer`s for design consistency.
  - feat: allow `NesContainer` to have a customizable `padding`.
  - feat: add `NesDialog`.
  - feat: `NesButton` font colors applies to material icons.
