@@ -35,6 +35,25 @@ class DialogsSection extends StatelessWidget {
                 NesConfirmDialog.show(context: context);
               },
             ),
+            const SizedBox(width: 16),
+            NesButton(
+              type: NesButtonType.normal,
+              child: const Text('Input'),
+              onPressed: () async {
+                final inputData = await NesInputDialog.show(
+                  context: context,
+                  message: 'What is the coolest NES game?',
+                );
+
+                if (inputData != null) {
+                  // ignore: use_build_context_synchronously
+                  NesSnackbar.show(
+                    context,
+                    text: inputData,
+                  );
+                }
+              },
+            ),
           ],
         ),
       ],
