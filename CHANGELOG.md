@@ -9,6 +9,7 @@
  - feat: add `NesIcons.radio`
  - feat!: add button icon themes
  - refactor: Use NesIcons.someIcon instead of NesIcons.instance.someIcon
+ - feat: add `NesInputDialog`
 
 # 0.8.0
  - feat: add `NesIcons.leftHand`
