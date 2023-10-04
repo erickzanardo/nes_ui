@@ -13,7 +13,7 @@ import 'package:nes_ui/nes_ui.dart';
 /// by passing a [leftIndicatorBuilder] and [rightIndicatorBuilder].
 /// {@endtemplate}
 class NesIterableOptions<T> extends StatelessWidget {
-  /// {@template nes_iterable_options}
+  /// {@macro nes_iterable_options}
   const NesIterableOptions({
     super.key,
     required this.values,

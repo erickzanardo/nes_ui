@@ -6,7 +6,7 @@ import 'package:flutter_mini_sprite/flutter_mini_sprite.dart';
 import 'package:mini_sprite/mini_sprite.dart';
 import 'package:nes_ui/nes_ui.dart';
 
-/// {@nes_icon_data}
+/// {@template nes_icon_data}
 /// Model class holding the data of for a [NesIcon].
 /// {@endtemplate}
 class NesIconData {
@@ -454,6 +454,27 @@ class NesIconCollection {
   late final radio = NesIconData(
     MiniSprite.fromDataString(
       '8,8;6,-1;1,0;6,-1;1,0;2,-1;9,0;3,1;1,0;2,1;6,0;2,1;2,0;3,1;12,0;8,-1',
+    ),
+  );
+
+  /// Hourglass with its top half full
+  late final hourglassTopFull = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;9,0;1,-1;4,0;1,-1;1,0;1,-1;1,0;1,-1;2,0;1,-1;1,0;3,-1;4,0;4,-1;1,0;2,-1;1,0;3,-1;1,0;4,-1;1,0;1,-1;1,0;6,-1;9,0',
+    ),
+  );
+
+  /// Hourglass with its content in the middle
+  late final hourglassMiddle = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;9,0;6,-1;1,0;1,-1;2,0;2,-1;2,0;3,-1;4,0;4,-1;4,0;3,-1;1,0;1,-1;2,0;1,-1;1,0;1,-1;1,0;6,-1;9,0',
+    ),
+  );
+
+  /// Hourglass with its bottom half full
+  late final hourglassBottomFull = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;9,0;6,-1;1,0;1,-1;1,0;4,-1;1,0;3,-1;1,0;2,-1;1,0;4,-1;4,0;3,-1;1,0;1,-1;2,0;1,-1;1,0;1,-1;1,0;1,-1;4,0;1,-1;9,0',
     ),
   );
 }
