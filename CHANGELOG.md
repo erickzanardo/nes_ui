@@ -13,6 +13,11 @@
  - feat: add `NesIcons.hourglassMiddle`
  - feat: add `NesIcons.hourglassTopFull`
  - feat: add `NesIcons.hourglassBottomFull`
+ - feat: add `NesHourglassLoadingIndicator`
+ - feat: add `NesTerminalLoadingIndicator`
+ - feat: add `NesJumpingIconsLoadingIndicator`
+ - feat: add `NesMutatingIconsLoadingIndicator`
+ - feat: add `NesPixelRowLoadingIndicator`
 
 # 0.8.0
  - feat: add `NesIcons.leftHand`
