@@ -10,6 +10,9 @@
  - feat!: add button icon themes
  - refactor: Use NesIcons.someIcon instead of NesIcons.instance.someIcon
  - feat: add `NesInputDialog`
+ - feat: add `NesIcons.hourglassMiddle`
+ - feat: add `NesIcons.hourglassTopFull`
+ - feat: add `NesIcons.hourglassBottomFull`
 
 # 0.8.0
  - feat: add `NesIcons.leftHand`

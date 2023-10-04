@@ -253,6 +253,18 @@ class IconsSection extends StatelessWidget {
               data: NesIcons.radio,
               label: 'radio',
             ),
+            _IconEntry(
+              data: NesIcons.hourglassTopFull,
+              label: 'hourglassTopFull',
+            ),
+            _IconEntry(
+              data: NesIcons.hourglassBottomFull,
+              label: 'hourglassBottomFull',
+            ),
+            _IconEntry(
+              data: NesIcons.hourglassMiddle,
+              label: 'hourglassMiddle',
+            ),
           ],
         ),
       ],
