@@ -265,6 +265,14 @@ class IconsSection extends StatelessWidget {
               data: NesIcons.hourglassMiddle,
               label: 'hourglassMiddle',
             ),
+            _IconEntry(
+              data: NesIcons.flag,
+              label: 'flag',
+            ),
+            _IconEntry(
+              data: NesIcons.checkedFlag,
+              label: 'checkedFlag',
+            ),
           ],
         ),
       ],

@@ -18,6 +18,8 @@
  - feat: add `NesJumpingIconsLoadingIndicator`
  - feat: add `NesMutatingIconsLoadingIndicator`
  - feat: add `NesPixelRowLoadingIndicator`
+ - feat: add `NesIcons.flag`
+ - feat: add `NesIcons.checkedFlag`
 
 # 0.8.0
  - feat: add `NesIcons.leftHand`
