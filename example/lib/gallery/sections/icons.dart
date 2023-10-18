@@ -273,6 +273,10 @@ class IconsSection extends StatelessWidget {
               data: NesIcons.checkedFlag,
               label: 'checkedFlag',
             ),
+            _IconEntry(
+              data: NesIcons.infinite,
+              label: 'infinite',
+            ),
           ],
         ),
       ],
