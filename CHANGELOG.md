@@ -1,3 +1,6 @@
+# 0.10.0
+ - feat: add `NesIcons.user`
+
 # 0.9.0
  - feat: add `NesIcons.expand`
  - fix: `NesDialog` allows a generic to be informed.
