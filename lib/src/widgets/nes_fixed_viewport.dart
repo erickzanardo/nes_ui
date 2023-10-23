@@ -10,6 +10,7 @@ class NesFixedViewport extends StatelessWidget {
   const NesFixedViewport({
     required this.child,
     this.resolution = const Size(256, 240),
+    this.alignment = Alignment.center,
     super.key,
   });
 
@@ -18,6 +19,9 @@ class NesFixedViewport extends StatelessWidget {
 
   /// The widget below this widget in the tree.
   final Widget child;
+
+  /// The Alignment of [child] within the viewport.
+  final Alignment alignment;
 
   @override
   Widget build(BuildContext context) {
@@ -31,10 +35,25 @@ class NesFixedViewport extends StatelessWidget {
             ? height / resolution.height
             : width / resolution.width;
 
-        return Center(
-          child: Transform.scale(
-            scale: scale,
-            child: child,
+        return SizedBox(
+          width: width,
+          height: height,
+          child: Align(
+            alignment: alignment,
+            child: SizedBox(
+              width: resolution.width * scale,
+              height: resolution.height * scale,
+              child: Transform.scale(
+                scale: scale,
+                child: Align(
+                  child: SizedBox(
+                    width: resolution.width,
+                    height: resolution.height,
+                    child: child,
+                  ),
+                ),
+              ),
+            ),
           ),
         );
       },
