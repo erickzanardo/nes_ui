@@ -505,6 +505,13 @@ class NesIconCollection {
       '8,8;1,-1;6,0;1,-1;10,0;1,1;2,0;1,1;10,0;1,-1;6,0;3,-1;4,0;3,-1;6,0;1,-1;8,0',
     ),
   );
+
+  /// Bag/Chest
+  late final chest = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;9,-1;6,0;1,-1;1,0;6,1;2,0;1,1;4,0;1,1;10,0;2,1;2,0;2,1;2,0;6,1;9,0',
+    ),
+  );
 }
 
 /// {@template nes_icon}

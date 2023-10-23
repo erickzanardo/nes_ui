@@ -1,5 +1,6 @@
 # 0.10.0
  - feat: add `NesIcons.user`
+ - feat: add `NesIcons.chest`
 
 # 0.9.0
  - feat: add `NesIcons.expand`
