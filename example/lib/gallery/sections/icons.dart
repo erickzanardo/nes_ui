@@ -277,6 +277,10 @@ class IconsSection extends StatelessWidget {
               data: NesIcons.infinite,
               label: 'infinite',
             ),
+            _IconEntry(
+              data: NesIcons.user,
+              label: 'user',
+            ),
           ],
         ),
       ],
