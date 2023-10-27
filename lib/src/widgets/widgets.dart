@@ -5,6 +5,7 @@ export 'nes_container.dart';
 export 'nes_controller_focus.dart';
 export 'nes_dropshadow.dart';
 export 'nes_file_explorer.dart';
+export 'nes_fixed_viewport.dart';
 export 'nes_icon.dart';
 export 'nes_icon_button.dart';
 export 'nes_input.dart';
