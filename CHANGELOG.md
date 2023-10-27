@@ -3,6 +3,7 @@
  - feat: add `NesIcons.chest`
  - feat: add `NesIcons.lamp`
  - feat: `NesIconButton` can customizes the icon color.
+ - feat: add `NesFixedViewport`.
 
 # 0.9.0
  - feat: add `NesIcons.expand`

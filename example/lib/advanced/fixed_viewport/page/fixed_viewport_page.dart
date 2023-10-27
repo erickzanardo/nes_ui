@@ -71,7 +71,7 @@ class _FixedViewportPageState extends State<FixedViewportPage> {
         child: Column(
           children: [
             const Text(
-              'The content above has a fixed viewport of 256x240 (the '
+              'The content below has a fixed viewport of 256x240 (the '
               'original resolution of the NES). ',
               textAlign: TextAlign.center,
             ),
@@ -87,7 +87,7 @@ class _FixedViewportPageState extends State<FixedViewportPage> {
                       height: 240,
                       child: Column(
                         children: [
-                          NesContainer(child: Text('hello')),
+                          const NesContainer(child: Text('Hello World')),
                           const SizedBox(height: 4),
                           NesButton(
                             type: NesButtonType.primary,
