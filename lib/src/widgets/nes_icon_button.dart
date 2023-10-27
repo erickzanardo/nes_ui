@@ -13,6 +13,8 @@ class NesIconButton extends StatelessWidget {
     this.onPressStart,
     this.onPressEnd,
     this.size,
+    this.primaryColor,
+    this.secondaryColor,
   });
 
   /// Icon of the button.
@@ -26,6 +28,14 @@ class NesIconButton extends StatelessWidget {
 
   /// Called when pressed has ended.
   final VoidCallback? onPressEnd;
+
+  /// Optional primary color for the icon.
+  /// Will use value from the theme if none is provided.
+  final Color? primaryColor;
+
+  /// Optional secondary color for the icon.
+  /// Will use value from the theme if none is provided.
+  final Color? secondaryColor;
 
   /// An optional size for the icon button.
   final Size? size;
@@ -41,7 +51,12 @@ class NesIconButton extends StatelessWidget {
       onPressEnd: onPressEnd,
       child: Opacity(
         opacity: _isDisabled() ? .2 : 1.0,
-        child: NesIcon(iconData: icon, size: size),
+        child: NesIcon(
+          iconData: icon,
+          size: size,
+          primaryColor: primaryColor,
+          secondaryColor: secondaryColor,
+        ),
       ),
     );
   }

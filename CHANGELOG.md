@@ -2,6 +2,7 @@
  - feat: add `NesIcons.user`
  - feat: add `NesIcons.chest`
  - feat: add `NesIcons.lamp`
+ - feat: `NesIconButton` can customizes the icon color.
 
 # 0.9.0
  - feat: add `NesIcons.expand`
