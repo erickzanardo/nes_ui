@@ -49,10 +49,12 @@ class NesContainer extends StatelessWidget {
 
     final nesTheme = context.nesThemeExtension<NesTheme>();
 
+    final pixelSize = nesContainerTheme.pixelSize ?? nesTheme.pixelSize;
+
     return CustomPaint(
       painter: _ContainerPainter(
         label: label,
-        pixelSize: nesTheme.pixelSize,
+        pixelSize: pixelSize,
         textStyle: textStyle,
         backgroundColor: containerColor,
         borderColor: nesContainerTheme.borderColor,
