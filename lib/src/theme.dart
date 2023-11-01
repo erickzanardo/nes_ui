@@ -435,6 +435,7 @@ class NesContainerTheme extends ThemeExtension<NesContainerTheme> {
     required this.borderColor,
     required this.labelTextStyle,
     this.padding = const EdgeInsets.all(32),
+    this.pixelSize,
   });
 
   /// The background color of the container.
@@ -449,18 +450,24 @@ class NesContainerTheme extends ThemeExtension<NesContainerTheme> {
   /// The padding of the containers, defaults to 32 in all directions.
   final EdgeInsets padding;
 
+  /// The pixel size of the container. When omitted, defaults to
+  /// [NesTheme.pixelSize].
+  final int? pixelSize;
+
   @override
   ThemeExtension<NesContainerTheme> copyWith({
     Color? backgroundColor,
     Color? borderColor,
     TextStyle? labelTextStyle,
     EdgeInsets? padding,
+    int? pixelSize,
   }) {
     return NesContainerTheme(
       backgroundColor: backgroundColor ?? this.backgroundColor,
       borderColor: borderColor ?? this.borderColor,
       labelTextStyle: labelTextStyle ?? this.labelTextStyle,
       padding: padding ?? this.padding,
+      pixelSize: pixelSize ?? this.pixelSize,
     );
   }
 
@@ -489,6 +496,10 @@ class NesContainerTheme extends ThemeExtension<NesContainerTheme> {
       padding: EdgeInsetsTween(
         begin: padding,
         end: otherExt?.padding,
+      ).lerp(t),
+      pixelSize: IntTween(
+        begin: pixelSize,
+        end: otherExt?.pixelSize,
       ).lerp(t),
     );
   }

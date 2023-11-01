@@ -1,3 +1,6 @@
+# 0.11.0
+ - feat: add ability to customize `NesContainer`s pixel sizes.
+
 # 0.10.0
  - feat: add `NesIcons.user`
  - feat: add `NesIcons.chest`
