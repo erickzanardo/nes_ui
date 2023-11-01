@@ -88,6 +88,8 @@ class _NesButtonState extends State<NesButton> {
       color: nesIconTheme.primary,
     );
 
+    final pixelSize = nesButtonTheme.pixelSize ?? nesTheme.pixelSize;
+
     return MouseRegion(
       onEnter: (_) {
         setState(() => _hovered = true);
@@ -111,12 +113,12 @@ class _NesButtonState extends State<NesButton> {
             color: buttonColor,
             borderColor:
                 nesButtonTheme.borderColor ?? textStyle.color ?? Colors.black,
-            pixelSize: nesTheme.pixelSize,
+            pixelSize: pixelSize,
             pressed: widget._isDisabled ? widget._isDisabled : _pressed,
             hovered: widget._isDisabled ? widget._isDisabled : _hovered,
           ),
           child: Padding(
-            padding: EdgeInsets.all(nesTheme.pixelSize * 4),
+            padding: EdgeInsets.all(pixelSize * 4),
             child: DefaultTextStyle(
               style: textStyle.copyWith(
                 color: fontColor,
