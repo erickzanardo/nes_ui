@@ -51,6 +51,7 @@ class NesButtonTheme extends ThemeExtension<NesButtonTheme> {
     required this.lightIconTheme,
     required this.darkIconTheme,
     this.borderColor,
+    this.pixelSize,
   });
 
   /// The color for the normal type of button.
@@ -84,6 +85,10 @@ class NesButtonTheme extends ThemeExtension<NesButtonTheme> {
   /// to the [TextTheme.labelMedium] color.
   final Color? borderColor;
 
+  /// The pixel size used in the buttons, resorts to [NesTheme.pixelSize] when
+  /// null.
+  final int? pixelSize;
+
   @override
   NesButtonTheme copyWith({
     Color? normal,
@@ -96,6 +101,7 @@ class NesButtonTheme extends ThemeExtension<NesButtonTheme> {
     NesIconTheme? lightIconTheme,
     NesIconTheme? darkIconTheme,
     Color? borderColor,
+    int? pixelSize,
   }) {
     return NesButtonTheme(
       normal: normal ?? this.normal,
@@ -108,6 +114,7 @@ class NesButtonTheme extends ThemeExtension<NesButtonTheme> {
       lightIconTheme: lightIconTheme ?? this.lightIconTheme,
       darkIconTheme: darkIconTheme ?? this.darkIconTheme,
       borderColor: borderColor ?? this.borderColor,
+      pixelSize: pixelSize ?? this.pixelSize,
     );
   }
 
@@ -161,6 +168,10 @@ class NesButtonTheme extends ThemeExtension<NesButtonTheme> {
             end: otherExt?.borderColor,
           ).lerp(t) ??
           borderColor,
+      pixelSize: IntTween(
+        begin: pixelSize,
+        end: otherExt?.pixelSize,
+      ).lerp(t),
     );
   }
 }
