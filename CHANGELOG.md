@@ -1,6 +1,13 @@
 # 0.11.0
  - feat: add ability to customize `NesContainer`s pixel sizes.
  - feat: add ability to customize `NesButton`s pixel sizes.
+ - feat: add `NesIcons.clock`
+ - feat: add `NesIcons.tree`
+ - feat: add `NesIcons.energy`
+ - feat: add `NesIcons.leaves`
+ - feat: add `NesIcons.fruit`
+ - feat: add `NesIcons.fatArrowUp`
+ - feat: add `NesIcons.fatArrowDown`
 
 # 0.10.0
  - feat: add `NesIcons.user`
