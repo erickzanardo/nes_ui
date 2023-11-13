@@ -317,6 +317,10 @@ class IconsSection extends StatelessWidget {
               data: NesIcons.fatArrowDown,
               label: 'fatArrowDown',
             ),
+            _IconEntry(
+              data: NesIcons.hammer,
+              label: 'hammer',
+            ),
           ],
         ),
       ],
