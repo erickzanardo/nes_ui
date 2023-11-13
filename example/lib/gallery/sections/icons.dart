@@ -289,6 +289,34 @@ class IconsSection extends StatelessWidget {
               data: NesIcons.lamp,
               label: 'lamp',
             ),
+            _IconEntry(
+              data: NesIcons.clock,
+              label: 'clock',
+            ),
+            _IconEntry(
+              data: NesIcons.tree,
+              label: 'tree',
+            ),
+            _IconEntry(
+              data: NesIcons.energy,
+              label: 'energy',
+            ),
+            _IconEntry(
+              data: NesIcons.leaves,
+              label: 'leaves',
+            ),
+            _IconEntry(
+              data: NesIcons.fruit,
+              label: 'fruit',
+            ),
+            _IconEntry(
+              data: NesIcons.fatArrowUp,
+              label: 'fatArrowUp',
+            ),
+            _IconEntry(
+              data: NesIcons.fatArrowDown,
+              label: 'fatArrowDown',
+            ),
           ],
         ),
       ],
