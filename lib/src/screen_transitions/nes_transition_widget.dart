@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 ///
 /// {@endtemplate}
 abstract class NesTransitionOverlayWidget extends StatelessWidget {
-  /// {@template nes_transition_overlay_widget}
+  /// {@macro nes_transition_overlay_widget}
   const NesTransitionOverlayWidget({
     required this.animation,
     required this.child,

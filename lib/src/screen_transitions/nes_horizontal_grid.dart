@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nes_ui/nes_ui.dart';
 
-/// {@nes_horizontal_grid_transition}
+/// {@template nes_horizontal_grid_transition}
 /// A Transition where lines will appear from the left and right
 /// until the screen is filled.
 /// {@endtemplate}

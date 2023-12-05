@@ -9,6 +9,7 @@
  - feat: add `NesIcons.fatArrowUp`
  - feat: add `NesIcons.fatArrowDown`
  - feat: add `NesIcons.hammer`
+ - feat: add `NesIcons.owl`
 
 # 0.10.0
  - feat: add `NesIcons.user`
