@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nes_ui/nes_ui.dart';
 
-/// {@nes_vertical_close_transition}
+/// {@template nes_vertical_close_transition}
 /// A Transition that looks like vertical doors are closing in front
 /// of the current screen, opening again with the new one.
 /// {@endtemplate}

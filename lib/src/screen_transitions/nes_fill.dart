@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nes_ui/nes_ui.dart';
 
-/// {@nes_fill_transition}
+/// {@template nes_fill_transition}
 /// A Transition that fills the screen.
 /// {@endtemplate}
 class NesFillTransition extends NesOverlayTransitionWidget {
