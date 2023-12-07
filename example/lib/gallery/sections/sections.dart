@@ -5,6 +5,7 @@ export 'custom_extensions.dart';
 export 'dialogs.dart';
 export 'drop_shadows.dart';
 export 'file_explorer.dart';
+export 'icon_badges.dart';
 export 'icon_buttons.dart';
 export 'icons.dart';
 export 'iterable_options.dart';
