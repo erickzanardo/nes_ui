@@ -11,6 +11,7 @@
  - feat: add `NesIcons.hammer`
  - feat: add `NesIcons.owl`
  - feat: add `NesIconBadge`
+ - feat: add `NesIcons.letter`
 
 # 0.10.0
  - feat: add `NesIcons.user`
