@@ -1,7 +1,4 @@
-import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
-import 'package:flutter_mini_sprite/flutter_mini_sprite.dart';
 import 'package:nes_ui/nes_ui.dart';
 
 /// {@template nes_icon_badge}
