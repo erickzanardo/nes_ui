@@ -325,6 +325,10 @@ class IconsSection extends StatelessWidget {
               data: NesIcons.owl,
               label: 'owl',
             ),
+            _IconEntry(
+              data: NesIcons.letter,
+              label: 'letter',
+            ),
           ],
         ),
       ],
