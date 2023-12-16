@@ -46,7 +46,7 @@ class NesTooltip extends StatefulWidget {
   /// The placement of the arrow of the tooltip.
   final NesTooltipArrowPlacement arrowPlacement;
 
-  /// The direction fo the arrow of the tooltip
+  /// The direction for the arrow of the tooltip
   final NesTooltipArrowDirection arrowDirection;
 
   @override
