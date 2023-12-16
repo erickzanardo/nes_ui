@@ -65,7 +65,7 @@ class _IconEntry extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8),
-      child: NesIconButton(icon: data, onPress: disabled ? null : () {}),
+      child: NesIconButton(icon: data, onPress: () {}, disabled: disabled, ),
     );
   }
 }
