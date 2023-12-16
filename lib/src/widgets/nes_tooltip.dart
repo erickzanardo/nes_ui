@@ -14,8 +14,12 @@ enum NesTooltipArrowPlacement {
   right,
 }
 
+/// Enum with the possible direction for the arrow of the tooltip.
 enum NesTooltipArrowDirection {
+  /// The arrow will be direct on the top side of the tooltip. (Default value)
   top,
+
+  /// The arrow will be direct on the bottom side of the tooltip.
   bottom,
 }
 
