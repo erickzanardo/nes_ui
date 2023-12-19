@@ -14,6 +14,15 @@ enum NesTooltipArrowPlacement {
   right,
 }
 
+/// Enum with the possible direction for the arrow of the tooltip.
+enum NesTooltipArrowDirection {
+  /// The arrow will be direct on the top side of the tooltip. (Default value)
+  top,
+
+  /// The arrow will be direct on the bottom side of the tooltip.
+  bottom,
+}
+
 /// {@template nes_tooltip}
 /// A tooltip that appears when the user long-presses on a widget,
 /// or hovers over it with a mouse.
@@ -25,6 +34,7 @@ class NesTooltip extends StatefulWidget {
     required this.child,
     required this.message,
     this.arrowPlacement = NesTooltipArrowPlacement.middle,
+    this.arrowDirection = NesTooltipArrowDirection.top,
   });
 
   /// The Widget that will trigger the tooltip.
@@ -35,6 +45,9 @@ class NesTooltip extends StatefulWidget {
 
   /// The placement of the arrow of the tooltip.
   final NesTooltipArrowPlacement arrowPlacement;
+
+  /// The direction for the arrow of the tooltip
+  final NesTooltipArrowDirection arrowDirection;
 
   @override
   State<NesTooltip> createState() => _NesTooltipState();
@@ -56,6 +69,7 @@ class _NesTooltipState extends State<NesTooltip> {
               color: tooltipTheme.background,
               pixelSize: nesTheme.pixelSize.toDouble(),
               arrowPlacement: widget.arrowPlacement,
+              arrowDirection: widget.arrowDirection,
               textStyle: textStyle,
               message: widget.message,
               textColor: tooltipTheme.textColor,
@@ -100,6 +114,7 @@ class _TooltipPainter extends CustomPainter {
     required this.color,
     required this.pixelSize,
     required this.arrowPlacement,
+    required this.arrowDirection,
     required this.textStyle,
     required this.textColor,
     required this.message,
@@ -108,6 +123,7 @@ class _TooltipPainter extends CustomPainter {
   final Color color;
   final double pixelSize;
   final NesTooltipArrowPlacement arrowPlacement;
+  final NesTooltipArrowDirection arrowDirection;
   final TextStyle textStyle;
   final Color textColor;
   final String message;
@@ -160,7 +176,10 @@ class _TooltipPainter extends CustomPainter {
       NesTooltipArrowPlacement.right => -size.width + childSize.width,
     };
 
-    final translateY = -size.height - pixelSize * 4;
+    final translateY = switch (arrowDirection) {
+      NesTooltipArrowDirection.top => -size.height - pixelSize * 4,
+      NesTooltipArrowDirection.bottom => size.height + pixelSize * 8,
+    };
 
     canvas
       ..translate(translateX, translateY)
@@ -189,12 +208,21 @@ class _TooltipPainter extends CustomPainter {
 
     textPainter.paint(canvas, Offset(pixelSize * 2, pixelSize));
 
+    final arrowBodyTopPosition = switch (arrowDirection) {
+      NesTooltipArrowDirection.top => size.height + pixelSize,
+      NesTooltipArrowDirection.bottom => pixelSize * -2,
+    };
+
+    final arrowHeadTopPosition = switch (arrowDirection) {
+      NesTooltipArrowDirection.top => size.height + pixelSize * 2,
+      NesTooltipArrowDirection.bottom => pixelSize * -3,
+    };
     // Arrow
     canvas
       ..drawRect(
         Rect.fromLTWH(
           arrowOffset,
-          size.height + pixelSize,
+          arrowBodyTopPosition,
           pixelSize * 2,
           pixelSize,
         ),
@@ -203,7 +231,7 @@ class _TooltipPainter extends CustomPainter {
       ..drawRect(
         Rect.fromLTWH(
           arrowOffset + pixelSize / 2,
-          size.height + pixelSize * 2,
+          arrowHeadTopPosition,
           pixelSize,
           pixelSize,
         ),
