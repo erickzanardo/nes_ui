@@ -11,6 +11,7 @@ export 'icons.dart';
 export 'iterable_options.dart';
 export 'key_icons.dart';
 export 'loading_indicators.dart';
+export 'running_text.dart';
 export 'screen_transitions.dart';
 export 'selection_list.dart';
 export 'single_child_scroll_view.dart';

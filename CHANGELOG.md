@@ -14,6 +14,7 @@
  - feat: add `NesIcons.letter`
  - feat: adding arrow direction to `NesTooltip`
  - fix: Icon button disabled property
+ - feat: Adding `NesRunningText`
 
 # 0.10.0
  - feat: add `NesIcons.user`
