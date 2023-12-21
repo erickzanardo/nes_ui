@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:nes_ui/nes_ui.dart';
-import 'package:phased/phased.dart';
 
 /// {@template nes_selection_list}
 ///
@@ -219,29 +218,6 @@ class _NesSelectionListState extends State<NesSelectionList> {
   }
 }
 
-class _Blinker extends Phased<bool> {
-  _Blinker({
-    super.key,
-    required this.child,
-  }) : super(
-          state: PhasedState<bool>(
-            values: [true, false],
-            ticker: const Duration(seconds: 1),
-          ),
-        );
-
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    if (state.value) {
-      return child;
-    } else {
-      return const SizedBox();
-    }
-  }
-}
-
 class _SelectionItem extends StatelessWidget {
   const _SelectionItem({
     required this.markerKey,
@@ -270,7 +246,7 @@ class _SelectionItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final itemMarker = cursor && hasFocus
-        ? _Blinker(
+        ? NesBlinker(
             key: markerKey,
             child: marker,
           )
