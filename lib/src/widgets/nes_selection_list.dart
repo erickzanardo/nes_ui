@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:nes_ui/nes_ui.dart';
-import 'package:phased/phased.dart';
 
 /// {@template nes_selection_list}
 ///
