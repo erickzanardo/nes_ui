@@ -86,5 +86,36 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.text('The Child'), findsOneWidget);
     });
+
+    testWidgets('plays the new text when received a new one', (tester) async {
+      var text = 'The Child';
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: flutterNesTheme(),
+          home: StatefulBuilder(
+            builder: (context, setState) {
+              return Column(
+                children: [
+                  NesRunningText(
+                    text: text,
+                  ),
+                  ElevatedButton(
+                    onPressed: () => setState(() => text = 'The Mandalorian'),
+                    child: const Text('Start'),
+                  ),
+                ],
+              );
+            },
+          ),
+        ),
+      );
+
+      await tester.pumpAndSettle();
+      expect(find.text('The Child'), findsOneWidget);
+
+      await tester.tap(find.byType(ElevatedButton));
+      await tester.pumpAndSettle();
+      expect(find.text('The Mandalorian'), findsOneWidget);
+    });
   });
 }
