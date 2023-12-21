@@ -13,6 +13,7 @@ class NesPressable extends StatefulWidget {
     this.onPressEnd,
     this.onPress,
     this.disabled,
+    this.behavior,
     super.key,
   });
 
@@ -30,6 +31,9 @@ class NesPressable extends StatefulWidget {
 
   /// Child.
   final Widget child;
+
+  /// The behavior of the hit test of this widget.
+  final HitTestBehavior? behavior;
 
   @override
   State<NesPressable> createState() => _NesPressableState();
@@ -50,6 +54,7 @@ class _NesPressableState extends State<NesPressable> {
       child: MouseRegion(
         cursor: SystemMouseCursors.click,
         child: GestureDetector(
+          behavior: widget.behavior,
           onTap: () {
             widget.onPress?.call();
           },

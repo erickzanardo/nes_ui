@@ -1,6 +1,7 @@
 # 0.12.0
  - feat: adding `NesBlinker`.
  - fix: `NesRunningText` would not update its text.
+ - feat: add `HitTestBehavior` property to `NesPressable`.
 
 # 0.11.0
  - feat: add ability to customize `NesContainer`s pixel sizes.
