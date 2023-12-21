@@ -69,6 +69,17 @@ class _NesRunningTextState extends State<NesRunningText>
         _controller.stop();
       }
     }
+
+    if (widget.text != oldWidget.text) {
+      _characters
+        ..clear()
+        ..addAll(widget.text.split(''));
+      _currentChar = 0;
+
+      if (widget.running) {
+        _controller.forward(from: 0);
+      }
+    }
   }
 
   void _nextWord() {
