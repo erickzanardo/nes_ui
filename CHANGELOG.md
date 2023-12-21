@@ -1,3 +1,6 @@
+# 0.12.0
+ - feat: adding `NesBlinker`.
+
 # 0.11.0
  - feat: add ability to customize `NesContainer`s pixel sizes.
  - feat: add ability to customize `NesButton`s pixel sizes.
