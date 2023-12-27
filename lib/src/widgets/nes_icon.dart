@@ -589,6 +589,41 @@ class NesIconCollection {
       '8,8;8,-1;10,0;4,1;3,0;1,1;1,0;2,1;1,0;1,1;2,0;2,1;2,0;2,1;2,0;6,1;9,0;8,-1',
     ),
   );
+
+  /// Factory
+  late final factory = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;5,-1;2,0;8,-1;1,0;6,-1;3,0;1,-1;1,0;1,-1;1,0;1,-1;11,0;1,1;1,0;1,1;1,0;1,1;18,0',
+    ),
+  );
+
+  /// Rail
+  late final rail = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;9,-1;1,0;4,-1;1,0;1,-1;8,0;1,-1;1,0;4,-1;1,0;1,-1;8,0;1,-1;1,0;4,-1;1,0;1,-1;8,0;1,-1;1,0;4,-1;1,0;1,-1',
+    ),
+  );
+
+  /// Robot
+  late final robot = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;1,-1;6,0;1,-1;1,0;6,1;2,0;3,1;2,0;1,1;2,0;3,1;2,0;1,1;2,0;6,1;10,0;6,1;1,0;1,-1;6,0;1,-1',
+    ),
+  );
+
+  /// Pickaxe
+  late final pickaxe = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;2,-1;4,0;6,-1;3,0;6,-1;3,0;4,-1;1,0;1,-1;2,0;3,-1;1,0;3,-1;1,0;2,-1;1,0;4,-1;1,0;1,-1;1,0;6,-1;1,0;7,-1',
+    ),
+  );
+
+  /// Oven
+  late final oven = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;5,-1;1,0;1,-1;1,0;4,-1;1,0;1,-1;1,0;13,-1;2,0;3,-1;6,0;2,-1;2,0;2,1;2,0;2,-1;1,0;4,1;1,0;2,-1;6,0;1,-1',
+    ),
+  );
 }
 
 /// {@template nes_icon}

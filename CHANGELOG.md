@@ -2,6 +2,11 @@
  - feat: adding `NesBlinker`.
  - fix: `NesRunningText` would not update its text.
  - feat: add `HitTestBehavior` property to `NesPressable`.
+ - feat: add `NesIcons.factory`.
+ - feat: add `NesIcons.rail`.
+ - feat: add `NesIcons.robot`.
+ - feat: add `NesIcons.pickaxe`.
+ - feat: add `NesIcons.oven`.
 
 # 0.11.0
  - feat: add ability to customize `NesContainer`s pixel sizes.
