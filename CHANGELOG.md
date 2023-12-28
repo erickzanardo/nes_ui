@@ -7,6 +7,7 @@
  - feat: add `NesIcons.robot`.
  - feat: add `NesIcons.pickaxe`.
  - feat: add `NesIcons.oven`.
+ - feat: add `NesIcons.rotate`.
 
 # 0.11.0
  - feat: add ability to customize `NesContainer`s pixel sizes.
