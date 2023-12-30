@@ -52,7 +52,7 @@ class NesContainer extends StatelessWidget {
     final pixelSize = nesContainerTheme.pixelSize ?? nesTheme.pixelSize;
 
     return CustomPaint(
-      painter: _ContainerPainter(
+      painter: nesContainerTheme.painter(
         label: label,
         pixelSize: pixelSize,
         textStyle: textStyle,
@@ -71,117 +71,45 @@ class NesContainer extends StatelessWidget {
   }
 }
 
-class _ContainerPainter extends CustomPainter {
-  const _ContainerPainter({
-    this.label,
+/// Definition for a function that builds a [NesContainerPainter].
+typedef NesContainerPainterBuilder = NesContainerPainter Function({
+  required String? label,
+  required int pixelSize,
+  required TextStyle textStyle,
+  required Color backgroundColor,
+  required Color borderColor,
+});
+
+/// {@template nes_container_painter}
+/// Base class for [NesContainer] painters.
+/// {@endtemplate}
+abstract class NesContainerPainter extends CustomPainter {
+  /// {@macro nes_container_painter}
+  const NesContainerPainter({
+    required this.label,
     required this.pixelSize,
     required this.textStyle,
     required this.backgroundColor,
     required this.borderColor,
   });
 
+  /// An optional label for the container.
   final String? label;
+
+  /// Pixel size.
   final int pixelSize;
+
+  /// Text style for the label.
   final TextStyle textStyle;
+
+  /// Background color of this container.
   final Color backgroundColor;
+
+  /// Border color of this container.
   final Color borderColor;
 
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint()..color = borderColor;
-    final backgroundPaint = Paint()..color = backgroundColor;
-    canvas
-      // Background rect
-      ..drawRect(
-        Rect.fromLTWH(
-          pixelSize.toDouble(),
-          pixelSize.toDouble(),
-          size.width - pixelSize * 2,
-          size.height - pixelSize * 2,
-        ),
-        backgroundPaint,
-      )
-      // Top bar
-      ..drawRect(
-        Rect.fromLTWH(
-          pixelSize * 2,
-          0,
-          size.width - (pixelSize * 4),
-          pixelSize.toDouble(),
-        ),
-        paint,
-      )
-      // Bottom bar
-      ..drawRect(
-        Rect.fromLTWH(
-          pixelSize * 2,
-          size.height - pixelSize,
-          size.width - (pixelSize * 4),
-          pixelSize.toDouble(),
-        ),
-        paint,
-      )
-      // Left bar
-      ..drawRect(
-        Rect.fromLTWH(
-          0,
-          pixelSize * 2,
-          pixelSize.toDouble(),
-          size.height - (pixelSize * 4),
-        ),
-        paint,
-      )
-      // Right bar
-      ..drawRect(
-        Rect.fromLTWH(
-          size.width - pixelSize,
-          pixelSize * 2,
-          pixelSize.toDouble(),
-          size.height - (pixelSize * 4),
-        ),
-        paint,
-      )
-      // Top left pixel
-      ..drawRect(
-        Rect.fromLTWH(
-          pixelSize.toDouble(),
-          pixelSize.toDouble(),
-          pixelSize.toDouble(),
-          pixelSize.toDouble(),
-        ),
-        paint,
-      )
-      // Top right pixel
-      ..drawRect(
-        Rect.fromLTWH(
-          size.width - pixelSize * 2,
-          pixelSize.toDouble(),
-          pixelSize.toDouble(),
-          pixelSize.toDouble(),
-        ),
-        paint,
-      )
-      // Bottom left pixel
-      ..drawRect(
-        Rect.fromLTWH(
-          pixelSize.toDouble(),
-          size.height - pixelSize * 2,
-          pixelSize.toDouble(),
-          pixelSize.toDouble(),
-        ),
-        paint,
-      )
-      // Bottom Right pixel
-      ..drawRect(
-        Rect.fromLTWH(
-          size.width - pixelSize * 2,
-          size.height - pixelSize * 2,
-          pixelSize.toDouble(),
-          pixelSize.toDouble(),
-        ),
-        paint,
-      );
-
+  /// Draws the default label in the canvas.
+  void drawDefaultLabel(Canvas canvas, Paint backgroundPaint) {
     if (label != null) {
       final painter = TextPainter(
         textDirection: TextDirection.ltr,
@@ -209,9 +137,11 @@ class _ContainerPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(_ContainerPainter oldDelegate) {
+  bool shouldRepaint(NesContainerPainter oldDelegate) {
     return oldDelegate.label != label ||
         oldDelegate.pixelSize != pixelSize ||
-        oldDelegate.textStyle != textStyle;
+        oldDelegate.textStyle != textStyle ||
+        oldDelegate.backgroundColor != backgroundColor ||
+        oldDelegate.borderColor != borderColor;
   }
 }

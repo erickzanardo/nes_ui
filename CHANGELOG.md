@@ -8,6 +8,9 @@
  - feat: add `NesIcons.pickaxe`.
  - feat: add `NesIcons.oven`.
  - feat: add `NesIcons.rotate`.
+ - feat: allow `NesContainer` to have their border customizable
+ - feat: add `NesContainerCornerInnerSquarePainter`
+ - feat: add `NesContainerSquareCornerPainter`
 
 # 0.11.0
  - feat: add ability to customize `NesContainer`s pixel sizes.
