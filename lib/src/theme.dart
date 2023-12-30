@@ -447,6 +447,7 @@ class NesContainerTheme extends ThemeExtension<NesContainerTheme> {
     required this.labelTextStyle,
     this.padding = const EdgeInsets.all(32),
     this.pixelSize,
+    this.painter = NesContainerRoundedBorderPainter.new,
   });
 
   /// The background color of the container.
@@ -465,6 +466,11 @@ class NesContainerTheme extends ThemeExtension<NesContainerTheme> {
   /// [NesTheme.pixelSize].
   final int? pixelSize;
 
+  /// The builder function that creates the painter used to draw the container.
+  ///
+  /// Defaults to [NesContainerRoundedBorderPainter.new].
+  final NesContainerPainterBuilder painter;
+
   @override
   ThemeExtension<NesContainerTheme> copyWith({
     Color? backgroundColor,
@@ -472,6 +478,7 @@ class NesContainerTheme extends ThemeExtension<NesContainerTheme> {
     TextStyle? labelTextStyle,
     EdgeInsets? padding,
     int? pixelSize,
+    NesContainerPainterBuilder? painter,
   }) {
     return NesContainerTheme(
       backgroundColor: backgroundColor ?? this.backgroundColor,
@@ -479,6 +486,7 @@ class NesContainerTheme extends ThemeExtension<NesContainerTheme> {
       labelTextStyle: labelTextStyle ?? this.labelTextStyle,
       padding: padding ?? this.padding,
       pixelSize: pixelSize ?? this.pixelSize,
+      painter: painter ?? this.painter,
     );
   }
 
