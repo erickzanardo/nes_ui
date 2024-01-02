@@ -1,0 +1,23 @@
+name: widgetbook
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  push:
+    paths:
+      - "widgetbook/**"
+      - ".github/workflows/widgetbook.yaml"
+
+  pull_request:
+    paths:
+      - "widgetbook/**"
+      - ".github/workflows/widgetbook.yaml"
+
+jobs:
+  build:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1.16.0
+    with:
+      min_coverage: 0
+      working_directory: widgetbook
