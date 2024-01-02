@@ -9,9 +9,9 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:nes_ui/widgetbook/use_cases/buttons.dart' as _i2;
-import 'package:nes_ui/widgetbook/use_cases/checkboxes.dart' as _i3;
 import 'package:widgetbook/widgetbook.dart' as _i1;
+import 'package:widgetbook_app/widgetbook/use_cases/buttons.dart' as _i2;
+import 'package:widgetbook_app/widgetbook/use_cases/checkboxes.dart' as _i3;
 
 final directories = <_i1.WidgetbookNode>[
   _i1.WidgetbookFolder(

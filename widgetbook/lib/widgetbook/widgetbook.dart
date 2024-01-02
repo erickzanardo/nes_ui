@@ -2,14 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:nes_ui/nes_ui.dart';
-import 'package:nes_ui/widgetbook/widgetbook.directories.g.dart';
-import 'package:nes_ui/widgetbook/widgets/widgets.dart';
 import 'package:widgetbook/widgetbook.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
-
-void main() {
-  runApp(const WidgetbookApp());
-}
+import 'package:widgetbook_app/widgetbook/widgetbook.directories.g.dart';
+import 'package:widgetbook_app/widgetbook/widgets/widgets.dart';
 
 @widgetbook.App()
 class WidgetbookApp extends StatelessWidget {
