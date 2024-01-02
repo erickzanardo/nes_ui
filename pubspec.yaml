@@ -14,19 +14,15 @@ dependencies:
   google_fonts: ">=4.0.3 <7.0.0"
   mini_sprite: ^0.1.0
   phased: ^0.0.3
-  widgetbook: ^3.7.0
-  widgetbook_annotation: ^3.1.0
 
 dev_dependencies:
   alchemist:
     git:
       url: https://github.com/erickzanardo/alchemist
-  build_runner: ^2.4.7
   flutter_test:
     sdk: flutter
   mocktail: ">=0.3.0 <2.0.0"
   very_good_analysis: ">=3.1.0 <6.0.0"
-  widgetbook_generator: ^3.7.0
 
 flutter:
   uses-material-design: true
