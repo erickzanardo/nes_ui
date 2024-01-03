@@ -39,7 +39,10 @@ class WidgetbookApp extends StatelessWidget {
           themeBuilder: (context, theme, child) {
             return Theme(
               data: theme,
-              child: child,
+              child: DefaultTextStyle(
+                style: theme.textTheme.bodyMedium ?? const TextStyle(),
+                child: child,
+              ),
             );
           },
         ),

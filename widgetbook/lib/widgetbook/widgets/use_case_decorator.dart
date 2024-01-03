@@ -17,7 +17,7 @@ class UseCaseDecorator extends StatelessWidget {
         color: Colors.grey[600],
       ),
       child: SizedBox.expand(
-        child: child,
+        child: Material(child: child),
       ),
     );
   }

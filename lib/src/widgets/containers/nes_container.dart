@@ -14,6 +14,7 @@ class NesContainer extends StatelessWidget {
     this.height,
     this.backgroundColor,
     this.padding,
+    this.painterBuilder,
   });
 
   /// An optional label for the container.
@@ -37,6 +38,11 @@ class NesContainer extends StatelessWidget {
   /// When omitted, defaults to [NesContainerTheme.padding].
   final EdgeInsets? padding;
 
+  /// The builder that create the painter to use for this container.
+  ///
+  /// When omitted, defaults to [NesContainerTheme.painter].
+  final NesContainerPainterBuilder? painterBuilder;
+
   @override
   Widget build(BuildContext context) {
     final nesContainerTheme = context.nesThemeExtension<NesContainerTheme>();
@@ -51,8 +57,10 @@ class NesContainer extends StatelessWidget {
 
     final pixelSize = nesContainerTheme.pixelSize ?? nesTheme.pixelSize;
 
+    final painter = painterBuilder ?? nesContainerTheme.painter;
+
     return CustomPaint(
-      painter: nesContainerTheme.painter(
+      painter: painter(
         label: label,
         pixelSize: pixelSize,
         textStyle: textStyle,
