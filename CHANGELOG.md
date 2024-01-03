@@ -1,3 +1,7 @@
+# 0.12.1
+ - fix: theme lerp causing error on null access.
+
+
 # 0.12.0
  - feat: adding `NesBlinker`.
  - fix: `NesRunningText` would not update its text.

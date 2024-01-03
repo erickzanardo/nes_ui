@@ -169,8 +169,8 @@ class NesButtonTheme extends ThemeExtension<NesButtonTheme> {
           ).lerp(t) ??
           borderColor,
       pixelSize: IntTween(
-        begin: pixelSize,
-        end: otherExt?.pixelSize,
+        begin: pixelSize ?? 1,
+        end: otherExt?.pixelSize ?? 1,
       ).lerp(t),
     );
   }
@@ -517,8 +517,8 @@ class NesContainerTheme extends ThemeExtension<NesContainerTheme> {
         end: otherExt?.padding,
       ).lerp(t),
       pixelSize: IntTween(
-        begin: pixelSize,
-        end: otherExt?.pixelSize,
+        begin: pixelSize ?? 1,
+        end: otherExt?.pixelSize ?? 1,
       ).lerp(t),
     );
   }
