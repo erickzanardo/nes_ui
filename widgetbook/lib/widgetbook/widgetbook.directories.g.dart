@@ -12,6 +12,7 @@
 import 'package:widgetbook/widgetbook.dart' as _i1;
 import 'package:widgetbook_app/widgetbook/use_cases/buttons.dart' as _i2;
 import 'package:widgetbook_app/widgetbook/use_cases/checkboxes.dart' as _i3;
+import 'package:widgetbook_app/widgetbook/use_cases/containers.dart' as _i4;
 
 final directories = <_i1.WidgetbookNode>[
   _i1.WidgetbookFolder(
@@ -48,6 +49,32 @@ final directories = <_i1.WidgetbookNode>[
           name: 'default',
           builder: _i3.checkbox,
         ),
+      ),
+      _i1.WidgetbookFolder(
+        name: 'containers',
+        children: [
+          _i1.WidgetbookComponent(
+            name: 'NesContainer',
+            useCases: [
+              _i1.WidgetbookUseCase(
+                name: 'default',
+                builder: _i4.normal,
+              ),
+              _i1.WidgetbookUseCase(
+                name: 'with corner inner square painter',
+                builder: _i4.cornerInnerSquare,
+              ),
+              _i1.WidgetbookUseCase(
+                name: 'with label',
+                builder: _i4.label,
+              ),
+              _i1.WidgetbookUseCase(
+                name: 'with square corner painter',
+                builder: _i4.squareConer,
+              ),
+            ],
+          )
+        ],
       ),
     ],
   )
