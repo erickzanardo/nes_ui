@@ -59,6 +59,12 @@ class _NesRunningTextState extends State<NesRunningText>
   }
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   void didUpdateWidget(covariant NesRunningText oldWidget) {
     super.didUpdateWidget(oldWidget);
 

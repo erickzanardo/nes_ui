@@ -18,6 +18,19 @@ class RunningTextSection extends StatelessWidget {
         const NesRunningText(
           text: 'This is a simple running text.',
         ),
+        const SizedBox(height: 32),
+        Text(
+          'Running text multiline',
+          style: theme.textTheme.displayMedium,
+        ),
+        const SizedBox(height: 16),
+        const NesRunningTextLines(
+          texts: [
+            'Welcome back adventurer!',
+            'Hope you gathered all your gear!',
+            'The journey is about to begin!',
+          ],
+        ),
       ],
     );
   }
