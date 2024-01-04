@@ -52,6 +52,20 @@ class _NesRunningTextLinesState extends State<NesRunningTextLines> {
     }
   }
 
+  bool _isArrayEqual(List<String> a, List<String> b) {
+    if (a.length != b.length) {
+      return false;
+    }
+
+    for (var i = 0; i < a.length; i++) {
+      if (a[i] != b[i]) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
   @override
   void didUpdateWidget(NesRunningTextLines oldWidget) {
     super.didUpdateWidget(oldWidget);
@@ -62,7 +76,7 @@ class _NesRunningTextLinesState extends State<NesRunningTextLines> {
       }
     }
 
-    if (widget.texts != oldWidget.texts) {
+    if (!_isArrayEqual(widget.texts, oldWidget.texts)) {
       _initLines();
       if (widget.running) {
         _start();
