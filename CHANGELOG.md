@@ -2,6 +2,7 @@
  - feat: `NesContainer.paintBuilder` to override the one set on the theme.
  - fix: `NesRunningText` was not disposing its controller.
  - feat: add `NesRunningTextLines`.
+ - feat: add `NesPulser`.
 
 # 0.12.1
  - fix: theme lerp causing error on null access.

@@ -19,8 +19,16 @@ class EffectsSection extends StatelessWidget {
           children: [
             SizedBox(
               height: 40,
+              width: 160,
               child: NesBlinker(
                 child: const Text('NES Blinker'),
+              ),
+            ),
+            const SizedBox(width: 16),
+            SizedBox(
+              height: 40,
+              child: NesPulser(
+                child: const Text('NES Pulser'),
               ),
             ),
           ],

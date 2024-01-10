@@ -15,6 +15,7 @@ export 'nes_iterable_options.dart';
 export 'nes_key_icon.dart';
 export 'nes_loading_indicator.dart';
 export 'nes_pressabled.dart';
+export 'nes_pulser.dart';
 export 'nes_running_text.dart';
 export 'nes_running_text_lines.dart';
 export 'nes_scrollbar.dart';
