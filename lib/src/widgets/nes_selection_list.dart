@@ -16,6 +16,7 @@ class NesSelectionList extends StatefulWidget {
     this.canAutoFocus = true,
     this.focusNode,
     this.onCancelSelection,
+    this.tickerDuration,
     this.canCancelSelection = true,
   }) : assert(
           initialIndex == null || initialIndex < children.length,
@@ -57,6 +58,9 @@ class NesSelectionList extends StatefulWidget {
   ///
   /// This can be useful in lists that are the "root" of a page or section.
   final bool canCancelSelection;
+
+  /// Duration of ticker, it is change blink speed
+  final Duration? tickerDuration;
 
   @override
   State<NesSelectionList> createState() => _NesSelectionListState();
@@ -171,6 +175,7 @@ class _NesSelectionListState extends State<NesSelectionList> {
       for (var i = 0; i < widget.children.length; i++)
         _SelectionItem(
           markerKey: _markerKey,
+          tickerDuration: widget.tickerDuration,
           onTap: () {
             if (_focusNode.hasFocus) {
               setState(() {
@@ -230,6 +235,7 @@ class _SelectionItem extends StatelessWidget {
     required this.markerSize,
     required this.itemMinHeight,
     required this.hasFocus,
+    this.tickerDuration,
   });
 
   final Key markerKey;
@@ -242,12 +248,14 @@ class _SelectionItem extends StatelessWidget {
   final Widget child;
   final double itemMinHeight;
   final bool hasFocus;
+  final Duration? tickerDuration;
 
   @override
   Widget build(BuildContext context) {
     final itemMarker = cursor && hasFocus
         ? NesBlinker(
             key: markerKey,
+            tickerDuration: tickerDuration,
             child: marker,
           )
         : (selected ? marker : null);
