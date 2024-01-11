@@ -12,6 +12,8 @@ class NesPressable extends StatefulWidget {
     this.onPressStart,
     this.onPressEnd,
     this.onPress,
+    this.disabled,
+    this.behavior,
     super.key,
   });
 
@@ -24,8 +26,14 @@ class NesPressable extends StatefulWidget {
   /// Called when the press input has happened.
   final VoidCallback? onPress;
 
+  /// Disabled pressable component
+  final bool? disabled;
+
   /// Child.
   final Widget child;
+
+  /// The behavior of the hit test of this widget.
+  final HitTestBehavior? behavior;
 
   @override
   State<NesPressable> createState() => _NesPressableState();
@@ -37,11 +45,16 @@ class _NesPressableState extends State<NesPressable> {
   @override
   Widget build(BuildContext context) {
     final nesTheme = context.nesThemeExtension<NesTheme>();
+    final offSet = Offset(
+      0,
+      (_pressed && widget.disabled != true) ? nesTheme.pixelSize.toDouble() : 0,
+    );
     return Transform.translate(
-      offset: Offset(0, _pressed ? nesTheme.pixelSize.toDouble() : 0),
+      offset: offSet,
       child: MouseRegion(
         cursor: SystemMouseCursors.click,
         child: GestureDetector(
+          behavior: widget.behavior,
           onTap: () {
             widget.onPress?.call();
           },

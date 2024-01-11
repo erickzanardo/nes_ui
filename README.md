@@ -73,7 +73,13 @@ void main() {
 
 More about font license [here](https://pub.dev/packages/google_fonts#licensing-fonts).
 
+## Widget gallery
+
 Check the gallery of all widgets [here](https://erickzanardo.github.io/nes_ui/#/).
+
+## Getting help
+
+If you need any help or have suggestions, join our [Discord](https://discord.gg/7GHtgtDMtJ).
 
 ## Material Customized Widgets
 

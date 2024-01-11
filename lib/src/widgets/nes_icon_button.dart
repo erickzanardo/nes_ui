@@ -15,6 +15,7 @@ class NesIconButton extends StatelessWidget {
     this.size,
     this.primaryColor,
     this.secondaryColor,
+    this.disabled,
   });
 
   /// Icon of the button.
@@ -40,7 +41,11 @@ class NesIconButton extends StatelessWidget {
   /// An optional size for the icon button.
   final Size? size;
 
+  /// Disable the button
+  final bool? disabled;
+
   bool _isDisabled() =>
+      (disabled ?? false) ||
       onPress == null && onPressStart == null && onPressEnd == null;
 
   @override
@@ -49,6 +54,7 @@ class NesIconButton extends StatelessWidget {
       onPress: onPress,
       onPressStart: onPressStart,
       onPressEnd: onPressEnd,
+      disabled: _isDisabled(),
       child: Opacity(
         opacity: _isDisabled() ? .2 : 1.0,
         child: NesIcon(

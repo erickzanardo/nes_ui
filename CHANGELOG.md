@@ -1,3 +1,27 @@
+# 0.13.0
+ - feat: `NesContainer.paintBuilder` to override the one set on the theme.
+ - fix: `NesRunningText` was not disposing its controller.
+ - feat: add `NesRunningTextLines`.
+ - feat: add `NesPulser`.
+
+# 0.12.1
+ - fix: theme lerp causing error on null access.
+
+
+# 0.12.0
+ - feat: adding `NesBlinker`.
+ - fix: `NesRunningText` would not update its text.
+ - feat: add `HitTestBehavior` property to `NesPressable`.
+ - feat: add `NesIcons.factory`.
+ - feat: add `NesIcons.rail`.
+ - feat: add `NesIcons.robot`.
+ - feat: add `NesIcons.pickaxe`.
+ - feat: add `NesIcons.oven`.
+ - feat: add `NesIcons.rotate`.
+ - feat: allow `NesContainer` to have their border customizable
+ - feat: add `NesContainerCornerInnerSquarePainter`
+ - feat: add `NesContainerSquareCornerPainter`
+
 # 0.11.0
  - feat: add ability to customize `NesContainer`s pixel sizes.
  - feat: add ability to customize `NesButton`s pixel sizes.
@@ -12,6 +36,9 @@
  - feat: add `NesIcons.owl`
  - feat: add `NesIconBadge`
  - feat: add `NesIcons.letter`
+ - feat: adding arrow direction to `NesTooltip`
+ - fix: Icon button disabled property
+ - feat: Adding `NesRunningText`
 
 # 0.10.0
  - feat: add `NesIcons.user`
