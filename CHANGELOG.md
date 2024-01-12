@@ -3,10 +3,10 @@
  - fix: `NesRunningText` was not disposing its controller.
  - feat: add `NesRunningTextLines`.
  - feat: add `NesPulser`.
+ - feat: allow duration to be configured on selection list.
 
 # 0.12.1
  - fix: theme lerp causing error on null access.
-
 
 # 0.12.0
  - feat: adding `NesBlinker`.
