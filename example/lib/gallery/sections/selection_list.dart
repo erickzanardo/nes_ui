@@ -45,6 +45,7 @@ class _SelectionListSectionState extends State<SelectionListSection> {
           child: NesSelectionList(
             initialIndex: _horizontal,
             axis: Axis.horizontal,
+            tickerDuration: const Duration(milliseconds: 100),
             children: const [
               Text('Yes'),
               Text('No'),
