@@ -353,6 +353,18 @@ class IconsSection extends StatelessWidget {
               data: NesIcons.rotate,
               label: 'rotate',
             ),
+            _IconEntry(
+              data: NesIcons.penguin,
+              label: 'penguin',
+            ),
+            _IconEntry(
+              data: NesIcons.apple,
+              label: 'apple',
+            ),
+            _IconEntry(
+              data: NesIcons.windows,
+              label: 'windows',
+            ),
           ],
         ),
       ],
