@@ -4,6 +4,9 @@
  - feat: add `NesRunningTextLines`.
  - feat: add `NesPulser`.
  - feat: allow duration to be configured on selection list.
+ - feat: add `NesIcons.penguin`.
+ - feat: add `NesIcons.apple`.
+ - feat: add `NesIcons.windows`.
 
 # 0.12.1
  - fix: theme lerp causing error on null access.
