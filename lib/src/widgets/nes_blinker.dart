@@ -17,7 +17,7 @@ class NesBlinker extends Phased<bool> {
           ),
         );
 
-  /// Duration of ticker, it is change blink speed
+  /// Duration of ticker, it changes the blink speed.
   final Duration? tickerDuration;
 
   /// The child widget to blink.

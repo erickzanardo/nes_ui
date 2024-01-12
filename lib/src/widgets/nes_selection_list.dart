@@ -59,7 +59,7 @@ class NesSelectionList extends StatefulWidget {
   /// This can be useful in lists that are the "root" of a page or section.
   final bool canCancelSelection;
 
-  /// Duration of ticker, it is change blink speed
+  /// Duration of ticker, it changes the blink speed.
   final Duration? tickerDuration;
 
   @override
