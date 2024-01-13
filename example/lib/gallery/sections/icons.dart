@@ -365,6 +365,14 @@ class IconsSection extends StatelessWidget {
               data: NesIcons.windows,
               label: 'windows',
             ),
+            _IconEntry(
+              data: NesIcons.audio,
+              label: 'audio',
+            ),
+            _IconEntry(
+              data: NesIcons.screen,
+              label: 'screen',
+            ),
           ],
         ),
       ],
