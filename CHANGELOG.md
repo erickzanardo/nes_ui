@@ -9,6 +9,7 @@
  - feat: add `NesIcons.windows`.
  - feat: add `NesIcons.audio`.
  - feat: add `NesIcons.screen`.
+ - feat: add `NesIcons.rename`.
 
 # 0.12.1
  - fix: theme lerp causing error on null access.

@@ -373,6 +373,10 @@ class IconsSection extends StatelessWidget {
               data: NesIcons.screen,
               label: 'screen',
             ),
+            _IconEntry(
+              data: NesIcons.rename,
+              label: 'rename',
+            ),
           ],
         ),
       ],
