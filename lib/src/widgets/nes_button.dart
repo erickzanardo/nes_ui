@@ -47,6 +47,59 @@ class NesButton extends StatefulWidget {
     this.onPressed,
   }) : _isDisabled = onPressed == null;
 
+  /// {@macro nes_button}
+  ///
+  /// Adds an [NesIcon] to the button.
+  NesButton.icon({
+    Key? key,
+    required NesButtonType type,
+    required NesIconData icon,
+    VoidCallback? onPressed,
+  }) : this(
+          key: key,
+          type: type,
+          child: NesIcon(iconData: icon),
+          onPressed: onPressed,
+        );
+
+  /// {@macro nes_button}
+  ///
+  /// Adds an [Text] to the button.
+  NesButton.text({
+    Key? key,
+    required NesButtonType type,
+    required String text,
+    VoidCallback? onPressed,
+  }) : this(
+          key: key,
+          type: type,
+          child: Text(text),
+          onPressed: onPressed,
+        );
+
+  /// {@macro nes_button}
+  ///
+  /// Adds a [Row] with a [NesIcon] and a [Text] to the button.
+  NesButton.iconText({
+    Key? key,
+    required NesButtonType type,
+    required NesIconData icon,
+    required String text,
+    VoidCallback? onPressed,
+  }) : this(
+          key: key,
+          type: type,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              NesIcon(iconData: icon),
+              const SizedBox(width: 8),
+              Text(text),
+            ],
+          ),
+          onPressed: onPressed,
+        );
+
   /// Determines the colors used to render the button.
   final NesButtonType type;
 
