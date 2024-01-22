@@ -4,6 +4,7 @@ export 'nes_blinker.dart';
 export 'nes_button.dart';
 export 'nes_check_box.dart';
 export 'nes_controller_focus.dart';
+export 'nes_custom_cursor.dart';
 export 'nes_dropshadow.dart';
 export 'nes_file_explorer.dart';
 export 'nes_fixed_viewport.dart';
