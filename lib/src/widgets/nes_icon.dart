@@ -680,6 +680,13 @@ class NesIconCollection {
       '8,8;17,-1;6,0;10,-1;6,0;10,-1;6,0;9,-1',
     ),
   );
+
+  /// Arrow cursor
+  late final arrowCursor = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;3,0;5,-1;1,0;2,1;2,0;3,-1;1,0;4,1;2,0;1,-1;2,0;4,1;1,0;1,-1;2,0;3,1;1,0;3,-1;2,0;1,1;1,0;1,1;1,0;2,-1;7,0;2,-1;2,0;1,-1;2,0;1,-1',
+    ),
+  );
 }
 
 /// {@template nes_icon}

@@ -12,6 +12,7 @@
  - feat: add `NesIcons.rename`.
  - feat: add `NesIcons.hamburgerMenu`.
  - feat: adding `NesButton` helper constructors.
+ - feat: add `NesIcons.arrowCursor`.
 
 # 0.12.1
  - fix: theme lerp causing error on null access.
