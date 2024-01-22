@@ -673,6 +673,13 @@ class NesIconCollection {
       '8,8;13,-1;3,0;1,-1;1,0;4,-1;1,0;1,-1;1,0;1,-1;1,0;3,-1;1,0;1,-1;3,0;3,-1;1,0;1,-1;1,0;1,-1;1,0;3,-1;1,0;6,-1;3,0;8,-1',
     ),
   );
+
+  /// Hamburger Menu
+  late final hamburgerMenu = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;17,-1;6,0;10,-1;6,0;10,-1;6,0;9,-1',
+    ),
+  );
 }
 
 /// {@template nes_icon}

@@ -10,6 +10,7 @@
  - feat: add `NesIcons.audio`.
  - feat: add `NesIcons.screen`.
  - feat: add `NesIcons.rename`.
+ - feat: add `NesIcons.hamburgerMenu`.
 
 # 0.12.1
  - fix: theme lerp causing error on null access.
