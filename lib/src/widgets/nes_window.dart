@@ -62,7 +62,8 @@ class NesWindow extends StatelessWidget {
     final textStyle =
         Theme.of(context).textTheme.labelMedium ?? const TextStyle();
 
-    final containerColor = Theme.of(context).cardColor;
+    final nesContainerTheme = context.nesThemeExtension<NesContainerTheme>();
+    final containerColor = nesContainerTheme.backgroundColor;
     final nesTheme = context.nesThemeExtension<NesTheme>();
 
     final titleBarHeight = (textStyle.fontSize ?? 8) + nesTheme.pixelSize * 4;
@@ -75,7 +76,7 @@ class NesWindow extends StatelessWidget {
       height: titleBarHeight,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: textStyle.color ?? Colors.black,
+          color: nesContainerTheme.borderColor,
         ),
         child: Row(
           children: [
@@ -117,7 +118,7 @@ class NesWindow extends StatelessWidget {
         color: containerColor,
         border: Border.all(
           width: nesTheme.pixelSize.toDouble(),
-          color: textStyle.color ?? Colors.black,
+          color: nesContainerTheme.borderColor,
         ),
       ),
       child: Column(
