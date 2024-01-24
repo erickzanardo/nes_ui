@@ -14,6 +14,7 @@
  - feat: adding `NesButton` helper constructors.
  - feat: add `NesIcons.arrowCursor`.
  - feat: `NesWindow` uses `NesContainerTheme` instead of Material's card.
+ - feat: update mini sprite to improve icons.
 
 # 0.12.1
  - fix: theme lerp causing error on null access.
