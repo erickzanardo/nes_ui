@@ -385,6 +385,10 @@ class IconsSection extends StatelessWidget {
               data: NesIcons.arrowCursor,
               label: 'arrowCursor',
             ),
+            _IconEntry(
+              data: NesIcons.center,
+              label: 'center',
+            ),
           ],
         ),
       ],
