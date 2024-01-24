@@ -74,10 +74,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_mini_sprite
-      sha256: ece0c9b189dce5310db7ba4f5976a4e30698cbcd9486327a2d49d8b45b5f55eb
+      sha256: "3ade17b6af09911052531bc7548bf84ed44072c8d49861d9838a7a1445925cec"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.1"
+    version: "0.0.1+1"
   google_fonts:
     dependency: transitive
     description:
