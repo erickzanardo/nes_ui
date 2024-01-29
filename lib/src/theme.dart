@@ -10,16 +10,102 @@ class NesTheme extends ThemeExtension<NesTheme> {
   /// {@macro nes_theme}
   const NesTheme({
     required this.pixelSize,
+    this.clickCursor = SystemMouseCursors.click,
+    this.resizeLeftRightCursor = SystemMouseCursors.resizeLeftRight,
+    this.resizeUpDownCursor = SystemMouseCursors.resizeUpDown,
+    this.moveCursor = SystemMouseCursors.move,
+    this.resizeUpLeftDownRightCursor = SystemMouseCursors.resizeUpLeftDownRight,
+    this.resizeUpRightDownLeftCursor = SystemMouseCursors.resizeUpRightDownLeft,
+    this.resizeUpCursor = SystemMouseCursors.resizeUp,
+    this.resizeDownCursor = SystemMouseCursors.resizeDown,
+    this.resizeLeftCursor = SystemMouseCursors.resizeLeft,
+    this.resizeRightCursor = SystemMouseCursors.resizeRight,
   });
 
   /// The size of a pixel unit used in Flutter nes, like the width
   /// of a border of a button.
   final int pixelSize;
 
+  /// When provided, the cursor used when hovering over a button
+  /// or anything that is clickable.
+  ///
+  /// Defaults to [SystemMouseCursors.click].
+  final MouseCursor clickCursor;
+
+  /// When provided, the cursor used when hovering over a resize corner
+  ///
+  /// Defaults to [SystemMouseCursors.resizeLeftRight].
+  final MouseCursor resizeLeftRightCursor;
+
+  /// When provided, the cursor used when hovering over a resize corner
+  ///
+  /// Defaults to [SystemMouseCursors.resizeUpDown].
+  final MouseCursor resizeUpDownCursor;
+
+  /// When provided, the cursor used when hovering over a resize corner
+  ///
+  /// Defaults to [SystemMouseCursors.resizeUpLeftDownRight].
+  final MouseCursor resizeUpLeftDownRightCursor;
+
+  /// When provided, the cursor used when hovering over a resize corner
+  ///
+  /// Defaults to [SystemMouseCursors.resizeUpRightDownLeft].
+  final MouseCursor resizeUpRightDownLeftCursor;
+
+  /// When provided, the cursor used when hovering over the up side.
+  ///
+  /// Defaults to [SystemMouseCursors.resizeUp].
+  final MouseCursor resizeUpCursor;
+
+  /// When provided, the cursor used when hovering over the bottom side.
+  ///
+  /// Defaults to [SystemMouseCursors.resizeDown].
+  final MouseCursor resizeDownCursor;
+
+  /// When provided, the cursor used when hovering over the left side.
+  ///
+  /// Defaults to [SystemMouseCursors.resizeLeft].
+  final MouseCursor resizeLeftCursor;
+
+  /// When provided, the cursor used when hovering over the right side.
+  ///
+  /// Defaults to [SystemMouseCursors.resizeRight].
+  final MouseCursor resizeRightCursor;
+
+  /// When provided, the cursor used when hovering over a moveable widget.
+  ///
+  /// Defaults to [SystemMouseCursors.move].
+  final MouseCursor moveCursor;
+
   @override
-  NesTheme copyWith({int? pixelSize}) {
+  NesTheme copyWith({
+    int? pixelSize,
+    MouseCursor? clickCursor,
+    MouseCursor? resizeLeftRightCursor,
+    MouseCursor? resizeUpDownCursor,
+    MouseCursor? moveCursor,
+    MouseCursor? resizeUpLeftDownRightCursor,
+    MouseCursor? resizeUpRightDownLeftCursor,
+    MouseCursor? resizeUpCursor,
+    MouseCursor? resizeDownCursor,
+    MouseCursor? resizeLeftCursor,
+    MouseCursor? resizeRightCursor,
+  }) {
     return NesTheme(
       pixelSize: pixelSize ?? this.pixelSize,
+      clickCursor: clickCursor ?? this.clickCursor,
+      resizeLeftRightCursor:
+          resizeLeftRightCursor ?? this.resizeLeftRightCursor,
+      resizeUpDownCursor: resizeUpDownCursor ?? this.resizeUpDownCursor,
+      moveCursor: moveCursor ?? this.moveCursor,
+      resizeUpLeftDownRightCursor:
+          resizeUpLeftDownRightCursor ?? this.resizeUpLeftDownRightCursor,
+      resizeUpRightDownLeftCursor:
+          resizeUpRightDownLeftCursor ?? this.resizeUpRightDownLeftCursor,
+      resizeUpCursor: resizeUpCursor ?? this.resizeUpCursor,
+      resizeDownCursor: resizeDownCursor ?? this.resizeDownCursor,
+      resizeLeftCursor: resizeLeftCursor ?? this.resizeLeftCursor,
+      resizeRightCursor: resizeRightCursor ?? this.resizeRightCursor,
     );
   }
 
@@ -31,6 +117,19 @@ class NesTheme extends ThemeExtension<NesTheme> {
         begin: pixelSize,
         end: otherExt?.pixelSize ?? pixelSize,
       ).lerp(t),
+      clickCursor: otherExt?.clickCursor ?? clickCursor,
+      resizeLeftRightCursor:
+          otherExt?.resizeLeftRightCursor ?? resizeLeftRightCursor,
+      resizeUpDownCursor: otherExt?.resizeUpDownCursor ?? resizeUpDownCursor,
+      moveCursor: otherExt?.moveCursor ?? moveCursor,
+      resizeUpLeftDownRightCursor:
+          otherExt?.resizeUpLeftDownRightCursor ?? resizeUpLeftDownRightCursor,
+      resizeUpRightDownLeftCursor:
+          otherExt?.resizeUpRightDownLeftCursor ?? resizeUpRightDownLeftCursor,
+      resizeUpCursor: otherExt?.resizeUpCursor ?? resizeUpCursor,
+      resizeDownCursor: otherExt?.resizeDownCursor ?? resizeDownCursor,
+      resizeLeftCursor: otherExt?.resizeLeftCursor ?? resizeLeftCursor,
+      resizeRightCursor: otherExt?.resizeRightCursor ?? resizeRightCursor,
     );
   }
 }

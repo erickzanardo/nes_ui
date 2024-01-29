@@ -52,7 +52,7 @@ class _NesPressableState extends State<NesPressable> {
     return Transform.translate(
       offset: offSet,
       child: MouseRegion(
-        cursor: SystemMouseCursors.click,
+        cursor: nesTheme.clickCursor,
         child: GestureDetector(
           behavior: widget.behavior,
           onTap: () {

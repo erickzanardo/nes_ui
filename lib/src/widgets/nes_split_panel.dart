@@ -159,6 +159,7 @@ class NesSplitPanelResizeHandler extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final nesTheme = context.nesThemeExtension<NesTheme>();
     final children = [
       Expanded(child: child),
       GestureDetector(
@@ -172,8 +173,8 @@ class NesSplitPanelResizeHandler extends StatelessWidget {
         },
         child: MouseRegion(
           cursor: orientation == Axis.horizontal
-              ? SystemMouseCursors.resizeLeftRight
-              : SystemMouseCursors.resizeUpDown,
+              ? nesTheme.resizeLeftRightCursor
+              : nesTheme.resizeUpDownCursor,
           child: Container(
             width: orientation == Axis.horizontal ? resizerSize : null,
             height: orientation == Axis.vertical ? resizerSize : null,
