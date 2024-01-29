@@ -1,3 +1,6 @@
+# 0.15.0
+ - feat: add `NesIcons.audioMuted`
+
 # 0.14.0
  - feat: add `NesIcons.audio`.
  - feat: add `NesIcons.screen`.

@@ -370,6 +370,10 @@ class IconsSection extends StatelessWidget {
               label: 'audio',
             ),
             _IconEntry(
+              data: NesIcons.audioMuted,
+              label: 'audioMuted',
+            ),
+            _IconEntry(
               data: NesIcons.screen,
               label: 'screen',
             ),
