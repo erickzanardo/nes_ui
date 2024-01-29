@@ -50,8 +50,8 @@ class NesWindow extends StatelessWidget {
   /// The window child.
   final Widget? child;
 
-  MouseCursor _cursorFallback(MouseCursor cursor) {
-    if (!kIsWeb && Platform.isMacOS) {
+  MouseCursor _cursorFallback(MouseCursor cursor, MouseCursor defaultCursor) {
+    if (defaultCursor == cursor && !kIsWeb && Platform.isMacOS) {
       return SystemMouseCursors.grab;
     }
     return cursor;
@@ -127,7 +127,10 @@ class NesWindow extends StatelessWidget {
             titleBar
           else
             MouseRegion(
-              cursor: _cursorFallback(SystemMouseCursors.move),
+              cursor: _cursorFallback(
+                nesTheme.moveCursor,
+                SystemMouseCursors.move,
+              ),
               child: GestureDetector(
                 onPanUpdate: (details) {
                   onMove?.call(details.delta);
@@ -156,6 +159,7 @@ class NesWindow extends StatelessWidget {
               left: 0,
               child: _ResizeHandler(
                 cursor: _cursorFallback(
+                  nesTheme.resizeUpLeftDownRightCursor,
                   SystemMouseCursors.resizeUpLeftDownRight,
                 ),
                 width: 12,
@@ -180,6 +184,7 @@ class NesWindow extends StatelessWidget {
               right: 0,
               child: _ResizeHandler(
                 cursor: _cursorFallback(
+                  nesTheme.resizeUpRightDownLeftCursor,
                   SystemMouseCursors.resizeUpRightDownLeft,
                 ),
                 width: 12,
@@ -204,6 +209,7 @@ class NesWindow extends StatelessWidget {
               left: 0,
               child: _ResizeHandler(
                 cursor: _cursorFallback(
+                  nesTheme.resizeUpRightDownLeftCursor,
                   SystemMouseCursors.resizeUpRightDownLeft,
                 ),
                 width: 12,
@@ -228,6 +234,7 @@ class NesWindow extends StatelessWidget {
               right: 0,
               child: _ResizeHandler(
                 cursor: _cursorFallback(
+                  nesTheme.resizeUpLeftDownRightCursor,
                   SystemMouseCursors.resizeUpLeftDownRight,
                 ),
                 width: 12,
@@ -248,7 +255,7 @@ class NesWindow extends StatelessWidget {
               left: 12,
               right: 12,
               child: _ResizeHandler(
-                cursor: SystemMouseCursors.resizeUp,
+                cursor: nesTheme.resizeUpCursor,
                 width: double.infinity,
                 height: 12,
                 handleDelta: (offset) {
@@ -271,7 +278,7 @@ class NesWindow extends StatelessWidget {
               left: 12,
               right: 12,
               child: _ResizeHandler(
-                cursor: SystemMouseCursors.resizeDown,
+                cursor: nesTheme.resizeDownCursor,
                 width: double.infinity,
                 height: 12,
                 handleDelta: (offset) {
@@ -290,7 +297,7 @@ class NesWindow extends StatelessWidget {
               bottom: 12,
               left: 0,
               child: _ResizeHandler(
-                cursor: SystemMouseCursors.resizeLeft,
+                cursor: nesTheme.resizeLeftCursor,
                 width: 12,
                 height: double.infinity,
                 handleDelta: (offset) {
@@ -313,7 +320,7 @@ class NesWindow extends StatelessWidget {
               bottom: 12,
               right: 0,
               child: _ResizeHandler(
-                cursor: SystemMouseCursors.resizeRight,
+                cursor: nesTheme.resizeRightCursor,
                 width: 12,
                 height: double.infinity,
                 handleDelta: (offset) {
