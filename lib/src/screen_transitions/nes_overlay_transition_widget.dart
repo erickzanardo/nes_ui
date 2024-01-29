@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nes_ui/nes_ui.dart';
 
 /// {@template nes_overlay_transition_widget}
 /// Base widget for all of the Nes UI transition animation.
@@ -23,22 +24,27 @@ abstract class NesOverlayTransitionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final nesTheme = context.nesThemeExtension<NesTheme>();
+
     if (animation.value == 1) {
       return child;
     }
 
-    return Stack(
-      children: [
-        if (animation.value >= .5) Positioned.fill(child: child),
-        if (animation.value <= .5)
-          Positioned.fill(
-            child: buildOverlay(context, animation.value * 2),
-          )
-        else
-          Positioned.fill(
-            child: buildOverlay(context, (1 - animation.value) * 2),
-          ),
-      ],
+    return MouseRegion(
+      cursor: nesTheme.basicCursor,
+      child: Stack(
+        children: [
+          if (animation.value >= .5) Positioned.fill(child: child),
+          if (animation.value <= .5)
+            Positioned.fill(
+              child: buildOverlay(context, animation.value * 2),
+            )
+          else
+            Positioned.fill(
+              child: buildOverlay(context, (1 - animation.value) * 2),
+            ),
+        ],
+      ),
     );
   }
 

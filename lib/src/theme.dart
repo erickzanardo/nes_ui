@@ -20,11 +20,17 @@ class NesTheme extends ThemeExtension<NesTheme> {
     this.resizeDownCursor = SystemMouseCursors.resizeDown,
     this.resizeLeftCursor = SystemMouseCursors.resizeLeft,
     this.resizeRightCursor = SystemMouseCursors.resizeRight,
+    this.basicCursor = SystemMouseCursors.basic,
   });
 
   /// The size of a pixel unit used in Flutter nes, like the width
   /// of a border of a button.
   final int pixelSize;
+
+  /// When provided, the cursor used when hovering over a widget.
+  ///
+  /// Defaults to [SystemMouseCursors.basic].
+  final MouseCursor basicCursor;
 
   /// When provided, the cursor used when hovering over a button
   /// or anything that is clickable.
@@ -90,6 +96,7 @@ class NesTheme extends ThemeExtension<NesTheme> {
     MouseCursor? resizeDownCursor,
     MouseCursor? resizeLeftCursor,
     MouseCursor? resizeRightCursor,
+    MouseCursor? basicCursor,
   }) {
     return NesTheme(
       pixelSize: pixelSize ?? this.pixelSize,
@@ -106,6 +113,7 @@ class NesTheme extends ThemeExtension<NesTheme> {
       resizeDownCursor: resizeDownCursor ?? this.resizeDownCursor,
       resizeLeftCursor: resizeLeftCursor ?? this.resizeLeftCursor,
       resizeRightCursor: resizeRightCursor ?? this.resizeRightCursor,
+      basicCursor: basicCursor ?? this.basicCursor,
     );
   }
 
@@ -130,6 +138,7 @@ class NesTheme extends ThemeExtension<NesTheme> {
       resizeDownCursor: otherExt?.resizeDownCursor ?? resizeDownCursor,
       resizeLeftCursor: otherExt?.resizeLeftCursor ?? resizeLeftCursor,
       resizeRightCursor: otherExt?.resizeRightCursor ?? resizeRightCursor,
+      basicCursor: otherExt?.basicCursor ?? basicCursor,
     );
   }
 }
