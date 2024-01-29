@@ -1,12 +1,4 @@
-# 0.13.0
- - feat: `NesContainer.paintBuilder` to override the one set on the theme.
- - fix: `NesRunningText` was not disposing its controller.
- - feat: add `NesRunningTextLines`.
- - feat: add `NesPulser`.
- - feat: allow duration to be configured on selection list.
- - feat: add `NesIcons.penguin`.
- - feat: add `NesIcons.apple`.
- - feat: add `NesIcons.windows`.
+# 0.14.0
  - feat: add `NesIcons.audio`.
  - feat: add `NesIcons.screen`.
  - feat: add `NesIcons.rename`.
@@ -17,6 +9,16 @@
  - feat: update mini sprite to improve icons.
  - feat: add `NesIcons.center`.
  - feat: add ability to customize mouse cursors used by the package.
+
+# 0.13.0
+ - feat: `NesContainer.paintBuilder` to override the one set on the theme.
+ - fix: `NesRunningText` was not disposing its controller.
+ - feat: add `NesRunningTextLines`.
+ - feat: add `NesPulser`.
+ - feat: allow duration to be configured on selection list.
+ - feat: add `NesIcons.penguin`.
+ - feat: add `NesIcons.apple`.
+ - feat: add `NesIcons.windows`.
 
 # 0.12.1
  - fix: theme lerp causing error on null access.
