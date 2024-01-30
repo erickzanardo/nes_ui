@@ -36,15 +36,9 @@ class NesInputDialog extends StatefulWidget {
     String inputLabel = 'Ok',
     String cancelLabel = 'Cancel',
   }) {
-    return showGeneralDialog<String?>(
+    return NesDialog.show<String?>(
       context: context,
-      transitionBuilder: (context, animation, secondaryAnimation, child) {
-        return Transform.scale(
-          scaleY: animation.value,
-          child: child,
-        );
-      },
-      pageBuilder: (_, __, ___) => NesInputDialog(
+      builder: (_) => NesInputDialog(
         inputLabel: inputLabel,
         cancelLabel: cancelLabel,
         message: message,
@@ -67,40 +61,38 @@ class _NesInputDialogState extends State<NesInputDialog> {
 
   @override
   Widget build(BuildContext context) {
-    return NesDialog(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(widget.message),
-          const SizedBox(height: 16),
-          TextField(
-            controller: _controller,
-            autofocus: true,
-          ),
-          const SizedBox(height: 16),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              NesButton(
-                type: NesButtonType.warning,
-                child: Text(widget.cancelLabel),
-                onPressed: () {
-                  Navigator.of(context).pop(null);
-                },
-              ),
-              const SizedBox(width: 16),
-              NesButton(
-                type: NesButtonType.primary,
-                child: Text(widget.inputLabel),
-                onPressed: () {
-                  Navigator.of(context).pop(_controller.text);
-                },
-              ),
-            ],
-          ),
-        ],
-      ),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Text(widget.message),
+        const SizedBox(height: 16),
+        TextField(
+          controller: _controller,
+          autofocus: true,
+        ),
+        const SizedBox(height: 16),
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            NesButton(
+              type: NesButtonType.warning,
+              child: Text(widget.cancelLabel),
+              onPressed: () {
+                Navigator.of(context).pop(null);
+              },
+            ),
+            const SizedBox(width: 16),
+            NesButton(
+              type: NesButtonType.primary,
+              child: Text(widget.inputLabel),
+              onPressed: () {
+                Navigator.of(context).pop(_controller.text);
+              },
+            ),
+          ],
+        ),
+      ],
     );
   }
 }

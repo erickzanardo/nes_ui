@@ -21,12 +21,24 @@ class NesDialog extends StatelessWidget {
     required BuildContext context,
     required WidgetBuilder builder,
   }) {
+    final nesTheme = context.nesThemeExtension<NesTheme>();
     return showGeneralDialog<T>(
       context: context,
+      barrierColor: Colors.transparent,
       transitionBuilder: (context, animation, secondaryAnimation, child) {
-        return Transform.scale(
-          scaleY: animation.value,
-          child: child,
+        return MouseRegion(
+          cursor: nesTheme.basicCursor,
+          child: SizedBox.expand(
+            child: DecoratedBox(
+              decoration: const BoxDecoration(
+                image: NesCheckeredDecoration(),
+              ),
+              child: Transform.scale(
+                scaleY: animation.value,
+                child: child,
+              ),
+            ),
+          ),
         );
       },
       pageBuilder: (_, __, ___) => NesDialog(
