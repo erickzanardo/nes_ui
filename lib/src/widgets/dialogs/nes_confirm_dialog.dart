@@ -37,15 +37,9 @@ class NesConfirmDialog extends StatelessWidget {
     String cancelLabel = 'No',
     String message = 'Are you sure?',
   }) {
-    return showGeneralDialog<bool>(
+    return NesDialog.show<bool>(
       context: context,
-      transitionBuilder: (context, animation, secondaryAnimation, child) {
-        return Transform.scale(
-          scaleY: animation.value,
-          child: child,
-        );
-      },
-      pageBuilder: (_, __, ___) => NesConfirmDialog(
+      builder: (_) => NesConfirmDialog(
         confirmLabel: confirmLabel,
         cancelLabel: cancelLabel,
         message: message,
@@ -55,35 +49,33 @@ class NesConfirmDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return NesDialog(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(message),
-          const SizedBox(height: 16),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              NesButton(
-                type: NesButtonType.warning,
-                child: Text(cancelLabel),
-                onPressed: () {
-                  Navigator.of(context).pop(false);
-                },
-              ),
-              const SizedBox(width: 16),
-              NesButton(
-                type: NesButtonType.primary,
-                child: Text(confirmLabel),
-                onPressed: () {
-                  Navigator.of(context).pop(true);
-                },
-              ),
-            ],
-          ),
-        ],
-      ),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Text(message),
+        const SizedBox(height: 16),
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            NesButton(
+              type: NesButtonType.warning,
+              child: Text(cancelLabel),
+              onPressed: () {
+                Navigator.of(context).pop(false);
+              },
+            ),
+            const SizedBox(width: 16),
+            NesButton(
+              type: NesButtonType.primary,
+              child: Text(confirmLabel),
+              onPressed: () {
+                Navigator.of(context).pop(true);
+              },
+            ),
+          ],
+        ),
+      ],
     );
   }
 }

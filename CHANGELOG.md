@@ -1,6 +1,8 @@
 # 0.15.0
  - feat: add `NesIcons.audioMuted`
  - feat: screen transitions can have their cursor customized.
+ - feat: add `NesCheckeredDecoration`.
+ - feat: Improve Dialogs background and cursor support.
 
 # 0.14.0
  - feat: add `NesIcons.audio`.
