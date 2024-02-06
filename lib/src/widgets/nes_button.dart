@@ -144,6 +144,7 @@ class _NesButtonState extends State<NesButton> {
     final pixelSize = nesButtonTheme.pixelSize ?? nesTheme.pixelSize;
 
     return MouseRegion(
+      cursor: nesTheme.clickCursor,
       onEnter: (_) {
         setState(() => _hovered = true);
       },
