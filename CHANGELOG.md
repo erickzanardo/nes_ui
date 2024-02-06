@@ -3,6 +3,7 @@
  - feat: screen transitions can have their cursor customized.
  - feat: add `NesCheckeredDecoration`.
  - feat: Improve Dialogs background and cursor support.
+ - feat: `NesButton` now have a click cursor.
 
 # 0.14.0
  - feat: add `NesIcons.audio`.
