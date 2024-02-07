@@ -1,3 +1,6 @@
+# 0.16.0
+ - feat: add `NesIcons.camera`
+
 # 0.15.0
  - feat: add `NesIcons.audioMuted`
  - feat: screen transitions can have their cursor customized.

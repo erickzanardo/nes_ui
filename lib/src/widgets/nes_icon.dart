@@ -443,6 +443,13 @@ class NesIconCollection {
     ),
   );
 
+  /// Camera
+  late final camera = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;2,-1;2,0;5,-1;2,0;1,1;1,0;4,-1;1,0;1,1;2,0;3,-1;6,0;2,-1;22,0;4,-1;2,0;4,-1',
+    ),
+  );
+
   /// TV
   late final tv = NesIconData(
     MiniSprite.fromDataString(
