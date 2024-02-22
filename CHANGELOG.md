@@ -1,5 +1,6 @@
 # 0.16.0
  - feat: add `NesIcons.camera`
+ - chore: Removing usage from deprecated members from Flutter 3.18.
 
 # 0.15.0
  - feat: add `NesIcons.audioMuted`

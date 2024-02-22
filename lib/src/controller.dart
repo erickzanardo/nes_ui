@@ -105,10 +105,10 @@ class NesKeyboardInputAdapter extends NesInputAdapter {
 
   final Map<FocusNode, Map<NesInputEvent, List<VoidCallback>>> _events = {};
 
-  KeyEventResult _handle(FocusNode node, RawKeyEvent event) {
+  KeyEventResult _handle(FocusNode node, KeyEvent event) {
     final events = _events[node];
     if (events != null) {
-      if (event is RawKeyUpEvent) {
+      if (event is KeyUpEvent) {
         if (!node.hasPrimaryFocus) {
           return KeyEventResult.handled;
         }
@@ -191,7 +191,7 @@ class NesInputController {
   }
 
   /// Process keyboard inputs events.
-  KeyEventResult processKeyBoardInput(FocusNode node, RawKeyEvent event) {
+  KeyEventResult processKeyBoardInput(FocusNode node, KeyEvent event) {
     final keyboardAdapters = adapters.whereType<NesKeyboardInputAdapter>();
     for (final adapter in keyboardAdapters) {
       return adapter._handle(node, event);
