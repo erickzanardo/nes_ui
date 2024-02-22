@@ -49,7 +49,7 @@ class _NesControllerFocusState extends State<NesControllerFocus> {
   @override
   Widget build(BuildContext context) {
     return Focus(
-      onKey: _nesInputController.processKeyBoardInput,
+      onKeyEvent: _nesInputController.processKeyBoardInput,
       focusNode: _focusNode,
       child: widget.child,
     );
