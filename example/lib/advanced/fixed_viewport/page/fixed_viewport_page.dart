@@ -78,7 +78,7 @@ class _FixedViewportPageState extends State<FixedViewportPage> {
             const SizedBox(height: 16),
             Expanded(
               child: NesFixedViewport(
-                child: Theme(
+                builder: (context) => Theme(
                   data: themeData,
                   child: DefaultTextStyle(
                     style: themeData.textTheme.bodyMedium ?? const TextStyle(),
@@ -91,8 +91,25 @@ class _FixedViewportPageState extends State<FixedViewportPage> {
                           const SizedBox(height: 4),
                           NesButton(
                             type: NesButtonType.primary,
-                            onPressed: () {},
-                            child: const Text('Button'),
+                            onPressed: () {
+                              NesDialog.show<void>(
+                                context: context,
+                                builder: (_) => Column(
+                                  children: [
+                                    const Text('Hello, World!'),
+                                    const SizedBox(height: 16),
+                                    NesButton(
+                                      type: NesButtonType.primary,
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                      child: const Text('Thanks, bye!'),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            },
+                            child: const Text('Say Hello'),
                           ),
                         ],
                       ),
