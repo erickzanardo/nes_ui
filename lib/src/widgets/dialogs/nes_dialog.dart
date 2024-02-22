@@ -22,6 +22,9 @@ class NesDialog extends StatelessWidget {
     required WidgetBuilder builder,
   }) {
     final nesTheme = context.nesThemeExtension<NesTheme>();
+
+    final scaling = NesFixedViewportScaling.maybeOf(context);
+
     return showGeneralDialog<T>(
       context: context,
       barrierColor: Colors.transparent,
@@ -41,9 +44,20 @@ class NesDialog extends StatelessWidget {
           ),
         );
       },
-      pageBuilder: (_, __, ___) => NesDialog(
-        child: builder(context),
-      ),
+      pageBuilder: (_, __, ___) {
+        final dialog = NesDialog(
+          child: builder(context),
+        );
+
+        if (scaling != null) {
+          return Transform.scale(
+            scale: scaling,
+            child: dialog,
+          );
+        }
+
+        return dialog;
+      },
     );
   }
 

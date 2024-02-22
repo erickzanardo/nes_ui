@@ -1,5 +1,6 @@
 # 0.16.0
  - feat: add `NesIcons.camera`
+ - fix!: `NesDialog`s are now aware of the a `NesFixedViewport` scaling value.
 
 # 0.15.0
  - feat: add `NesIcons.audioMuted`

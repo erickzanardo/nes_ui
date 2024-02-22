@@ -1,5 +1,32 @@
 import 'package:flutter/material.dart';
 
+/// {@template nes_fixed_viewport_scaling}
+/// An InheritedWidget that provides the current scale imposed by a
+/// [NesFixedViewport] down the widget tree.
+/// {@endtemplate}
+class NesFixedViewportScaling extends InheritedWidget {
+  /// {@macro nes_fixed_viewport_scaling}
+  const NesFixedViewportScaling({
+    required this.scale,
+    required super.child,
+    super.key,
+  });
+
+  /// The viewport scale factor.
+  final double scale;
+
+  /// Returns the current scale imposed by a [NesFixedViewport], if any.
+  static double? maybeOf(BuildContext context) {
+    return context
+        .dependOnInheritedWidgetOfExactType<NesFixedViewportScaling>()
+        ?.scale;
+  }
+
+  @override
+  bool updateShouldNotify(NesFixedViewportScaling oldWidget) =>
+      scale != oldWidget.scale;
+}
+
 /// {@template nes_fixed_viewport}
 /// A widget that imposes a fixed resolution on its child.
 ///
@@ -8,19 +35,20 @@ import 'package:flutter/material.dart';
 class NesFixedViewport extends StatelessWidget {
   /// {@macro nes_fixed_viewport}
   const NesFixedViewport({
-    required this.child,
+    required this.builder,
     this.resolution = const Size(256, 240),
     this.alignment = Alignment.center,
     super.key,
   });
 
-  /// The resolution to impose on [child].
+  /// The resolution to impose on [builder] returned child.
   final Size resolution;
 
   /// The widget below this widget in the tree.
-  final Widget child;
+  final WidgetBuilder builder;
 
-  /// The Alignment of [child] within the viewport.
+  /// The Alignment of the widgets returned by the [builder] within the
+  /// viewport.
   final Alignment alignment;
 
   @override
@@ -49,7 +77,12 @@ class NesFixedViewport extends StatelessWidget {
                   child: SizedBox(
                     width: resolution.width,
                     height: resolution.height,
-                    child: child,
+                    child: NesFixedViewportScaling(
+                      scale: scale,
+                      child: Builder(
+                        builder: builder,
+                      ),
+                    ),
                   ),
                 ),
               ),
