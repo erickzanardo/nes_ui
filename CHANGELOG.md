@@ -1,3 +1,6 @@
+# 0.17.0
+ - feat: add `NesIcons.market`
+
 # 0.16.0
  - feat: add `NesIcons.camera`
  - chore: Removing usage from deprecated members from Flutter 3.18.
