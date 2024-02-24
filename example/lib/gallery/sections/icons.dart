@@ -401,6 +401,14 @@ class IconsSection extends StatelessWidget {
               data: NesIcons.market,
               label: 'market',
             ),
+            _IconEntry(
+              data: NesIcons.play,
+              label: 'play',
+            ),
+            _IconEntry(
+              data: NesIcons.pause,
+              label: 'pause',
+            ),
           ],
         ),
       ],
