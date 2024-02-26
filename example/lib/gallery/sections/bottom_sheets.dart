@@ -23,7 +23,19 @@ class BottomSheetsSection extends StatelessWidget {
               onPressed: () {
                 NesBottomSheet.show<void>(
                   context: context,
-                  builder: (_) => const Text('Hello World'),
+                  maxHeight: .2,
+                  builder: (_) => Column(
+                    children: [
+                      const Expanded(child: Text('Hello World')),
+                      NesButton(
+                        type: NesButtonType.normal,
+                        child: const Text('Close'),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                    ],
+                  ),
                 );
               },
             ),

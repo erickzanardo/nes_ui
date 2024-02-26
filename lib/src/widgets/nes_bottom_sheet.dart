@@ -57,7 +57,7 @@ class NesBottomSheetRoundedBorderPainter extends NesBottomSheetPainter {
           pixelSize.toDouble(),
           pixelSize.toDouble(),
           size.width - pixelSize * 2,
-          size.height - pixelSize * 2,
+          size.height,
         ),
         backgroundPaint,
       )
@@ -77,7 +77,7 @@ class NesBottomSheetRoundedBorderPainter extends NesBottomSheetPainter {
           0,
           pixelSize * 2,
           pixelSize.toDouble(),
-          size.height,
+          size.height - pixelSize * 2,
         ),
         paint,
       )
@@ -87,7 +87,7 @@ class NesBottomSheetRoundedBorderPainter extends NesBottomSheetPainter {
           size.width - pixelSize,
           pixelSize * 2,
           pixelSize.toDouble(),
-          size.height,
+          size.height - pixelSize * 2,
         ),
         paint,
       )
@@ -114,6 +114,42 @@ class NesBottomSheetRoundedBorderPainter extends NesBottomSheetPainter {
   }
 }
 
+class _BottomSheetSlider extends StatefulWidget {
+  const _BottomSheetSlider({
+    required this.child,
+  });
+
+  final Widget child;
+
+  @override
+  _BottomSheetSliderState createState() => _BottomSheetSliderState();
+}
+
+class _BottomSheetSliderState extends State<_BottomSheetSlider> {
+  bool _show = false;
+
+  @override
+  void initState() {
+    super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      setState(() {
+        _show = true;
+      });
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedSlide(
+      curve: Curves.easeInOut,
+      duration: const Duration(milliseconds: 200),
+      offset: Offset(0, _show ? 0 : 1),
+      child: widget.child,
+    );
+  }
+}
+
 /// {@template nes_bottom_sheet_theme}
 /// A [NesBottomSheetPainter] that paints a NES-style bottom sheet.
 ///
@@ -133,13 +169,53 @@ class NesBottomSheet extends StatelessWidget {
   static Future<T?> show<T>({
     required BuildContext context,
     required WidgetBuilder builder,
+    double maxHeight = .5,
   }) {
-    return showModalBottomSheet<T>(
+    final nesTheme = context.nesThemeExtension<NesTheme>();
+
+    final scaling = NesFixedViewportScaling.maybeOf(context);
+
+    return showGeneralDialog<T>(
       context: context,
-      builder: (context) {
-        return NesBottomSheet(
-          child: builder(context),
+      barrierColor: Colors.transparent,
+      transitionBuilder: (context, animation, secondaryAnimation, child) {
+        return MouseRegion(
+          cursor: nesTheme.basicCursor,
+          child: SizedBox.expand(
+            child: DecoratedBox(
+              decoration: const BoxDecoration(
+                image: NesCheckeredDecoration(),
+              ),
+              child: child,
+            ),
+          ),
         );
+      },
+      pageBuilder: (_, __, ___) {
+        final mediaQuery = MediaQuery.of(context);
+        final dialog = Material(
+          color: Colors.transparent,
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: SizedBox(
+              height: mediaQuery.size.height * maxHeight,
+              child: _BottomSheetSlider(
+                child: NesBottomSheet(
+                  child: builder(context),
+                ),
+              ),
+            ),
+          ),
+        );
+
+        if (scaling != null) {
+          return Transform.scale(
+            scale: scaling,
+            child: dialog,
+          );
+        }
+
+        return dialog;
       },
     );
   }
