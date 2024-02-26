@@ -632,6 +632,89 @@ class NesContainerTheme extends ThemeExtension<NesContainerTheme> {
   }
 }
 
+/// {@template nes_bottom_sheet_theme}
+/// Class with information regarding bottom sheets inside NesUI.
+///
+/// A [NesBottomSheetTheme] is an optional custom theme for NesUI bottom sheets,
+/// by default, [flutterNesTheme] will create a [NesBottomSheetTheme] where
+/// [backgroundColor] will default to [ThemeData.cardColor]
+///
+/// {@endtemplate}
+class NesBottomSheetTheme extends ThemeExtension<NesBottomSheetTheme> {
+  /// {@macro nes_container_theme}
+  const NesBottomSheetTheme({
+    required this.backgroundColor,
+    required this.borderColor,
+    this.padding = const EdgeInsets.all(32),
+    this.pixelSize,
+    this.painter = NesBottomSheetRoundedBorderPainter.new,
+  });
+
+  /// The background color of the container.
+  final Color backgroundColor;
+
+  /// The border color of the container.
+  final Color borderColor;
+
+  /// The padding of the containers, defaults to 32 in all directions.
+  final EdgeInsets padding;
+
+  /// The pixel size of the container. When omitted, defaults to
+  /// [NesTheme.pixelSize].
+  final int? pixelSize;
+
+  /// The builder function that creates the painter used to draw the container.
+  ///
+  /// Defaults to [NesContainerRoundedBorderPainter.new].
+  final NesBottomSheetPainterBuilder painter;
+
+  @override
+  ThemeExtension<NesBottomSheetTheme> copyWith({
+    Color? backgroundColor,
+    Color? borderColor,
+    EdgeInsets? padding,
+    int? pixelSize,
+    NesBottomSheetPainterBuilder? painter,
+  }) {
+    return NesBottomSheetTheme(
+      backgroundColor: backgroundColor ?? this.backgroundColor,
+      borderColor: borderColor ?? this.borderColor,
+      padding: padding ?? this.padding,
+      pixelSize: pixelSize ?? this.pixelSize,
+      painter: painter ?? this.painter,
+    );
+  }
+
+  @override
+  ThemeExtension<NesBottomSheetTheme> lerp(
+    covariant ThemeExtension<NesBottomSheetTheme>? other,
+    double t,
+  ) {
+    final otherExt = other as NesBottomSheetTheme?;
+
+    return NesBottomSheetTheme(
+      backgroundColor: ColorTween(
+            begin: backgroundColor,
+            end: otherExt?.backgroundColor,
+          ).lerp(t) ??
+          backgroundColor,
+      borderColor: ColorTween(
+            begin: borderColor,
+            end: otherExt?.borderColor,
+          ).lerp(t) ??
+          borderColor,
+      padding: EdgeInsetsTween(
+        begin: padding,
+        end: otherExt?.padding,
+      ).lerp(t),
+      pixelSize: IntTween(
+        begin: pixelSize ?? 1,
+        end: otherExt?.pixelSize ?? 1,
+      ).lerp(t),
+    );
+  }
+}
+
 /// Helper methods on [BuildContext] for the Flutter Nes.
 extension NesBuildContext on BuildContext {
   /// Returns the extension of type [T] from the context.
@@ -689,6 +772,7 @@ ThemeData flutterNesTheme({
   ),
   NesTooltipTheme? nesTooltipTheme,
   NesContainerTheme? nesContainerTheme,
+  NesBottomSheetTheme? nesBottomSheetTheme,
   Iterable<ThemeExtension<dynamic>> customExtensions = const [],
 }) {
   final iconTheme = nesIconTheme ??
@@ -729,6 +813,12 @@ ThemeData flutterNesTheme({
         labelTextStyle: textTheme.labelMedium ?? const TextStyle(),
       );
 
+  final bottomSheetTheme = nesBottomSheetTheme ??
+      NesBottomSheetTheme(
+        backgroundColor: themeData.cardColor,
+        borderColor: textTheme.labelMedium?.color ?? Colors.black,
+      );
+
   return themeData.copyWith(
     textTheme: textTheme,
     extensions: [
@@ -740,6 +830,7 @@ ThemeData flutterNesTheme({
       nesSnackbarTheme,
       toolTipTheme,
       containerTheme,
+      bottomSheetTheme,
       ...customExtensions,
     ],
     dividerTheme: DividerThemeData(
