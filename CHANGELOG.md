@@ -4,6 +4,7 @@
  - feat: add `NesIcons.plause`
  - feat: add `NesIcons.upload`
  - feat: add `NesBottomSheet`
+ - fix: Dialogs corner to not show material background color.
 
 # 0.16.0
  - feat: add `NesIcons.camera`

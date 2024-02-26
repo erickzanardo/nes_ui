@@ -65,6 +65,7 @@ class NesDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Align(
       child: Material(
+        color: Colors.transparent,
         child: IntrinsicWidth(
           stepHeight: 0.56,
           child: SizedBox.expand(
