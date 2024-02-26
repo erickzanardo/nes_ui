@@ -2,6 +2,7 @@
  - feat: add `NesIcons.market`
  - feat: add `NesIcons.play`
  - feat: add `NesIcons.plause`
+ - feat: add `NesIcons.upload`
 
 # 0.16.0
  - feat: add `NesIcons.camera`

@@ -317,6 +317,13 @@ class NesIconCollection {
     ),
   );
 
+  /// Upload file
+  late final upload = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;3,-1;2,0;5,-1;4,0;3,-1;6,0;2,-1;1,0;1,-1;2,0;1,-1;1,0;4,-1;2,0;6,-1;2,0;11,-1;8,0',
+    ),
+  );
+
   /// Zoom in
   late final zoomIn = NesIconData(
     MiniSprite.fromDataString(

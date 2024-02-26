@@ -174,6 +174,10 @@ class IconsSection extends StatelessWidget {
               label: 'download',
             ),
             _IconEntry(
+              data: NesIcons.upload,
+              label: 'upload',
+            ),
+            _IconEntry(
               data: NesIcons.zoomIn,
               label: 'zoomIn',
             ),
