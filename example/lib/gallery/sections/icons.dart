@@ -413,6 +413,10 @@ class IconsSection extends StatelessWidget {
               data: NesIcons.pause,
               label: 'pause',
             ),
+            _IconEntry(
+              data: NesIcons.wrench,
+              label: 'wrench',
+            ),
           ],
         ),
       ],

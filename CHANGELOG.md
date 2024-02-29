@@ -1,3 +1,6 @@
+# 0.18.0
+ - feat: add `NesIcons.wrench`
+
 # 0.17.0
  - feat: add `NesIcons.market`
  - feat: add `NesIcons.play`
