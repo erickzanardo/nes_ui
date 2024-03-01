@@ -417,6 +417,10 @@ class IconsSection extends StatelessWidget {
               data: NesIcons.wrench,
               label: 'wrench',
             ),
+            _IconEntry(
+              data: NesIcons.discord,
+              label: 'discord',
+            ),
           ],
         ),
       ],
