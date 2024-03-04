@@ -1,6 +1,7 @@
 # 0.18.0
  - feat: add `NesIcons.wrench`
  - feat: add `NesIcons.discord`
+ - feat: Getting nes ui ready for 16x16 icons.
 
 # 0.17.0
  - feat: add `NesIcons.market`

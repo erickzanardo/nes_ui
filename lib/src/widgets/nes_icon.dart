@@ -765,6 +765,8 @@ class NesIcon extends StatelessWidget {
     this.size,
     this.primaryColor,
     this.secondaryColor,
+    this.accentColor,
+    this.shadowColor,
   });
 
   /// Data of this icon.
@@ -783,6 +785,18 @@ class NesIcon extends StatelessWidget {
   /// Optional secondary color for the icon.
   /// Will use value from the theme if none is provided.
   final Color? secondaryColor;
+
+  /// An optional accent color for the icon.
+  /// Will use value from the theme if none is provided.
+  ///
+  /// Only has effect in [NesIcons16].
+  final Color? accentColor;
+
+  /// An optional shadow color for the icon.
+  /// Will use value from the theme if none is provided.
+  ///
+  /// Only has effect in [NesIcons16].
+  final Color? shadowColor;
 
   @override
   Widget build(BuildContext context) {
@@ -807,6 +821,8 @@ class NesIcon extends StatelessWidget {
       palette: [
         primaryColor ?? nesIconTheme.primary,
         secondaryColor ?? nesIconTheme.secondary,
+        accentColor ?? nesIconTheme.accent,
+        shadowColor ?? nesIconTheme.shadow,
       ],
       sprite: iconData.sprite,
     );

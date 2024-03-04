@@ -292,6 +292,8 @@ class NesIconTheme extends ThemeExtension<NesIconTheme> {
   const NesIconTheme({
     required this.primary,
     required this.secondary,
+    required this.accent,
+    required this.shadow,
   });
 
   /// Primary color of the icon palette.
@@ -300,14 +302,24 @@ class NesIconTheme extends ThemeExtension<NesIconTheme> {
   /// Secondary color of the icon palette.
   final Color secondary;
 
+  /// Accent color of the icon palette (Only used in [NesIcons16]).
+  final Color accent;
+
+  /// Shadow color of the icon palette (Only used in [NesIcons16]).
+  final Color shadow;
+
   @override
   NesIconTheme copyWith({
     Color? primary,
     Color? secondary,
+    Color? accent,
+    Color? shadow,
   }) {
     return NesIconTheme(
       primary: primary ?? this.primary,
       secondary: secondary ?? this.secondary,
+      accent: accent ?? this.accent,
+      shadow: shadow ?? this.shadow,
     );
   }
 
@@ -325,6 +337,16 @@ class NesIconTheme extends ThemeExtension<NesIconTheme> {
             end: otherExt?.secondary,
           ).lerp(t) ??
           secondary,
+      accent: ColorTween(
+            begin: accent,
+            end: otherExt?.accent,
+          ).lerp(t) ??
+          accent,
+      shadow: ColorTween(
+            begin: shadow,
+            end: otherExt?.shadow,
+          ).lerp(t) ??
+          shadow,
     );
   }
 }
@@ -752,10 +774,14 @@ ThemeData flutterNesTheme({
     lightIconTheme: NesIconTheme(
       primary: Color(0xffffffff),
       secondary: Color(0xff000000),
+      accent: Color(0xff9badb7),
+      shadow: Color(0xff696a6a),
     ),
     darkIconTheme: NesIconTheme(
       primary: Color(0xff000000),
       secondary: Color(0xffffffff),
+      accent: Color(0xff696a6a),
+      shadow: Color(0xff9badb7),
     ),
   ),
   NesIconTheme? nesIconTheme,
@@ -780,10 +806,14 @@ ThemeData flutterNesTheme({
           ? const NesIconTheme(
               primary: Color(0xff000000),
               secondary: Color(0xffffffff),
+              accent: Color(0xff9badb7),
+              shadow: Color(0xff696a6a),
             )
           : const NesIconTheme(
               primary: Color(0xff808080),
               secondary: Color(0xffe5e5e5),
+              accent: Color(0xff696a6a),
+              shadow: Color(0xff9badb7),
             ));
 
   final overlayTransitionTheme = nesOverlayTransitionTheme ??
