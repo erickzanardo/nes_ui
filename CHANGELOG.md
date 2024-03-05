@@ -1,3 +1,6 @@
+# 0.19.0
+ - feat: adding `NesSectionHeader`
+
 # 0.18.0
  - feat: add `NesIcons.wrench`
  - feat: add `NesIcons.discord`
