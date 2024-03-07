@@ -1,5 +1,6 @@
 # 0.19.0
  - feat: adding `NesSectionHeader`
+ - feat: adding `NesIcons16.check`
 
 # 0.18.0
  - feat: add `NesIcons.wrench`

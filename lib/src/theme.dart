@@ -294,7 +294,11 @@ class NesIconTheme extends ThemeExtension<NesIconTheme> {
     required this.secondary,
     required this.accent,
     required this.shadow,
+    this.size = 32,
   });
+
+  /// The size of the icon.
+  final double size;
 
   /// Primary color of the icon palette.
   final Color primary;
@@ -310,12 +314,14 @@ class NesIconTheme extends ThemeExtension<NesIconTheme> {
 
   @override
   NesIconTheme copyWith({
+    double? size,
     Color? primary,
     Color? secondary,
     Color? accent,
     Color? shadow,
   }) {
     return NesIconTheme(
+      size: size ?? this.size,
       primary: primary ?? this.primary,
       secondary: secondary ?? this.secondary,
       accent: accent ?? this.accent,
@@ -327,6 +333,10 @@ class NesIconTheme extends ThemeExtension<NesIconTheme> {
   NesIconTheme lerp(ThemeExtension<NesIconTheme>? other, double t) {
     final otherExt = other as NesIconTheme?;
     return NesIconTheme(
+      size: Tween<double>(
+        begin: size,
+        end: otherExt?.size ?? size,
+      ).transform(t),
       primary: ColorTween(
             begin: primary,
             end: otherExt?.primary,
