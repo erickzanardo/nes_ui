@@ -805,16 +805,14 @@ class NesIcon extends StatelessWidget {
 
     var pixelSize = nesTheme.pixelSize.toDouble();
 
-    final customSize = size;
-    if (customSize != null) {
-      final spriteHorizontalUnits = iconData.sprite.pixels[0].length;
-      final spriteVerticalUnits = iconData.sprite.pixels.length;
+    final iconSize = size ?? Size.square(nesIconTheme.size);
+    final spriteHorizontalUnits = iconData.sprite.pixels[0].length;
+    final spriteVerticalUnits = iconData.sprite.pixels.length;
 
-      final width = customSize.width / spriteHorizontalUnits;
-      final height = customSize.height / spriteVerticalUnits;
+    final width = iconSize.width / spriteHorizontalUnits;
+    final height = iconSize.height / spriteVerticalUnits;
 
-      pixelSize = math.min(width, height).roundToDouble();
-    }
+    pixelSize = math.min(width, height).roundToDouble();
 
     return MiniSpriteWidget(
       pixelSize: pixelSize,
