@@ -431,6 +431,10 @@ class IconsSection extends StatelessWidget {
                         data: NesIcons.discord,
                         label: 'discord',
                       ),
+                      _IconEntry(
+                        data: NesIcons.bell,
+                        label: 'bell',
+                      ),
                     ],
                   ),
                 ),
@@ -443,6 +447,11 @@ class IconsSection extends StatelessWidget {
                       _IconEntry(
                         data: NesIcons16.check,
                         label: 'check',
+                        is16x16: true,
+                      ),
+                      _IconEntry(
+                        data: NesIcons16.bell,
+                        label: 'bell',
                         is16x16: true,
                       ),
                     ],

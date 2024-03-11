@@ -750,6 +750,13 @@ class NesIconCollection {
       '8,8;9,-1;6,0;1,-1;10,0;1,-1;2,0;1,-1;12,0;4,-1;2,0;16,-1',
     ),
   );
+
+  /// Bell
+  late final bell = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;3,-1;2,0;5,-1;4,0;4,-1;1,0;1,1;2,0;4,-1;1,0;1,1;2,0;3,-1;1,0;1,1;4,0;1,-1;16,0;3,-1;2,0;3,-1',
+    ),
+  );
 }
 
 /// {@template nes_icon}
