@@ -2,6 +2,7 @@
  - feat: adding `NesSectionHeader`
  - feat: adding `NesIcons16.check`
  - feat: Dialogs close on ESC key.
+ - feat: adding `NesIcons.bell` and `NesIcons16.bell`
 
 # 0.18.0
  - feat: add `NesIcons.wrench`
