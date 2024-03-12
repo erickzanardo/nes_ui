@@ -4,6 +4,7 @@
  - feat: Dialogs close on ESC key.
  - feat: adding `NesIcons.bell` and `NesIcons16.bell`
  - feat: adding `NesIcons16.close`
+ - feat: adding `NesIcons16.handPointingRight`
 
 # 0.18.0
  - feat: add `NesIcons.wrench`

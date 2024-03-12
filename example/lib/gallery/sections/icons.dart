@@ -455,6 +455,11 @@ class IconsSection extends StatelessWidget {
                         is16x16: true,
                       ),
                       _IconEntry(
+                        data: NesIcons16.handPointingRight,
+                        label: 'handPointingRight',
+                        is16x16: true,
+                      ),
+                      _IconEntry(
                         data: NesIcons16.bell,
                         label: 'bell',
                         is16x16: true,
