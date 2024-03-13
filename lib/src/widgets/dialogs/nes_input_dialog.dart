@@ -35,6 +35,7 @@ class NesInputDialog extends StatefulWidget {
     required String message,
     String inputLabel = 'Ok',
     String cancelLabel = 'Cancel',
+    NesDialogFrame frame = const NesBasicDialogFrame(),
   }) {
     return NesDialog.show<String?>(
       context: context,
@@ -43,6 +44,7 @@ class NesInputDialog extends StatefulWidget {
         cancelLabel: cancelLabel,
         message: message,
       ),
+      frame: frame,
     );
   }
 

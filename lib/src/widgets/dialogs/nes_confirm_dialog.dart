@@ -36,6 +36,7 @@ class NesConfirmDialog extends StatelessWidget {
     String confirmLabel = 'Yes',
     String cancelLabel = 'No',
     String message = 'Are you sure?',
+    NesDialogFrame frame = const NesBasicDialogFrame(),
   }) {
     return NesDialog.show<bool>(
       context: context,
@@ -44,6 +45,7 @@ class NesConfirmDialog extends StatelessWidget {
         cancelLabel: cancelLabel,
         message: message,
       ),
+      frame: frame,
     );
   }
 

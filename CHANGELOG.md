@@ -7,6 +7,7 @@
  - feat: adding `NesIcons16.handPointingRight`
  - feat: adding `NesIcons16.leftArrowIndicator`
  - feat: adding `NesIcons16.rightArrowIndicator`
+ - feat: adding different frames to `NesDialog`s
 
 # 0.18.0
  - feat: add `NesIcons.wrench`
