@@ -6,6 +6,7 @@
  - feat: adding `NesIcons16.close`
  - feat: adding `NesIcons16.handPointingRight`
  - feat: adding `NesIcons16.leftArrowIndicator`
+ - feat: adding `NesIcons16.rightArrowIndicator`
 
 # 0.18.0
  - feat: add `NesIcons.wrench`
