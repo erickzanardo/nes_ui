@@ -1,3 +1,6 @@
+# 0.20.0
+ - feat: adding different frames to `NesDialog`s
+
 # 0.19.0
  - feat: adding `NesSectionHeader`
  - feat: adding `NesIcons16.check`
@@ -9,7 +12,6 @@
  - feat: adding `NesIcons16.rightArrowIndicator`
  - feat: adding `NesIcons16.topArrowIndicator`
  - feat: adding `NesIcons16.bottomArrowIndicator`
- - feat: adding frame customization to `NesDialog`
 
 # 0.18.0
  - feat: add `NesIcons.wrench`
