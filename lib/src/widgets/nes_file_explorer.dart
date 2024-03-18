@@ -4,6 +4,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:nes_ui/nes_ui.dart';
 
+/// A function that resolves an icon for a file.
+typedef NesFileExplorerFileIconResolver = NesIconData? Function(NesFile file);
+
 /// {@template nes_file_entity}
 /// Describes a file or folder.
 /// {@endtemplate}
@@ -59,6 +62,7 @@ class NesFileExplorer extends StatefulWidget {
   const NesFileExplorer({
     required this.entries,
     required this.onOpenFile,
+    this.fileIconResolver,
     super.key,
   });
 
@@ -67,6 +71,9 @@ class NesFileExplorer extends StatefulWidget {
 
   /// The callback to call when a file is opened.
   final void Function(NesFile file) onOpenFile;
+
+  /// A function that resolves an icon for a file.
+  final NesFileExplorerFileIconResolver? fileIconResolver;
 
   @override
   State createState() => _NesFileExplorerState();
@@ -143,6 +150,7 @@ class _NesFileExplorerState extends State<NesFileExplorer> {
             onToggleFolder: _onToggleFolder,
             openFolders: _openFolders,
             files: _files,
+            fileIconResolver: widget.fileIconResolver,
           ),
       ],
     );
@@ -156,6 +164,7 @@ class _Entry extends StatelessWidget {
     required this.onToggleFolder,
     required this.openFolders,
     required this.files,
+    required this.fileIconResolver,
   });
 
   final Map<String, List<NesFileEntity>> files;
@@ -163,10 +172,16 @@ class _Entry extends StatelessWidget {
   final void Function(NesFolder) onToggleFolder;
   final void Function(NesFile) onOpenFile;
   final List<String> openFolders;
+  final NesFileExplorerFileIconResolver? fileIconResolver;
 
   static const _itemHeight = 36.0;
 
   NesIconData _fileIcon(NesFile file) {
+    final customIcon = fileIconResolver?.call(file);
+    if (customIcon != null) {
+      return customIcon;
+    }
+
     final extension = file.path.split('.').last.toLowerCase();
 
     switch (file.name) {
@@ -276,6 +291,7 @@ class _Entry extends StatelessWidget {
                           onToggleFolder: onToggleFolder,
                           openFolders: openFolders,
                           files: files,
+                          fileIconResolver: fileIconResolver,
                         ),
                       ],
                     ),

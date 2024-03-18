@@ -1,4 +1,7 @@
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'package:flutter/material.dart';
+import 'package:mini_sprite/mini_sprite.dart';
 import 'package:nes_ui/nes_ui.dart';
 
 class FileExplorerSection extends StatefulWidget {
@@ -75,6 +78,41 @@ class _FileExplorerSectionState extends State<FileExplorerSection> {
                   ),
                 ),
             ],
+          ),
+        ),
+        Text(
+          'NesFile Explorer with custom icons',
+          style: theme.textTheme.displaySmall,
+        ),
+        const SizedBox(height: 16),
+        NesContainer(
+          width: 600,
+          height: 300,
+          child: NesFileExplorer(
+            entries: const [
+              NesFolder('/emojis'),
+              NesFile('/emojis/happy'),
+              NesFile('/emojis/sad'),
+              NesFolder('/songs'),
+              NesFile('/songs/rock.mp3'),
+            ],
+            onOpenFile: (_) {},
+            fileIconResolver: (entry) {
+              if (entry.path == '/emojis/happy') {
+                return NesIconData(
+                  MiniSprite.fromDataString(
+                    '8,8;18,-1;1,0;2,-1;1,0;4,-1;1,0;2,-1;1,0;4,-1;1,0;2,-1;1,0;2,-1;1,0;6,-1;1,0;1,-1;6,0;9,-1',
+                  ),
+                );
+              } else if (entry.path == '/emojis/sad') {
+                return NesIconData(
+                  MiniSprite.fromDataString(
+                    '8,8;18,-1;1,0;2,-1;1,0;4,-1;1,0;2,-1;1,0;4,-1;1,0;2,-1;1,0;11,-1;6,0;1,-1;1,0;6,-1;1,0',
+                  ),
+                );
+              }
+              return null;
+            },
           ),
         ),
       ],
