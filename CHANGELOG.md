@@ -1,6 +1,7 @@
 # 0.20.0
  - feat: adding different frames to `NesDialog`s
  - feat: allow `NesFileExplorer` to have custom icons
+ - feat: adding `NesIcons.alien`
 
 # 0.19.0
  - feat: adding `NesSectionHeader`
