@@ -2,6 +2,7 @@
  - feat: adding different frames to `NesDialog`s
  - feat: allow `NesFileExplorer` to have custom icons
  - feat: adding `NesIcons.alien`
+ - feat: allow `NesScaffold` and allow snackbars to be shown on them.
 
 # 0.19.0
  - feat: adding `NesSectionHeader`

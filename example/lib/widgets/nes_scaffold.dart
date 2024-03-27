@@ -1,14 +1,15 @@
 import 'package:example/advanced/container_playground/container_playground.dart';
 import 'package:example/advanced/fixed_viewport/page/fixed_viewport_page.dart';
 import 'package:example/advanced/rpg_menu/rpg_menu.dart';
+import 'package:example/advanced/scaffold/scaffold.dart';
 import 'package:example/advanced/window_manager/window_manager.dart';
 import 'package:example/app/app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nes_ui/nes_ui.dart';
 
-class NesScaffold extends StatelessWidget {
-  const NesScaffold({
+class NesExampleScaffold extends StatelessWidget {
+  const NesExampleScaffold({
     super.key,
     required this.child,
   });
@@ -23,6 +24,16 @@ class NesScaffold extends StatelessWidget {
       floatingActionButton: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
+          NesButton(
+            type: NesButtonType.normal,
+            onPressed: () {
+              Navigator.of(context).push(
+                NesScaffoldExample.route(),
+              );
+            },
+            child: NesIcon(iconData: NesIcons.rail),
+          ),
+          const SizedBox(height: 16),
           NesButton(
             type: NesButtonType.normal,
             onPressed: () {

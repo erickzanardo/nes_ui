@@ -43,9 +43,12 @@ class NesSnackbar extends StatelessWidget {
       SnackBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        content: NesSnackbar(
-          text: text,
-          type: type,
+        content: SizedBox(
+          width: double.infinity,
+          child: NesSnackbar(
+            text: text,
+            type: type,
+          ),
         ),
       ),
     );
@@ -73,7 +76,6 @@ class NesSnackbar extends StatelessWidget {
     }
 
     return NesContainer(
-      width: double.infinity,
       backgroundColor: color,
       child: Text(
         text,
