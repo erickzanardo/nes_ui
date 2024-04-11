@@ -3,6 +3,7 @@
  - feat: allow `NesFileExplorer` to have custom icons
  - feat: adding `NesIcons.alien`
  - feat: allow `NesScaffold` and allow snackbars to be shown on them.
+ - feat: route transitions can have their duration customized. Thanks @adil192
 
 # 0.19.0
  - feat: adding `NesSectionHeader`
