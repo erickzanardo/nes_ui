@@ -16,11 +16,12 @@ class NesVerticalGridTransition extends NesOverlayTransitionWidget {
   /// Creates a route with this animation.
   static PageRouteBuilder<T> route<T>({
     required RoutePageBuilder pageBuilder,
+    Duration duration = const Duration(milliseconds: 1750),
   }) {
     return PageRouteBuilder<T>(
       pageBuilder: pageBuilder,
-      reverseTransitionDuration: const Duration(milliseconds: 1750),
-      transitionDuration: const Duration(milliseconds: 1750),
+      reverseTransitionDuration: duration,
+      transitionDuration: duration,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         return NesVerticalGridTransition(
           animation: animation,

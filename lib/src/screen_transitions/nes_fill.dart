@@ -15,11 +15,12 @@ class NesFillTransition extends NesOverlayTransitionWidget {
   /// Creates a route with this animation.
   static PageRouteBuilder<T> route<T>({
     required RoutePageBuilder pageBuilder,
+    Duration duration = const Duration(milliseconds: 750),
   }) {
     return PageRouteBuilder<T>(
       pageBuilder: pageBuilder,
-      reverseTransitionDuration: const Duration(milliseconds: 750),
-      transitionDuration: const Duration(milliseconds: 750),
+      reverseTransitionDuration: duration,
+      transitionDuration: duration,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         return NesFillTransition(
           animation: animation,
