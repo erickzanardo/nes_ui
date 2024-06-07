@@ -1,3 +1,6 @@
+# 0.21.0
+ - feat: adding `NesDropdownMenu`
+
 # 0.20.0
  - feat: adding different frames to `NesDialog`s
  - feat: allow `NesFileExplorer` to have custom icons

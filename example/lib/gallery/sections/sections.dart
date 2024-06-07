@@ -5,6 +5,7 @@ export 'containers.dart';
 export 'custom_extensions.dart';
 export 'dialogs.dart';
 export 'drop_shadows.dart';
+export 'dropdown_menus.dart';
 export 'effects.dart';
 export 'file_explorer.dart';
 export 'icon_badges.dart';
