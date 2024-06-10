@@ -19,3 +19,36 @@ Widget normal(BuildContext context) {
     ),
   );
 }
+
+@widgetbook.UseCase(
+  name: 'with icons',
+  type: NesDropdownMenu,
+)
+Widget icons(BuildContext context) {
+  return Center(
+    child: NesDropdownMenu<String>(
+      entries: [
+        NesDropdownMenuEntry(
+          icon: NesIcons.sword,
+          value: '1',
+          label: 'Sword',
+        ),
+        NesDropdownMenuEntry(
+          icon: NesIcons.shield,
+          value: '2',
+          label: 'Shield',
+        ),
+        NesDropdownMenuEntry(
+          icon: NesIcons.arrow,
+          value: '3',
+          label: 'Arrow',
+        ),
+        NesDropdownMenuEntry(
+          icon: NesIcons.axe,
+          value: '4',
+          label: 'Axe',
+        ),
+      ],
+    ),
+  );
+}

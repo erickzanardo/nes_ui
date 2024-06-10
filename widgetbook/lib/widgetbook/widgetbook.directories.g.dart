@@ -52,12 +52,18 @@ final directories = <_i1.WidgetbookNode>[
           builder: _i3.checkbox,
         ),
       ),
-      _i1.WidgetbookLeafComponent(
+      _i1.WidgetbookComponent(
         name: 'NesDropdownMenu',
-        useCase: _i1.WidgetbookUseCase(
-          name: 'default',
-          builder: _i4.normal,
-        ),
+        useCases: [
+          _i1.WidgetbookUseCase(
+            name: 'default',
+            builder: _i4.normal,
+          ),
+          _i1.WidgetbookUseCase(
+            name: 'with icons',
+            builder: _i4.icons,
+          ),
+        ],
       ),
       _i1.WidgetbookLeafComponent(
         name: 'NesRunningText',
