@@ -81,7 +81,7 @@ class _NesInputDialogState extends State<NesInputDialog> {
               type: NesButtonType.warning,
               child: Text(widget.cancelLabel),
               onPressed: () {
-                Navigator.of(context).pop(null);
+                Navigator.of(context).pop();
               },
             ),
             const SizedBox(width: 16),
