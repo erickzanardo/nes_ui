@@ -81,6 +81,8 @@ class GalleryPage extends StatelessWidget {
               const SizedBox(height: 32),
               const TextFieldsSection(),
               const SizedBox(height: 32),
+              const DropDownMenusSection(),
+              const SizedBox(height: 32),
               const ContainersSection(),
               const SizedBox(height: 32),
               const ButtonsSection(),

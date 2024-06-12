@@ -1,5 +1,6 @@
 # 0.21.0
  - Update to Flutter 3.22.0
+ - feat: adding `NesDropdownMenu`
 
 # 0.20.0
  - feat: adding different frames to `NesDialog`s
