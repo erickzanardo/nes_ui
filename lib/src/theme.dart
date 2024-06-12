@@ -843,7 +843,7 @@ ThemeData flutterNesTheme({
   final toolTipTheme = nesTooltipTheme ??
       NesTooltipTheme(
         background: textTheme.bodyMedium?.color ?? Colors.black,
-        textColor: themeData.colorScheme.background,
+        textColor: themeData.colorScheme.surface,
       );
 
   final containerTheme = nesContainerTheme ??
