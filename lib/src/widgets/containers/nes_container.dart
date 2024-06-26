@@ -13,6 +13,7 @@ class NesContainer extends StatelessWidget {
     this.width,
     this.height,
     this.backgroundColor,
+    this.borderColor,
     this.padding,
     this.painterBuilder,
   });
@@ -32,6 +33,10 @@ class NesContainer extends StatelessWidget {
   /// Background color of this container,
   /// when null, defaults to [ThemeData.cardColor].
   final Color? backgroundColor;
+
+  /// Border color of this container,
+  /// when null, defaults to [NesContainerTheme.borderColor].
+  final Color? borderColor;
 
   /// An optional padding to apply to the container.
   ///
@@ -65,7 +70,7 @@ class NesContainer extends StatelessWidget {
         pixelSize: pixelSize,
         textStyle: textStyle,
         backgroundColor: containerColor,
-        borderColor: nesContainerTheme.borderColor,
+        borderColor: borderColor ?? nesContainerTheme.borderColor,
       ),
       child: SizedBox(
         width: width,
