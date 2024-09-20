@@ -2,6 +2,10 @@
  - Update to Flutter 3.22.0
  - feat: adding `NesDropdownMenu`
  - feat: adding `NesContainer.borderColor` to allow customizing the border color.
+ - feat: Simply `NesSelectionList` to not show two cursors
+ - feat: adding option to better customize `TextInput`s
+ - feat: adding `NesSelectionList.disabledItems`
+ - feat: `NesPressable` is only pressable when has listeners.
 
 # 0.20.0
  - feat: adding different frames to `NesDialog`s

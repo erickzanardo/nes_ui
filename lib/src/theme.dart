@@ -747,6 +747,44 @@ class NesBottomSheetTheme extends ThemeExtension<NesBottomSheetTheme> {
   }
 }
 
+/// {@template nes_input_decoration_theme}
+/// Class with information regarding input decoration inside NesUI.
+/// {@endtemplate}
+class NesInputDecorationTheme {
+  /// {@macro nes_input_decoration_theme}
+  const NesInputDecorationTheme({
+    this.labelStyle,
+    this.borderColor,
+    this.enabledBorderColor,
+    this.focusedBorderColor,
+    this.errorBorderColor,
+    this.focusedErrorBorderColor,
+  });
+
+  /// The style of the label.
+  final TextStyle? labelStyle;
+
+  /// The color of the border, when omitted, fallbacks to the
+  /// [TextTheme.bodyMedium] color.
+  final Color? borderColor;
+
+  /// The color of the border when enabled, when omitted, fallbacks to the
+  /// [TextTheme.bodyMedium] color.
+  final Color? enabledBorderColor;
+
+  /// The color of the border when focused, when omitted, fallbacks to the
+  /// [ThemeData.colorScheme.primary] color.
+  final Color? focusedBorderColor;
+
+  /// The color of the border when an error is present, when omitted, fallbacks
+  /// to the [ThemeData.colorScheme.error] color.
+  final Color? errorBorderColor;
+
+  /// The color of the border when focused and an error is present, when omitted
+  /// ,fallbacks to the [ThemeData.colorScheme.error] color.
+  final Color? focusedErrorBorderColor;
+}
+
 /// Helper methods on [BuildContext] for the Flutter Nes.
 extension NesBuildContext on BuildContext {
   /// Returns the extension of type [T] from the context.
@@ -809,6 +847,7 @@ ThemeData flutterNesTheme({
   NesTooltipTheme? nesTooltipTheme,
   NesContainerTheme? nesContainerTheme,
   NesBottomSheetTheme? nesBottomSheetTheme,
+  NesInputDecorationTheme? nesInputDecorationTheme,
   Iterable<ThemeExtension<dynamic>> customExtensions = const [],
 }) {
   final iconTheme = nesIconTheme ??
@@ -878,34 +917,42 @@ ThemeData flutterNesTheme({
       color: textTheme.bodyMedium?.color,
     ),
     inputDecorationTheme: InputDecorationTheme(
+      labelStyle: nesInputDecorationTheme?.labelStyle,
       border: NesInputBorder(
         borderSide: BorderSide(
-          color: textTheme.bodyMedium?.color ?? Colors.black,
+          color: nesInputDecorationTheme?.borderColor ??
+              textTheme.bodyMedium?.color ??
+              Colors.black,
           width: nesTheme.pixelSize.toDouble(),
         ),
       ),
       enabledBorder: NesInputBorder(
         borderSide: BorderSide(
-          color: textTheme.bodyMedium?.color ?? Colors.black,
+          color: nesInputDecorationTheme?.enabledBorderColor ??
+              textTheme.bodyMedium?.color ??
+              Colors.black,
           width: nesTheme.pixelSize.toDouble(),
         ),
       ),
       focusedBorder: NesInputBorder(
         borderSide: BorderSide(
           width: nesTheme.pixelSize.toDouble(),
-          color: themeData.colorScheme.primary,
+          color: nesInputDecorationTheme?.focusedBorderColor ??
+              themeData.colorScheme.primary,
         ),
       ),
       errorBorder: NesInputBorder(
         borderSide: BorderSide(
           width: nesTheme.pixelSize.toDouble(),
-          color: themeData.colorScheme.error,
+          color: nesInputDecorationTheme?.errorBorderColor ??
+              themeData.colorScheme.error,
         ),
       ),
       focusedErrorBorder: NesInputBorder(
         borderSide: BorderSide(
           width: nesTheme.pixelSize.toDouble(),
-          color: themeData.colorScheme.error,
+          color: nesInputDecorationTheme?.focusedErrorBorderColor ??
+              themeData.colorScheme.error,
         ),
       ),
     ),

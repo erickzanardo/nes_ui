@@ -18,6 +18,7 @@ class NesSelectionList extends StatefulWidget {
     this.onCancelSelection,
     this.tickerDuration,
     this.canCancelSelection = true,
+    this.disabledItems = const [],
   }) : assert(
           initialIndex == null || initialIndex < children.length,
           'initialIndex must be less than children.length',
@@ -62,13 +63,15 @@ class NesSelectionList extends StatefulWidget {
   /// Duration of ticker, it changes the blink speed.
   final Duration? tickerDuration;
 
+  /// List of indexes that are disabled.
+  final List<int> disabledItems;
+
   @override
   State<NesSelectionList> createState() => _NesSelectionListState();
 }
 
 class _NesSelectionListState extends State<NesSelectionList> {
   late int? _cursorIndex = widget.initialIndex;
-  late int? _selected = widget.initialIndex;
 
   late final _focusNode = widget.focusNode ?? FocusNode();
   late bool _hasFocus = _focusNode.hasFocus;
@@ -81,6 +84,10 @@ class _NesSelectionListState extends State<NesSelectionList> {
     super.initState();
 
     _focusNode.addListener(_onFocusChange);
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _onFocusChange();
+    });
   }
 
   @override
@@ -110,9 +117,6 @@ class _NesSelectionListState extends State<NesSelectionList> {
 
   void _confirm() {
     if (_cursorIndex != null) {
-      setState(() {
-        _selected = _cursorIndex;
-      });
       widget.onSelect(_cursorIndex!);
     }
   }
@@ -120,6 +124,11 @@ class _NesSelectionListState extends State<NesSelectionList> {
   void _next() {
     final cursor = _cursorIndex ?? 0;
     final value = cursor + 1 < widget.children.length ? cursor + 1 : 0;
+    if (widget.disabledItems.contains(value)) {
+      _cursorIndex = value;
+      _next();
+      return;
+    }
     setState(() {
       _cursorIndex = value;
     });
@@ -129,6 +138,11 @@ class _NesSelectionListState extends State<NesSelectionList> {
     final cursor = _cursorIndex ?? 0;
     final value = cursor - 1 >= 0 ? cursor - 1 : widget.children.length - 1;
 
+    if (widget.disabledItems.contains(value)) {
+      _cursorIndex = value;
+      _previous();
+      return;
+    }
     setState(() {
       _cursorIndex = value;
     });
@@ -150,8 +164,7 @@ class _NesSelectionListState extends State<NesSelectionList> {
   void _onFocusChange() {
     setState(() {
       if (!_hasFocus && _focusNode.hasFocus) {
-        _cursorIndex ??= _selected ?? 0;
-        _selected = null;
+        _cursorIndex ??= 0;
       }
       _hasFocus = _focusNode.hasFocus;
     });
@@ -180,13 +193,11 @@ class _NesSelectionListState extends State<NesSelectionList> {
             if (_focusNode.hasFocus) {
               setState(() {
                 _cursorIndex = i;
-                _selected = i;
               });
               widget.onSelect(i);
             } else if (widget.canAutoFocus) {
               _focusNode.requestFocus();
               setState(() {
-                _selected = i;
                 _cursorIndex = i;
               });
               widget.onSelect(i);
@@ -201,10 +212,10 @@ class _NesSelectionListState extends State<NesSelectionList> {
           },
           itemMinHeight: nesSelectionListTheme.itemMinHeight,
           cursor: i == _cursorIndex,
-          selected: i == _selected,
           marker: marker,
           markerSize: markerSize,
           hasFocus: _hasFocus,
+          disabled: widget.disabledItems.contains(i),
           child: widget.children[i],
         ),
     ];
@@ -228,7 +239,6 @@ class _SelectionItem extends StatelessWidget {
     required this.markerKey,
     required this.onTap,
     required this.onHover,
-    required this.selected,
     required this.cursor,
     required this.marker,
     required this.child,
@@ -236,6 +246,7 @@ class _SelectionItem extends StatelessWidget {
     required this.itemMinHeight,
     required this.hasFocus,
     this.tickerDuration,
+    this.disabled = false,
   });
 
   final Key markerKey;
@@ -243,29 +254,25 @@ class _SelectionItem extends StatelessWidget {
   final VoidCallback onTap;
   final VoidCallback onHover;
   final bool cursor;
-  final bool selected;
   final Size markerSize;
   final Widget child;
   final double itemMinHeight;
   final bool hasFocus;
   final Duration? tickerDuration;
+  final bool disabled;
 
   @override
   Widget build(BuildContext context) {
-    final itemMarker = cursor && hasFocus
-        ? NesBlinker(
-            key: markerKey,
-            tickerDuration: tickerDuration,
-            child: marker,
-          )
-        : (selected ? marker : null);
+    final itemMarker = cursor && hasFocus && !disabled ? marker : null;
 
     return MouseRegion(
       onEnter: (_) {
-        onHover();
+        if (!disabled) {
+          onHover();
+        }
       },
       child: GestureDetector(
-        onTap: onTap,
+        onTap: disabled ? null : onTap,
         child: ConstrainedBox(
           constraints: BoxConstraints(
             minHeight: itemMinHeight,
@@ -277,7 +284,13 @@ class _SelectionItem extends StatelessWidget {
                 child: itemMarker,
               ),
               const SizedBox(width: 6),
-              child,
+              if (disabled)
+                Opacity(
+                  opacity: 0.2,
+                  child: child,
+                )
+              else
+                child,
               const SizedBox(width: 16),
             ],
           ),

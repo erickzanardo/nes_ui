@@ -44,10 +44,15 @@ class _NesPressableState extends State<NesPressable> {
 
   @override
   Widget build(BuildContext context) {
+    final hasListeners = widget.onPress != null ||
+        widget.onPressStart != null ||
+        widget.onPressEnd != null;
     final nesTheme = context.nesThemeExtension<NesTheme>();
     final offSet = Offset(
       0,
-      (_pressed && widget.disabled != true) ? nesTheme.pixelSize.toDouble() : 0,
+      (_pressed && hasListeners && widget.disabled != true)
+          ? nesTheme.pixelSize.toDouble()
+          : 0,
     );
     return Transform.translate(
       offset: offSet,
