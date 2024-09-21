@@ -6,6 +6,7 @@
  - feat: adding option to better customize `TextInput`s
  - feat: adding `NesSelectionList.disabledItems`
  - feat: `NesPressable` is only pressable when has listeners.
+ - feat: adding `NesIcons.block`
 
 # 0.20.0
  - feat: adding different frames to `NesDialog`s
