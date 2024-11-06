@@ -16,6 +16,7 @@ class NesIconButton extends StatelessWidget {
     this.primaryColor,
     this.secondaryColor,
     this.disabled,
+    this.badge,
   });
 
   /// Icon of the button.
@@ -44,6 +45,9 @@ class NesIconButton extends StatelessWidget {
   /// Disable the button
   final bool? disabled;
 
+  /// An optional badge to display on the button.
+  final String? badge;
+
   bool _isDisabled() =>
       (disabled ?? false) ||
       onPress == null && onPressStart == null && onPressEnd == null;
@@ -57,12 +61,20 @@ class NesIconButton extends StatelessWidget {
       disabled: _isDisabled(),
       child: Opacity(
         opacity: _isDisabled() ? .2 : 1.0,
-        child: NesIcon(
-          iconData: icon,
-          size: size,
-          primaryColor: primaryColor,
-          secondaryColor: secondaryColor,
-        ),
+        child: badge != null
+            ? NesIconBadge(
+                iconData: icon,
+                badge: badge!,
+                size: size,
+                primaryColor: primaryColor,
+                secondaryColor: secondaryColor,
+              )
+            : NesIcon(
+                iconData: icon,
+                size: size,
+                primaryColor: primaryColor,
+                secondaryColor: secondaryColor,
+              ),
       ),
     );
   }
