@@ -214,7 +214,7 @@ class _ButtonPainer extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final backgroundPaint = Paint()..color = color;
     final shadowPaint = Paint()..color = color.darken(.4);
-    final hoverPaint = Paint()..color = color.darken(.4).withOpacity(.4);
+    final hoverPaint = Paint()..color = color.darken(.4).withValues(alpha: .4);
     final borderPaint = Paint()..color = borderColor;
 
     // Top border

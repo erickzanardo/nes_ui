@@ -31,7 +31,7 @@ abstract class NesOverlayTransitionWidget extends StatelessWidget {
     }
 
     return MouseRegion(
-      cursor: nesTheme.basicCursor,
+      cursor: nesTheme.screenTransitionCursor ?? nesTheme.basicCursor,
       child: Stack(
         children: [
           if (animation.value >= .5) Positioned.fill(child: child),
