@@ -587,7 +587,7 @@ class NesTooltipTheme extends ThemeExtension<NesTooltipTheme> {
 ///
 ///  - [backgroundColor] is [ThemeData.cardColor]
 ///  - [borderColor] is [ThemeData.textTheme.labelMedium.color]
-///  - [labelTextStyle] is [ThemeData.textTheme.labelMedium]
+///  - [labelTextStyle] is [ThemeData.textTheme].labelMedium
 ///
 /// {@endtemplate}
 class NesContainerTheme extends ThemeExtension<NesContainerTheme> {
@@ -784,15 +784,15 @@ class NesInputDecorationTheme {
   final Color? enabledBorderColor;
 
   /// The color of the border when focused, when omitted, fallbacks to the
-  /// [ThemeData.colorScheme.primary] color.
+  /// [ThemeData.colorScheme].primary color.
   final Color? focusedBorderColor;
 
   /// The color of the border when an error is present, when omitted, fallbacks
-  /// to the [ThemeData.colorScheme.error] color.
+  /// to the [ThemeData.colorScheme].error color.
   final Color? errorBorderColor;
 
   /// The color of the border when focused and an error is present, when omitted
-  /// ,fallbacks to the [ThemeData.colorScheme.error] color.
+  /// ,fallbacks to the [ThemeData.colorScheme].error color.
   final Color? focusedErrorBorderColor;
 }
 
