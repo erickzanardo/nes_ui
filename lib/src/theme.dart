@@ -21,6 +21,7 @@ class NesTheme extends ThemeExtension<NesTheme> {
     this.resizeLeftCursor = SystemMouseCursors.resizeLeft,
     this.resizeRightCursor = SystemMouseCursors.resizeRight,
     this.basicCursor = SystemMouseCursors.basic,
+    this.screenTransitionCursor,
   });
 
   /// The size of a pixel unit used in Flutter nes, like the width
@@ -83,6 +84,11 @@ class NesTheme extends ThemeExtension<NesTheme> {
   /// Defaults to [SystemMouseCursors.move].
   final MouseCursor moveCursor;
 
+  /// The cursor used when hovering over a screen transition.
+  ///
+  /// When omitted, fallbacks to [NesTheme.basicCursor].
+  final MouseCursor? screenTransitionCursor;
+
   @override
   NesTheme copyWith({
     int? pixelSize,
@@ -97,6 +103,7 @@ class NesTheme extends ThemeExtension<NesTheme> {
     MouseCursor? resizeLeftCursor,
     MouseCursor? resizeRightCursor,
     MouseCursor? basicCursor,
+    MouseCursor? screenTransitionCursor,
   }) {
     return NesTheme(
       pixelSize: pixelSize ?? this.pixelSize,
@@ -114,6 +121,8 @@ class NesTheme extends ThemeExtension<NesTheme> {
       resizeLeftCursor: resizeLeftCursor ?? this.resizeLeftCursor,
       resizeRightCursor: resizeRightCursor ?? this.resizeRightCursor,
       basicCursor: basicCursor ?? this.basicCursor,
+      screenTransitionCursor:
+          screenTransitionCursor ?? this.screenTransitionCursor,
     );
   }
 
@@ -139,6 +148,8 @@ class NesTheme extends ThemeExtension<NesTheme> {
       resizeLeftCursor: otherExt?.resizeLeftCursor ?? resizeLeftCursor,
       resizeRightCursor: otherExt?.resizeRightCursor ?? resizeRightCursor,
       basicCursor: otherExt?.basicCursor ?? basicCursor,
+      screenTransitionCursor:
+          otherExt?.screenTransitionCursor ?? screenTransitionCursor,
     );
   }
 }
