@@ -632,6 +632,14 @@ class NesIconCollection {
     ),
   );
 
+
+  /// Shovel
+  late final shovel = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;1,-1;6,0;4,-1;2,0;6,-1;2,0;6,-1;2,0;4,-1;6,0;2,-1;1,0;4,1;1,0;2,-1;2,0;2,1;2,0;3,-1;4,0;2,-1',
+    ),
+  );
+
   /// Oven
   late final oven = NesIconData(
     MiniSprite.fromDataString(

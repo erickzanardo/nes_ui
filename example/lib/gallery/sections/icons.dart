@@ -364,6 +364,10 @@ class IconsSection extends StatelessWidget {
                         label: 'pickaxe',
                       ),
                       _IconEntry(
+                        data: NesIcons.shovel,
+                        label: 'shovel',
+                      ),
+                      _IconEntry(
                         data: NesIcons.oven,
                         label: 'oven',
                       ),
