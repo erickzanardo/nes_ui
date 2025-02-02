@@ -632,7 +632,6 @@ class NesIconCollection {
     ),
   );
 
-
   /// Shovel
   late final shovel = NesIconData(
     MiniSprite.fromDataString(
