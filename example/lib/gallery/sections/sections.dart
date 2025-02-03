@@ -4,6 +4,7 @@ export 'checkboxes.dart';
 export 'containers.dart';
 export 'custom_extensions.dart';
 export 'dialogs.dart';
+export 'dpads.dart';
 export 'drop_shadows.dart';
 export 'dropdown_menus.dart';
 export 'effects.dart';
