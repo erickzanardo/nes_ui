@@ -443,6 +443,10 @@ class IconsSection extends StatelessWidget {
                         data: NesIcons.alien,
                         label: 'alien',
                       ),
+                      _IconEntry(
+                        data: NesIcons.gem,
+                        label: 'gem',
+                      ),
                     ],
                   ),
                 ),

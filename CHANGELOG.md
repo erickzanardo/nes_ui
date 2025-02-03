@@ -1,6 +1,7 @@
 # 0.22.0
  - feat: adding `NesIcons.shovel`.
  - feat: adding `NesDpad`
+ - feat: adding `NesIcons.gem`.
 
 # 0.21.0
  - Update to Flutter 3.22.0
