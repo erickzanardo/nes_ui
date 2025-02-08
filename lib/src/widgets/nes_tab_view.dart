@@ -28,6 +28,7 @@ class NesTabView extends StatefulWidget {
     required this.tabs,
     this.onTabChanged,
     this.onTabClosed,
+    this.initialTabIndex = 0,
   });
 
   /// The tabs to display.
@@ -39,12 +40,25 @@ class NesTabView extends StatefulWidget {
   /// Called when the tab is closed.
   final void Function(int index)? onTabClosed;
 
+  /// The initial tab index to display.
+  final int initialTabIndex;
+
   @override
   State<NesTabView> createState() => _NesTabViewState();
 }
 
 class _NesTabViewState extends State<NesTabView> {
   int _selectedIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedIndex = widget.initialTabIndex >= widget.tabs.length
+        ? widget.tabs.length - 1
+        : widget.initialTabIndex < 0
+            ? 0
+            : widget.initialTabIndex;
+  }
 
   @override
   void didUpdateWidget(NesTabView oldWidget) {
