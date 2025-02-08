@@ -2,6 +2,7 @@
  - feat: adding `NesIcons.shovel`.
  - feat: adding `NesDpad`
  - feat: adding `NesIcons.gem`.
+ - feat: adding `initialTabIndex` to `NesTabView`
 
 # 0.21.0
  - Update to Flutter 3.22.0
