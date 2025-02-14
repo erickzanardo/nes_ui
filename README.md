@@ -8,6 +8,7 @@
 
 UI library inspired by old retro video game console
 
+
 ## Installation 💻
 
 **❗ In order to start using Nes UI you must have the [Flutter SDK][flutter_install_link] installed on your machine.**
@@ -104,8 +105,7 @@ provides:
  - NesIcon
  - NesSelectionList
  - NesIterableOptions
-
-More to come!
+ - ...
 
 ## Custom Extension
 
@@ -123,6 +123,8 @@ In order to provide your own extension, you need to create it, and provide it to
 ```
 
 For more information, look at the example code.
+
+[Support this project 💙](https://cherrybit.studio/about-supporting/)
 
 [flutter_install_link]: https://docs.flutter.dev/get-started/install
 [github_actions_link]: https://docs.github.com/en/actions/learn-github-actions
