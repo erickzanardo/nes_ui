@@ -64,7 +64,7 @@ class _NesTooltipState extends State<NesTooltip> {
     final nesTheme = context.nesThemeExtension<NesTheme>();
 
     return CustomPaint(
-      painter: _show
+      foregroundPainter: _show
           ? _TooltipPainter(
               color: tooltipTheme.background,
               pixelSize: nesTheme.pixelSize.toDouble(),
