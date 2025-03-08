@@ -53,8 +53,21 @@ class NesTooltip extends StatefulWidget {
   State<NesTooltip> createState() => _NesTooltipState();
 }
 
-class _NesTooltipState extends State<NesTooltip> {
-  var _show = false;
+class _NesTooltipState extends State<NesTooltip>
+    with SingleTickerProviderStateMixin<NesTooltip> {
+  static const double _verticalOffset = 24;
+
+  final OverlayPortalController _controller = OverlayPortalController();
+
+  // Show the tooltip.
+  void _showTooltip() {
+    setState(_controller.show);
+  }
+
+  // Dismiss the tooltip.
+  void _dismissTooltip() {
+    setState(_controller.hide);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,44 +76,57 @@ class _NesTooltipState extends State<NesTooltip> {
     final tooltipTheme = context.nesThemeExtension<NesTooltipTheme>();
     final nesTheme = context.nesThemeExtension<NesTheme>();
 
-    return CustomPaint(
-      foregroundPainter: _show
-          ? _TooltipPainter(
-              color: tooltipTheme.background,
-              pixelSize: nesTheme.pixelSize.toDouble(),
-              arrowPlacement: widget.arrowPlacement,
-              arrowDirection: widget.arrowDirection,
-              textStyle: textStyle,
-              message: widget.message,
-              textColor: tooltipTheme.textColor,
-            )
-          : null,
+    return OverlayPortal(
+      controller: _controller,
+      overlayChildBuilder: (BuildContext context) {
+        final overlayState = Overlay.of(context, debugRequiredFor: widget);
+        final box = this.context.findRenderObject()! as RenderBox;
+        final target = box.localToGlobal(
+          box.size.center(Offset.zero),
+          ancestor: overlayState.context.findRenderObject(),
+        );
+
+        return Positioned.fill(
+          bottom: MediaQuery.maybeViewInsetsOf(context)?.bottom ?? 0.0,
+          child: CustomSingleChildLayout(
+            delegate: _TooltipPositionDelegate(
+              target: target,
+              verticalOffset: _verticalOffset,
+              preferBelow:
+                  widget.arrowDirection == NesTooltipArrowDirection.top,
+            ),
+            child: CustomPaint(
+              foregroundPainter: _TooltipPainter(
+                color: tooltipTheme.background,
+                pixelSize: nesTheme.pixelSize.toDouble(),
+                arrowPlacement: widget.arrowPlacement,
+                arrowDirection: widget.arrowDirection,
+                textStyle: textStyle,
+                message: widget.message,
+                textColor: tooltipTheme.textColor,
+              ),
+            ),
+          ),
+        );
+      },
       child: GestureDetector(
+        // ignore: unnecessary_lambdas
         onLongPress: () {
-          setState(() {
-            _show = true;
-          });
+          _showTooltip();
         },
         onLongPressEnd: (_) {
-          setState(() {
-            _show = false;
-          });
+          _dismissTooltip();
         },
+        // ignore: unnecessary_lambdas
         onLongPressCancel: () {
-          setState(() {
-            _show = false;
-          });
+          _dismissTooltip();
         },
         child: MouseRegion(
           onEnter: (_) {
-            setState(() {
-              _show = true;
-            });
+            _showTooltip();
           },
           onExit: (_) {
-            setState(() {
-              _show = false;
-            });
+            _dismissTooltip();
           },
           child: widget.child,
         ),
@@ -248,4 +274,51 @@ class _TooltipPainter extends CustomPainter {
       oldDelegate.textColor != textColor ||
       oldDelegate.message != message ||
       oldDelegate.textStyle != textStyle;
+}
+
+/// A delegate for computing the layout of a tooltip to be displayed above or
+/// below a target specified in the global coordinate system.
+class _TooltipPositionDelegate extends SingleChildLayoutDelegate {
+  /// Creates a delegate for computing the layout of a tooltip.
+  _TooltipPositionDelegate({
+    required this.target,
+    required this.verticalOffset,
+    required this.preferBelow,
+  });
+
+  /// The offset of the target the tooltip is positioned near in the global
+  /// coordinate system.
+  final Offset target;
+
+  /// The amount of vertical distance between the target and the displayed
+  /// tooltip.
+  final double verticalOffset;
+
+  /// Whether the tooltip is displayed below its widget by default.
+  ///
+  /// If there is insufficient space to display the tooltip in the preferred
+  /// direction, the tooltip will be displayed in the opposite direction.
+  final bool preferBelow;
+
+  @override
+  BoxConstraints getConstraintsForChild(BoxConstraints constraints) =>
+      constraints.loosen();
+
+  @override
+  Offset getPositionForChild(Size size, Size childSize) {
+    return positionDependentBox(
+      size: size,
+      childSize: childSize,
+      target: target,
+      verticalOffset: verticalOffset,
+      preferBelow: preferBelow,
+    );
+  }
+
+  @override
+  bool shouldRelayout(_TooltipPositionDelegate oldDelegate) {
+    return target != oldDelegate.target ||
+        verticalOffset != oldDelegate.verticalOffset ||
+        preferBelow != oldDelegate.preferBelow;
+  }
 }
