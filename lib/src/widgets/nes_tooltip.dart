@@ -54,16 +54,63 @@ class NesTooltip extends StatefulWidget {
 
 class _NesTooltipState extends State<NesTooltip>
     with SingleTickerProviderStateMixin<NesTooltip> {
+  // Controller for managing the overlay portal.
   final OverlayPortalController _controller = OverlayPortalController();
 
-  // Show the tooltip.
+  // Method to show the tooltip by updating the state.
   void _showTooltip() {
     setState(_controller.show);
   }
 
-  // Dismiss the tooltip.
+  // Method to dismiss the tooltip by updating the state.
   void _dismissTooltip() {
     setState(_controller.hide);
+  }
+
+  // Get the anchor position based on the arrow direction and placement.
+  Offset _getAnchorPosition(Size size) {
+    switch (widget.arrowDirection) {
+      case NesTooltipArrowDirection.top:
+        switch (widget.arrowPlacement) {
+          case NesTooltipArrowPlacement.left:
+            return size.topLeft(Offset.zero);
+          case NesTooltipArrowPlacement.middle:
+            return size.topCenter(Offset.zero);
+          case NesTooltipArrowPlacement.right:
+            return size.topRight(Offset.zero);
+        }
+      case NesTooltipArrowDirection.bottom:
+        switch (widget.arrowPlacement) {
+          case NesTooltipArrowPlacement.left:
+            return size.bottomLeft(Offset.zero);
+          case NesTooltipArrowPlacement.middle:
+            return size.bottomCenter(Offset.zero);
+          case NesTooltipArrowPlacement.right:
+            return size.bottomRight(Offset.zero);
+        }
+    }
+  }
+
+  // Calculate the start position for the tooltip based on the arrow placement.
+  double _calculateStart(double dx, double width) {
+    switch (widget.arrowPlacement) {
+      case NesTooltipArrowPlacement.left:
+        return dx;
+      case NesTooltipArrowPlacement.right:
+        return dx - width;
+      case NesTooltipArrowPlacement.middle:
+        return dx - width / 2;
+    }
+  }
+
+  // Calculate the top position for the tooltip based on the arrow direction.
+  double _calculateTop(double dy, double height, int pixelSize) {
+    switch (widget.arrowDirection) {
+      case NesTooltipArrowDirection.bottom:
+        return dy + height - (pixelSize * 4.0);
+      case NesTooltipArrowDirection.top:
+        return dy - height - (pixelSize * 2.0);
+    }
   }
 
   @override
@@ -79,41 +126,9 @@ class _NesTooltipState extends State<NesTooltip>
         final overlayState = Overlay.of(context, debugRequiredFor: widget);
         final box = this.context.findRenderObject()! as RenderBox;
 
-        // Get the anchor position relative to the arrowDirection
-        // and arrowPlacement.
-        var anchorPosition = box.size.center(Offset.zero);
-        switch (widget.arrowDirection) {
-          case NesTooltipArrowDirection.top:
-            switch (widget.arrowPlacement) {
-              case NesTooltipArrowPlacement.left:
-                anchorPosition = box.size.topLeft(Offset.zero);
-                break;
-              case NesTooltipArrowPlacement.middle:
-                anchorPosition = box.size.topCenter(Offset.zero);
-                break;
-              case NesTooltipArrowPlacement.right:
-                anchorPosition = box.size.topRight(Offset.zero);
-                break;
-            }
-            break;
-          case NesTooltipArrowDirection.bottom:
-            switch (widget.arrowPlacement) {
-              case NesTooltipArrowPlacement.left:
-                anchorPosition = box.size.bottomLeft(Offset.zero);
-                break;
-              case NesTooltipArrowPlacement.middle:
-                anchorPosition = box.size.bottomCenter(Offset.zero);
-                break;
-              case NesTooltipArrowPlacement.right:
-                anchorPosition = box.size.bottomRight(Offset.zero);
-                break;
-            }
-            break;
-        }
-
         // Get the position of the anchor relative to the screen.
         final target = box.localToGlobal(
-          anchorPosition,
+          _getAnchorPosition(box.size),
           ancestor: overlayState.context.findRenderObject(),
         );
 
@@ -136,38 +151,21 @@ class _NesTooltipState extends State<NesTooltip>
 
         return Positioned.directional(
           textDirection: TextDirection.ltr,
-          start: widget.arrowPlacement == NesTooltipArrowPlacement.left
-              ? target.dx
-              : widget.arrowPlacement == NesTooltipArrowPlacement.right
-                  ? target.dx - painter.size.width
-                  : target.dx - painter.size.width / 2,
+          start: _calculateStart(target.dx, painter.size.width),
           width: painter.size.width,
-          top: widget.arrowDirection == NesTooltipArrowDirection.bottom
-              ? target.dy + painter.size.height - (nesTheme.pixelSize * 4.0)
-              : target.dy - painter.size.height - (nesTheme.pixelSize * 2.0),
+          top:
+              _calculateTop(target.dy, painter.size.height, nesTheme.pixelSize),
           height: painter.size.height,
           child: CustomPaint(painter: painter),
         );
       },
       child: GestureDetector(
-        // ignore: unnecessary_lambdas
-        onLongPress: () {
-          _showTooltip();
-        },
-        onLongPressEnd: (_) {
-          _dismissTooltip();
-        },
-        // ignore: unnecessary_lambdas
-        onLongPressCancel: () {
-          _dismissTooltip();
-        },
+        onLongPress: _showTooltip,
+        onLongPressEnd: (_) => _dismissTooltip(),
+        onLongPressCancel: _dismissTooltip,
         child: MouseRegion(
-          onEnter: (_) {
-            _showTooltip();
-          },
-          onExit: (_) {
-            _dismissTooltip();
-          },
+          onEnter: (_) => _showTooltip(),
+          onExit: (_) => _dismissTooltip(),
           child: Semantics(
             tooltip: widget.message,
             child: widget.child,
