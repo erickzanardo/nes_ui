@@ -55,8 +55,6 @@ class NesTooltip extends StatefulWidget {
 
 class _NesTooltipState extends State<NesTooltip>
     with SingleTickerProviderStateMixin<NesTooltip> {
-  static const double _verticalOffset = 24;
-
   final OverlayPortalController _controller = OverlayPortalController();
 
   // Show the tooltip.
@@ -81,32 +79,72 @@ class _NesTooltipState extends State<NesTooltip>
       overlayChildBuilder: (BuildContext context) {
         final overlayState = Overlay.of(context, debugRequiredFor: widget);
         final box = this.context.findRenderObject()! as RenderBox;
+
+        //
+        var anchorPosition = box.size.center(Offset.zero);
+        switch (widget.arrowDirection) {
+          case NesTooltipArrowDirection.top:
+            switch (widget.arrowPlacement) {
+              case NesTooltipArrowPlacement.left:
+                anchorPosition = box.size.topLeft(Offset.zero);
+                break;
+              case NesTooltipArrowPlacement.middle:
+                anchorPosition = box.size.topCenter(Offset.zero);
+                break;
+              case NesTooltipArrowPlacement.right:
+                anchorPosition = box.size.topRight(Offset.zero);
+                break;
+            }
+            break;
+          case NesTooltipArrowDirection.bottom:
+            switch (widget.arrowPlacement) {
+              case NesTooltipArrowPlacement.left:
+                anchorPosition = box.size.bottomLeft(Offset.zero);
+                break;
+              case NesTooltipArrowPlacement.middle:
+                anchorPosition = box.size.bottomCenter(Offset.zero);
+                break;
+              case NesTooltipArrowPlacement.right:
+                anchorPosition = box.size.bottomRight(Offset.zero);
+                break;
+            }
+            break;
+        }
+
         final target = box.localToGlobal(
-          box.size.center(Offset.zero),
+          anchorPosition,
           ancestor: overlayState.context.findRenderObject(),
         );
 
-        return Positioned.fill(
-          bottom: MediaQuery.maybeViewInsetsOf(context)?.bottom ?? 0.0,
-          child: CustomSingleChildLayout(
-            delegate: _TooltipPositionDelegate(
-              target: target,
-              verticalOffset: _verticalOffset,
-              preferBelow:
-                  widget.arrowDirection == NesTooltipArrowDirection.top,
-            ),
-            child: CustomPaint(
-              foregroundPainter: _TooltipPainter(
-                color: tooltipTheme.background,
-                pixelSize: nesTheme.pixelSize.toDouble(),
-                arrowPlacement: widget.arrowPlacement,
-                arrowDirection: widget.arrowDirection,
-                textStyle: textStyle,
-                message: widget.message,
-                textColor: tooltipTheme.textColor,
+        final painter = _TooltipPainter(
+          color: tooltipTheme.background,
+          pixelSize: nesTheme.pixelSize.toDouble(),
+          arrowPlacement: widget.arrowPlacement,
+          arrowDirection: widget.arrowDirection,
+          textPainter: TextPainter(
+            textDirection: TextDirection.ltr,
+            text: TextSpan(
+              text: widget.message,
+              style: textStyle.copyWith(
+                color: tooltipTheme.textColor,
               ),
             ),
-          ),
+          )..layout(),
+        );
+
+        return Positioned.directional(
+          textDirection: TextDirection.ltr,
+          start: widget.arrowPlacement == NesTooltipArrowPlacement.left
+              ? target.dx
+              : widget.arrowPlacement == NesTooltipArrowPlacement.right
+                  ? target.dx - painter.size.width
+                  : target.dx - painter.size.width / 2,
+          width: painter.size.width,
+          top: widget.arrowDirection == NesTooltipArrowDirection.bottom
+              ? target.dy + painter.size.height - (nesTheme.pixelSize * 4.0)
+              : target.dy - painter.size.height - (nesTheme.pixelSize * 2.0),
+          height: painter.size.height,
+          child: CustomPaint(painter: painter),
         );
       },
       child: GestureDetector(
@@ -128,7 +166,10 @@ class _NesTooltipState extends State<NesTooltip>
           onExit: (_) {
             _dismissTooltip();
           },
-          child: widget.child,
+          child: Semantics(
+            tooltip: widget.message,
+            child: widget.child,
+          ),
         ),
       ),
     );
@@ -141,52 +182,23 @@ class _TooltipPainter extends CustomPainter {
     required this.pixelSize,
     required this.arrowPlacement,
     required this.arrowDirection,
-    required this.textStyle,
-    required this.textColor,
-    required this.message,
+    required this.textPainter,
   });
 
   final Color color;
   final double pixelSize;
   final NesTooltipArrowPlacement arrowPlacement;
   final NesTooltipArrowDirection arrowDirection;
-  final TextStyle textStyle;
-  final Color textColor;
-  final String message;
+  final TextPainter textPainter;
 
-  @override
-  SemanticsBuilderCallback? get semanticsBuilder => (size) {
-        return [
-          CustomPainterSemantics(
-            rect: Rect.fromLTWH(0, 0, size.width, size.height),
-            properties: SemanticsProperties(
-              label: message,
-              textDirection: TextDirection.ltr,
-            ),
-          ),
-        ];
-      };
+  Size get size => Size(
+        textPainter.size.width + pixelSize * 4,
+        textPainter.size.height + pixelSize * 2,
+      );
 
   @override
   void paint(Canvas canvas, Size childSize) {
-    final textPainter = TextPainter(
-      textDirection: TextDirection.ltr,
-      text: TextSpan(
-        text: message,
-        style: textStyle.copyWith(
-          color: textColor,
-        ),
-      ),
-    )..layout();
-
-    final textSize = textPainter.size;
-
     final paint = Paint()..color = color;
-
-    final size = Size(
-      textSize.width + pixelSize * 4,
-      textSize.height + pixelSize * 2,
-    );
 
     final arrowOffset = switch (arrowPlacement) {
       NesTooltipArrowPlacement.left => pixelSize * 2,
@@ -194,21 +206,8 @@ class _TooltipPainter extends CustomPainter {
       NesTooltipArrowPlacement.right => size.width - pixelSize * 4,
     };
 
-    canvas.save();
-
-    final translateX = switch (arrowPlacement) {
-      NesTooltipArrowPlacement.left => 0.0,
-      NesTooltipArrowPlacement.middle => -size.width / 2 + childSize.width / 2,
-      NesTooltipArrowPlacement.right => -size.width + childSize.width,
-    };
-
-    final translateY = switch (arrowDirection) {
-      NesTooltipArrowDirection.top => -size.height - pixelSize * 4,
-      NesTooltipArrowDirection.bottom => size.height + pixelSize * 8,
-    };
-
     canvas
-      ..translate(translateX, translateY)
+      ..save()
       ..drawRect(
         Rect.fromLTWH(0, 0, size.width, size.height),
         paint,
@@ -271,54 +270,5 @@ class _TooltipPainter extends CustomPainter {
       oldDelegate.color != color ||
       oldDelegate.pixelSize != pixelSize ||
       oldDelegate.arrowPlacement != arrowPlacement ||
-      oldDelegate.textColor != textColor ||
-      oldDelegate.message != message ||
-      oldDelegate.textStyle != textStyle;
-}
-
-/// A delegate for computing the layout of a tooltip to be displayed above or
-/// below a target specified in the global coordinate system.
-class _TooltipPositionDelegate extends SingleChildLayoutDelegate {
-  /// Creates a delegate for computing the layout of a tooltip.
-  _TooltipPositionDelegate({
-    required this.target,
-    required this.verticalOffset,
-    required this.preferBelow,
-  });
-
-  /// The offset of the target the tooltip is positioned near in the global
-  /// coordinate system.
-  final Offset target;
-
-  /// The amount of vertical distance between the target and the displayed
-  /// tooltip.
-  final double verticalOffset;
-
-  /// Whether the tooltip is displayed below its widget by default.
-  ///
-  /// If there is insufficient space to display the tooltip in the preferred
-  /// direction, the tooltip will be displayed in the opposite direction.
-  final bool preferBelow;
-
-  @override
-  BoxConstraints getConstraintsForChild(BoxConstraints constraints) =>
-      constraints.loosen();
-
-  @override
-  Offset getPositionForChild(Size size, Size childSize) {
-    return positionDependentBox(
-      size: size,
-      childSize: childSize,
-      target: target,
-      verticalOffset: verticalOffset,
-      preferBelow: preferBelow,
-    );
-  }
-
-  @override
-  bool shouldRelayout(_TooltipPositionDelegate oldDelegate) {
-    return target != oldDelegate.target ||
-        verticalOffset != oldDelegate.verticalOffset ||
-        preferBelow != oldDelegate.preferBelow;
-  }
+      oldDelegate.textPainter != textPainter;
 }
