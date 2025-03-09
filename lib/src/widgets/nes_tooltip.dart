@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/semantics.dart';
 import 'package:nes_ui/nes_ui.dart';
 
 /// Enum with the possible placements for the arrow of the tooltip.
