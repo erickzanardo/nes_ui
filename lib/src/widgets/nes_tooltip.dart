@@ -200,13 +200,32 @@ class _TooltipPainter extends CustomPainter {
   void paint(Canvas canvas, Size childSize) {
     final paint = Paint()..color = color;
 
-    // Tooltip
+    // Calculate arrow position
+    final arrowOffset = switch (arrowPlacement) {
+      NesTooltipArrowPlacement.left => pixelSize * 2,
+      NesTooltipArrowPlacement.middle => size.width / 2 - pixelSize,
+      NesTooltipArrowPlacement.right => size.width - pixelSize * 4,
+    };
+
+    final arrowBodyTopPosition = switch (arrowDirection) {
+      NesTooltipArrowDirection.top => size.height + pixelSize,
+      NesTooltipArrowDirection.bottom => pixelSize * -2,
+    };
+
+    final arrowHeadTopPosition = switch (arrowDirection) {
+      NesTooltipArrowDirection.top => size.height + pixelSize * 2,
+      NesTooltipArrowDirection.bottom => pixelSize * -3,
+    };
+
+    // Draw tooltip.
     canvas
       ..save()
+      // Draw tooltip background.
       ..drawRect(
         Rect.fromLTWH(0, 0, size.width, size.height),
         paint,
       )
+      // Draw top and bottom borders.
       ..drawRect(
         Rect.fromLTWH(
           pixelSize,
@@ -224,29 +243,8 @@ class _TooltipPainter extends CustomPainter {
           pixelSize,
         ),
         paint,
-      );
-
-    // Text
-    textPainter.paint(canvas, Offset(pixelSize * 2, pixelSize));
-
-    // Arrow
-    final arrowOffset = switch (arrowPlacement) {
-      NesTooltipArrowPlacement.left => pixelSize * 2,
-      NesTooltipArrowPlacement.middle => size.width / 2 - pixelSize,
-      NesTooltipArrowPlacement.right => size.width - pixelSize * 4,
-    };
-
-    final arrowBodyTopPosition = switch (arrowDirection) {
-      NesTooltipArrowDirection.top => size.height + pixelSize,
-      NesTooltipArrowDirection.bottom => pixelSize * -2,
-    };
-
-    final arrowHeadTopPosition = switch (arrowDirection) {
-      NesTooltipArrowDirection.top => size.height + pixelSize * 2,
-      NesTooltipArrowDirection.bottom => pixelSize * -3,
-    };
-
-    canvas
+      )
+      // Draw arrow
       ..drawRect(
         Rect.fromLTWH(
           arrowOffset,
@@ -266,6 +264,9 @@ class _TooltipPainter extends CustomPainter {
         paint,
       )
       ..restore();
+
+    // Draw text
+    textPainter.paint(canvas, Offset(pixelSize * 2, pixelSize));
   }
 
   @override
