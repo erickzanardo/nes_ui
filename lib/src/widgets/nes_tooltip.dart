@@ -79,7 +79,8 @@ class _NesTooltipState extends State<NesTooltip>
         final overlayState = Overlay.of(context, debugRequiredFor: widget);
         final box = this.context.findRenderObject()! as RenderBox;
 
-        //
+        // Get the anchor position relative to the arrowDirection
+        // and arrowPlacement.
         var anchorPosition = box.size.center(Offset.zero);
         switch (widget.arrowDirection) {
           case NesTooltipArrowDirection.top:
@@ -110,11 +111,13 @@ class _NesTooltipState extends State<NesTooltip>
             break;
         }
 
+        // Get the position of the anchor relative to the screen.
         final target = box.localToGlobal(
           anchorPosition,
           ancestor: overlayState.context.findRenderObject(),
         );
 
+        // Instantiate the tooltip painter.
         final painter = _TooltipPainter(
           color: tooltipTheme.background,
           pixelSize: nesTheme.pixelSize.toDouble(),
@@ -199,12 +202,7 @@ class _TooltipPainter extends CustomPainter {
   void paint(Canvas canvas, Size childSize) {
     final paint = Paint()..color = color;
 
-    final arrowOffset = switch (arrowPlacement) {
-      NesTooltipArrowPlacement.left => pixelSize * 2,
-      NesTooltipArrowPlacement.middle => size.width / 2 - pixelSize,
-      NesTooltipArrowPlacement.right => size.width - pixelSize * 4,
-    };
-
+    // Tooltip
     canvas
       ..save()
       ..drawRect(
@@ -230,7 +228,15 @@ class _TooltipPainter extends CustomPainter {
         paint,
       );
 
+    // Text
     textPainter.paint(canvas, Offset(pixelSize * 2, pixelSize));
+
+    // Arrow
+    final arrowOffset = switch (arrowPlacement) {
+      NesTooltipArrowPlacement.left => pixelSize * 2,
+      NesTooltipArrowPlacement.middle => size.width / 2 - pixelSize,
+      NesTooltipArrowPlacement.right => size.width - pixelSize * 4,
+    };
 
     final arrowBodyTopPosition = switch (arrowDirection) {
       NesTooltipArrowDirection.top => size.height + pixelSize,
@@ -241,7 +247,7 @@ class _TooltipPainter extends CustomPainter {
       NesTooltipArrowDirection.top => size.height + pixelSize * 2,
       NesTooltipArrowDirection.bottom => pixelSize * -3,
     };
-    // Arrow
+
     canvas
       ..drawRect(
         Rect.fromLTWH(
