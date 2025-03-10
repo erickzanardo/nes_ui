@@ -1,3 +1,6 @@
+# 0.22.1
+ - fix: Update NesTooltip to use OverlayPortal (Thanks @moldypenguins)
+
 # 0.22.0
  - feat: adding `NesIcons.shovel`.
  - feat: adding `NesDpad`
