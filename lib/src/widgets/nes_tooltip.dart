@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/semantics.dart';
 import 'package:nes_ui/nes_ui.dart';
 
 /// Enum with the possible placements for the arrow of the tooltip.
@@ -53,8 +52,66 @@ class NesTooltip extends StatefulWidget {
   State<NesTooltip> createState() => _NesTooltipState();
 }
 
-class _NesTooltipState extends State<NesTooltip> {
-  var _show = false;
+class _NesTooltipState extends State<NesTooltip>
+    with SingleTickerProviderStateMixin<NesTooltip> {
+  // Controller for managing the overlay portal.
+  final _controller = OverlayPortalController();
+
+  // Method to show the tooltip by updating the state.
+  void _showTooltip() {
+    setState(_controller.show);
+  }
+
+  // Method to dismiss the tooltip by updating the state.
+  void _dismissTooltip() {
+    setState(_controller.hide);
+  }
+
+  // Get the anchor position based on the arrow direction and placement.
+  Offset _getAnchorPosition(Size size) {
+    switch (widget.arrowDirection) {
+      case NesTooltipArrowDirection.top:
+        switch (widget.arrowPlacement) {
+          case NesTooltipArrowPlacement.left:
+            return size.topLeft(Offset.zero);
+          case NesTooltipArrowPlacement.middle:
+            return size.topCenter(Offset.zero);
+          case NesTooltipArrowPlacement.right:
+            return size.topRight(Offset.zero);
+        }
+      case NesTooltipArrowDirection.bottom:
+        switch (widget.arrowPlacement) {
+          case NesTooltipArrowPlacement.left:
+            return size.bottomLeft(Offset.zero);
+          case NesTooltipArrowPlacement.middle:
+            return size.bottomCenter(Offset.zero);
+          case NesTooltipArrowPlacement.right:
+            return size.bottomRight(Offset.zero);
+        }
+    }
+  }
+
+  // Calculate the start position for the tooltip based on the arrow placement.
+  double _calculateStart(double dx, double width) {
+    switch (widget.arrowPlacement) {
+      case NesTooltipArrowPlacement.left:
+        return dx;
+      case NesTooltipArrowPlacement.right:
+        return dx - width;
+      case NesTooltipArrowPlacement.middle:
+        return dx - width / 2;
+    }
+  }
+
+  // Calculate the top position for the tooltip based on the arrow direction.
+  double _calculateTop(double dy, double height, int pixelSize) {
+    switch (widget.arrowDirection) {
+      case NesTooltipArrowDirection.bottom:
+        return dy + height - (pixelSize * 4.0);
+      case NesTooltipArrowDirection.top:
+        return dy - height - (pixelSize * 2.0);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,46 +120,56 @@ class _NesTooltipState extends State<NesTooltip> {
     final tooltipTheme = context.nesThemeExtension<NesTooltipTheme>();
     final nesTheme = context.nesThemeExtension<NesTheme>();
 
-    return CustomPaint(
-      foregroundPainter: _show
-          ? _TooltipPainter(
-              color: tooltipTheme.background,
-              pixelSize: nesTheme.pixelSize.toDouble(),
-              arrowPlacement: widget.arrowPlacement,
-              arrowDirection: widget.arrowDirection,
-              textStyle: textStyle,
-              message: widget.message,
-              textColor: tooltipTheme.textColor,
-            )
-          : null,
+    return OverlayPortal(
+      controller: _controller,
+      overlayChildBuilder: (BuildContext context) {
+        final overlayState = Overlay.of(context, debugRequiredFor: widget);
+        final box = this.context.findRenderObject()! as RenderBox;
+
+        // Get the position of the anchor relative to the screen.
+        final target = box.localToGlobal(
+          _getAnchorPosition(box.size),
+          ancestor: overlayState.context.findRenderObject(),
+        );
+
+        // Instantiate the tooltip painter.
+        final painter = _TooltipPainter(
+          color: tooltipTheme.background,
+          pixelSize: nesTheme.pixelSize.toDouble(),
+          arrowPlacement: widget.arrowPlacement,
+          arrowDirection: widget.arrowDirection,
+          textPainter: TextPainter(
+            textDirection: TextDirection.ltr,
+            text: TextSpan(
+              text: widget.message,
+              style: textStyle.copyWith(
+                color: tooltipTheme.textColor,
+              ),
+            ),
+          )..layout(),
+        );
+
+        return Positioned.directional(
+          textDirection: TextDirection.ltr,
+          start: _calculateStart(target.dx, painter.size.width),
+          width: painter.size.width,
+          top:
+              _calculateTop(target.dy, painter.size.height, nesTheme.pixelSize),
+          height: painter.size.height,
+          child: CustomPaint(painter: painter),
+        );
+      },
       child: GestureDetector(
-        onLongPress: () {
-          setState(() {
-            _show = true;
-          });
-        },
-        onLongPressEnd: (_) {
-          setState(() {
-            _show = false;
-          });
-        },
-        onLongPressCancel: () {
-          setState(() {
-            _show = false;
-          });
-        },
+        onLongPress: _showTooltip,
+        onLongPressEnd: (_) => _dismissTooltip(),
+        onLongPressCancel: _dismissTooltip,
         child: MouseRegion(
-          onEnter: (_) {
-            setState(() {
-              _show = true;
-            });
-          },
-          onExit: (_) {
-            setState(() {
-              _show = false;
-            });
-          },
-          child: widget.child,
+          onEnter: (_) => _showTooltip(),
+          onExit: (_) => _dismissTooltip(),
+          child: Semantics(
+            tooltip: widget.message,
+            child: widget.child,
+          ),
         ),
       ),
     );
@@ -115,78 +182,50 @@ class _TooltipPainter extends CustomPainter {
     required this.pixelSize,
     required this.arrowPlacement,
     required this.arrowDirection,
-    required this.textStyle,
-    required this.textColor,
-    required this.message,
+    required this.textPainter,
   });
 
   final Color color;
   final double pixelSize;
   final NesTooltipArrowPlacement arrowPlacement;
   final NesTooltipArrowDirection arrowDirection;
-  final TextStyle textStyle;
-  final Color textColor;
-  final String message;
+  final TextPainter textPainter;
 
-  @override
-  SemanticsBuilderCallback? get semanticsBuilder => (size) {
-        return [
-          CustomPainterSemantics(
-            rect: Rect.fromLTWH(0, 0, size.width, size.height),
-            properties: SemanticsProperties(
-              label: message,
-              textDirection: TextDirection.ltr,
-            ),
-          ),
-        ];
-      };
+  Size get size => Size(
+        textPainter.size.width + pixelSize * 4,
+        textPainter.size.height + pixelSize * 2,
+      );
 
   @override
   void paint(Canvas canvas, Size childSize) {
-    final textPainter = TextPainter(
-      textDirection: TextDirection.ltr,
-      text: TextSpan(
-        text: message,
-        style: textStyle.copyWith(
-          color: textColor,
-        ),
-      ),
-    )..layout();
-
-    final textSize = textPainter.size;
-
     final paint = Paint()..color = color;
 
-    final size = Size(
-      textSize.width + pixelSize * 4,
-      textSize.height + pixelSize * 2,
-    );
-
+    // Calculate arrow position
     final arrowOffset = switch (arrowPlacement) {
       NesTooltipArrowPlacement.left => pixelSize * 2,
       NesTooltipArrowPlacement.middle => size.width / 2 - pixelSize,
       NesTooltipArrowPlacement.right => size.width - pixelSize * 4,
     };
 
-    canvas.save();
-
-    final translateX = switch (arrowPlacement) {
-      NesTooltipArrowPlacement.left => 0.0,
-      NesTooltipArrowPlacement.middle => -size.width / 2 + childSize.width / 2,
-      NesTooltipArrowPlacement.right => -size.width + childSize.width,
+    final arrowBodyTopPosition = switch (arrowDirection) {
+      NesTooltipArrowDirection.top => size.height + pixelSize,
+      NesTooltipArrowDirection.bottom => pixelSize * -2,
     };
 
-    final translateY = switch (arrowDirection) {
-      NesTooltipArrowDirection.top => -size.height - pixelSize * 4,
-      NesTooltipArrowDirection.bottom => size.height + pixelSize * 8,
+    final arrowHeadTopPosition = switch (arrowDirection) {
+      NesTooltipArrowDirection.top => size.height + pixelSize * 2,
+      NesTooltipArrowDirection.bottom => pixelSize * -3,
     };
 
+    // Draw tooltip.
     canvas
-      ..translate(translateX, translateY)
+      ..save()
+      // Draw tooltip background.
       ..drawRect(
         Rect.fromLTWH(0, 0, size.width, size.height),
         paint,
       )
+      // Draw top and bottom borders.
       ..drawRect(
         Rect.fromLTWH(
           pixelSize,
@@ -204,21 +243,8 @@ class _TooltipPainter extends CustomPainter {
           pixelSize,
         ),
         paint,
-      );
-
-    textPainter.paint(canvas, Offset(pixelSize * 2, pixelSize));
-
-    final arrowBodyTopPosition = switch (arrowDirection) {
-      NesTooltipArrowDirection.top => size.height + pixelSize,
-      NesTooltipArrowDirection.bottom => pixelSize * -2,
-    };
-
-    final arrowHeadTopPosition = switch (arrowDirection) {
-      NesTooltipArrowDirection.top => size.height + pixelSize * 2,
-      NesTooltipArrowDirection.bottom => pixelSize * -3,
-    };
-    // Arrow
-    canvas
+      )
+      // Draw arrow
       ..drawRect(
         Rect.fromLTWH(
           arrowOffset,
@@ -238,6 +264,9 @@ class _TooltipPainter extends CustomPainter {
         paint,
       )
       ..restore();
+
+    // Draw text
+    textPainter.paint(canvas, Offset(pixelSize * 2, pixelSize));
   }
 
   @override
@@ -245,7 +274,5 @@ class _TooltipPainter extends CustomPainter {
       oldDelegate.color != color ||
       oldDelegate.pixelSize != pixelSize ||
       oldDelegate.arrowPlacement != arrowPlacement ||
-      oldDelegate.textColor != textColor ||
-      oldDelegate.message != message ||
-      oldDelegate.textStyle != textStyle;
+      oldDelegate.textPainter != textPainter;
 }
