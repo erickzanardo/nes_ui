@@ -55,7 +55,7 @@ class NesTooltip extends StatefulWidget {
 class _NesTooltipState extends State<NesTooltip>
     with SingleTickerProviderStateMixin<NesTooltip> {
   // Controller for managing the overlay portal.
-  final OverlayPortalController _controller = OverlayPortalController();
+  final _controller = OverlayPortalController();
 
   // Method to show the tooltip by updating the state.
   void _showTooltip() {
