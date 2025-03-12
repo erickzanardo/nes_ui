@@ -13,12 +13,14 @@
 import 'package:widgetbook/widgetbook.dart' as _i1;
 import 'package:widgetbook_app/widgetbook/use_cases/buttons.dart' as _i2;
 import 'package:widgetbook_app/widgetbook/use_cases/checkboxes.dart' as _i3;
-import 'package:widgetbook_app/widgetbook/use_cases/containers.dart' as _i9;
-import 'package:widgetbook_app/widgetbook/use_cases/dpads.dart' as _i4;
-import 'package:widgetbook_app/widgetbook/use_cases/dropdown_menus.dart' as _i5;
-import 'package:widgetbook_app/widgetbook/use_cases/running_texts.dart' as _i6;
-import 'package:widgetbook_app/widgetbook/use_cases/tooltips.dart' as _i7;
-import 'package:widgetbook_app/widgetbook/use_cases/typography.dart' as _i8;
+import 'package:widgetbook_app/widgetbook/use_cases/checkered_decoration.dart'
+    as _i4;
+import 'package:widgetbook_app/widgetbook/use_cases/containers.dart' as _i10;
+import 'package:widgetbook_app/widgetbook/use_cases/dpads.dart' as _i5;
+import 'package:widgetbook_app/widgetbook/use_cases/dropdown_menus.dart' as _i6;
+import 'package:widgetbook_app/widgetbook/use_cases/running_texts.dart' as _i7;
+import 'package:widgetbook_app/widgetbook/use_cases/tooltips.dart' as _i8;
+import 'package:widgetbook_app/widgetbook/use_cases/typography.dart' as _i9;
 
 final directories = <_i1.WidgetbookNode>[
   _i1.WidgetbookFolder(
@@ -56,16 +58,23 @@ final directories = <_i1.WidgetbookNode>[
           builder: _i3.checkbox,
         ),
       ),
+      _i1.WidgetbookLeafComponent(
+        name: 'NesCheckeredDecoration',
+        useCase: _i1.WidgetbookUseCase(
+          name: 'default',
+          builder: _i4.normal,
+        ),
+      ),
       _i1.WidgetbookComponent(
         name: 'NesDpad',
         useCases: [
           _i1.WidgetbookUseCase(
             name: 'default',
-            builder: _i4.normal,
+            builder: _i5.normal,
           ),
           _i1.WidgetbookUseCase(
             name: 'with callbacks',
-            builder: _i4.withCallbacks,
+            builder: _i5.withCallbacks,
           ),
         ],
       ),
@@ -74,11 +83,11 @@ final directories = <_i1.WidgetbookNode>[
         useCases: [
           _i1.WidgetbookUseCase(
             name: 'default',
-            builder: _i5.normal,
+            builder: _i6.normal,
           ),
           _i1.WidgetbookUseCase(
             name: 'with icons',
-            builder: _i5.icons,
+            builder: _i6.icons,
           ),
         ],
       ),
@@ -86,21 +95,21 @@ final directories = <_i1.WidgetbookNode>[
         name: 'NesRunningText',
         useCase: _i1.WidgetbookUseCase(
           name: 'default',
-          builder: _i6.normal,
+          builder: _i7.normal,
         ),
       ),
       _i1.WidgetbookLeafComponent(
         name: 'NesRunningTextLines',
         useCase: _i1.WidgetbookUseCase(
           name: 'default',
-          builder: _i6.lines,
+          builder: _i7.lines,
         ),
       ),
       _i1.WidgetbookLeafComponent(
         name: 'NesTooltip',
         useCase: _i1.WidgetbookUseCase(
           name: 'default',
-          builder: _i7.normal,
+          builder: _i8.normal,
         ),
       ),
       _i1.WidgetbookComponent(
@@ -108,23 +117,23 @@ final directories = <_i1.WidgetbookNode>[
         useCases: [
           _i1.WidgetbookUseCase(
             name: 'body',
-            builder: _i8.body,
+            builder: _i9.body,
           ),
           _i1.WidgetbookUseCase(
             name: 'display',
-            builder: _i8.display,
+            builder: _i9.display,
           ),
           _i1.WidgetbookUseCase(
             name: 'headline',
-            builder: _i8.headline,
+            builder: _i9.headline,
           ),
           _i1.WidgetbookUseCase(
             name: 'label',
-            builder: _i8.label,
+            builder: _i9.label,
           ),
           _i1.WidgetbookUseCase(
             name: 'title',
-            builder: _i8.title,
+            builder: _i9.title,
           ),
         ],
       ),
@@ -136,19 +145,19 @@ final directories = <_i1.WidgetbookNode>[
             useCases: [
               _i1.WidgetbookUseCase(
                 name: 'default',
-                builder: _i9.normal,
+                builder: _i10.normal,
               ),
               _i1.WidgetbookUseCase(
                 name: 'with corner inner square painter',
-                builder: _i9.cornerInnerSquare,
+                builder: _i10.cornerInnerSquare,
               ),
               _i1.WidgetbookUseCase(
                 name: 'with label',
-                builder: _i9.label,
+                builder: _i10.label,
               ),
               _i1.WidgetbookUseCase(
                 name: 'with square corner painter',
-                builder: _i9.squareConer,
+                builder: _i10.squareConer,
               ),
             ],
           )
