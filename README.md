@@ -79,7 +79,7 @@ More about font license [here](https://pub.dev/packages/google_fonts#licensing-f
 Find all the widgets in this [catalog](https://nes-ui.pages.dev/) made on [Widgetbook](https://www.widgetbook.io/).
 
 <img
-  src="https://cdn.prod.website-files.com/6138dd0f55521485782d7fca/6152cf43362df0a3b90b276d_Widgetbook%20Logo.svg"
+  src="./widgetbook_logo.png"
   width="120"
 />
 
