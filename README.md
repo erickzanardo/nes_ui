@@ -76,7 +76,14 @@ More about font license [here](https://pub.dev/packages/google_fonts#licensing-f
 
 ## Widget gallery
 
-Check the gallery of all widgets [here](https://erickzanardo.github.io/nes_ui/#/).
+Find all the widgets in this [catalog](https://nes-ui.pages.dev/) made on [Widgetbook](https://www.widgetbook.io/).
+
+<img
+  src="https://cdn.prod.website-files.com/6138dd0f55521485782d7fca/6152cf43362df0a3b90b276d_Widgetbook%20Logo.svg"
+  width="120"
+/>
+
+A general gallery can also be found out here [here](https://erickzanardo.github.io/nes_ui/#/).
 
 ## Getting help
 
@@ -85,17 +92,16 @@ If you need any help or have suggestions, join our [Discord](https://discord.gg/
 ## Material Customized Widgets
 
 Nes UI tries to use the most out of material that it can, customizing its looks to fit
-the package's desired look, here is the list of widgets from Material that is customized by
-Nes UI
+the package's desired look, for example, here is a list of some of the widgets that Nes ui customizes:
 
  - Text
  - TextField/TextFormField
  - Divider
+ - ...
 
 ## Custom Widgets
 
-Some widgets are too different from the Material look and structure, which was not possible to
-achieve without building the whole widget from scratch, this is the list of widgets that Nes UI
+Some widgets are too different from the Material look and structure, making the customization of the material widget not really possible, so many widgets are built from scratch, here is a list of some of the widgets that Nes UI
 provides:
 
  - NesButton
