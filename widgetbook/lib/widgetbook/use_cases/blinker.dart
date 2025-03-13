@@ -9,7 +9,7 @@ import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
   type: NesBlinker,
 )
 Widget normal(BuildContext context) => Center(
-  child: NesBlinker(
+      child: NesBlinker(
         child: NesIcon(iconData: NesIcons.gamepad),
       ),
-);
+    );
