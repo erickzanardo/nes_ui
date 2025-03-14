@@ -88,9 +88,12 @@ class NesDialog extends StatelessWidget {
         );
       },
       pageBuilder: (_, __, ___) {
-        final dialog = NesDialog(
-          frame: frame,
-          child: builder(context),
+        final dialog = Theme(
+          data: Theme.of(context),
+          child: NesDialog(
+            frame: frame,
+            child: builder(context),
+          ),
         );
 
         if (scaling != null) {
