@@ -36,6 +36,8 @@ class NesInputDialog extends StatefulWidget {
     String inputLabel = 'Ok',
     String cancelLabel = 'Cancel',
     NesDialogFrame frame = const NesBasicDialogFrame(),
+    bool Function()? onShortcutClose,
+    NesDialogConfirmAction Function()? onShortcutConfirm,
   }) {
     return NesDialog.show<String?>(
       context: context,
@@ -45,6 +47,8 @@ class NesInputDialog extends StatefulWidget {
         message: message,
       ),
       frame: frame,
+      onShortcutClose: onShortcutClose,
+      onShortcutConfirm: onShortcutConfirm,
     );
   }
 
