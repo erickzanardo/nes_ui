@@ -16,15 +16,16 @@ import 'package:widgetbook_app/widgetbook/use_cases/buttons.dart' as _i3;
 import 'package:widgetbook_app/widgetbook/use_cases/checkboxes.dart' as _i4;
 import 'package:widgetbook_app/widgetbook/use_cases/checkered_decoration.dart'
     as _i5;
-import 'package:widgetbook_app/widgetbook/use_cases/containers.dart' as _i12;
+import 'package:widgetbook_app/widgetbook/use_cases/containers.dart' as _i13;
 import 'package:widgetbook_app/widgetbook/use_cases/dpads.dart' as _i6;
 import 'package:widgetbook_app/widgetbook/use_cases/dropdown_menus.dart' as _i7;
+import 'package:widgetbook_app/widgetbook/use_cases/icon_badge.dart' as _i9;
 import 'package:widgetbook_app/widgetbook/use_cases/icons.dart' as _i8;
 import 'package:widgetbook_app/widgetbook/use_cases/loading_indicator.dart'
-    as _i13;
-import 'package:widgetbook_app/widgetbook/use_cases/running_texts.dart' as _i9;
-import 'package:widgetbook_app/widgetbook/use_cases/tooltips.dart' as _i10;
-import 'package:widgetbook_app/widgetbook/use_cases/typography.dart' as _i11;
+    as _i14;
+import 'package:widgetbook_app/widgetbook/use_cases/running_texts.dart' as _i10;
+import 'package:widgetbook_app/widgetbook/use_cases/tooltips.dart' as _i11;
+import 'package:widgetbook_app/widgetbook/use_cases/typography.dart' as _i12;
 
 final directories = <_i1.WidgetbookNode>[
   _i1.WidgetbookFolder(
@@ -115,25 +116,38 @@ final directories = <_i1.WidgetbookNode>[
           ),
         ],
       ),
+      _i1.WidgetbookComponent(
+        name: 'NesIconBadge',
+        useCases: [
+          _i1.WidgetbookUseCase(
+            name: 'custom size',
+            builder: _i9.customSize,
+          ),
+          _i1.WidgetbookUseCase(
+            name: 'default',
+            builder: _i9.normal,
+          ),
+        ],
+      ),
       _i1.WidgetbookLeafComponent(
         name: 'NesRunningText',
         useCase: _i1.WidgetbookUseCase(
           name: 'default',
-          builder: _i9.normal,
+          builder: _i10.normal,
         ),
       ),
       _i1.WidgetbookLeafComponent(
         name: 'NesRunningTextLines',
         useCase: _i1.WidgetbookUseCase(
           name: 'default',
-          builder: _i9.lines,
+          builder: _i10.lines,
         ),
       ),
       _i1.WidgetbookLeafComponent(
         name: 'NesTooltip',
         useCase: _i1.WidgetbookUseCase(
           name: 'default',
-          builder: _i10.normal,
+          builder: _i11.normal,
         ),
       ),
       _i1.WidgetbookComponent(
@@ -141,23 +155,23 @@ final directories = <_i1.WidgetbookNode>[
         useCases: [
           _i1.WidgetbookUseCase(
             name: 'body',
-            builder: _i11.body,
+            builder: _i12.body,
           ),
           _i1.WidgetbookUseCase(
             name: 'display',
-            builder: _i11.display,
+            builder: _i12.display,
           ),
           _i1.WidgetbookUseCase(
             name: 'headline',
-            builder: _i11.headline,
+            builder: _i12.headline,
           ),
           _i1.WidgetbookUseCase(
             name: 'label',
-            builder: _i11.label,
+            builder: _i12.label,
           ),
           _i1.WidgetbookUseCase(
             name: 'title',
-            builder: _i11.title,
+            builder: _i12.title,
           ),
         ],
       ),
@@ -169,19 +183,19 @@ final directories = <_i1.WidgetbookNode>[
             useCases: [
               _i1.WidgetbookUseCase(
                 name: 'default',
-                builder: _i12.normal,
+                builder: _i13.normal,
               ),
               _i1.WidgetbookUseCase(
                 name: 'with corner inner square painter',
-                builder: _i12.cornerInnerSquare,
+                builder: _i13.cornerInnerSquare,
               ),
               _i1.WidgetbookUseCase(
                 name: 'with label',
-                builder: _i12.label,
+                builder: _i13.label,
               ),
               _i1.WidgetbookUseCase(
                 name: 'with square corner painter',
-                builder: _i12.squareConer,
+                builder: _i13.squareConer,
               ),
             ],
           )
@@ -194,35 +208,35 @@ final directories = <_i1.WidgetbookNode>[
             name: 'NesHourglassLoadingIndicator',
             useCase: _i1.WidgetbookUseCase(
               name: 'NesHourglassLoadingIndicator',
-              builder: _i13.hourglass,
+              builder: _i14.hourglass,
             ),
           ),
           _i1.WidgetbookLeafComponent(
             name: 'NesJumpingIconsLoadingIndicator',
             useCase: _i1.WidgetbookUseCase(
               name: 'NesJumpingIconsLoadingIndicator',
-              builder: _i13.jumpingIcons,
+              builder: _i14.jumpingIcons,
             ),
           ),
           _i1.WidgetbookLeafComponent(
             name: 'NesMutatingIconsLoadingIndicator',
             useCase: _i1.WidgetbookUseCase(
               name: 'NesMutatingIconsLoadingIndicator',
-              builder: _i13.mutatingIcons,
+              builder: _i14.mutatingIcons,
             ),
           ),
           _i1.WidgetbookLeafComponent(
             name: 'NesPixelRowLoadingIndicator',
             useCase: _i1.WidgetbookUseCase(
               name: 'NesPixelRowLoadingIndicator',
-              builder: _i13.pixelRow,
+              builder: _i14.pixelRow,
             ),
           ),
           _i1.WidgetbookLeafComponent(
             name: 'NesTerminalLoadingIndicator',
             useCase: _i1.WidgetbookUseCase(
               name: 'NesTerminalLoadingIndicator',
-              builder: _i13.terminal,
+              builder: _i14.terminal,
             ),
           ),
         ],
