@@ -15,8 +15,6 @@ class WidgetbookApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Widgetbook.material(
       directories: directories,
-      //darkTheme: flutterNesTheme(brightness: Brightness.dark),
-      //lightTheme: flutterNesTheme(),
       addons: [
         BuilderAddon(
           name: 'Decorator',
