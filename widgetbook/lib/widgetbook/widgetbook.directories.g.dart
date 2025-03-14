@@ -20,6 +20,8 @@ import 'package:widgetbook_app/widgetbook/use_cases/containers.dart' as _i12;
 import 'package:widgetbook_app/widgetbook/use_cases/dpads.dart' as _i6;
 import 'package:widgetbook_app/widgetbook/use_cases/dropdown_menus.dart' as _i7;
 import 'package:widgetbook_app/widgetbook/use_cases/icons.dart' as _i8;
+import 'package:widgetbook_app/widgetbook/use_cases/loading_indicator.dart'
+    as _i13;
 import 'package:widgetbook_app/widgetbook/use_cases/running_texts.dart' as _i9;
 import 'package:widgetbook_app/widgetbook/use_cases/tooltips.dart' as _i10;
 import 'package:widgetbook_app/widgetbook/use_cases/typography.dart' as _i11;
@@ -183,6 +185,46 @@ final directories = <_i1.WidgetbookNode>[
               ),
             ],
           )
+        ],
+      ),
+      _i1.WidgetbookFolder(
+        name: 'loading indicators',
+        children: [
+          _i1.WidgetbookLeafComponent(
+            name: 'NesHourglassLoadingIndicator',
+            useCase: _i1.WidgetbookUseCase(
+              name: 'NesHourglassLoadingIndicator',
+              builder: _i13.hourglass,
+            ),
+          ),
+          _i1.WidgetbookLeafComponent(
+            name: 'NesJumpingIconsLoadingIndicator',
+            useCase: _i1.WidgetbookUseCase(
+              name: 'NesJumpingIconsLoadingIndicator',
+              builder: _i13.jumpingIcons,
+            ),
+          ),
+          _i1.WidgetbookLeafComponent(
+            name: 'NesMutatingIconsLoadingIndicator',
+            useCase: _i1.WidgetbookUseCase(
+              name: 'NesMutatingIconsLoadingIndicator',
+              builder: _i13.mutatingIcons,
+            ),
+          ),
+          _i1.WidgetbookLeafComponent(
+            name: 'NesPixelRowLoadingIndicator',
+            useCase: _i1.WidgetbookUseCase(
+              name: 'NesPixelRowLoadingIndicator',
+              builder: _i13.pixelRow,
+            ),
+          ),
+          _i1.WidgetbookLeafComponent(
+            name: 'NesTerminalLoadingIndicator',
+            useCase: _i1.WidgetbookUseCase(
+              name: 'NesTerminalLoadingIndicator',
+              builder: _i13.terminal,
+            ),
+          ),
         ],
       ),
     ],
