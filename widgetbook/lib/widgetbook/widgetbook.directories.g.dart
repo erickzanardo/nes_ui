@@ -16,13 +16,17 @@ import 'package:widgetbook_app/widgetbook/use_cases/buttons.dart' as _i3;
 import 'package:widgetbook_app/widgetbook/use_cases/checkboxes.dart' as _i4;
 import 'package:widgetbook_app/widgetbook/use_cases/checkered_decoration.dart'
     as _i5;
+import 'package:widgetbook_app/widgetbook/use_cases/confirm_dialog.dart'
+    as _i14;
 import 'package:widgetbook_app/widgetbook/use_cases/containers.dart' as _i13;
 import 'package:widgetbook_app/widgetbook/use_cases/dpads.dart' as _i6;
 import 'package:widgetbook_app/widgetbook/use_cases/dropdown_menus.dart' as _i7;
 import 'package:widgetbook_app/widgetbook/use_cases/icon_badge.dart' as _i9;
 import 'package:widgetbook_app/widgetbook/use_cases/icons.dart' as _i8;
+import 'package:widgetbook_app/widgetbook/use_cases/input_dialog.dart' as _i16;
 import 'package:widgetbook_app/widgetbook/use_cases/loading_indicator.dart'
-    as _i14;
+    as _i17;
+import 'package:widgetbook_app/widgetbook/use_cases/nes_dialog.dart' as _i15;
 import 'package:widgetbook_app/widgetbook/use_cases/running_texts.dart' as _i10;
 import 'package:widgetbook_app/widgetbook/use_cases/tooltips.dart' as _i11;
 import 'package:widgetbook_app/widgetbook/use_cases/typography.dart' as _i12;
@@ -202,41 +206,73 @@ final directories = <_i1.WidgetbookNode>[
         ],
       ),
       _i1.WidgetbookFolder(
+        name: 'dialogs',
+        children: [
+          _i1.WidgetbookLeafComponent(
+            name: 'NesConfirmDialog',
+            useCase: _i1.WidgetbookUseCase(
+              name: 'default',
+              builder: _i14.normal,
+            ),
+          ),
+          _i1.WidgetbookComponent(
+            name: 'NesDialog',
+            useCases: [
+              _i1.WidgetbookUseCase(
+                name: 'default',
+                builder: _i15.normal,
+              ),
+              _i1.WidgetbookUseCase(
+                name: 'window style',
+                builder: _i15.windowStyle,
+              ),
+            ],
+          ),
+          _i1.WidgetbookLeafComponent(
+            name: 'NesInputDialog',
+            useCase: _i1.WidgetbookUseCase(
+              name: 'default',
+              builder: _i16.normal,
+            ),
+          ),
+        ],
+      ),
+      _i1.WidgetbookFolder(
         name: 'loading indicators',
         children: [
           _i1.WidgetbookLeafComponent(
             name: 'NesHourglassLoadingIndicator',
             useCase: _i1.WidgetbookUseCase(
               name: 'NesHourglassLoadingIndicator',
-              builder: _i14.hourglass,
+              builder: _i17.hourglass,
             ),
           ),
           _i1.WidgetbookLeafComponent(
             name: 'NesJumpingIconsLoadingIndicator',
             useCase: _i1.WidgetbookUseCase(
               name: 'NesJumpingIconsLoadingIndicator',
-              builder: _i14.jumpingIcons,
+              builder: _i17.jumpingIcons,
             ),
           ),
           _i1.WidgetbookLeafComponent(
             name: 'NesMutatingIconsLoadingIndicator',
             useCase: _i1.WidgetbookUseCase(
               name: 'NesMutatingIconsLoadingIndicator',
-              builder: _i14.mutatingIcons,
+              builder: _i17.mutatingIcons,
             ),
           ),
           _i1.WidgetbookLeafComponent(
             name: 'NesPixelRowLoadingIndicator',
             useCase: _i1.WidgetbookUseCase(
               name: 'NesPixelRowLoadingIndicator',
-              builder: _i14.pixelRow,
+              builder: _i17.pixelRow,
             ),
           ),
           _i1.WidgetbookLeafComponent(
             name: 'NesTerminalLoadingIndicator',
             useCase: _i1.WidgetbookUseCase(
               name: 'NesTerminalLoadingIndicator',
-              builder: _i14.terminal,
+              builder: _i17.terminal,
             ),
           ),
         ],
