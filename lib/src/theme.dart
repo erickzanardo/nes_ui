@@ -155,7 +155,7 @@ class NesTheme extends ThemeExtension<NesTheme> {
 }
 
 /// {@template nes_button_theme}
-/// Class with information regarding buttons inside Flutter Nes.
+/// Class with information regarding [NesButton] inside Flutter Nes.
 /// {@endtemplate}
 class NesButtonTheme extends ThemeExtension<NesButtonTheme> {
   /// {@macro nes_button_theme}
@@ -296,7 +296,7 @@ class NesButtonTheme extends ThemeExtension<NesButtonTheme> {
 }
 
 /// {@template nes_icon_theme}
-/// Class with information regarding icons inside Flutter Nes.
+/// Class with information regarding [NesIcon] inside Flutter Nes.
 /// {@endtemplate}
 class NesIconTheme extends ThemeExtension<NesIconTheme> {
   /// {@macro nes_icon_theme}
@@ -457,11 +457,11 @@ class NesSelectionListTheme extends ThemeExtension<NesSelectionListTheme> {
   }
 }
 
-/// {@template nes_button_theme}
-/// Class with information regarding buttons inside Flutter Nes.
+/// {@template nes_snack_bar_theme}
+/// Class with information regarding [NesSnackbar] inside Flutter Nes.
 /// {@endtemplate}
 class NesSnackbarTheme extends ThemeExtension<NesSnackbarTheme> {
-  /// {@macro nes_button_theme}
+  /// {@macro nes_snack_bar_theme}
   const NesSnackbarTheme({
     required this.normal,
     required this.success,
@@ -529,7 +529,7 @@ class NesSnackbarTheme extends ThemeExtension<NesSnackbarTheme> {
 }
 
 /// {@template nes_tooltip_theme}
-/// Class with information regarding tooltips inside NesUI.
+/// Class with information regarding [NesTooltip] inside NesUI.
 /// {@endtemplate}
 class NesTooltipTheme extends ThemeExtension<NesTooltipTheme> {
   /// {@macro nes_tooltip_theme}
@@ -539,11 +539,11 @@ class NesTooltipTheme extends ThemeExtension<NesTooltipTheme> {
   });
 
   /// The color for the tooltip background.
-  /// Defaults to TextTheme.bodyMedium.
+  /// Defaults to [ColorScheme.surface]
   final Color background;
 
   /// The color for the text message.
-  /// Defaults to  Theme.background.
+  /// Defaults to [TextTheme.bodyMedium].
   final Color textColor;
 
   @override
@@ -580,7 +580,7 @@ class NesTooltipTheme extends ThemeExtension<NesTooltipTheme> {
 }
 
 /// {@template nes_container_theme}
-/// Class with information regarding containers inside NesUI.
+/// Class with information regarding [NesContainer] inside NesUI.
 ///
 /// A [NesContainerTheme] is an optional custom theme for NesUI containers,
 /// by default, [flutterNesTheme] will create a [NesContainerTheme] where:
@@ -676,7 +676,7 @@ class NesContainerTheme extends ThemeExtension<NesContainerTheme> {
 }
 
 /// {@template nes_bottom_sheet_theme}
-/// Class with information regarding bottom sheets inside NesUI.
+/// Class with information regarding [NesBottomSheet] inside NesUI.
 ///
 /// A [NesBottomSheetTheme] is an optional custom theme for NesUI bottom sheets,
 /// by default, [flutterNesTheme] will create a [NesBottomSheetTheme] where
@@ -784,15 +784,15 @@ class NesInputDecorationTheme {
   final Color? enabledBorderColor;
 
   /// The color of the border when focused, when omitted, fallbacks to the
-  /// [ThemeData.colorScheme].primary color.
+  /// [ColorScheme.primary] color.
   final Color? focusedBorderColor;
 
   /// The color of the border when an error is present, when omitted, fallbacks
-  /// to the [ThemeData.colorScheme].error color.
+  /// to the [ColorScheme.error] color.
   final Color? errorBorderColor;
 
   /// The color of the border when focused and an error is present, when omitted
-  /// ,fallbacks to the [ThemeData.colorScheme].error color.
+  /// ,fallbacks to the [ColorScheme.error] color.
   final Color? focusedErrorBorderColor;
 }
 
