@@ -13,6 +13,7 @@ class NesInputDialog extends StatefulWidget {
     required this.inputLabel,
     required this.cancelLabel,
     required this.message,
+    this.shortcutsNotifier,
     super.key,
   });
 
@@ -25,6 +26,9 @@ class NesInputDialog extends StatefulWidget {
   /// The inputation message.
   final String message;
 
+  /// A notifier that can be used to pass down shortcuts events.
+  final ValueNotifier<bool?>? shortcutsNotifier;
+
   /// A shortcut method that can be used to show this dialog.
   ///
   /// Defaults:
@@ -36,16 +40,34 @@ class NesInputDialog extends StatefulWidget {
     String inputLabel = 'Ok',
     String cancelLabel = 'Cancel',
     NesDialogFrame frame = const NesBasicDialogFrame(),
-  }) {
-    return NesDialog.show<String?>(
+    bool Function()? onShortcutClose,
+    NesDialogConfirmAction Function()? onShortcutConfirm,
+  }) async {
+    final notifier = ValueNotifier<bool?>(null);
+    final value = await NesDialog.show<String?>(
       context: context,
       builder: (_) => NesInputDialog(
         inputLabel: inputLabel,
         cancelLabel: cancelLabel,
         message: message,
+        shortcutsNotifier: notifier,
       ),
       frame: frame,
+      onShortcutClose: onShortcutClose ??
+          () {
+            notifier.value = false;
+            return true;
+          },
+      onShortcutConfirm: onShortcutConfirm ??
+          () {
+            notifier.value = true;
+            return NesDialogConfirmAction.doNothing;
+          },
     );
+
+    notifier.dispose();
+
+    return value;
   }
 
   @override
@@ -56,9 +78,25 @@ class _NesInputDialogState extends State<NesInputDialog> {
   late final TextEditingController _controller = TextEditingController();
 
   @override
+  void initState() {
+    super.initState();
+    widget.shortcutsNotifier?.addListener(_onShortcutValue);
+  }
+
+  @override
   void dispose() {
     _controller.dispose();
+    widget.shortcutsNotifier?.removeListener(_onShortcutValue);
     super.dispose();
+  }
+
+  void _onShortcutValue() {
+    final value = widget.shortcutsNotifier?.value;
+    if (value == null || value == false) {
+      Navigator.of(context).pop();
+    } else {
+      Navigator.of(context).pop(_controller.text);
+    }
   }
 
   @override
