@@ -7,12 +7,13 @@ import 'package:nes_ui/nes_ui.dart';
 ///
 /// For ease when showing a dialog, use [NesConfirmDialog.show] method.
 /// {@endtemplate}
-class NesConfirmDialog extends StatelessWidget {
+class NesConfirmDialog extends StatefulWidget {
   /// {@macro nes_confirm_dialog}
   const NesConfirmDialog({
     required this.confirmLabel,
     required this.cancelLabel,
     required this.message,
+    this.shortcutsNotifier,
     super.key,
   });
 
@@ -24,6 +25,9 @@ class NesConfirmDialog extends StatelessWidget {
 
   /// The confirmation message.
   final String message;
+
+  /// A notifier that can be used to pass down shortcuts events.
+  final ValueNotifier<bool?>? shortcutsNotifier;
 
   /// A shortcut method that can be used to show this dialog.
   ///
@@ -39,18 +43,58 @@ class NesConfirmDialog extends StatelessWidget {
     NesDialogFrame frame = const NesBasicDialogFrame(),
     bool Function()? onShortcutClose,
     NesDialogConfirmAction Function()? onShortcutConfirm,
-  }) {
-    return NesDialog.show<bool>(
+  }) async {
+    final notifier = ValueNotifier<bool?>(null);
+
+    final value = await NesDialog.show<bool>(
       context: context,
       builder: (_) => NesConfirmDialog(
         confirmLabel: confirmLabel,
         cancelLabel: cancelLabel,
         message: message,
+        shortcutsNotifier: notifier,
       ),
-      onShortcutClose: onShortcutClose,
-      onShortcutConfirm: onShortcutConfirm,
+      onShortcutClose: onShortcutClose ??
+          () {
+            notifier.value = false;
+            return true;
+          },
+      onShortcutConfirm: onShortcutConfirm ??
+          () {
+            notifier.value = true;
+            return NesDialogConfirmAction.doNothing;
+          },
       frame: frame,
     );
+
+    notifier.dispose();
+
+    return value;
+  }
+
+  @override
+  State<NesConfirmDialog> createState() => _NesConfirmDialogState();
+}
+
+class _NesConfirmDialogState extends State<NesConfirmDialog> {
+  @override
+  void initState() {
+    super.initState();
+
+    widget.shortcutsNotifier?.addListener(_onShortcutValue);
+  }
+
+  @override
+  void dispose() {
+    widget.shortcutsNotifier?.removeListener(_onShortcutValue);
+    super.dispose();
+  }
+
+  void _onShortcutValue() {
+    final value = widget.shortcutsNotifier?.value;
+    if (value != null) {
+      Navigator.of(context).pop(value);
+    }
   }
 
   @override
@@ -58,7 +102,7 @@ class NesConfirmDialog extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(message),
+        Text(widget.message),
         const SizedBox(height: 16),
         Row(
           mainAxisSize: MainAxisSize.min,
@@ -66,7 +110,7 @@ class NesConfirmDialog extends StatelessWidget {
           children: [
             NesButton(
               type: NesButtonType.warning,
-              child: Text(cancelLabel),
+              child: Text(widget.cancelLabel),
               onPressed: () {
                 Navigator.of(context).pop(false);
               },
@@ -74,7 +118,7 @@ class NesConfirmDialog extends StatelessWidget {
             const SizedBox(width: 16),
             NesButton(
               type: NesButtonType.primary,
-              child: Text(confirmLabel),
+              child: Text(widget.confirmLabel),
               onPressed: () {
                 Navigator.of(context).pop(true);
               },
