@@ -39,6 +39,19 @@ class _CloseDialogIntent extends Intent {
   const _CloseDialogIntent();
 }
 
+class _ConfirmDialogIntent extends Intent {
+  const _ConfirmDialogIntent();
+}
+
+/// The actions that can be taken on a confirm dialog.
+enum NesDialogConfirmAction {
+  /// When received, the dialog will not do anything.
+  doNothing,
+
+  /// When received, the dialog will close.
+  closeDialog,
+}
+
 /// {@template nes_confirm_dialog}
 /// A dialog that shows a child.
 ///
@@ -49,6 +62,8 @@ class NesDialog extends StatelessWidget {
   const NesDialog({
     required this.child,
     this.frame = const NesBasicDialogFrame(),
+    this.onShortcutClose,
+    this.onShortcutConfirm,
     super.key,
   });
 
@@ -58,10 +73,18 @@ class NesDialog extends StatelessWidget {
   /// The dialog frame, defaults to [NesBasicDialogFrame].
   final NesDialogFrame frame;
 
+  /// A callback that will be called when the dialog is closed by a shortcut.
+  final bool Function()? onShortcutClose;
+
+  /// A callback that will be called when the dialog is confirmed by a shortcut.
+  final NesDialogConfirmAction Function()? onShortcutConfirm;
+
   /// A shortcut method that can be used to show this dialog.
   static Future<T?> show<T>({
     required BuildContext context,
     required WidgetBuilder builder,
+    bool Function()? onShortcutClose,
+    NesDialogConfirmAction Function()? onShortcutConfirm,
     NesDialogFrame frame = const NesBasicDialogFrame(),
   }) {
     final nesTheme = context.nesThemeExtension<NesTheme>();
@@ -92,6 +115,8 @@ class NesDialog extends StatelessWidget {
           data: Theme.of(context),
           child: NesDialog(
             frame: frame,
+            onShortcutClose: onShortcutClose,
+            onShortcutConfirm: onShortcutConfirm,
             child: builder(context),
           ),
         );
@@ -113,12 +138,26 @@ class NesDialog extends StatelessWidget {
     return Shortcuts(
       shortcuts: <LogicalKeySet, Intent>{
         LogicalKeySet(LogicalKeyboardKey.escape): const _CloseDialogIntent(),
+        LogicalKeySet(LogicalKeyboardKey.enter): const _ConfirmDialogIntent(),
       },
       child: Actions(
         actions: <Type, Action<Intent>>{
           _CloseDialogIntent: CallbackAction<_CloseDialogIntent>(
             onInvoke: (intent) {
+              if (onShortcutClose?.call() ?? false) {
+                return null;
+              }
               Navigator.of(context).pop();
+              return null;
+            },
+          ),
+          _ConfirmDialogIntent: CallbackAction<_ConfirmDialogIntent>(
+            onInvoke: (intent) {
+              final action =
+                  onShortcutConfirm?.call() ?? NesDialogConfirmAction.doNothing;
+              if (action == NesDialogConfirmAction.closeDialog) {
+                Navigator.of(context).pop();
+              }
               return null;
             },
           ),
