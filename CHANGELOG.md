@@ -1,5 +1,6 @@
 # 0.23.0
  - fix: `NesDialog` would rely on the "root" theme, which would break if it was not a nes ui one.
+ - feat: adding `NesProgressBar` and `NesProgressBarTheme`.
 
 # 0.22.1
  - fix: Update NesTooltip to use OverlayPortal (Thanks @moldypenguins)
