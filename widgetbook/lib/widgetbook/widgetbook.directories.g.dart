@@ -19,6 +19,7 @@ import 'package:widgetbook_app/widgetbook/use_cases/checkered_decoration.dart'
 import 'package:widgetbook_app/widgetbook/use_cases/confirm_dialog.dart'
     as _i14;
 import 'package:widgetbook_app/widgetbook/use_cases/containers.dart' as _i13;
+import 'package:widgetbook_app/widgetbook/use_cases/dialog.dart' as _i15;
 import 'package:widgetbook_app/widgetbook/use_cases/dpads.dart' as _i6;
 import 'package:widgetbook_app/widgetbook/use_cases/dropdown_menus.dart' as _i7;
 import 'package:widgetbook_app/widgetbook/use_cases/icon_badge.dart' as _i9;
@@ -222,6 +223,10 @@ final directories = <_i1.WidgetbookNode>[
               _i1.WidgetbookUseCase(
                 name: 'default',
                 builder: _i15.normal,
+              ),
+              _i1.WidgetbookUseCase(
+                name: 'using confirm shortcut',
+                builder: _i15.confirmShortcut,
               ),
               _i1.WidgetbookUseCase(
                 name: 'window style',

@@ -15,7 +15,33 @@ Widget normal(BuildContext context) => Center(
             onPressed: () {
               NesDialog.show<void>(
                 context: context,
-                builder: (_) => const Text('This is a basic dialog'),
+                builder: (_) => const Text(
+                  'This is a basic dialog',
+                ),
+              );
+            },
+            type: NesButtonType.primary,
+            child: const Text('Show Dialog'),
+          );
+        },
+      ),
+    );
+
+@widgetbook.UseCase(
+  name: 'using confirm shortcut',
+  type: NesDialog,
+)
+Widget confirmShortcut(BuildContext context) => Center(
+      child: Builder(
+        builder: (context) {
+          return NesButton(
+            onPressed: () {
+              NesDialog.show<void>(
+                context: context,
+                onShortcutConfirm: () => NesDialogConfirmAction.closeDialog,
+                builder: (_) => const Text(
+                  'This is a basic dialog. Both ESC and ENTER will close this.',
+                ),
               );
             },
             type: NesButtonType.primary,
