@@ -15,6 +15,7 @@ export 'icons.dart';
 export 'iterable_options.dart';
 export 'key_icons.dart';
 export 'loading_indicators.dart';
+export 'progress_bars.dart';
 export 'running_text.dart';
 export 'screen_transitions.dart';
 export 'section_header.dart';

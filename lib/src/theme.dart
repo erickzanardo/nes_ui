@@ -944,14 +944,14 @@ ThemeData flutterNesTheme({
 
   final progressBarTheme = nesProgressBarTheme ??
       NesProgressBarTheme(
-        background: textTheme.bodyMedium?.color ?? Colors.black,
+        background: themeData.colorScheme.surface,
         color: themeData.colorScheme.primary,
       );
 
   final toolTipTheme = nesTooltipTheme ??
       NesTooltipTheme(
-        background: textTheme.bodyMedium?.color ?? Colors.black,
-        textColor: themeData.colorScheme.surface,
+        background: themeData.colorScheme.surface,
+        textColor: textTheme.bodyMedium?.color ?? Colors.black,
       );
 
   final containerTheme = nesContainerTheme ??

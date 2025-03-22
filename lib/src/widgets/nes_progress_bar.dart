@@ -14,7 +14,7 @@ enum NesProgressBarStyle {
 /// {@template nes_progress_bar}
 /// A widget that displays a progress amount.
 /// {@endtemplate}
-class NesProgressBar extends StatefulWidget {
+class NesProgressBar extends StatelessWidget {
   /// Creates a progress bar.
   ///
   /// {@macro nes_ui.NesProgressBar}
@@ -52,33 +52,23 @@ class NesProgressBar extends StatefulWidget {
   final String? label;
 
   @override
-  State<NesProgressBar> createState() => _NesProgressBarState();
-}
-
-class _NesProgressBarState extends State<NesProgressBar> {
-  @override
-  void didUpdateWidget(NesProgressBar oldWidget) {
-    super.didUpdateWidget(oldWidget);
-  }
-
-  @override
   Widget build(BuildContext context) {
     final progressBarTheme = context.nesThemeExtension<NesProgressBarTheme>();
     final nesTheme = context.nesThemeExtension<NesTheme>();
 
     return LayoutBuilder(
       builder: (context, constraints) => Semantics(
-        label: widget.label ?? '',
-        value: '${(widget.value * 100).round()}%',
+        label: label ?? '',
+        value: '${(value * 100).round()}%',
         child: CustomPaint(
           painter: _ProgressBarPainter(
             background: progressBarTheme.background,
             color: progressBarTheme.color,
-            style: widget.style,
-            width: widget.width ?? constraints.maxWidth,
+            style: style,
+            width: width ?? constraints.maxWidth,
             pixelSize: nesTheme.pixelSize.toDouble(),
             textDirection: Directionality.of(context),
-            value: widget.value,
+            value: value,
           ),
         ),
       ),
