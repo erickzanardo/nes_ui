@@ -27,6 +27,7 @@ import 'package:widgetbook_app/widgetbook/use_cases/icons.dart' as _i8;
 import 'package:widgetbook_app/widgetbook/use_cases/input_dialog.dart' as _i16;
 import 'package:widgetbook_app/widgetbook/use_cases/loading_indicator.dart'
     as _i17;
+import 'package:widgetbook_app/widgetbook/use_cases/progress_bar.dart' as _i18;
 import 'package:widgetbook_app/widgetbook/use_cases/running_texts.dart' as _i10;
 import 'package:widgetbook_app/widgetbook/use_cases/tooltips.dart' as _i11;
 import 'package:widgetbook_app/widgetbook/use_cases/typography.dart' as _i12;
@@ -278,6 +279,24 @@ final directories = <_i1.WidgetbookNode>[
               name: 'NesTerminalLoadingIndicator',
               builder: _i17.terminal,
             ),
+          ),
+        ],
+      ),
+      _i1.WidgetbookFolder(
+        name: 'progress bars',
+        children: [
+          _i1.WidgetbookComponent(
+            name: 'NesProgressBar',
+            useCases: [
+              _i1.WidgetbookUseCase(
+                name: 'pixel',
+                builder: _i18.pixel,
+              ),
+              _i1.WidgetbookUseCase(
+                name: 'smooth',
+                builder: _i18.smooth,
+              ),
+            ],
           ),
         ],
       ),
