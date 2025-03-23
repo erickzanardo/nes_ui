@@ -421,7 +421,7 @@ class NesProgressBarTheme extends ThemeExtension<NesProgressBarTheme> {
   });
 
   /// The color for the progress bar background.
-  /// Defaults to [ColorScheme.surface]
+  /// Defaults to [TextTheme.bodyMedium]
   final Color background;
 
   /// The color for the progress bar progress.
@@ -590,11 +590,11 @@ class NesTooltipTheme extends ThemeExtension<NesTooltipTheme> {
   });
 
   /// The color for the tooltip background.
-  /// Defaults to [ColorScheme.surface]
+  /// Defaults to [TextTheme.bodyMedium].
   final Color background;
 
   /// The color for the text message.
-  /// Defaults to [TextTheme.bodyMedium].
+  /// Defaults to [ColorScheme.surface].
   final Color textColor;
 
   @override
@@ -944,14 +944,14 @@ ThemeData flutterNesTheme({
 
   final progressBarTheme = nesProgressBarTheme ??
       NesProgressBarTheme(
-        background: themeData.colorScheme.surface,
+        background: textTheme.bodyMedium?.color ?? Colors.black,
         color: themeData.colorScheme.primary,
       );
 
   final toolTipTheme = nesTooltipTheme ??
       NesTooltipTheme(
-        background: themeData.colorScheme.surface,
-        textColor: textTheme.bodyMedium?.color ?? Colors.black,
+        background: textTheme.bodyMedium?.color ?? Colors.black,
+        textColor: themeData.colorScheme.surface,
       );
 
   final containerTheme = nesContainerTheme ??
