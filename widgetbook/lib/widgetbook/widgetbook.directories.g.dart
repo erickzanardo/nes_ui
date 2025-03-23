@@ -283,7 +283,7 @@ final directories = <_i1.WidgetbookNode>[
         ],
       ),
       _i1.WidgetbookFolder(
-        name: 'progress bars',
+        name: 'progressbar',
         children: [
           _i1.WidgetbookComponent(
             name: 'NesProgressBar',
@@ -297,7 +297,7 @@ final directories = <_i1.WidgetbookNode>[
                 builder: _i18.smooth,
               ),
             ],
-          ),
+          )
         ],
       ),
     ],

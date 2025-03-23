@@ -60,15 +60,21 @@ class NesProgressBar extends StatelessWidget {
       builder: (context, constraints) => Semantics(
         label: label ?? '',
         value: '${(value * 100).round()}%',
-        child: CustomPaint(
-          painter: _ProgressBarPainter(
-            background: progressBarTheme.background,
-            color: progressBarTheme.color,
-            style: style,
+        child: Align(
+          child: SizedBox(
             width: width ?? constraints.maxWidth,
-            pixelSize: nesTheme.pixelSize.toDouble(),
-            textDirection: Directionality.of(context),
-            value: value,
+            height: nesTheme.pixelSize.toDouble() * 3,
+            child: CustomPaint(
+              painter: _ProgressBarPainter(
+                background: progressBarTheme.background,
+                color: progressBarTheme.color,
+                style: style,
+                width: width ?? constraints.maxWidth,
+                pixelSize: nesTheme.pixelSize.toDouble(),
+                textDirection: Directionality.of(context),
+                value: value,
+              ),
+            ),
           ),
         ),
       ),

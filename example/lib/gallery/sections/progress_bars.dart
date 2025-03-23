@@ -32,6 +32,7 @@ class _ProgressBarsSectionState extends State<ProgressBarsSection> {
                 width: 256,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
+                  spacing: 4,
                   children: [
                     const Text('Style'),
                     NesProgressBar(value: progress),
@@ -64,6 +65,7 @@ class _ProgressBarsSectionState extends State<ProgressBarsSection> {
                 width: 512,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
+                  spacing: 4,
                   children: [
                     NesProgressBar(
                       value: progress,
@@ -85,19 +87,18 @@ class _ProgressBarsSectionState extends State<ProgressBarsSection> {
         const SizedBox(height: 16),
         NesButton(
           type: NesButtonType.normal,
-          onPressed: progress < 1
-              ? null
-              : () {
-                  Timer.periodic(
-                    const Duration(milliseconds: 100),
-                    (Timer timer) {
-                      setState(() => progress += 0.01);
-                      if (progress >= 1) {
-                        timer.cancel();
-                      }
-                    },
-                  );
-                },
+          onPressed: () {
+            setState(() => progress = 0);
+            Timer.periodic(
+              const Duration(milliseconds: 100),
+              (Timer timer) {
+                setState(() => progress += 0.01);
+                if (progress >= 1) {
+                  timer.cancel();
+                }
+              },
+            );
+          },
           child: const Text('Start'),
         ),
       ],
