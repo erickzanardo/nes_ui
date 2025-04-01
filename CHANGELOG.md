@@ -1,3 +1,6 @@
+# 0.24.1
+ - fix: `NesBottomSheet` would rely on the "root" theme, which would break if it was not a nes ui one.
+
 # 0.24.0
  - feat: Adding `NesIcons.heart`
  - feat: Adding `NesLink`

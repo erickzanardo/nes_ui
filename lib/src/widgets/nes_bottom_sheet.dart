@@ -193,15 +193,18 @@ class NesBottomSheet extends StatelessWidget {
       },
       pageBuilder: (_, __, ___) {
         final mediaQuery = MediaQuery.of(context);
-        final dialog = Material(
-          color: Colors.transparent,
-          child: Align(
-            alignment: Alignment.bottomCenter,
-            child: SizedBox(
-              height: mediaQuery.size.height * maxHeight,
-              child: _BottomSheetSlider(
-                child: NesBottomSheet(
-                  child: builder(context),
+        final dialog = Theme(
+          data: Theme.of(context),
+          child: Material(
+            color: Colors.transparent,
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: SizedBox(
+                height: mediaQuery.size.height * maxHeight,
+                child: _BottomSheetSlider(
+                  child: NesBottomSheet(
+                    child: builder(context),
+                  ),
                 ),
               ),
             ),
