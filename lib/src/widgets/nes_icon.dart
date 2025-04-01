@@ -789,7 +789,7 @@ class NesIconCollection {
   /// Heart
   late final heart = NesIconData(
     MiniSprite.fromDataString(
-      '8,8;1,-1;2,0;2,-1;2,0;1,-1;24,0;1,-1;6,0;2,-1;6,0;3,-1;4,0;5,-1;2,0;3,-1',
+      '8,8;9,-1;2,0;2,-1;2,0;1,-1;24,0;1,-1;6,0;3,-1;4,0;5,-1;2,0;3,-1',
     ),
   );
 }
