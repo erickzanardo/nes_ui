@@ -447,6 +447,10 @@ class IconsSection extends StatelessWidget {
                         data: NesIcons.gem,
                         label: 'gem',
                       ),
+                      _IconEntry(
+                        data: NesIcons.heart,
+                        label: 'heart',
+                      ),
                     ],
                   ),
                 ),
