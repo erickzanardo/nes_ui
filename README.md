@@ -83,8 +83,6 @@ Find all the widgets in this [catalog](https://nes-ui.pages.dev/) made on [Widge
   width="120"
 />
 
-A general gallery can also be found out here [here](https://erickzanardo.github.io/nes_ui/#/).
-
 ## Getting help
 
 If you need any help or have suggestions, join our [Discord](https://discord.gg/7GHtgtDMtJ).

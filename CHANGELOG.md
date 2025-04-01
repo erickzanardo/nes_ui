@@ -1,6 +1,6 @@
 # 0.24.0
  - feat: Adding `NesIcons.heart`
-
+ - feat: Adding `NesLink`
 
 # 0.23.0
  - fix: `NesDialog` would rely on the "root" theme, which would break if it was not a nes ui one.
