@@ -847,6 +847,59 @@ class NesInputDecorationTheme {
   final Color? focusedErrorBorderColor;
 }
 
+/// {@template nes_link_theme}
+/// Class with information regarding [NesLink] inside NesUI.
+/// {@endtemplate}
+class NesLinkTheme extends ThemeExtension<NesLinkTheme> {
+  /// {@macro nes_link_theme}
+  const NesLinkTheme({
+    required this.linkColor,
+    required this.disabledColor,
+  });
+
+  /// The text color of the link.
+  ///
+  /// fallbacks to the [NesButtonTheme.primary] color.
+  final Color linkColor;
+
+  /// The text color of the link when disabled.
+  ///
+  /// fallbacks to the [TextTheme.bodyMedium] color, with alpha at .4.
+  final Color disabledColor;
+
+  @override
+  ThemeExtension<NesLinkTheme> copyWith({
+    Color? linkColor,
+    Color? disabledColor,
+  }) {
+    return NesLinkTheme(
+      linkColor: linkColor ?? this.linkColor,
+      disabledColor: disabledColor ?? this.disabledColor,
+    );
+  }
+
+  @override
+  ThemeExtension<NesLinkTheme> lerp(
+    covariant ThemeExtension<NesLinkTheme>? other,
+    double t,
+  ) {
+    final otherExt = other as NesLinkTheme?;
+
+    return NesLinkTheme(
+      linkColor: ColorTween(
+            begin: linkColor,
+            end: otherExt?.linkColor,
+          ).lerp(t) ??
+          linkColor,
+      disabledColor: ColorTween(
+            begin: disabledColor,
+            end: otherExt?.disabledColor,
+          ).lerp(t) ??
+          disabledColor,
+    );
+  }
+}
+
 /// Helper methods on [BuildContext] for the Flutter Nes.
 extension NesBuildContext on BuildContext {
   /// Returns the extension of type [T] from the context.
@@ -911,6 +964,7 @@ ThemeData flutterNesTheme({
   NesContainerTheme? nesContainerTheme,
   NesBottomSheetTheme? nesBottomSheetTheme,
   NesInputDecorationTheme? nesInputDecorationTheme,
+  NesLinkTheme? nesLinkTheme,
   Iterable<ThemeExtension<dynamic>> customExtensions = const [],
 }) {
   final iconTheme = nesIconTheme ??
@@ -967,6 +1021,13 @@ ThemeData flutterNesTheme({
         borderColor: textTheme.labelMedium?.color ?? Colors.black,
       );
 
+  final linkTheme = nesLinkTheme ??
+      NesLinkTheme(
+        linkColor: nesButtonTheme.primary,
+        disabledColor: textTheme.bodyMedium?.color?.withValues(alpha: .4) ??
+            Colors.black.withAlpha(150),
+      );
+
   return themeData.copyWith(
     textTheme: textTheme,
     extensions: [
@@ -980,6 +1041,7 @@ ThemeData flutterNesTheme({
       toolTipTheme,
       containerTheme,
       bottomSheetTheme,
+      linkTheme,
       ...customExtensions,
     ],
     dividerTheme: DividerThemeData(
