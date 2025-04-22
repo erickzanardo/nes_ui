@@ -14,6 +14,7 @@ dependencies:
   google_fonts: ">=4.0.3 <7.0.0"
   mini_sprite: ^0.1.0
   phased: ^0.0.3
+  universal_platform: ^1.1.0
 
 dev_dependencies:
   alchemist: 0.10.0

@@ -1,8 +1,7 @@
-import 'dart:io';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:nes_ui/nes_ui.dart';
+import 'package:universal_platform/universal_platform.dart';
 
 /// {@template nes_window}
 /// A widget that renders a window with a NES style.
@@ -51,7 +50,7 @@ class NesWindow extends StatelessWidget {
   final Widget? child;
 
   MouseCursor _cursorFallback(MouseCursor cursor, MouseCursor defaultCursor) {
-    if (defaultCursor == cursor && !kIsWeb && Platform.isMacOS) {
+    if (defaultCursor == cursor && !kIsWeb && UniversalPlatform.isMacOS) {
       return SystemMouseCursors.grab;
     }
     return cursor;
