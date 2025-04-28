@@ -171,6 +171,7 @@ class NesButtonTheme extends ThemeExtension<NesButtonTheme> {
     required this.darkIconTheme,
     this.borderColor,
     this.pixelSize,
+    this.painter = NesDefaultButtonPainter.new,
   });
 
   /// The color for the normal type of button.
@@ -208,6 +209,9 @@ class NesButtonTheme extends ThemeExtension<NesButtonTheme> {
   /// null.
   final int? pixelSize;
 
+  /// The builder function that creates the painter used to draw the button.
+  final NesButtonPainterBuilder? painter;
+
   @override
   NesButtonTheme copyWith({
     Color? normal,
@@ -221,6 +225,7 @@ class NesButtonTheme extends ThemeExtension<NesButtonTheme> {
     NesIconTheme? darkIconTheme,
     Color? borderColor,
     int? pixelSize,
+    NesButtonPainterBuilder? painter,
   }) {
     return NesButtonTheme(
       normal: normal ?? this.normal,
@@ -234,6 +239,7 @@ class NesButtonTheme extends ThemeExtension<NesButtonTheme> {
       darkIconTheme: darkIconTheme ?? this.darkIconTheme,
       borderColor: borderColor ?? this.borderColor,
       pixelSize: pixelSize ?? this.pixelSize,
+      painter: painter ?? this.painter,
     );
   }
 
@@ -291,6 +297,7 @@ class NesButtonTheme extends ThemeExtension<NesButtonTheme> {
         begin: pixelSize ?? 1,
         end: otherExt?.pixelSize ?? 1,
       ).lerp(t),
+      painter: otherExt?.painter ?? painter,
     );
   }
 }
