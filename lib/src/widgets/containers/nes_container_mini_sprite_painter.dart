@@ -56,6 +56,17 @@ class NesContainerMiniSpritePainter extends NesContainerPainter {
   void paint(Canvas canvas, Size size) {
     final backgroundPaint = Paint()..color = backgroundColor;
 
+    // Render the background
+    canvas.drawRect(
+      Rect.fromLTWH(
+        pixelSize.toDouble(),
+        pixelSize.toDouble(),
+        size.width - pixelSize * 2,
+        size.height - pixelSize * 2,
+      ),
+      backgroundPaint,
+    );
+
     // Render the corners
     _renderMiniSprite(
       sprite: topLeftCorner,
