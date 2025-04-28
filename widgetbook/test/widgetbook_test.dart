@@ -7,7 +7,7 @@ import 'package:widgetbook_app/widgetbook/widgetbook.dart';
 
 void main() {
   testWidgets('renders', (WidgetTester tester) async {
-    tester.view.physicalSize = Size(2000, 2000);
+    tester.view.physicalSize = Size(3000, 3000);
     addTearDown(tester.view.resetPhysicalSize);
 
     await tester.pumpWidget(WidgetbookApp());
