@@ -229,6 +229,10 @@ final directories = <_i1.WidgetbookNode>[
                 builder: _i16.label,
               ),
               _i1.WidgetbookUseCase(
+                name: 'with mini sprite painter',
+                builder: _i16.miniSpritePainer,
+              ),
+              _i1.WidgetbookUseCase(
                 name: 'with square corner painter',
                 builder: _i16.squareConer,
               ),
