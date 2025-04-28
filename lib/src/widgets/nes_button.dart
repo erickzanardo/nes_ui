@@ -143,6 +143,8 @@ class _NesButtonState extends State<NesButton> {
 
     final pixelSize = nesButtonTheme.pixelSize ?? nesTheme.pixelSize;
 
+    final painter = nesButtonTheme.painter ?? NesDefaultButtonPainter.new;
+
     return MouseRegion(
       cursor: nesTheme.clickCursor,
       onEnter: (_) {
@@ -163,7 +165,7 @@ class _NesButtonState extends State<NesButton> {
           setState(() => _pressed = false);
         },
         child: CustomPaint(
-          painter: _ButtonPainer(
+          painter: painter(
             color: buttonColor,
             borderColor:
                 nesButtonTheme.borderColor ?? textStyle.color ?? Colors.black,
@@ -195,8 +197,21 @@ class _NesButtonState extends State<NesButton> {
   }
 }
 
-class _ButtonPainer extends CustomPainter {
-  const _ButtonPainer({
+/// Definition of a function that builds a [CustomPainter] used in the buttons.
+typedef NesButtonPainterBuilder = CustomPainter Function({
+  required Color color,
+  required Color borderColor,
+  required int pixelSize,
+  required bool pressed,
+  required bool hovered,
+});
+
+/// {@template nes_button_painter}
+/// Default custom painter for [NesButton].
+/// {@endtemplate}
+class NesDefaultButtonPainter extends CustomPainter {
+  /// {@macro nes_button_painter}
+  const NesDefaultButtonPainter({
     required this.color,
     required this.borderColor,
     required this.pixelSize,
@@ -204,10 +219,19 @@ class _ButtonPainer extends CustomPainter {
     required this.hovered,
   });
 
+  /// Main color of the button.
   final Color color;
+
+  /// Border color of the button.
   final Color borderColor;
+
+  /// Pixel size of the button.
   final int pixelSize;
+
+  /// Whether the button is pressed.
   final bool pressed;
+
+  /// Whether the button is hovered.
   final bool hovered;
 
   @override
@@ -329,7 +353,7 @@ class _ButtonPainer extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(_ButtonPainer old) {
+  bool shouldRepaint(NesDefaultButtonPainter old) {
     return old.color != color ||
         old.borderColor != borderColor ||
         old.pixelSize != pixelSize ||
