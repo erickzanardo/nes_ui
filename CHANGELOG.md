@@ -1,5 +1,6 @@
 # 0.25.0
  - feat: Adding a painter to `NesContainer` to allow usage of mini sprites for its border rendering.
+ - fix: Remove one missing usage of `dart:io` in favor of `package:universal_platform` for better web support.
 
 # 0.24.1
  - fix: `NesBottomSheet` would rely on the "root" theme, which would break if it was not a nes ui one.

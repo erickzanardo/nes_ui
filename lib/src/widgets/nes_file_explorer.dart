@@ -1,8 +1,7 @@
-import 'dart:io';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:nes_ui/nes_ui.dart';
+import 'package:universal_platform/universal_platform.dart';
 
 /// A function that resolves an icon for a file.
 typedef NesFileExplorerFileIconResolver = NesIconData? Function(NesFile file);
@@ -21,7 +20,7 @@ abstract class NesFileEntity {
     if (kIsWeb) {
       return '/';
     }
-    return Platform.isWindows ? r'\' : '/';
+    return UniversalPlatform.isWindows ? r'\' : '/';
   }
 
   /// The name of the entity.
