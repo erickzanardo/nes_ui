@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nes_ui/nes_ui.dart';
 
 /// {@template nes_running_text}
 /// A widget that displays a text that runs from right to left.
@@ -7,7 +8,7 @@ class NesRunningText extends StatefulWidget {
   /// {@macro nes_running_text}
   const NesRunningText({
     required this.text,
-    this.speed = .08,
+    this.speed,
     this.textStyle,
     this.onEnd,
     this.running = true,
@@ -18,7 +19,9 @@ class NesRunningText extends StatefulWidget {
   final String text;
 
   /// The speed of the text, in seconds.
-  final double speed;
+  ///
+  /// By default, uses the value on the [NesRunningTextTheme].speed.
+  final double? speed;
 
   /// The style of the text. When omitted, it uses the theme's bodyMedium style.
   final TextStyle? textStyle;
@@ -38,14 +41,18 @@ class _NesRunningTextState extends State<NesRunningText>
   late final _characters = widget.text.split('');
   var _currentChar = 0;
 
-  late final AnimationController _controller;
+  AnimationController? _controller;
 
   @override
-  void initState() {
-    super.initState();
+  void didChangeDependencies() {
+    super.didChangeDependencies();
 
+    _controller?.dispose();
+
+    final speed =
+        widget.speed ?? context.nesThemeExtension<NesRunningTextTheme>().speed;
     _controller = AnimationController(
-      duration: Duration(milliseconds: (1000 * widget.speed).round()),
+      duration: Duration(milliseconds: (1000 * speed).round()),
       vsync: this,
     )..addStatusListener((status) {
         if (status == AnimationStatus.completed) {
@@ -54,13 +61,13 @@ class _NesRunningTextState extends State<NesRunningText>
       });
 
     if (widget.running) {
-      _controller.forward();
+      _controller?.forward();
     }
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _controller?.dispose();
     super.dispose();
   }
 
@@ -70,9 +77,9 @@ class _NesRunningTextState extends State<NesRunningText>
 
     if (widget.running != oldWidget.running) {
       if (widget.running) {
-        _controller.forward();
+        _controller?.forward();
       } else {
-        _controller.stop();
+        _controller?.stop();
       }
     }
 
@@ -83,7 +90,7 @@ class _NesRunningTextState extends State<NesRunningText>
       _currentChar = 0;
 
       if (widget.running) {
-        _controller.forward(from: 0);
+        _controller?.forward(from: 0);
       }
     }
   }
@@ -92,7 +99,7 @@ class _NesRunningTextState extends State<NesRunningText>
     if (_currentChar == _characters.length - 1) {
       widget.onEnd?.call();
     } else {
-      _controller.forward(from: 0);
+      _controller?.forward(from: 0);
     }
 
     final currentChar = _currentChar + 1;
