@@ -907,6 +907,43 @@ class NesLinkTheme extends ThemeExtension<NesLinkTheme> {
   }
 }
 
+/// {@template nes_running_text_theme}
+/// Class with information regarding [NesRunningText] inside NesUI.
+/// {@endtemplate}
+class NesRunningTextTheme extends ThemeExtension<NesRunningTextTheme> {
+  /// {@macro nes_running_text_theme}
+  const NesRunningTextTheme({
+    required this.speed,
+  });
+
+  /// The speed of the text, in seconds.
+  final double speed;
+
+  @override
+  NesRunningTextTheme copyWith({
+    double? speed,
+  }) {
+    return NesRunningTextTheme(
+      speed: speed ?? this.speed,
+    );
+  }
+
+  @override
+  ThemeExtension<NesRunningTextTheme> lerp(
+    ThemeExtension<NesRunningTextTheme>? other,
+    double t,
+  ) {
+    final otherExt = other as NesRunningTextTheme?;
+
+    return NesRunningTextTheme(
+      speed: Tween<double>(
+        begin: speed,
+        end: otherExt?.speed ?? speed,
+      ).transform(t),
+    );
+  }
+}
+
 /// Helper methods on [BuildContext] for the Flutter Nes.
 extension NesBuildContext on BuildContext {
   /// Returns the extension of type [T] from the context.
@@ -972,6 +1009,9 @@ ThemeData flutterNesTheme({
   NesBottomSheetTheme? nesBottomSheetTheme,
   NesInputDecorationTheme? nesInputDecorationTheme,
   NesLinkTheme? nesLinkTheme,
+  NesRunningTextTheme nesRunningTextTheme = const NesRunningTextTheme(
+    speed: .08,
+  ),
   Iterable<ThemeExtension<dynamic>> customExtensions = const [],
 }) {
   final iconTheme = nesIconTheme ??
@@ -1049,6 +1089,7 @@ ThemeData flutterNesTheme({
       containerTheme,
       bottomSheetTheme,
       linkTheme,
+      nesRunningTextTheme,
       ...customExtensions,
     ],
     dividerTheme: DividerThemeData(

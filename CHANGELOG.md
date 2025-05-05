@@ -2,6 +2,7 @@
  - feat: Adding a painter to `NesContainer` to allow usage of mini sprites for its border rendering.
  - feat: Adding a customizable `CustomPainter` to `NesButton`.
  - fix: Remove additional usage of `dart:io` in favor of `package:universal_platform` for better web support.
+ - feat: Adding `NesRunningText` for a global customization of the running text widgets.
 
 # 0.24.1
  - fix: `NesBottomSheet` would rely on the "root" theme, which would break if it was not a nes ui one.
