@@ -525,6 +525,10 @@ class NesSnackbarTheme extends ThemeExtension<NesSnackbarTheme> {
     required this.success,
     required this.warning,
     required this.error,
+    this.normalTextStyle,
+    this.successTextStyle,
+    this.warningTextStyle,
+    this.errorTextStyle,
   });
 
   /// The color for the normal type of the snackbar.
@@ -539,18 +543,38 @@ class NesSnackbarTheme extends ThemeExtension<NesSnackbarTheme> {
   /// The color for the error type of the snackbar.
   final Color error;
 
+  /// The text style of the snackbar of the normal type.
+  final TextStyle? normalTextStyle;
+
+  /// The text style of the snackbar of the success type.
+  final TextStyle? successTextStyle;
+
+  /// The text style of the snackbar of the warning type.
+  final TextStyle? warningTextStyle;
+
+  /// The text style of the snackbar of the error type.
+  final TextStyle? errorTextStyle;
+
   @override
   NesSnackbarTheme copyWith({
     Color? normal,
     Color? success,
     Color? warning,
     Color? error,
+    TextStyle? normalTextStyle,
+    TextStyle? successTextStyle,
+    TextStyle? warningTextStyle,
+    TextStyle? errorTextStyle,
   }) {
     return NesSnackbarTheme(
       normal: normal ?? this.normal,
       success: success ?? this.success,
       warning: warning ?? this.warning,
       error: error ?? this.error,
+      normalTextStyle: normalTextStyle ?? this.normalTextStyle,
+      successTextStyle: successTextStyle ?? this.successTextStyle,
+      warningTextStyle: warningTextStyle ?? this.warningTextStyle,
+      errorTextStyle: errorTextStyle ?? this.errorTextStyle,
     );
   }
 
@@ -582,6 +606,22 @@ class NesSnackbarTheme extends ThemeExtension<NesSnackbarTheme> {
             end: otherExt?.error,
           ).lerp(t) ??
           error,
+      normalTextStyle: TextStyleTween(
+        begin: normalTextStyle,
+        end: otherExt?.normalTextStyle,
+      ).lerp(t),
+      successTextStyle: TextStyleTween(
+        begin: successTextStyle,
+        end: otherExt?.successTextStyle,
+      ).lerp(t),
+      warningTextStyle: TextStyleTween(
+        begin: warningTextStyle,
+        end: otherExt?.warningTextStyle,
+      ).lerp(t),
+      errorTextStyle: TextStyleTween(
+        begin: errorTextStyle,
+        end: otherExt?.errorTextStyle,
+      ).lerp(t),
     );
   }
 }
