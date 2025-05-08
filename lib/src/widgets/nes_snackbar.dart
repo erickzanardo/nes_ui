@@ -59,19 +59,24 @@ class NesSnackbar extends StatelessWidget {
     final snackbarTheme = context.nesThemeExtension<NesSnackbarTheme>();
 
     late Color color;
+    TextStyle? textStyle;
 
     switch (type) {
       case NesSnackbarType.normal:
         color = snackbarTheme.normal;
+        textStyle = snackbarTheme.normalTextStyle;
         break;
       case NesSnackbarType.success:
         color = snackbarTheme.success;
+        textStyle = snackbarTheme.successTextStyle;
         break;
       case NesSnackbarType.warning:
         color = snackbarTheme.warning;
+        textStyle = snackbarTheme.warningTextStyle;
         break;
       case NesSnackbarType.error:
         color = snackbarTheme.error;
+        textStyle = snackbarTheme.errorTextStyle;
         break;
     }
 
@@ -79,7 +84,7 @@ class NesSnackbar extends StatelessWidget {
       backgroundColor: color,
       child: Text(
         text,
-        style: Theme.of(context).textTheme.bodyMedium,
+        style: textStyle ?? Theme.of(context).textTheme.bodyMedium,
       ),
     );
   }
