@@ -265,6 +265,10 @@ final directories = <_i1.WidgetbookNode>[
                 name: 'window style',
                 builder: _i18.windowStyle,
               ),
+              _i1.WidgetbookUseCase(
+                name: 'without close button',
+                builder: _i18.noCloseButton,
+              ),
             ],
           ),
           _i1.WidgetbookLeafComponent(

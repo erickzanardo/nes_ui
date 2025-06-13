@@ -17,7 +17,7 @@ dependencies:
   universal_platform: ^1.1.0
 
 dev_dependencies:
-  alchemist: 0.10.0
+  alchemist: 0.12.1
   flutter_test:
     sdk: flutter
   mocktail: ">=0.3.0 <2.0.0"

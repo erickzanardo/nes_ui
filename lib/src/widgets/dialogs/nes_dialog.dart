@@ -64,6 +64,7 @@ class NesDialog extends StatelessWidget {
     this.frame = const NesBasicDialogFrame(),
     this.onShortcutClose,
     this.onShortcutConfirm,
+    this.showCloseButton = true,
     super.key,
   });
 
@@ -79,6 +80,9 @@ class NesDialog extends StatelessWidget {
   /// A callback that will be called when the dialog is confirmed by a shortcut.
   final NesDialogConfirmAction Function()? onShortcutConfirm;
 
+  /// Whether to show a close button in the dialog.
+  final bool showCloseButton;
+
   /// A shortcut method that can be used to show this dialog.
   static Future<T?> show<T>({
     required BuildContext context,
@@ -86,6 +90,7 @@ class NesDialog extends StatelessWidget {
     bool Function()? onShortcutClose,
     NesDialogConfirmAction Function()? onShortcutConfirm,
     NesDialogFrame frame = const NesBasicDialogFrame(),
+    bool showCloseButton = true,
   }) {
     final nesTheme = context.nesThemeExtension<NesTheme>();
 
@@ -117,6 +122,7 @@ class NesDialog extends StatelessWidget {
             frame: frame,
             onShortcutClose: onShortcutClose,
             onShortcutConfirm: onShortcutConfirm,
+            showCloseButton: showCloseButton,
             child: builder(context),
           ),
         );
@@ -144,10 +150,12 @@ class NesDialog extends StatelessWidget {
         actions: <Type, Action<Intent>>{
           _CloseDialogIntent: CallbackAction<_CloseDialogIntent>(
             onInvoke: (intent) {
-              if (onShortcutClose?.call() ?? false) {
-                return null;
+              if (showCloseButton) {
+                if (onShortcutClose?.call() ?? false) {
+                  return null;
+                }
+                Navigator.of(context).pop();
               }
-              Navigator.of(context).pop();
               return null;
             },
           ),
@@ -184,20 +192,21 @@ class NesDialog extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              Positioned(
-                                right: -8,
-                                top: -8,
-                                child: NesButton(
-                                  type: NesButtonType.error,
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                  child: NesIcon(
-                                    size: const Size(16, 16),
-                                    iconData: NesIcons.close,
+                              if (showCloseButton)
+                                Positioned(
+                                  right: -8,
+                                  top: -8,
+                                  child: NesButton(
+                                    type: NesButtonType.error,
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: NesIcon(
+                                      size: const Size(16, 16),
+                                      iconData: NesIcons.close,
+                                    ),
                                   ),
                                 ),
-                              ),
                             ],
                           ),
                         NesWindowDialogFrame() => NesWindow(
