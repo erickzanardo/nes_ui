@@ -28,6 +28,44 @@ Widget normal(BuildContext context) => Center(
     );
 
 @widgetbook.UseCase(
+  name: 'without close button',
+  type: NesDialog,
+)
+Widget noCloseButton(BuildContext context) => Center(
+      child: Builder(
+        builder: (context) {
+          return NesButton(
+            onPressed: () {
+              NesDialog.show<void>(
+                context: context,
+                showCloseButton: false,
+                builder: (_) => Column(
+                  spacing: 16,
+                  children: [
+                    const Text(
+                      'This is a basic dialog',
+                    ),
+                    Builder(
+                      builder: (context) {
+                        return NesButton(
+                          onPressed: () => Navigator.of(context).pop(),
+                          type: NesButtonType.primary,
+                          child: const Text('Close'),
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              );
+            },
+            type: NesButtonType.primary,
+            child: const Text('Show Dialog'),
+          );
+        },
+      ),
+    );
+
+@widgetbook.UseCase(
   name: 'using confirm shortcut',
   type: NesDialog,
 )

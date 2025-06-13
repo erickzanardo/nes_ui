@@ -1,11 +1,10 @@
-# 0.26.0
- - feat: Allow snackbar to have their text style customized
-
 # 0.25.0
  - feat: Adding a painter to `NesContainer` to allow usage of mini sprites for its border rendering.
  - feat: Adding a customizable `CustomPainter` to `NesButton`.
  - fix: Remove additional usage of `dart:io` in favor of `package:universal_platform` for better web support.
  - feat: Adding `NesRunningText` for a global customization of the running text widgets.
+ - feat: Allow snackbar to have their text style customized
+ - feat: Option to hide the close button on `NesDialog`s.
 
 # 0.24.1
  - fix: `NesBottomSheet` would rely on the "root" theme, which would break if it was not a nes ui one.
