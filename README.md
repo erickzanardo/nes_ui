@@ -8,7 +8,7 @@
 
 UI library inspired by old retro video game console
 
-## Out top sponsors
+## Our top sponsors
 
 Check out these amazing sponsors that support my work!
 
