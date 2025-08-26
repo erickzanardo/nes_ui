@@ -8,6 +8,21 @@
 
 UI library inspired by old retro video game console
 
+## Out top sponsors
+
+Check out these amazing sponsors that support my work!
+
+<table style="background-color: white; border: 1px solid black">
+    <tbody>
+        <tr>
+            <td align="center" style="border: 1px solid black">
+                <a href="https://invertase.io/"><img src="./images/sponsors/invertase.jpeg" width="225"/> <br /> Invertase </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+[Become a featured sponsor!](https://cherrybit.studio/featured-sponsors/)
 
 ## Installation 💻
 
