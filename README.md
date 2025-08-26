@@ -16,7 +16,7 @@ Check out these amazing sponsors that support my work!
     <tbody>
         <tr>
             <td align="center" style="border: 1px solid black">
-                <a href="https://invertase.io/"><img src="./images/sponsors/invertase.jpeg" width="225"/> <br /> Invertase </a>
+                <a href="https://invertase.io/"><img src="https://github.com/erickzanardo/erickzanardo/raw/main/images/sponsors/invertase.jpeg" width="225"/> <br /> Invertase </a>
             </td>
         </tr>
     </tbody>
