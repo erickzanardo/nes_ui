@@ -8,7 +8,7 @@ if cd flutter;
 then
   git pull && cd ..;
 else
-  git clone https://github.com/flutter/flutter.git;
+  curl -O https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.35.1-stable.tar.xz && tar -xf flutter_linux_3.35.1-stable.tar.xz;
 fi
 ls
 flutter/bin/flutter channel stable
