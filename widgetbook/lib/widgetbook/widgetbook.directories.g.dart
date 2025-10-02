@@ -10,329 +10,392 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:widgetbook/widgetbook.dart' as _i1;
-import 'package:widgetbook_app/widgetbook/use_cases/blinker.dart' as _i2;
-import 'package:widgetbook_app/widgetbook/use_cases/bottom_sheets.dart' as _i3;
-import 'package:widgetbook_app/widgetbook/use_cases/buttons.dart' as _i4;
-import 'package:widgetbook_app/widgetbook/use_cases/checkboxes.dart' as _i5;
+import 'package:widgetbook/widgetbook.dart' as _widgetbook;
+import 'package:widgetbook_app/widgetbook/use_cases/blinker.dart'
+    as _widgetbook_app_widgetbook_use_cases_blinker;
+import 'package:widgetbook_app/widgetbook/use_cases/bottom_sheets.dart'
+    as _widgetbook_app_widgetbook_use_cases_bottom_sheets;
+import 'package:widgetbook_app/widgetbook/use_cases/buttons.dart'
+    as _widgetbook_app_widgetbook_use_cases_buttons;
+import 'package:widgetbook_app/widgetbook/use_cases/checkboxes.dart'
+    as _widgetbook_app_widgetbook_use_cases_checkboxes;
 import 'package:widgetbook_app/widgetbook/use_cases/checkered_decoration.dart'
-    as _i6;
+    as _widgetbook_app_widgetbook_use_cases_checkered_decoration;
 import 'package:widgetbook_app/widgetbook/use_cases/confirm_dialog.dart'
-    as _i17;
-import 'package:widgetbook_app/widgetbook/use_cases/containers.dart' as _i16;
-import 'package:widgetbook_app/widgetbook/use_cases/dialog.dart' as _i18;
-import 'package:widgetbook_app/widgetbook/use_cases/dpads.dart' as _i7;
-import 'package:widgetbook_app/widgetbook/use_cases/dropdown_menus.dart' as _i8;
-import 'package:widgetbook_app/widgetbook/use_cases/icon_badge.dart' as _i10;
-import 'package:widgetbook_app/widgetbook/use_cases/icons.dart' as _i9;
-import 'package:widgetbook_app/widgetbook/use_cases/input_dialog.dart' as _i19;
-import 'package:widgetbook_app/widgetbook/use_cases/links.dart' as _i11;
+    as _widgetbook_app_widgetbook_use_cases_confirm_dialog;
+import 'package:widgetbook_app/widgetbook/use_cases/containers.dart'
+    as _widgetbook_app_widgetbook_use_cases_containers;
+import 'package:widgetbook_app/widgetbook/use_cases/dialog.dart'
+    as _widgetbook_app_widgetbook_use_cases_dialog;
+import 'package:widgetbook_app/widgetbook/use_cases/dpads.dart'
+    as _widgetbook_app_widgetbook_use_cases_dpads;
+import 'package:widgetbook_app/widgetbook/use_cases/dropdown_menus.dart'
+    as _widgetbook_app_widgetbook_use_cases_dropdown_menus;
+import 'package:widgetbook_app/widgetbook/use_cases/icon_badge.dart'
+    as _widgetbook_app_widgetbook_use_cases_icon_badge;
+import 'package:widgetbook_app/widgetbook/use_cases/icons.dart'
+    as _widgetbook_app_widgetbook_use_cases_icons;
+import 'package:widgetbook_app/widgetbook/use_cases/input_dialog.dart'
+    as _widgetbook_app_widgetbook_use_cases_input_dialog;
+import 'package:widgetbook_app/widgetbook/use_cases/links.dart'
+    as _widgetbook_app_widgetbook_use_cases_links;
 import 'package:widgetbook_app/widgetbook/use_cases/loading_indicator.dart'
-    as _i20;
-import 'package:widgetbook_app/widgetbook/use_cases/pressable.dart' as _i12;
-import 'package:widgetbook_app/widgetbook/use_cases/progress_bar.dart' as _i21;
-import 'package:widgetbook_app/widgetbook/use_cases/running_texts.dart' as _i13;
-import 'package:widgetbook_app/widgetbook/use_cases/tooltips.dart' as _i14;
-import 'package:widgetbook_app/widgetbook/use_cases/typography.dart' as _i15;
+    as _widgetbook_app_widgetbook_use_cases_loading_indicator;
+import 'package:widgetbook_app/widgetbook/use_cases/pressable.dart'
+    as _widgetbook_app_widgetbook_use_cases_pressable;
+import 'package:widgetbook_app/widgetbook/use_cases/progress_bar.dart'
+    as _widgetbook_app_widgetbook_use_cases_progress_bar;
+import 'package:widgetbook_app/widgetbook/use_cases/running_texts.dart'
+    as _widgetbook_app_widgetbook_use_cases_running_texts;
+import 'package:widgetbook_app/widgetbook/use_cases/tooltips.dart'
+    as _widgetbook_app_widgetbook_use_cases_tooltips;
+import 'package:widgetbook_app/widgetbook/use_cases/typography.dart'
+    as _widgetbook_app_widgetbook_use_cases_typography;
 
-final directories = <_i1.WidgetbookNode>[
-  _i1.WidgetbookFolder(
+final directories = <_widgetbook.WidgetbookNode>[
+  _widgetbook.WidgetbookFolder(
     name: 'widgets',
     children: [
-      _i1.WidgetbookLeafComponent(
+      _widgetbook.WidgetbookComponent(
         name: 'NesBlinker',
-        useCase: _i1.WidgetbookUseCase(
-          name: 'default',
-          builder: _i2.normal,
-        ),
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'default',
+            builder: _widgetbook_app_widgetbook_use_cases_blinker.normal,
+          )
+        ],
       ),
-      _i1.WidgetbookLeafComponent(
+      _widgetbook.WidgetbookComponent(
         name: 'NesBottomSheet',
-        useCase: _i1.WidgetbookUseCase(
-          name: 'default',
-          builder: _i3.normal,
-        ),
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'default',
+            builder: _widgetbook_app_widgetbook_use_cases_bottom_sheets.normal,
+          )
+        ],
       ),
-      _i1.WidgetbookComponent(
+      _widgetbook.WidgetbookComponent(
         name: 'NesButton',
         useCases: [
-          _i1.WidgetbookUseCase(
+          _widgetbook.WidgetbookUseCase(
             name: 'error',
-            builder: _i4.error,
+            builder: _widgetbook_app_widgetbook_use_cases_buttons.error,
           ),
-          _i1.WidgetbookUseCase(
+          _widgetbook.WidgetbookUseCase(
             name: 'normal',
-            builder: _i4.normal,
+            builder: _widgetbook_app_widgetbook_use_cases_buttons.normal,
           ),
-          _i1.WidgetbookUseCase(
+          _widgetbook.WidgetbookUseCase(
             name: 'primary',
-            builder: _i4.primary,
+            builder: _widgetbook_app_widgetbook_use_cases_buttons.primary,
           ),
-          _i1.WidgetbookUseCase(
+          _widgetbook.WidgetbookUseCase(
             name: 'success',
-            builder: _i4.success,
+            builder: _widgetbook_app_widgetbook_use_cases_buttons.success,
           ),
-          _i1.WidgetbookUseCase(
+          _widgetbook.WidgetbookUseCase(
             name: 'warning',
-            builder: _i4.warning,
+            builder: _widgetbook_app_widgetbook_use_cases_buttons.warning,
           ),
         ],
       ),
-      _i1.WidgetbookLeafComponent(
+      _widgetbook.WidgetbookComponent(
         name: 'NesCheckBox',
-        useCase: _i1.WidgetbookUseCase(
-          name: 'default',
-          builder: _i5.checkbox,
-        ),
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'default',
+            builder: _widgetbook_app_widgetbook_use_cases_checkboxes.checkbox,
+          )
+        ],
       ),
-      _i1.WidgetbookLeafComponent(
+      _widgetbook.WidgetbookComponent(
         name: 'NesCheckeredDecoration',
-        useCase: _i1.WidgetbookUseCase(
-          name: 'default',
-          builder: _i6.normal,
-        ),
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'default',
+            builder: _widgetbook_app_widgetbook_use_cases_checkered_decoration
+                .normal,
+          )
+        ],
       ),
-      _i1.WidgetbookComponent(
+      _widgetbook.WidgetbookComponent(
         name: 'NesDpad',
         useCases: [
-          _i1.WidgetbookUseCase(
+          _widgetbook.WidgetbookUseCase(
             name: 'default',
-            builder: _i7.normal,
+            builder: _widgetbook_app_widgetbook_use_cases_dpads.normal,
           ),
-          _i1.WidgetbookUseCase(
+          _widgetbook.WidgetbookUseCase(
             name: 'with callbacks',
-            builder: _i7.withCallbacks,
+            builder: _widgetbook_app_widgetbook_use_cases_dpads.withCallbacks,
           ),
         ],
       ),
-      _i1.WidgetbookComponent(
+      _widgetbook.WidgetbookComponent(
         name: 'NesDropdownMenu',
         useCases: [
-          _i1.WidgetbookUseCase(
+          _widgetbook.WidgetbookUseCase(
             name: 'default',
-            builder: _i8.normal,
+            builder: _widgetbook_app_widgetbook_use_cases_dropdown_menus.normal,
           ),
-          _i1.WidgetbookUseCase(
+          _widgetbook.WidgetbookUseCase(
             name: 'with icons',
-            builder: _i8.icons,
+            builder: _widgetbook_app_widgetbook_use_cases_dropdown_menus.icons,
           ),
         ],
       ),
-      _i1.WidgetbookComponent(
+      _widgetbook.WidgetbookComponent(
         name: 'NesIcon',
         useCases: [
-          _i1.WidgetbookUseCase(
+          _widgetbook.WidgetbookUseCase(
             name: '16x16',
-            builder: _i9.sixteen,
+            builder: _widgetbook_app_widgetbook_use_cases_icons.sixteen,
           ),
-          _i1.WidgetbookUseCase(
+          _widgetbook.WidgetbookUseCase(
             name: '8x8',
-            builder: _i9.normal,
+            builder: _widgetbook_app_widgetbook_use_cases_icons.normal,
           ),
         ],
       ),
-      _i1.WidgetbookComponent(
+      _widgetbook.WidgetbookComponent(
         name: 'NesIconBadge',
         useCases: [
-          _i1.WidgetbookUseCase(
+          _widgetbook.WidgetbookUseCase(
             name: 'custom size',
-            builder: _i10.customSize,
+            builder: _widgetbook_app_widgetbook_use_cases_icon_badge.customSize,
           ),
-          _i1.WidgetbookUseCase(
+          _widgetbook.WidgetbookUseCase(
             name: 'default',
-            builder: _i10.normal,
+            builder: _widgetbook_app_widgetbook_use_cases_icon_badge.normal,
           ),
         ],
       ),
-      _i1.WidgetbookComponent(
+      _widgetbook.WidgetbookComponent(
         name: 'NesLink',
         useCases: [
-          _i1.WidgetbookUseCase(
+          _widgetbook.WidgetbookUseCase(
             name: 'disabled',
-            builder: _i11.primary,
+            builder: _widgetbook_app_widgetbook_use_cases_links.primary,
           ),
-          _i1.WidgetbookUseCase(
+          _widgetbook.WidgetbookUseCase(
             name: 'normal',
-            builder: _i11.normal,
+            builder: _widgetbook_app_widgetbook_use_cases_links.normal,
           ),
         ],
       ),
-      _i1.WidgetbookLeafComponent(
+      _widgetbook.WidgetbookComponent(
         name: 'NesPressable',
-        useCase: _i1.WidgetbookUseCase(
-          name: 'default',
-          builder: _i12.normal,
-        ),
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'default',
+            builder: _widgetbook_app_widgetbook_use_cases_pressable.normal,
+          )
+        ],
       ),
-      _i1.WidgetbookLeafComponent(
+      _widgetbook.WidgetbookComponent(
         name: 'NesRunningText',
-        useCase: _i1.WidgetbookUseCase(
-          name: 'default',
-          builder: _i13.normal,
-        ),
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'default',
+            builder: _widgetbook_app_widgetbook_use_cases_running_texts.normal,
+          )
+        ],
       ),
-      _i1.WidgetbookLeafComponent(
+      _widgetbook.WidgetbookComponent(
         name: 'NesRunningTextLines',
-        useCase: _i1.WidgetbookUseCase(
-          name: 'default',
-          builder: _i13.lines,
-        ),
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'default',
+            builder: _widgetbook_app_widgetbook_use_cases_running_texts.lines,
+          )
+        ],
       ),
-      _i1.WidgetbookLeafComponent(
+      _widgetbook.WidgetbookComponent(
         name: 'NesTooltip',
-        useCase: _i1.WidgetbookUseCase(
-          name: 'default',
-          builder: _i14.normal,
-        ),
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'default',
+            builder: _widgetbook_app_widgetbook_use_cases_tooltips.normal,
+          )
+        ],
       ),
-      _i1.WidgetbookComponent(
+      _widgetbook.WidgetbookComponent(
         name: 'Text',
         useCases: [
-          _i1.WidgetbookUseCase(
+          _widgetbook.WidgetbookUseCase(
             name: 'body',
-            builder: _i15.body,
+            builder: _widgetbook_app_widgetbook_use_cases_typography.body,
           ),
-          _i1.WidgetbookUseCase(
+          _widgetbook.WidgetbookUseCase(
             name: 'display',
-            builder: _i15.display,
+            builder: _widgetbook_app_widgetbook_use_cases_typography.display,
           ),
-          _i1.WidgetbookUseCase(
+          _widgetbook.WidgetbookUseCase(
             name: 'headline',
-            builder: _i15.headline,
+            builder: _widgetbook_app_widgetbook_use_cases_typography.headline,
           ),
-          _i1.WidgetbookUseCase(
+          _widgetbook.WidgetbookUseCase(
             name: 'label',
-            builder: _i15.label,
+            builder: _widgetbook_app_widgetbook_use_cases_typography.label,
           ),
-          _i1.WidgetbookUseCase(
+          _widgetbook.WidgetbookUseCase(
             name: 'title',
-            builder: _i15.title,
+            builder: _widgetbook_app_widgetbook_use_cases_typography.title,
           ),
         ],
       ),
-      _i1.WidgetbookFolder(
+      _widgetbook.WidgetbookFolder(
         name: 'containers',
         children: [
-          _i1.WidgetbookComponent(
+          _widgetbook.WidgetbookComponent(
             name: 'NesContainer',
             useCases: [
-              _i1.WidgetbookUseCase(
+              _widgetbook.WidgetbookUseCase(
                 name: 'default',
-                builder: _i16.normal,
+                builder: _widgetbook_app_widgetbook_use_cases_containers.normal,
               ),
-              _i1.WidgetbookUseCase(
+              _widgetbook.WidgetbookUseCase(
                 name: 'with corner inner square painter',
-                builder: _i16.cornerInnerSquare,
+                builder: _widgetbook_app_widgetbook_use_cases_containers
+                    .cornerInnerSquare,
               ),
-              _i1.WidgetbookUseCase(
+              _widgetbook.WidgetbookUseCase(
                 name: 'with label',
-                builder: _i16.label,
+                builder: _widgetbook_app_widgetbook_use_cases_containers.label,
               ),
-              _i1.WidgetbookUseCase(
+              _widgetbook.WidgetbookUseCase(
                 name: 'with mini sprite painter',
-                builder: _i16.miniSpritePainer,
+                builder: _widgetbook_app_widgetbook_use_cases_containers
+                    .miniSpritePainer,
               ),
-              _i1.WidgetbookUseCase(
+              _widgetbook.WidgetbookUseCase(
                 name: 'with square corner painter',
-                builder: _i16.squareConer,
+                builder:
+                    _widgetbook_app_widgetbook_use_cases_containers.squareConer,
               ),
             ],
           )
         ],
       ),
-      _i1.WidgetbookFolder(
+      _widgetbook.WidgetbookFolder(
         name: 'dialogs',
         children: [
-          _i1.WidgetbookLeafComponent(
+          _widgetbook.WidgetbookComponent(
             name: 'NesConfirmDialog',
-            useCase: _i1.WidgetbookUseCase(
-              name: 'default',
-              builder: _i17.normal,
-            ),
+            useCases: [
+              _widgetbook.WidgetbookUseCase(
+                name: 'default',
+                builder:
+                    _widgetbook_app_widgetbook_use_cases_confirm_dialog.normal,
+              )
+            ],
           ),
-          _i1.WidgetbookComponent(
+          _widgetbook.WidgetbookComponent(
             name: 'NesDialog',
             useCases: [
-              _i1.WidgetbookUseCase(
+              _widgetbook.WidgetbookUseCase(
                 name: 'default',
-                builder: _i18.normal,
+                builder: _widgetbook_app_widgetbook_use_cases_dialog.normal,
               ),
-              _i1.WidgetbookUseCase(
+              _widgetbook.WidgetbookUseCase(
                 name: 'using confirm shortcut',
-                builder: _i18.confirmShortcut,
+                builder:
+                    _widgetbook_app_widgetbook_use_cases_dialog.confirmShortcut,
               ),
-              _i1.WidgetbookUseCase(
+              _widgetbook.WidgetbookUseCase(
                 name: 'window style',
-                builder: _i18.windowStyle,
+                builder:
+                    _widgetbook_app_widgetbook_use_cases_dialog.windowStyle,
               ),
-              _i1.WidgetbookUseCase(
+              _widgetbook.WidgetbookUseCase(
                 name: 'without close button',
-                builder: _i18.noCloseButton,
+                builder:
+                    _widgetbook_app_widgetbook_use_cases_dialog.noCloseButton,
               ),
             ],
           ),
-          _i1.WidgetbookLeafComponent(
+          _widgetbook.WidgetbookComponent(
             name: 'NesInputDialog',
-            useCase: _i1.WidgetbookUseCase(
-              name: 'default',
-              builder: _i19.normal,
-            ),
+            useCases: [
+              _widgetbook.WidgetbookUseCase(
+                name: 'default',
+                builder:
+                    _widgetbook_app_widgetbook_use_cases_input_dialog.normal,
+              )
+            ],
           ),
         ],
       ),
-      _i1.WidgetbookFolder(
+      _widgetbook.WidgetbookFolder(
         name: 'loading indicators',
         children: [
-          _i1.WidgetbookLeafComponent(
+          _widgetbook.WidgetbookComponent(
             name: 'NesHourglassLoadingIndicator',
-            useCase: _i1.WidgetbookUseCase(
-              name: 'NesHourglassLoadingIndicator',
-              builder: _i20.hourglass,
-            ),
+            useCases: [
+              _widgetbook.WidgetbookUseCase(
+                name: 'NesHourglassLoadingIndicator',
+                builder: _widgetbook_app_widgetbook_use_cases_loading_indicator
+                    .hourglass,
+              )
+            ],
           ),
-          _i1.WidgetbookLeafComponent(
+          _widgetbook.WidgetbookComponent(
             name: 'NesJumpingIconsLoadingIndicator',
-            useCase: _i1.WidgetbookUseCase(
-              name: 'NesJumpingIconsLoadingIndicator',
-              builder: _i20.jumpingIcons,
-            ),
+            useCases: [
+              _widgetbook.WidgetbookUseCase(
+                name: 'NesJumpingIconsLoadingIndicator',
+                builder: _widgetbook_app_widgetbook_use_cases_loading_indicator
+                    .jumpingIcons,
+              )
+            ],
           ),
-          _i1.WidgetbookLeafComponent(
+          _widgetbook.WidgetbookComponent(
             name: 'NesMutatingIconsLoadingIndicator',
-            useCase: _i1.WidgetbookUseCase(
-              name: 'NesMutatingIconsLoadingIndicator',
-              builder: _i20.mutatingIcons,
-            ),
+            useCases: [
+              _widgetbook.WidgetbookUseCase(
+                name: 'NesMutatingIconsLoadingIndicator',
+                builder: _widgetbook_app_widgetbook_use_cases_loading_indicator
+                    .mutatingIcons,
+              )
+            ],
           ),
-          _i1.WidgetbookLeafComponent(
+          _widgetbook.WidgetbookComponent(
             name: 'NesPixelRowLoadingIndicator',
-            useCase: _i1.WidgetbookUseCase(
-              name: 'NesPixelRowLoadingIndicator',
-              builder: _i20.pixelRow,
-            ),
+            useCases: [
+              _widgetbook.WidgetbookUseCase(
+                name: 'NesPixelRowLoadingIndicator',
+                builder: _widgetbook_app_widgetbook_use_cases_loading_indicator
+                    .pixelRow,
+              )
+            ],
           ),
-          _i1.WidgetbookLeafComponent(
+          _widgetbook.WidgetbookComponent(
             name: 'NesTerminalLoadingIndicator',
-            useCase: _i1.WidgetbookUseCase(
-              name: 'NesTerminalLoadingIndicator',
-              builder: _i20.terminal,
-            ),
+            useCases: [
+              _widgetbook.WidgetbookUseCase(
+                name: 'NesTerminalLoadingIndicator',
+                builder: _widgetbook_app_widgetbook_use_cases_loading_indicator
+                    .terminal,
+              )
+            ],
           ),
         ],
       ),
-      _i1.WidgetbookFolder(
+      _widgetbook.WidgetbookFolder(
         name: 'progressbar',
         children: [
-          _i1.WidgetbookComponent(
+          _widgetbook.WidgetbookComponent(
             name: 'NesProgressBar',
             useCases: [
-              _i1.WidgetbookUseCase(
+              _widgetbook.WidgetbookUseCase(
                 name: 'pixel',
-                builder: _i21.pixel,
+                builder:
+                    _widgetbook_app_widgetbook_use_cases_progress_bar.pixel,
               ),
-              _i1.WidgetbookUseCase(
+              _widgetbook.WidgetbookUseCase(
                 name: 'smooth',
-                builder: _i21.smooth,
+                builder:
+                    _widgetbook_app_widgetbook_use_cases_progress_bar.smooth,
               ),
             ],
           )
