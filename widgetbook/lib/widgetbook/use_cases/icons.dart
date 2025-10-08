@@ -439,6 +439,10 @@ Widget normal(BuildContext context) => SingleChildScrollView(
             data: NesIcons.lock,
             label: 'lock',
           ),
+          _IconEntry(
+            data: NesIcons.key,
+            label: 'key',
+          ),
         ],
       ),
     );
