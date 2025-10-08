@@ -540,7 +540,7 @@ class _IconEntry extends StatelessWidget {
                 nesIconTheme.secondary,
               ];
 
-        final colorsParam = colors.map((c) => c.value).join(',');
+        final colorsParam = colors.map((c) => c.toARGB32()).join(',');
 
         launchUrlString(
           'https://minisprit.es#?colors=$colorsParam&sprite=${data.sprite.toDataString()}',
