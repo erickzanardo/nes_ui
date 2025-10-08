@@ -1,6 +1,7 @@
 # 0.26.0
  - feat: adding `NesIcons.lock`.
  - feat: adding `NesIcons.key`.
+ - feat: adding `NesIcons.crane`.
 
 # 0.25.0
  - feat: Adding a painter to `NesContainer` to allow usage of mini sprites for its border rendering.
