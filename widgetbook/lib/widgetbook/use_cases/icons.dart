@@ -443,6 +443,10 @@ Widget normal(BuildContext context) => SingleChildScrollView(
             data: NesIcons.key,
             label: 'key',
           ),
+          _IconEntry(
+            data: NesIcons.crane,
+            label: 'crane',
+          ),
         ],
       ),
     );
