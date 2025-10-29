@@ -69,11 +69,17 @@ class NesButton extends StatefulWidget {
     Key? key,
     required NesButtonType type,
     required String text,
+    double? buttonWidth,
     VoidCallback? onPressed,
   }) : this(
           key: key,
           type: type,
-          child: Text(text),
+          child: buttonWidth != null
+              ? SizedBox(
+                  width: buttonWidth,
+                  child: Center(child: Text(text)),
+                )
+              : Text(text),
           onPressed: onPressed,
         );
 
