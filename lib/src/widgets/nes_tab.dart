@@ -46,7 +46,17 @@ class NesTab extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 16),
-                child: Text(tab.label),
+                child: Row(
+                  spacing: 16,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    if (tab.icon != null)
+                      NesIcon(
+                        iconData: tab.icon!,
+                      ),
+                    if (tab.label != null) Text(tab.label!),
+                  ],
+                ),
               ),
               if (onClosed != null)
                 Padding(

@@ -47,6 +47,8 @@ import 'package:widgetbook_app/widgetbook/use_cases/progress_bar.dart'
     as _widgetbook_app_widgetbook_use_cases_progress_bar;
 import 'package:widgetbook_app/widgetbook/use_cases/running_texts.dart'
     as _widgetbook_app_widgetbook_use_cases_running_texts;
+import 'package:widgetbook_app/widgetbook/use_cases/tabs.dart'
+    as _widgetbook_app_widgetbook_use_cases_tabs;
 import 'package:widgetbook_app/widgetbook/use_cases/tooltips.dart'
     as _widgetbook_app_widgetbook_use_cases_tooltips;
 import 'package:widgetbook_app/widgetbook/use_cases/typography.dart'
@@ -208,6 +210,23 @@ final directories = <_widgetbook.WidgetbookNode>[
             name: 'default',
             builder: _widgetbook_app_widgetbook_use_cases_running_texts.lines,
           )
+        ],
+      ),
+      _widgetbook.WidgetbookComponent(
+        name: 'NesTabView',
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'default',
+            builder: _widgetbook_app_widgetbook_use_cases_tabs.normal,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'with icon',
+            builder: _widgetbook_app_widgetbook_use_cases_tabs.withIcon,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'with icon only',
+            builder: _widgetbook_app_widgetbook_use_cases_tabs.withIconOnly,
+          ),
         ],
       ),
       _widgetbook.WidgetbookComponent(

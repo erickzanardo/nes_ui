@@ -3,6 +3,7 @@
  - feat: adding `iconSize` attribute to `NesButton.icon` constructor.
  - feat: adding `NesIcons.cat`.
  - feat: adding `NesIcons.hat`.
+ - feat: adding icon support to `NesTabView`
 
 # 0.26.0
  - feat: adding `NesIcons.lock`.

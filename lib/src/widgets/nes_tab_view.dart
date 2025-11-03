@@ -8,14 +8,21 @@ class NesTabItem {
   /// {@macro nes_tab_item}
   const NesTabItem({
     required this.child,
-    required this.label,
-  });
+    this.label,
+    this.icon,
+  }) : assert(
+          label != null || icon != null,
+          'Either label or icon must be provided',
+        );
 
   /// The widget to display tab contents.
   final Widget child;
 
   /// The label of the tab.
-  final String label;
+  final String? label;
+
+  /// The icon of the tab.
+  final NesIconData? icon;
 }
 
 /// {@template nes_tab_view}
