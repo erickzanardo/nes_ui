@@ -1,3 +1,6 @@
+# 0.27.0
+ - feat: adding `buttonWidth` attribute to `NesButton.text` constructor.
+
 # 0.26.0
  - feat: adding `NesIcons.lock`.
  - feat: adding `NesIcons.key`.
