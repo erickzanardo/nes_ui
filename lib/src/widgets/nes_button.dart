@@ -55,10 +55,11 @@ class NesButton extends StatefulWidget {
     required NesButtonType type,
     required NesIconData icon,
     VoidCallback? onPressed,
+    Size? iconSize,
   }) : this(
           key: key,
           type: type,
-          child: NesIcon(iconData: icon),
+          child: NesIcon(iconData: icon, size: iconSize),
           onPressed: onPressed,
         );
 
