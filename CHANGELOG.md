@@ -4,6 +4,7 @@
  - feat: adding `NesIcons.cat`.
  - feat: adding `NesIcons.hat`.
  - feat: adding icon support to `NesTabView`
+ - fix: null error in NesSnackbarTheme.lerp (Thanks @adil192)
 
 # 0.26.0
  - feat: adding `NesIcons.lock`.
