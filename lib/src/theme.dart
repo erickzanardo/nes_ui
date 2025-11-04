@@ -128,28 +128,13 @@ class NesTheme extends ThemeExtension<NesTheme> {
 
   @override
   ThemeExtension<NesTheme> lerp(ThemeExtension<NesTheme>? other, double t) {
-    final otherExt = other as NesTheme?;
-    return NesTheme(
-      pixelSize: IntTween(
-        begin: pixelSize,
-        end: otherExt?.pixelSize ?? pixelSize,
-      ).lerp(t),
-      clickCursor: otherExt?.clickCursor ?? clickCursor,
-      resizeLeftRightCursor:
-          otherExt?.resizeLeftRightCursor ?? resizeLeftRightCursor,
-      resizeUpDownCursor: otherExt?.resizeUpDownCursor ?? resizeUpDownCursor,
-      moveCursor: otherExt?.moveCursor ?? moveCursor,
-      resizeUpLeftDownRightCursor:
-          otherExt?.resizeUpLeftDownRightCursor ?? resizeUpLeftDownRightCursor,
-      resizeUpRightDownLeftCursor:
-          otherExt?.resizeUpRightDownLeftCursor ?? resizeUpRightDownLeftCursor,
-      resizeUpCursor: otherExt?.resizeUpCursor ?? resizeUpCursor,
-      resizeDownCursor: otherExt?.resizeDownCursor ?? resizeDownCursor,
-      resizeLeftCursor: otherExt?.resizeLeftCursor ?? resizeLeftCursor,
-      resizeRightCursor: otherExt?.resizeRightCursor ?? resizeRightCursor,
-      basicCursor: otherExt?.basicCursor ?? basicCursor,
+    if (other is! NesTheme) {
+      return copyWith();
+    }
+    return other.copyWith(
+      pixelSize: lerpInt(pixelSize, other.pixelSize, t),
       screenTransitionCursor:
-          otherExt?.screenTransitionCursor ?? screenTransitionCursor,
+          other.screenTransitionCursor ?? screenTransitionCursor,
     );
   }
 }
@@ -248,56 +233,24 @@ class NesButtonTheme extends ThemeExtension<NesButtonTheme> {
     ThemeExtension<NesButtonTheme>? other,
     double t,
   ) {
-    final otherExt = other as NesButtonTheme?;
-
+    if (other is! NesButtonTheme) {
+      return copyWith();
+    }
     return NesButtonTheme(
-      normal: ColorTween(
-            begin: normal,
-            end: otherExt?.normal,
-          ).lerp(t) ??
-          normal,
-      primary: ColorTween(
-            begin: primary,
-            end: otherExt?.primary,
-          ).lerp(t) ??
-          primary,
-      success: ColorTween(
-            begin: success,
-            end: otherExt?.success,
-          ).lerp(t) ??
-          success,
-      warning: ColorTween(
-            begin: warning,
-            end: otherExt?.warning,
-          ).lerp(t) ??
-          warning,
-      error: ColorTween(
-            begin: error,
-            end: otherExt?.error,
-          ).lerp(t) ??
-          error,
-      lightLabelColor: ColorTween(
-            begin: lightLabelColor,
-            end: otherExt?.lightLabelColor,
-          ).lerp(t) ??
+      normal: Color.lerp(normal, other.normal, t) ?? normal,
+      primary: Color.lerp(primary, other.primary, t) ?? primary,
+      success: Color.lerp(success, other.success, t) ?? success,
+      warning: Color.lerp(warning, other.warning, t) ?? warning,
+      error: Color.lerp(error, other.error, t) ?? error,
+      lightLabelColor: Color.lerp(lightLabelColor, other.lightLabelColor, t) ??
           lightLabelColor,
-      darkLabelColor: ColorTween(
-            begin: darkLabelColor,
-            end: otherExt?.darkLabelColor,
-          ).lerp(t) ??
-          darkLabelColor,
-      lightIconTheme: lightIconTheme.lerp(otherExt?.lightIconTheme, t),
-      darkIconTheme: darkIconTheme.lerp(otherExt?.darkIconTheme, t),
-      borderColor: ColorTween(
-            begin: borderColor,
-            end: otherExt?.borderColor,
-          ).lerp(t) ??
-          borderColor,
-      pixelSize: IntTween(
-        begin: pixelSize ?? 1,
-        end: otherExt?.pixelSize ?? 1,
-      ).lerp(t),
-      painter: otherExt?.painter ?? painter,
+      darkLabelColor:
+          Color.lerp(darkLabelColor, other.darkLabelColor, t) ?? darkLabelColor,
+      lightIconTheme: lightIconTheme.lerp(other.lightIconTheme, t),
+      darkIconTheme: darkIconTheme.lerp(other.darkIconTheme, t),
+      borderColor: Color.lerp(borderColor, other.borderColor, t) ?? borderColor,
+      pixelSize: lerpInt(pixelSize ?? 1, other.pixelSize ?? 1, t),
+      painter: other.painter ?? painter,
     );
   }
 }
@@ -349,32 +302,15 @@ class NesIconTheme extends ThemeExtension<NesIconTheme> {
 
   @override
   NesIconTheme lerp(ThemeExtension<NesIconTheme>? other, double t) {
-    final otherExt = other as NesIconTheme?;
+    if (other is! NesIconTheme) {
+      return copyWith();
+    }
     return NesIconTheme(
-      size: Tween<double>(
-        begin: size,
-        end: otherExt?.size ?? size,
-      ).transform(t),
-      primary: ColorTween(
-            begin: primary,
-            end: otherExt?.primary,
-          ).lerp(t) ??
-          primary,
-      secondary: ColorTween(
-            begin: secondary,
-            end: otherExt?.secondary,
-          ).lerp(t) ??
-          secondary,
-      accent: ColorTween(
-            begin: accent,
-            end: otherExt?.accent,
-          ).lerp(t) ??
-          accent,
-      shadow: ColorTween(
-            begin: shadow,
-            end: otherExt?.shadow,
-          ).lerp(t) ??
-          shadow,
+      size: lerpDouble(size, other.size, t),
+      primary: Color.lerp(primary, other.primary, t) ?? primary,
+      secondary: Color.lerp(secondary, other.secondary, t) ?? secondary,
+      accent: Color.lerp(accent, other.accent, t) ?? accent,
+      shadow: Color.lerp(shadow, other.shadow, t) ?? shadow,
     );
   }
 }
@@ -406,13 +342,11 @@ class NesOverlayTransitionTheme
     ThemeExtension<NesOverlayTransitionTheme>? other,
     double t,
   ) {
-    final otherExt = other as NesOverlayTransitionTheme?;
+    if (other is! NesOverlayTransitionTheme) {
+      return copyWith();
+    }
     return NesOverlayTransitionTheme(
-      color: ColorTween(
-            begin: color,
-            end: otherExt?.color,
-          ).lerp(t) ??
-          color,
+      color: Color.lerp(color, other.color, t) ?? color,
     );
   }
 }
@@ -451,19 +385,12 @@ class NesProgressBarTheme extends ThemeExtension<NesProgressBarTheme> {
     ThemeExtension<NesProgressBarTheme>? other,
     double t,
   ) {
-    final otherExt = other as NesProgressBarTheme?;
-
+    if (other is! NesProgressBarTheme) {
+      return copyWith();
+    }
     return NesProgressBarTheme(
-      background: ColorTween(
-            begin: background,
-            end: otherExt?.background,
-          ).lerp(t) ??
-          background,
-      color: ColorTween(
-            begin: color,
-            end: otherExt?.color,
-          ).lerp(t) ??
-          color,
+      background: Color.lerp(background, other.background, t) ?? background,
+      color: Color.lerp(color, other.color, t) ?? color,
     );
   }
 }
@@ -489,17 +416,12 @@ class NesSelectionListTheme extends ThemeExtension<NesSelectionListTheme> {
     ThemeExtension<NesSelectionListTheme>? other,
     double t,
   ) {
-    final otherExt = other as NesSelectionListTheme?;
+    if (other is! NesSelectionListTheme) {
+      return copyWith();
+    }
     return NesSelectionListTheme(
-      markerSize: SizeTween(
-            begin: markerSize,
-            end: otherExt?.markerSize,
-          ).lerp(t) ??
-          markerSize,
-      itemMinHeight: Tween<double>(
-        begin: itemMinHeight,
-        end: otherExt?.itemMinHeight ?? itemMinHeight,
-      ).transform(t),
+      markerSize: Size.lerp(markerSize, other.markerSize, t) ?? markerSize,
+      itemMinHeight: lerpDouble(itemMinHeight, other.itemMinHeight, t),
     );
   }
 
@@ -583,45 +505,25 @@ class NesSnackbarTheme extends ThemeExtension<NesSnackbarTheme> {
     ThemeExtension<NesSnackbarTheme>? other,
     double t,
   ) {
-    final otherExt = other as NesSnackbarTheme?;
-
+    if (other is! NesSnackbarTheme) {
+      return copyWith();
+    }
     return NesSnackbarTheme(
-      normal: ColorTween(
-            begin: normal,
-            end: otherExt?.normal,
-          ).lerp(t) ??
-          normal,
-      success: ColorTween(
-            begin: success,
-            end: otherExt?.success,
-          ).lerp(t) ??
-          success,
-      warning: ColorTween(
-            begin: warning,
-            end: otherExt?.warning,
-          ).lerp(t) ??
-          warning,
-      error: ColorTween(
-            begin: error,
-            end: otherExt?.error,
-          ).lerp(t) ??
-          error,
-      normalTextStyle: TextStyleTween(
-        begin: normalTextStyle,
-        end: otherExt?.normalTextStyle,
-      ).lerp(t),
-      successTextStyle: TextStyleTween(
-        begin: successTextStyle,
-        end: otherExt?.successTextStyle,
-      ).lerp(t),
-      warningTextStyle: TextStyleTween(
-        begin: warningTextStyle,
-        end: otherExt?.warningTextStyle,
-      ).lerp(t),
-      errorTextStyle: TextStyleTween(
-        begin: errorTextStyle,
-        end: otherExt?.errorTextStyle,
-      ).lerp(t),
+      normal: Color.lerp(normal, other.normal, t) ?? normal,
+      success: Color.lerp(success, other.success, t) ?? success,
+      warning: Color.lerp(warning, other.warning, t) ?? warning,
+      error: Color.lerp(error, other.error, t) ?? error,
+      normalTextStyle:
+          TextStyle.lerp(normalTextStyle, other.normalTextStyle, t) ??
+              normalTextStyle,
+      successTextStyle:
+          TextStyle.lerp(successTextStyle, other.successTextStyle, t) ??
+              successTextStyle,
+      warningTextStyle:
+          TextStyle.lerp(warningTextStyle, other.warningTextStyle, t) ??
+              warningTextStyle,
+      errorTextStyle: TextStyle.lerp(errorTextStyle, other.errorTextStyle, t) ??
+          errorTextStyle,
     );
   }
 }
@@ -660,19 +562,12 @@ class NesTooltipTheme extends ThemeExtension<NesTooltipTheme> {
     ThemeExtension<NesTooltipTheme>? other,
     double t,
   ) {
-    final otherExt = other as NesTooltipTheme?;
-
+    if (other is! NesTooltipTheme) {
+      return copyWith();
+    }
     return NesTooltipTheme(
-      background: ColorTween(
-            begin: background,
-            end: otherExt?.background,
-          ).lerp(t) ??
-          background,
-      textColor: ColorTween(
-            begin: textColor,
-            end: otherExt?.textColor,
-          ).lerp(t) ??
-          textColor,
+      background: Color.lerp(background, other.background, t) ?? background,
+      textColor: Color.lerp(textColor, other.textColor, t) ?? textColor,
     );
   }
 }
@@ -744,31 +639,18 @@ class NesContainerTheme extends ThemeExtension<NesContainerTheme> {
     covariant ThemeExtension<NesContainerTheme>? other,
     double t,
   ) {
-    final otherExt = other as NesContainerTheme?;
-
+    if (other is! NesContainerTheme) {
+      return copyWith();
+    }
     return NesContainerTheme(
-      backgroundColor: ColorTween(
-            begin: backgroundColor,
-            end: otherExt?.backgroundColor,
-          ).lerp(t) ??
+      backgroundColor: Color.lerp(backgroundColor, other.backgroundColor, t) ??
           backgroundColor,
-      borderColor: ColorTween(
-            begin: borderColor,
-            end: otherExt?.borderColor,
-          ).lerp(t) ??
-          borderColor,
-      labelTextStyle: TextStyleTween(
-        begin: labelTextStyle,
-        end: otherExt?.labelTextStyle,
-      ).lerp(t),
-      padding: EdgeInsetsTween(
-        begin: padding,
-        end: otherExt?.padding,
-      ).lerp(t),
-      pixelSize: IntTween(
-        begin: pixelSize ?? 1,
-        end: otherExt?.pixelSize ?? 1,
-      ).lerp(t),
+      borderColor: Color.lerp(borderColor, other.borderColor, t) ?? borderColor,
+      labelTextStyle: TextStyle.lerp(labelTextStyle, other.labelTextStyle, t) ??
+          labelTextStyle,
+      padding: EdgeInsets.lerp(padding, other.padding, t) ?? padding,
+      pixelSize: lerpInt(pixelSize ?? 1, other.pixelSize ?? 1, t),
+      painter: other.painter,
     );
   }
 }
@@ -831,27 +713,16 @@ class NesBottomSheetTheme extends ThemeExtension<NesBottomSheetTheme> {
     covariant ThemeExtension<NesBottomSheetTheme>? other,
     double t,
   ) {
-    final otherExt = other as NesBottomSheetTheme?;
-
+    if (other is! NesBottomSheetTheme) {
+      return copyWith();
+    }
     return NesBottomSheetTheme(
-      backgroundColor: ColorTween(
-            begin: backgroundColor,
-            end: otherExt?.backgroundColor,
-          ).lerp(t) ??
+      backgroundColor: Color.lerp(backgroundColor, other.backgroundColor, t) ??
           backgroundColor,
-      borderColor: ColorTween(
-            begin: borderColor,
-            end: otherExt?.borderColor,
-          ).lerp(t) ??
-          borderColor,
-      padding: EdgeInsetsTween(
-        begin: padding,
-        end: otherExt?.padding,
-      ).lerp(t),
-      pixelSize: IntTween(
-        begin: pixelSize ?? 1,
-        end: otherExt?.pixelSize ?? 1,
-      ).lerp(t),
+      borderColor: Color.lerp(borderColor, other.borderColor, t) ?? borderColor,
+      padding: EdgeInsets.lerp(padding, other.padding, t) ?? padding,
+      pixelSize: lerpInt(pixelSize ?? 1, other.pixelSize ?? 1, t),
+      painter: other.painter,
     );
   }
 }
@@ -930,19 +801,13 @@ class NesLinkTheme extends ThemeExtension<NesLinkTheme> {
     covariant ThemeExtension<NesLinkTheme>? other,
     double t,
   ) {
-    final otherExt = other as NesLinkTheme?;
-
+    if (other is! NesLinkTheme) {
+      return copyWith();
+    }
     return NesLinkTheme(
-      linkColor: ColorTween(
-            begin: linkColor,
-            end: otherExt?.linkColor,
-          ).lerp(t) ??
-          linkColor,
-      disabledColor: ColorTween(
-            begin: disabledColor,
-            end: otherExt?.disabledColor,
-          ).lerp(t) ??
-          disabledColor,
+      linkColor: Color.lerp(linkColor, other.linkColor, t) ?? linkColor,
+      disabledColor:
+          Color.lerp(disabledColor, other.disabledColor, t) ?? disabledColor,
     );
   }
 }
@@ -973,13 +838,11 @@ class NesRunningTextTheme extends ThemeExtension<NesRunningTextTheme> {
     ThemeExtension<NesRunningTextTheme>? other,
     double t,
   ) {
-    final otherExt = other as NesRunningTextTheme?;
-
+    if (other is! NesRunningTextTheme) {
+      return copyWith();
+    }
     return NesRunningTextTheme(
-      speed: Tween<double>(
-        begin: speed,
-        end: otherExt?.speed ?? speed,
-      ).transform(t),
+      speed: lerpDouble(speed, other.speed, t),
     );
   }
 }
@@ -1178,3 +1041,19 @@ ThemeData flutterNesTheme({
     ),
   );
 }
+
+/// A static method that behaves identically to [IntTween.lerp]
+/// but with non-nullable parameters and no need to create a Tween.
+@visibleForTesting
+int lerpInt(int begin, int end, double t) =>
+    begin + ((end - begin) * t).round();
+
+/// A static method that behaves identically to [Tween<double>.lerp]
+/// but with non-nullable parameters and no need to create a Tween.
+///
+/// Note that there is a similar function in `dart:ui`, but it has a
+/// bizarre handling of null values (defaults them to 0.0) which is not
+/// desired here.
+@visibleForTesting
+double lerpDouble(double begin, double end, double t) =>
+    begin + (end - begin) * t;
