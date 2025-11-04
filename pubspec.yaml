@@ -1,6 +1,6 @@
 name: nes_ui
 description: UI library inspired by old retro video game console
-version: 0.27.0
+version: 0.28.0
 repository: https://github.com/erickzanardo/nes_ui
 
 environment:

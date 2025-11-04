@@ -827,6 +827,13 @@ class NesIconCollection {
       '8,8;1,-1;6,0;2,-1;6,0;2,-1;6,0;2,-1;6,0;2,-1;6,0;2,-1;6,1;1,-1;16,0',
     ),
   );
+
+  /// WaterCan
+  late final waterCan = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;10,-1;4,0;4,-1;5,0;1,-1;1,0;1,-1;4,0;1,-1;7,0;1,-1;1,0;1,-1;5,0;1,-1;1,0;2,-1;5,0;9,-1',
+    ),
+  );
 }
 
 /// {@template nes_icon}
