@@ -1,4 +1,5 @@
 # 0.28.0
+ - feat: adding `NesIcons.waterCan`.
  - feat: add `buttonsWidth` to `NesConfirmDialog`
 
 # 0.27.0
