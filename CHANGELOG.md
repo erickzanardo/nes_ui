@@ -1,3 +1,6 @@
+# 0.28.0
+ - feat: add `buttonsWidth` to `NesConfirmDialog`
+
 # 0.27.0
  - feat: adding `buttonWidth` attribute to `NesButton.text` constructor.
  - feat: adding `iconSize` attribute to `NesButton.icon` constructor.

@@ -14,6 +14,7 @@ class NesConfirmDialog extends StatefulWidget {
     required this.cancelLabel,
     required this.message,
     this.shortcutsNotifier,
+    this.buttonsWidth,
     super.key,
   });
 
@@ -29,6 +30,9 @@ class NesConfirmDialog extends StatefulWidget {
   /// A notifier that can be used to pass down shortcuts events.
   final ValueNotifier<bool?>? shortcutsNotifier;
 
+  /// The width of the buttons.
+  final double? buttonsWidth;
+
   /// A shortcut method that can be used to show this dialog.
   ///
   /// Defaults:
@@ -43,6 +47,7 @@ class NesConfirmDialog extends StatefulWidget {
     NesDialogFrame frame = const NesBasicDialogFrame(),
     bool Function()? onShortcutClose,
     NesDialogConfirmAction Function()? onShortcutConfirm,
+    double? buttonsWidth,
   }) async {
     final notifier = ValueNotifier<bool?>(null);
 
@@ -53,6 +58,7 @@ class NesConfirmDialog extends StatefulWidget {
         cancelLabel: cancelLabel,
         message: message,
         shortcutsNotifier: notifier,
+        buttonsWidth: buttonsWidth,
       ),
       onShortcutClose: onShortcutClose ??
           () {
@@ -108,17 +114,19 @@ class _NesConfirmDialogState extends State<NesConfirmDialog> {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            NesButton(
+            NesButton.text(
               type: NesButtonType.warning,
-              child: Text(widget.cancelLabel),
+              text: widget.cancelLabel,
+              buttonWidth: widget.buttonsWidth,
               onPressed: () {
                 Navigator.of(context).pop(false);
               },
             ),
             const SizedBox(width: 16),
-            NesButton(
+            NesButton.text(
               type: NesButtonType.primary,
-              child: Text(widget.confirmLabel),
+              text: widget.confirmLabel,
+              buttonWidth: widget.buttonsWidth,
               onPressed: () {
                 Navigator.of(context).pop(true);
               },
