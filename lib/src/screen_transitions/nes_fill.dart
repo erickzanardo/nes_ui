@@ -43,9 +43,16 @@ class NesFillTransition extends NesOverlayTransitionWidget {
         Positioned(
           width: size.width * value,
           height: size.height * value,
-          child: ColoredBox(color: overlayTransitionTheme.color),
+          child: NesFillColoredBox(color: overlayTransitionTheme.color),
         ),
       ],
     );
   }
+}
+
+@visibleForTesting
+// ignore: public_member_api_docs
+class NesFillColoredBox extends ColoredBox {
+  /// Creates a NesFillColoredBox.
+  const NesFillColoredBox({super.key, required super.color});
 }
