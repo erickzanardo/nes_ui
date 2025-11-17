@@ -57,7 +57,7 @@ void main() {
         ),
       );
 
-      expect(find.byType(ColoredBox), findsNWidgets(2));
+      expect(find.byType(NesHorizontalCloseColoredBox), findsNWidgets(2));
     });
   });
 }

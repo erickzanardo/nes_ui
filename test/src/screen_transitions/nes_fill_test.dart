@@ -57,7 +57,7 @@ void main() {
         ),
       );
 
-      expect(find.byType(ColoredBox), findsOneWidget);
+      expect(find.byType(NesFillColoredBox), findsOneWidget);
     });
   });
 }

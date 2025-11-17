@@ -45,16 +45,27 @@ class NesVerticalCloseTransition extends NesOverlayTransitionWidget {
           left: 0,
           right: 0,
           height: half * value,
-          child: ColoredBox(color: overlayTransitionTheme.color),
+          child: NesVerticalCloseColoredBox(
+            color: overlayTransitionTheme.color,
+          ),
         ),
         Positioned(
           bottom: 0,
           left: 0,
           right: 0,
           top: height - (half * value),
-          child: ColoredBox(color: overlayTransitionTheme.color),
+          child: NesVerticalCloseColoredBox(
+            color: overlayTransitionTheme.color,
+          ),
         ),
       ],
     );
   }
+}
+
+@visibleForTesting
+// ignore: public_member_api_docs
+class NesVerticalCloseColoredBox extends ColoredBox {
+  /// Creates a NesVerticalCloseColoredBox.
+  const NesVerticalCloseColoredBox({super.key, required super.color});
 }

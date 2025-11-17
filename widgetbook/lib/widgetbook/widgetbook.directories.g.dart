@@ -47,6 +47,8 @@ import 'package:widgetbook_app/widgetbook/use_cases/progress_bar.dart'
     as _widgetbook_app_widgetbook_use_cases_progress_bar;
 import 'package:widgetbook_app/widgetbook/use_cases/running_texts.dart'
     as _widgetbook_app_widgetbook_use_cases_running_texts;
+import 'package:widgetbook_app/widgetbook/use_cases/screen_transitions.dart'
+    as _widgetbook_app_widgetbook_use_cases_screen_transitions;
 import 'package:widgetbook_app/widgetbook/use_cases/tabs.dart'
     as _widgetbook_app_widgetbook_use_cases_tabs;
 import 'package:widgetbook_app/widgetbook/use_cases/tooltips.dart'
@@ -55,6 +57,61 @@ import 'package:widgetbook_app/widgetbook/use_cases/typography.dart'
     as _widgetbook_app_widgetbook_use_cases_typography;
 
 final directories = <_widgetbook.WidgetbookNode>[
+  _widgetbook.WidgetbookFolder(
+    name: 'screen_transitions',
+    children: [
+      _widgetbook.WidgetbookComponent(
+        name: 'NesFillTransition',
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'default',
+            builder:
+                _widgetbook_app_widgetbook_use_cases_screen_transitions.fill,
+          )
+        ],
+      ),
+      _widgetbook.WidgetbookComponent(
+        name: 'NesHorizontalCloseTransition',
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'default',
+            builder: _widgetbook_app_widgetbook_use_cases_screen_transitions
+                .horizontalClose,
+          )
+        ],
+      ),
+      _widgetbook.WidgetbookComponent(
+        name: 'NesHorizontalGridTransition',
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'default',
+            builder: _widgetbook_app_widgetbook_use_cases_screen_transitions
+                .horizontalGrid,
+          )
+        ],
+      ),
+      _widgetbook.WidgetbookComponent(
+        name: 'NesVerticalCloseTransition',
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'default',
+            builder: _widgetbook_app_widgetbook_use_cases_screen_transitions
+                .verticalClose,
+          )
+        ],
+      ),
+      _widgetbook.WidgetbookComponent(
+        name: 'NesVerticalGridTransition',
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'default',
+            builder: _widgetbook_app_widgetbook_use_cases_screen_transitions
+                .verticalGrid,
+          )
+        ],
+      ),
+    ],
+  ),
   _widgetbook.WidgetbookFolder(
     name: 'widgets',
     children: [
@@ -421,5 +478,5 @@ final directories = <_widgetbook.WidgetbookNode>[
         ],
       ),
     ],
-  )
+  ),
 ];
