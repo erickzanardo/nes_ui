@@ -88,7 +88,10 @@ class NesScaffoldMessengerState extends State<NesScaffoldMessenger> {
       id: _snackbarId++,
       snackbar: snackbar,
       alignment: alignment,
-      offset: Offset(alignment.x, 0),
+      offset: Offset(
+        alignment.x + alignment.x,
+        alignment.y + alignment.y,
+      ),
     );
     _snackbars.value = [
       ..._snackbars.value,
@@ -111,7 +114,10 @@ class NesScaffoldMessengerState extends State<NesScaffoldMessenger> {
         if (e.id == message.id) {
           return e.copyWith(
             markForRemoval: true,
-            offset: Offset(alignment.x, 0),
+            offset: Offset(
+              alignment.x + alignment.x,
+              alignment.y + alignment.y,
+            ),
           );
         }
         return e;

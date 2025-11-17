@@ -49,6 +49,8 @@ import 'package:widgetbook_app/widgetbook/use_cases/running_texts.dart'
     as _widgetbook_app_widgetbook_use_cases_running_texts;
 import 'package:widgetbook_app/widgetbook/use_cases/screen_transitions.dart'
     as _widgetbook_app_widgetbook_use_cases_screen_transitions;
+import 'package:widgetbook_app/widgetbook/use_cases/snackbar.dart'
+    as _widgetbook_app_widgetbook_use_cases_snackbar;
 import 'package:widgetbook_app/widgetbook/use_cases/tabs.dart'
     as _widgetbook_app_widgetbook_use_cases_tabs;
 import 'package:widgetbook_app/widgetbook/use_cases/tooltips.dart'
@@ -267,6 +269,43 @@ final directories = <_widgetbook.WidgetbookNode>[
             name: 'default',
             builder: _widgetbook_app_widgetbook_use_cases_running_texts.lines,
           )
+        ],
+      ),
+      _widgetbook.WidgetbookComponent(
+        name: 'NesSnackbar',
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'bottomCenter',
+            builder: _widgetbook_app_widgetbook_use_cases_snackbar.bottomCenter,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'bottomLeft',
+            builder: _widgetbook_app_widgetbook_use_cases_snackbar.bottomLeft,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'bottomRight',
+            builder: _widgetbook_app_widgetbook_use_cases_snackbar.bottomRight,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'centerLeft',
+            builder: _widgetbook_app_widgetbook_use_cases_snackbar.centerLeft,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'centerRight',
+            builder: _widgetbook_app_widgetbook_use_cases_snackbar.centerRight,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'topCenter',
+            builder: _widgetbook_app_widgetbook_use_cases_snackbar.topCenter,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'topLeft',
+            builder: _widgetbook_app_widgetbook_use_cases_snackbar.topLeft,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'topRight',
+            builder: _widgetbook_app_widgetbook_use_cases_snackbar.topRight,
+          ),
         ],
       ),
       _widgetbook.WidgetbookComponent(
