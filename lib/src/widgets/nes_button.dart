@@ -1,3 +1,5 @@
+import 'dart:nativewrappers/_internal/vm/lib/ffi_native_type_patch.dart';
+
 import 'package:flutter/material.dart';
 import 'package:nes_ui/nes_ui.dart';
 import 'package:nes_ui/src/extensions/color.dart';
@@ -45,7 +47,10 @@ class NesButton extends StatefulWidget {
     required this.type,
     required this.child,
     this.onPressed,
-  }) : _isDisabled = onPressed == null;
+    this.onPressDown,
+    this.onPressUp,
+  }) : _isDisabled =
+            onPressed == null && onPressDown == null && onPressUp == null;
 
   /// {@macro nes_button}
   ///
@@ -55,12 +60,16 @@ class NesButton extends StatefulWidget {
     required NesButtonType type,
     required NesIconData icon,
     VoidCallback? onPressed,
+    VoidCallback? onPressDown,
+    VoidCallback? onPressUp,
     Size? iconSize,
   }) : this(
           key: key,
           type: type,
           child: NesIcon(iconData: icon, size: iconSize),
           onPressed: onPressed,
+          onPressDown: onPressDown,
+          onPressUp: onPressUp,
         );
 
   /// {@macro nes_button}
@@ -72,6 +81,8 @@ class NesButton extends StatefulWidget {
     required String text,
     double? buttonWidth,
     VoidCallback? onPressed,
+    VoidCallback? onPressDown,
+    VoidCallback? onPressUp,
   }) : this(
           key: key,
           type: type,
@@ -82,6 +93,8 @@ class NesButton extends StatefulWidget {
                 )
               : Text(text),
           onPressed: onPressed,
+          onPressDown: onPressDown,
+          onPressUp: onPressUp,
         );
 
   /// {@macro nes_button}
@@ -93,6 +106,8 @@ class NesButton extends StatefulWidget {
     required NesIconData icon,
     required String text,
     VoidCallback? onPressed,
+    VoidCallback? onPressDown,
+    VoidCallback? onPressUp,
   }) : this(
           key: key,
           type: type,
@@ -105,6 +120,8 @@ class NesButton extends StatefulWidget {
             ],
           ),
           onPressed: onPressed,
+          onPressDown: onPressDown,
+          onPressUp: onPressUp,
         );
 
   /// Determines the colors used to render the button.
@@ -115,6 +132,12 @@ class NesButton extends StatefulWidget {
 
   /// The callback called the button is pressed.
   final VoidCallback? onPressed;
+
+  /// The callback called when the button is pressed down.
+  final VoidCallback? onPressDown;
+
+  /// The callback called when the button is released.
+  final VoidCallback? onPressUp;
 
   /// Whether the button is disabled.
   final bool _isDisabled;
@@ -163,9 +186,11 @@ class _NesButtonState extends State<NesButton> {
       child: GestureDetector(
         onTap: widget.onPressed,
         onTapDown: (_) {
+          widget.onPressDown?.call();
           setState(() => _pressed = true);
         },
         onTapUp: (_) {
+          widget.onPressUp?.call();
           setState(() => _pressed = false);
         },
         onTapCancel: () {
