@@ -6,6 +6,7 @@
  - feat: Enhancing NesButton to add `onPressDown` and `onPressUp`
  - feat: adding `NesIcons.home`.
  - feat: adding `NesIcons.windmill`.
+ - feat: adding `NesIcons.sawmill`.
 
 # 0.27.0
  - feat: adding `buttonWidth` attribute to `NesButton.text` constructor.
