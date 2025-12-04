@@ -463,6 +463,10 @@ Widget normal(BuildContext context) => SingleChildScrollView(
             data: NesIcons.home,
             label: 'home',
           ),
+          _IconEntry(
+            data: NesIcons.windmill,
+            label: 'windmill',
+          ),
         ],
       ),
     );
