@@ -4,6 +4,7 @@
  - fix: Fixes for Flutter 3.38.x
  - fix: Snackbar was not proper animating
  - feat: Enhancing NesButton to add `onPressDown` and `onPressUp`
+ - feat: adding `NesIcons.home`.
 
 # 0.27.0
  - feat: adding `buttonWidth` attribute to `NesButton.text` constructor.
