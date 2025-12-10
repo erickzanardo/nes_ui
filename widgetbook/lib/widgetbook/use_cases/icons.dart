@@ -471,6 +471,14 @@ Widget normal(BuildContext context) => SingleChildScrollView(
             data: NesIcons.sawmill,
             label: 'sawmill',
           ),
+          _IconEntry(
+            data: NesIcons.pin,
+            label: 'pin',
+          ),
+          _IconEntry(
+            data: NesIcons.unpin,
+            label: 'unpin',
+          ),
         ],
       ),
     );
