@@ -9,6 +9,7 @@
  - feat: adding `NesIcons.sawmill`.
  - feat: adding `NesIcons.pin`.
  - feat: adding `NesIcons.unpin`.
+ - feat: adding `NesIcons.exit`.
 
 # 0.27.0
  - feat: adding `buttonWidth` attribute to `NesButton.text` constructor.
