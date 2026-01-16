@@ -483,6 +483,10 @@ Widget normal(BuildContext context) => SingleChildScrollView(
             data: NesIcons.exit,
             label: 'exit',
           ),
+          _IconEntry(
+            data: NesIcons.suitcase,
+            label: 'suitcase',
+          ),
         ],
       ),
     );
