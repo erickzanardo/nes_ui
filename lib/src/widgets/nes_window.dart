@@ -48,7 +48,7 @@ class NesWindow extends StatelessWidget {
   ///
   /// These actions are display alongside the close icon (if provided) in
   /// the title bar.
-  final List<(NesIconData, VoidCallback)> actions;
+  final List<(NesIconData, VoidCallback?)> actions;
 
   /// Called when the window is closed.
   final VoidCallback? onClose;
