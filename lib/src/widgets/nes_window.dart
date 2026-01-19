@@ -110,6 +110,8 @@ class NesWindow extends StatelessWidget {
                 icon: action.$1,
                 size: iconSize,
                 onPress: action.$2,
+                primaryColor: containerColor,
+                secondaryColor: textStyle.color,
               ),
             ),
             if (onClose != null)
@@ -117,6 +119,8 @@ class NesWindow extends StatelessWidget {
                 icon: NesIcons.close,
                 size: iconSize,
                 onPress: onClose,
+                primaryColor: containerColor,
+                secondaryColor: textStyle.color,
               ),
             SizedBox(width: titleBarPadding),
           ],
