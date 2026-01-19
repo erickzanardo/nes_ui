@@ -21,6 +21,7 @@ class NesWindow extends StatelessWidget {
     this.icon,
     this.onResize,
     this.onMove,
+    this.actions = const [],
     this.onClose,
     this.child,
   });
@@ -42,6 +43,12 @@ class NesWindow extends StatelessWidget {
 
   /// Called when the window is moved.
   final void Function(Offset)? onMove;
+
+  /// The window actions.
+  ///
+  /// These actions are display alongside the close icon (if provided) in
+  /// the title bar.
+  final List<(NesIconData, VoidCallback)> actions;
 
   /// Called when the window is closed.
   final VoidCallback? onClose;
@@ -99,11 +106,18 @@ class NesWindow extends StatelessWidget {
                 ),
               ),
             if (onClose != null)
-              NesIconButton(
-                icon: NesIcons.close,
-                size: iconSize,
-                onPress: onClose,
+              ...actions.map(
+                (action) => NesIconButton(
+                  icon: action.$1,
+                  size: iconSize,
+                  onPress: action.$2,
+                ),
               ),
+            NesIconButton(
+              icon: NesIcons.close,
+              size: iconSize,
+              onPress: onClose,
+            ),
             SizedBox(width: titleBarPadding),
           ],
         ),
