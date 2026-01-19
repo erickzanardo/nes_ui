@@ -1,11 +1,11 @@
 {
-    "name": "widgetbook",
-    "short_name": "widgetbook",
+    "name": "widgetbook_workspace",
+    "short_name": "widgetbook_workspace",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "Widgetbook for NES UI",
+    "description": "Widgetbook workspace",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

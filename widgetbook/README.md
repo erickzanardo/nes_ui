@@ -1,3 +1,3 @@
-# widgetbook
+# widgetbook_workspace
 
-Widgetbook for NES UI
+Widgetbook workspace

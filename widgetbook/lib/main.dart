@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:widgetbook_app/widgetbook/widgetbook.dart';
+import 'package:widgetbook/widgetbook.dart';
+
+import 'widgetbook.config.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const WidgetbookApp());
+  runWidgetbook(config);
 }
