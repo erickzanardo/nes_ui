@@ -105,19 +105,19 @@ class NesWindow extends StatelessWidget {
                   ),
                 ),
               ),
-            if (onClose != null)
-              ...actions.map(
-                (action) => NesIconButton(
-                  icon: action.$1,
-                  size: iconSize,
-                  onPress: action.$2,
-                ),
+            ...actions.map(
+              (action) => NesIconButton(
+                icon: action.$1,
+                size: iconSize,
+                onPress: action.$2,
               ),
-            NesIconButton(
-              icon: NesIcons.close,
-              size: iconSize,
-              onPress: onClose,
             ),
+            if (onClose != null)
+              NesIconButton(
+                icon: NesIcons.close,
+                size: iconSize,
+                onPress: onClose,
+              ),
             SizedBox(width: titleBarPadding),
           ],
         ),
