@@ -106,13 +106,14 @@ class NesButton extends StatefulWidget {
     VoidCallback? onPressed,
     VoidCallback? onPressDown,
     VoidCallback? onPressUp,
+    Size? iconSize,
   }) : this(
           key: key,
           type: type,
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              NesIcon(iconData: icon),
+              NesIcon(iconData: icon, size: iconSize),
               const SizedBox(width: 8),
               Text(text),
             ],
