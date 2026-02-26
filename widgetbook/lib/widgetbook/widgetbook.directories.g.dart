@@ -31,6 +31,8 @@ import 'package:widgetbook_app/widgetbook/use_cases/dpads.dart'
     as _widgetbook_app_widgetbook_use_cases_dpads;
 import 'package:widgetbook_app/widgetbook/use_cases/dropdown_menus.dart'
     as _widgetbook_app_widgetbook_use_cases_dropdown_menus;
+import 'package:widgetbook_app/widgetbook/use_cases/dropshadow.dart'
+    as _widgetbook_app_widgetbook_use_cases_dropshadow;
 import 'package:widgetbook_app/widgetbook/use_cases/icon_badge.dart'
     as _widgetbook_app_widgetbook_use_cases_icon_badge;
 import 'package:widgetbook_app/widgetbook/use_cases/icons.dart'
@@ -202,6 +204,20 @@ final directories = <_widgetbook.WidgetbookNode>[
           _widgetbook.WidgetbookUseCase(
             name: 'with icons',
             builder: _widgetbook_app_widgetbook_use_cases_dropdown_menus.icons,
+          ),
+        ],
+      ),
+      _widgetbook.WidgetbookComponent(
+        name: 'NesDropshadow',
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'custom offset',
+            builder:
+                _widgetbook_app_widgetbook_use_cases_dropshadow.customOffset,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'default',
+            builder: _widgetbook_app_widgetbook_use_cases_dropshadow.normal,
           ),
         ],
       ),
