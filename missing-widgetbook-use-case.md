@@ -5,7 +5,6 @@ The following widgets do not have a Widgetbook use case:
 ## Main Widgets
 
 - NesFixedViewport
-- NesIconButton
 - NesScrollbar
 
 ## Support widgets that don't need use cases
