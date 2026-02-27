@@ -12,7 +12,6 @@ The following widgets do not have a Widgetbook use case:
 - NesPulser
 - NesScrollbar
 - NesSectionHeader
-- NesTab
 - NesWindow
 
 ## Support widgets that don't need use cases
@@ -27,4 +26,4 @@ The following widgets do not have a Widgetbook use case:
 - NesContainerRoundedBorderPainter
 - NesContainerSquareCornerPainter
 
-**Total: 10 main widgets missing widgetbook use cases.**
+**Total: 9 main widgets missing widgetbook use cases.**

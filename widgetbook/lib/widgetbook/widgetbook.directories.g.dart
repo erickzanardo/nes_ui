@@ -63,6 +63,8 @@ import 'package:widgetbook_app/widgetbook/use_cases/snackbar.dart'
     as _widgetbook_app_widgetbook_use_cases_snackbar;
 import 'package:widgetbook_app/widgetbook/use_cases/split_panel.dart'
     as _widgetbook_app_widgetbook_use_cases_split_panel;
+import 'package:widgetbook_app/widgetbook/use_cases/tab.dart'
+    as _widgetbook_app_widgetbook_use_cases_tab;
 import 'package:widgetbook_app/widgetbook/use_cases/tabs.dart'
     as _widgetbook_app_widgetbook_use_cases_tabs;
 import 'package:widgetbook_app/widgetbook/use_cases/tooltips.dart'
@@ -432,6 +434,36 @@ final directories = <_widgetbook.WidgetbookNode>[
             name: 'with initial sizes',
             builder: _widgetbook_app_widgetbook_use_cases_split_panel
                 .withInitialSizes,
+          ),
+        ],
+      ),
+      _widgetbook.WidgetbookComponent(
+        name: 'NesTab',
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'default',
+            builder: _widgetbook_app_widgetbook_use_cases_tab.normal,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'selected',
+            builder: _widgetbook_app_widgetbook_use_cases_tab.selected,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'selected with close button',
+            builder: _widgetbook_app_widgetbook_use_cases_tab
+                .selectedWithCloseButton,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'with close button',
+            builder: _widgetbook_app_widgetbook_use_cases_tab.withCloseButton,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'with icon',
+            builder: _widgetbook_app_widgetbook_use_cases_tab.withIcon,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'with icon only',
+            builder: _widgetbook_app_widgetbook_use_cases_tab.withIconOnly,
           ),
         ],
       ),
