@@ -101,8 +101,7 @@ class _NesScrollbarState extends State<NesScrollbar> {
         : constraints.maxWidth;
 
     final maxOffset = constraintSize - handlerSize - 48;
-    final newOffset =
-        widget.scrollController.offset +
+    final newOffset = widget.scrollController.offset +
         (offset / maxOffset) * widget.scrollController.position.maxScrollExtent;
     widget.scrollController.jumpTo(newOffset);
   }
@@ -125,8 +124,7 @@ class _NesScrollbarState extends State<NesScrollbar> {
 
         final handlerSize = _calculateHandlerSize(constraintSize);
 
-        final handlerPosition =
-            20 +
+        final handlerPosition = 20 +
             ((widget.scrollController.offset /
                     widget.scrollController.position.maxScrollExtent) *
                 (constraintSize - handlerSize - 48));
@@ -160,9 +158,8 @@ class _NesScrollbarState extends State<NesScrollbar> {
               if (_isScrollable())
                 Positioned(
                   top: widget.direction == Axis.vertical ? handlerPosition : 2,
-                  left: widget.direction == Axis.horizontal
-                      ? handlerPosition
-                      : 2,
+                  left:
+                      widget.direction == Axis.horizontal ? handlerPosition : 2,
                   child: GestureDetector(
                     onPanUpdate: (details) {
                       final offset = widget.direction == Axis.vertical

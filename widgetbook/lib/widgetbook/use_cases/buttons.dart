@@ -5,8 +5,8 @@ import 'package:nes_ui/nes_ui.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
 Widget build({required NesButtonType type, required String text}) => Center(
-  child: NesButton(onPressed: () {}, type: type, child: Text(text)),
-);
+      child: NesButton(onPressed: () {}, type: type, child: Text(text)),
+    );
 
 @widgetbook.UseCase(name: 'normal', type: NesButton)
 Widget normal(BuildContext context) =>

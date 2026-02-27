@@ -73,12 +73,12 @@ class NesTerminalLoadingIndicator extends StatelessWidget {
 
 class _TerminalLoadingIndicator extends Phased<String> {
   _TerminalLoadingIndicator()
-    : super(
-        state: PhasedState<String>(
-          values: ['|', '/', '-', r'\'],
-          ticker: const Duration(milliseconds: 200),
-        ),
-      );
+      : super(
+          state: PhasedState<String>(
+            values: ['|', '/', '-', r'\'],
+            ticker: const Duration(milliseconds: 200),
+          ),
+        );
 
   @override
   Widget build(BuildContext context) {
@@ -111,12 +111,12 @@ class NesJumpingIconsLoadingIndicator extends StatelessWidget {
 
 class _JumpingIcons extends Phased<int> {
   _JumpingIcons(this.icons, this.offset)
-    : super(
-        state: PhasedState<int>(
-          values: List.generate(icons.length + 2, (index) => index),
-          ticker: const Duration(milliseconds: 200),
-        ),
-      );
+      : super(
+          state: PhasedState<int>(
+            values: List.generate(icons.length + 2, (index) => index),
+            ticker: const Duration(milliseconds: 200),
+          ),
+        );
 
   final List<NesIconData> icons;
   final Offset offset;
@@ -161,15 +161,17 @@ class NesMutatingIconsLoadingIndicator extends StatelessWidget {
 
 class _MutatingIcon extends Phased<double> {
   _MutatingIcon(this.icons)
-    : super(
-        state: PhasedState<double>(
-          values: List.generate(
-            icons.length,
-            (index) => index.toDouble(),
-          ).expand((element) => [element, element + .2, element + .4]).toList(),
-          ticker: const Duration(milliseconds: 500),
-        ),
-      );
+      : super(
+          state: PhasedState<double>(
+            values: List.generate(
+              icons.length,
+              (index) => index.toDouble(),
+            )
+                .expand((element) => [element, element + .2, element + .4])
+                .toList(),
+            ticker: const Duration(milliseconds: 500),
+          ),
+        );
 
   final List<NesIconData> icons;
 
@@ -210,8 +212,7 @@ class NesPixelRowLoadingIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color =
-        this.color ??
+    final color = this.color ??
         Theme.of(context).textTheme.bodyMedium?.color ??
         Colors.black;
     final size =
@@ -223,12 +224,12 @@ class NesPixelRowLoadingIndicator extends StatelessWidget {
 
 class _PixelRow extends Phased<int> {
   _PixelRow({required this.count, required this.color, required this.size})
-    : super(
-        state: PhasedState<int>(
-          values: List.generate(count, (index) => index),
-          ticker: const Duration(milliseconds: 200),
-        ),
-      );
+      : super(
+          state: PhasedState<int>(
+            values: List.generate(count, (index) => index),
+            ticker: const Duration(milliseconds: 200),
+          ),
+        );
 
   final int count;
   final Color color;

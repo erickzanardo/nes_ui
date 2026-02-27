@@ -6,14 +6,14 @@ import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
 @widgetbook.UseCase(name: 'default', type: NesIconBadge)
 Widget normal(BuildContext context) => Center(
-  child: NesIconBadge(iconData: NesIcons.gamepad, badge: '1'),
-);
+      child: NesIconBadge(iconData: NesIcons.gamepad, badge: '1'),
+    );
 
 @widgetbook.UseCase(name: 'custom size', type: NesIconBadge)
 Widget customSize(BuildContext context) => Center(
-  child: NesIconBadge(
-    iconData: NesIcons.gamepad,
-    badge: '99+',
-    size: const Size(48, 48),
-  ),
-);
+      child: NesIconBadge(
+        iconData: NesIcons.gamepad,
+        badge: '99+',
+        size: const Size(48, 48),
+      ),
+    );

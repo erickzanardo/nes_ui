@@ -48,7 +48,7 @@ class NesButton extends StatefulWidget {
     this.onPressDown,
     this.onPressUp,
   }) : _isDisabled =
-           onPressed == null && onPressDown == null && onPressUp == null;
+            onPressed == null && onPressDown == null && onPressUp == null;
 
   /// {@macro nes_button}
   ///
@@ -62,13 +62,13 @@ class NesButton extends StatefulWidget {
     VoidCallback? onPressUp,
     Size? iconSize,
   }) : this(
-         key: key,
-         type: type,
-         child: NesIcon(iconData: icon, size: iconSize),
-         onPressed: onPressed,
-         onPressDown: onPressDown,
-         onPressUp: onPressUp,
-       );
+          key: key,
+          type: type,
+          child: NesIcon(iconData: icon, size: iconSize),
+          onPressed: onPressed,
+          onPressDown: onPressDown,
+          onPressUp: onPressUp,
+        );
 
   /// {@macro nes_button}
   ///
@@ -82,18 +82,18 @@ class NesButton extends StatefulWidget {
     VoidCallback? onPressDown,
     VoidCallback? onPressUp,
   }) : this(
-         key: key,
-         type: type,
-         child: buttonWidth != null
-             ? SizedBox(
-                 width: buttonWidth,
-                 child: Center(child: Text(text)),
-               )
-             : Text(text),
-         onPressed: onPressed,
-         onPressDown: onPressDown,
-         onPressUp: onPressUp,
-       );
+          key: key,
+          type: type,
+          child: buttonWidth != null
+              ? SizedBox(
+                  width: buttonWidth,
+                  child: Center(child: Text(text)),
+                )
+              : Text(text),
+          onPressed: onPressed,
+          onPressDown: onPressDown,
+          onPressUp: onPressUp,
+        );
 
   /// {@macro nes_button}
   ///
@@ -108,20 +108,20 @@ class NesButton extends StatefulWidget {
     VoidCallback? onPressUp,
     Size? iconSize,
   }) : this(
-         key: key,
-         type: type,
-         child: Row(
-           mainAxisSize: MainAxisSize.min,
-           children: [
-             NesIcon(iconData: icon, size: iconSize),
-             const SizedBox(width: 8),
-             Text(text),
-           ],
-         ),
-         onPressed: onPressed,
-         onPressDown: onPressDown,
-         onPressUp: onPressUp,
-       );
+          key: key,
+          type: type,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              NesIcon(iconData: icon, size: iconSize),
+              const SizedBox(width: 8),
+              Text(text),
+            ],
+          ),
+          onPressed: onPressed,
+          onPressDown: onPressDown,
+          onPressUp: onPressUp,
+        );
 
   /// Determines the colors used to render the button.
   final NesButtonType type;
@@ -227,14 +227,13 @@ class _NesButtonState extends State<NesButton> {
 }
 
 /// Definition of a function that builds a [CustomPainter] used in the buttons.
-typedef NesButtonPainterBuilder =
-    CustomPainter Function({
-      required Color color,
-      required Color borderColor,
-      required int pixelSize,
-      required bool pressed,
-      required bool hovered,
-    });
+typedef NesButtonPainterBuilder = CustomPainter Function({
+  required Color color,
+  required Color borderColor,
+  required int pixelSize,
+  required bool pressed,
+  required bool hovered,
+});
 
 /// {@template nes_button_painter}
 /// Default custom painter for [NesButton].
