@@ -335,24 +335,23 @@ final directories = <_widgetbook.WidgetbookNode>[
                 _widgetbook_app_widgetbook_use_cases_split_panel.defaultCase,
           ),
           _widgetbook.WidgetbookUseCase(
-            name: 'with custom resizer size',
-            builder:
-                _widgetbook_app_widgetbook_use_cases_split_panel.customResizerSize,
-          ),
-          _widgetbook.WidgetbookUseCase(
             name: 'nested panels',
             builder:
                 _widgetbook_app_widgetbook_use_cases_split_panel.nestedPanels,
           ),
           _widgetbook.WidgetbookUseCase(
             name: 'vertical',
-            builder:
-                _widgetbook_app_widgetbook_use_cases_split_panel.vertical,
+            builder: _widgetbook_app_widgetbook_use_cases_split_panel.vertical,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'with custom resizer size',
+            builder: _widgetbook_app_widgetbook_use_cases_split_panel
+                .customResizerSize,
           ),
           _widgetbook.WidgetbookUseCase(
             name: 'with initial sizes',
-            builder:
-                _widgetbook_app_widgetbook_use_cases_split_panel.withInitialSizes,
+            builder: _widgetbook_app_widgetbook_use_cases_split_panel
+                .withInitialSizes,
           ),
         ],
       ),
