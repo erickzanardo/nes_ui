@@ -66,7 +66,9 @@ Widget selectedWithCloseButton(BuildContext context) => const Center(
         padding: EdgeInsets.all(32),
         child: NesTab(
           tab: NesTabItem(
-              child: SizedBox.shrink(), label: 'Closable Selected Tab',),
+            child: SizedBox.shrink(),
+            label: 'Closable Selected Tab',
+          ),
           selected: true,
           onClosed: _emptyCallback,
         ),
