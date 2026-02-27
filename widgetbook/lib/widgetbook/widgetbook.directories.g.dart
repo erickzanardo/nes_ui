@@ -35,6 +35,8 @@ import 'package:widgetbook_app/widgetbook/use_cases/dropshadow.dart'
     as _widgetbook_app_widgetbook_use_cases_dropshadow;
 import 'package:widgetbook_app/widgetbook/use_cases/file_explorer.dart'
     as _widgetbook_app_widgetbook_use_cases_file_explorer;
+import 'package:widgetbook_app/widgetbook/use_cases/fixed_viewport.dart'
+    as _widgetbook_app_widgetbook_use_cases_fixed_viewport;
 import 'package:widgetbook_app/widgetbook/use_cases/icon_badge.dart'
     as _widgetbook_app_widgetbook_use_cases_icon_badge;
 import 'package:widgetbook_app/widgetbook/use_cases/icon_button.dart'
@@ -282,6 +284,31 @@ final directories = <_widgetbook.WidgetbookNode>[
             name: 'with custom icons',
             builder:
                 _widgetbook_app_widgetbook_use_cases_file_explorer.customIcons,
+          ),
+        ],
+      ),
+      _widgetbook.WidgetbookComponent(
+        name: 'NesFixedViewport',
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'bottom right alignment',
+            builder: _widgetbook_app_widgetbook_use_cases_fixed_viewport
+                .bottomRightAlignment,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'custom resolution',
+            builder: _widgetbook_app_widgetbook_use_cases_fixed_viewport
+                .customResolution,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'default',
+            builder: _widgetbook_app_widgetbook_use_cases_fixed_viewport
+                .defaultViewport,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'top left alignment',
+            builder: _widgetbook_app_widgetbook_use_cases_fixed_viewport
+                .topLeftAlignment,
           ),
         ],
       ),
