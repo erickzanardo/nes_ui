@@ -9,18 +9,16 @@ import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
   type: NesHourglassLoadingIndicator,
   path: 'widgets/loading indicators',
 )
-Widget hourglass(BuildContext context) => const Center(
-      child: NesHourglassLoadingIndicator(),
-    );
+Widget hourglass(BuildContext context) =>
+    const Center(child: NesHourglassLoadingIndicator());
 
 @widgetbook.UseCase(
   name: 'NesTerminalLoadingIndicator',
   type: NesTerminalLoadingIndicator,
   path: 'widgets/loading indicators',
 )
-Widget terminal(BuildContext context) => const Center(
-      child: NesTerminalLoadingIndicator(),
-    );
+Widget terminal(BuildContext context) =>
+    const Center(child: NesTerminalLoadingIndicator());
 
 @widgetbook.UseCase(
   name: 'NesJumpingIconsLoadingIndicator',
@@ -28,10 +26,10 @@ Widget terminal(BuildContext context) => const Center(
   type: NesJumpingIconsLoadingIndicator,
 )
 Widget jumpingIcons(BuildContext context) => Center(
-      child: NesJumpingIconsLoadingIndicator(
-        icons: [NesIcons.sword, NesIcons.shield, NesIcons.axe],
-      ),
-    );
+  child: NesJumpingIconsLoadingIndicator(
+    icons: [NesIcons.sword, NesIcons.shield, NesIcons.axe],
+  ),
+);
 
 @widgetbook.UseCase(
   name: 'NesMutatingIconsLoadingIndicator',
@@ -39,16 +37,15 @@ Widget jumpingIcons(BuildContext context) => Center(
   type: NesMutatingIconsLoadingIndicator,
 )
 Widget mutatingIcons(BuildContext context) => Center(
-      child: NesMutatingIconsLoadingIndicator(
-        icons: [NesIcons.sword, NesIcons.shield, NesIcons.axe],
-      ),
-    );
+  child: NesMutatingIconsLoadingIndicator(
+    icons: [NesIcons.sword, NesIcons.shield, NesIcons.axe],
+  ),
+);
 
 @widgetbook.UseCase(
   name: 'NesPixelRowLoadingIndicator',
   path: 'widgets/loading indicators',
   type: NesPixelRowLoadingIndicator,
 )
-Widget pixelRow(BuildContext context) => const Center(
-      child: NesPixelRowLoadingIndicator(),
-    );
+Widget pixelRow(BuildContext context) =>
+    const Center(child: NesPixelRowLoadingIndicator());

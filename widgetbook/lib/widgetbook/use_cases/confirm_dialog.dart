@@ -4,10 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:nes_ui/nes_ui.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
-@widgetbook.UseCase(
-  name: 'default',
-  type: NesConfirmDialog,
-)
+@widgetbook.UseCase(name: 'default', type: NesConfirmDialog)
 Widget normal(BuildContext context) {
   bool? lastValue;
   return StatefulBuilder(
@@ -22,7 +19,8 @@ Widget normal(BuildContext context) {
               onPressed: () async {
                 final value = await NesConfirmDialog.show(
                   context: context,
-                  message: 'Are you sure you want to proceed?\n'
+                  message:
+                      'Are you sure you want to proceed?\n'
                       '(Use ENTER to confirm and ESC to cancel)',
                 );
                 setState(() {
@@ -31,9 +29,7 @@ Widget normal(BuildContext context) {
               },
               child: const Text('Show Confirm Dialog'),
             ),
-            Text(
-              'Last value: $lastValue',
-            ),
+            Text('Last value: $lastValue'),
           ],
         ),
       );

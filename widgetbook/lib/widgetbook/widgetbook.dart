@@ -24,10 +24,7 @@ class WidgetbookApp extends StatelessWidget {
         ),
         ThemeAddon(
           themes: [
-            WidgetbookTheme(
-              name: 'Light',
-              data: flutterNesTheme(),
-            ),
+            WidgetbookTheme(name: 'Light', data: flutterNesTheme()),
             WidgetbookTheme(
               name: 'Dark',
               data: flutterNesTheme(brightness: Brightness.dark),

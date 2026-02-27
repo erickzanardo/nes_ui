@@ -11,20 +11,16 @@ import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
   type: NesProgressBar,
   path: 'widgets/progressbar',
 )
-Widget pixel(BuildContext context) => _build(
-      context,
-      NesProgressBarStyle.pixel,
-    );
+Widget pixel(BuildContext context) =>
+    _build(context, NesProgressBarStyle.pixel);
 
 @widgetbook.UseCase(
   name: 'smooth',
   type: NesProgressBar,
   path: 'widgets/progressbar',
 )
-Widget smooth(BuildContext context) => _build(
-      context,
-      NesProgressBarStyle.smooth,
-    );
+Widget smooth(BuildContext context) =>
+    _build(context, NesProgressBarStyle.smooth);
 
 Widget _build(BuildContext context, NesProgressBarStyle style) {
   var value = 0.0;
@@ -45,17 +41,16 @@ Widget _build(BuildContext context, NesProgressBarStyle style) {
                 onPressed: () {
                   timer?.cancel();
                   setState(() {
-                    timer = Timer.periodic(
-                      const Duration(milliseconds: 100),
-                      (Timer timer) {
-                        setState(() {
-                          value += 0.02;
-                        });
-                        if (value >= 1) {
-                          timer.cancel();
-                        }
-                      },
-                    );
+                    timer = Timer.periodic(const Duration(milliseconds: 100), (
+                      Timer timer,
+                    ) {
+                      setState(() {
+                        value += 0.02;
+                      });
+                      if (value >= 1) {
+                        timer.cancel();
+                      }
+                    });
                   });
                 },
                 child: const Text('Start'),

@@ -4,10 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:nes_ui/nes_ui.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
-@widgetbook.UseCase(
-  name: 'bottomCenter',
-  type: NesSnackbar,
-)
+@widgetbook.UseCase(name: 'bottomCenter', type: NesSnackbar)
 Widget bottomCenter(BuildContext context) {
   return NesScaffold(
     body: Builder(
@@ -18,9 +15,7 @@ Widget bottomCenter(BuildContext context) {
             text: 'Show snackbar',
             onPressed: () {
               NesScaffoldMessenger.of(context).showSnackBar(
-                const NesSnackbar(
-                  text: 'This is a snackbar message!',
-                ),
+                const NesSnackbar(text: 'This is a snackbar message!'),
               );
             },
           ),
@@ -30,10 +25,7 @@ Widget bottomCenter(BuildContext context) {
   );
 }
 
-@widgetbook.UseCase(
-  name: 'topCenter',
-  type: NesSnackbar,
-)
+@widgetbook.UseCase(name: 'topCenter', type: NesSnackbar)
 Widget topCenter(BuildContext context) {
   return NesScaffold(
     body: Builder(
@@ -44,9 +36,7 @@ Widget topCenter(BuildContext context) {
             text: 'Show snackbar',
             onPressed: () {
               NesScaffoldMessenger.of(context).showSnackBar(
-                const NesSnackbar(
-                  text: 'This is a snackbar message!',
-                ),
+                const NesSnackbar(text: 'This is a snackbar message!'),
                 alignment: Alignment.topCenter,
               );
             },
@@ -57,10 +47,7 @@ Widget topCenter(BuildContext context) {
   );
 }
 
-@widgetbook.UseCase(
-  name: 'bottomLeft',
-  type: NesSnackbar,
-)
+@widgetbook.UseCase(name: 'bottomLeft', type: NesSnackbar)
 Widget bottomLeft(BuildContext context) {
   return NesScaffold(
     body: Builder(
@@ -71,9 +58,7 @@ Widget bottomLeft(BuildContext context) {
             text: 'Show snackbar',
             onPressed: () {
               NesScaffoldMessenger.of(context).showSnackBar(
-                const NesSnackbar(
-                  text: 'This is a snackbar message!',
-                ),
+                const NesSnackbar(text: 'This is a snackbar message!'),
                 alignment: Alignment.bottomLeft,
               );
             },
@@ -84,10 +69,7 @@ Widget bottomLeft(BuildContext context) {
   );
 }
 
-@widgetbook.UseCase(
-  name: 'bottomRight',
-  type: NesSnackbar,
-)
+@widgetbook.UseCase(name: 'bottomRight', type: NesSnackbar)
 Widget bottomRight(BuildContext context) {
   return NesScaffold(
     body: Builder(
@@ -98,9 +80,7 @@ Widget bottomRight(BuildContext context) {
             text: 'Show snackbar',
             onPressed: () {
               NesScaffoldMessenger.of(context).showSnackBar(
-                const NesSnackbar(
-                  text: 'This is a snackbar message!',
-                ),
+                const NesSnackbar(text: 'This is a snackbar message!'),
                 alignment: Alignment.bottomRight,
               );
             },
@@ -111,10 +91,7 @@ Widget bottomRight(BuildContext context) {
   );
 }
 
-@widgetbook.UseCase(
-  name: 'topLeft',
-  type: NesSnackbar,
-)
+@widgetbook.UseCase(name: 'topLeft', type: NesSnackbar)
 Widget topLeft(BuildContext context) {
   return NesScaffold(
     body: Builder(
@@ -125,9 +102,7 @@ Widget topLeft(BuildContext context) {
             text: 'Show snackbar',
             onPressed: () {
               NesScaffoldMessenger.of(context).showSnackBar(
-                const NesSnackbar(
-                  text: 'This is a snackbar message!',
-                ),
+                const NesSnackbar(text: 'This is a snackbar message!'),
                 alignment: Alignment.topLeft,
               );
             },
@@ -138,10 +113,7 @@ Widget topLeft(BuildContext context) {
   );
 }
 
-@widgetbook.UseCase(
-  name: 'topRight',
-  type: NesSnackbar,
-)
+@widgetbook.UseCase(name: 'topRight', type: NesSnackbar)
 Widget topRight(BuildContext context) {
   return NesScaffold(
     body: Builder(
@@ -152,9 +124,7 @@ Widget topRight(BuildContext context) {
             text: 'Show snackbar',
             onPressed: () {
               NesScaffoldMessenger.of(context).showSnackBar(
-                const NesSnackbar(
-                  text: 'This is a snackbar message!',
-                ),
+                const NesSnackbar(text: 'This is a snackbar message!'),
                 alignment: Alignment.topRight,
               );
             },
@@ -165,10 +135,7 @@ Widget topRight(BuildContext context) {
   );
 }
 
-@widgetbook.UseCase(
-  name: 'centerLeft',
-  type: NesSnackbar,
-)
+@widgetbook.UseCase(name: 'centerLeft', type: NesSnackbar)
 Widget centerLeft(BuildContext context) {
   return NesScaffold(
     body: Builder(
@@ -179,9 +146,7 @@ Widget centerLeft(BuildContext context) {
             text: 'Show snackbar',
             onPressed: () {
               NesScaffoldMessenger.of(context).showSnackBar(
-                const NesSnackbar(
-                  text: 'This is a snackbar message!',
-                ),
+                const NesSnackbar(text: 'This is a snackbar message!'),
                 alignment: Alignment.centerLeft,
               );
             },
@@ -192,10 +157,7 @@ Widget centerLeft(BuildContext context) {
   );
 }
 
-@widgetbook.UseCase(
-  name: 'centerRight',
-  type: NesSnackbar,
-)
+@widgetbook.UseCase(name: 'centerRight', type: NesSnackbar)
 Widget centerRight(BuildContext context) {
   return NesScaffold(
     body: Builder(
@@ -206,9 +168,7 @@ Widget centerRight(BuildContext context) {
             text: 'Show snackbar',
             onPressed: () {
               NesScaffoldMessenger.of(context).showSnackBar(
-                const NesSnackbar(
-                  text: 'This is a snackbar message!',
-                ),
+                const NesSnackbar(text: 'This is a snackbar message!'),
                 alignment: Alignment.centerRight,
               );
             },

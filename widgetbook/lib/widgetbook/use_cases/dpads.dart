@@ -4,24 +4,14 @@ import 'package:flutter/widgets.dart';
 import 'package:nes_ui/nes_ui.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
-@widgetbook.UseCase(
-  name: 'default',
-  type: NesDpad,
-)
+@widgetbook.UseCase(name: 'default', type: NesDpad)
 Widget normal(BuildContext context) {
-  return const Center(
-    child: NesDpad(),
-  );
+  return const Center(child: NesDpad());
 }
 
-@widgetbook.UseCase(
-  name: 'with callbacks',
-  type: NesDpad,
-)
+@widgetbook.UseCase(name: 'with callbacks', type: NesDpad)
 Widget withCallbacks(BuildContext context) {
-  return const Center(
-    child: ControllingDpad(),
-  );
+  return const Center(child: ControllingDpad());
 }
 
 class ControllingDpad extends StatefulWidget {
@@ -53,9 +43,7 @@ class _ControllingDpadState extends State<ControllingDpad> {
             },
           ),
           const SizedBox(height: 16),
-          Text(
-            'Direction: ${_direction?.name ?? 'none'}',
-          ),
+          Text('Direction: ${_direction?.name ?? 'none'}'),
         ],
       ),
     );
