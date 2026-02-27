@@ -41,6 +41,8 @@ import 'package:widgetbook_app/widgetbook/use_cases/icons.dart'
     as _widgetbook_app_widgetbook_use_cases_icons;
 import 'package:widgetbook_app/widgetbook/use_cases/input_dialog.dart'
     as _widgetbook_app_widgetbook_use_cases_input_dialog;
+import 'package:widgetbook_app/widgetbook/use_cases/iterable_options.dart'
+    as _widgetbook_app_widgetbook_use_cases_iterable_options;
 import 'package:widgetbook_app/widgetbook/use_cases/links.dart'
     as _widgetbook_app_widgetbook_use_cases_links;
 import 'package:widgetbook_app/widgetbook/use_cases/loading_indicator.dart'
@@ -264,6 +266,21 @@ final directories = <_widgetbook.WidgetbookNode>[
           _widgetbook.WidgetbookUseCase(
             name: 'default',
             builder: _widgetbook_app_widgetbook_use_cases_icon_badge.normal,
+          ),
+        ],
+      ),
+      _widgetbook.WidgetbookComponent(
+        name: 'NesIterableOptions',
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'custom',
+            builder: _widgetbook_app_widgetbook_use_cases_iterable_options
+                .iterableOptionsCustom,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'default',
+            builder: _widgetbook_app_widgetbook_use_cases_iterable_options
+                .iterableOptionsDefault,
           ),
         ],
       ),
