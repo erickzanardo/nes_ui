@@ -41,7 +41,8 @@ class NesDpad extends StatefulWidget {
     NesDpadDirection direction, {
     required double buttonSize,
     required bool pressed,
-  }) buttonBuilder;
+  })
+  buttonBuilder;
 
   /// The size of the button.
   final double buttonSize;

@@ -51,14 +51,15 @@ class _NesRunningTextState extends State<NesRunningText>
 
     final speed =
         widget.speed ?? context.nesThemeExtension<NesRunningTextTheme>().speed;
-    _controller = AnimationController(
-      duration: Duration(milliseconds: (1000 * speed).round()),
-      vsync: this,
-    )..addStatusListener((status) {
-        if (status == AnimationStatus.completed) {
-          _nextWord();
-        }
-      });
+    _controller =
+        AnimationController(
+          duration: Duration(milliseconds: (1000 * speed).round()),
+          vsync: this,
+        )..addStatusListener((status) {
+          if (status == AnimationStatus.completed) {
+            _nextWord();
+          }
+        });
 
     if (widget.running) {
       _controller?.forward();
