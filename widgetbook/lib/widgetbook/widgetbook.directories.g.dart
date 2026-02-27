@@ -53,6 +53,8 @@ import 'package:widgetbook_app/widgetbook/use_cases/screen_transitions.dart'
     as _widgetbook_app_widgetbook_use_cases_screen_transitions;
 import 'package:widgetbook_app/widgetbook/use_cases/snackbar.dart'
     as _widgetbook_app_widgetbook_use_cases_snackbar;
+import 'package:widgetbook_app/widgetbook/use_cases/split_panel.dart'
+    as _widgetbook_app_widgetbook_use_cases_split_panel;
 import 'package:widgetbook_app/widgetbook/use_cases/tabs.dart'
     as _widgetbook_app_widgetbook_use_cases_tabs;
 import 'package:widgetbook_app/widgetbook/use_cases/tooltips.dart'
@@ -321,6 +323,36 @@ final directories = <_widgetbook.WidgetbookNode>[
           _widgetbook.WidgetbookUseCase(
             name: 'topRight',
             builder: _widgetbook_app_widgetbook_use_cases_snackbar.topRight,
+          ),
+        ],
+      ),
+      _widgetbook.WidgetbookComponent(
+        name: 'NesSplitPanel',
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'default',
+            builder:
+                _widgetbook_app_widgetbook_use_cases_split_panel.defaultCase,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'with custom resizer size',
+            builder:
+                _widgetbook_app_widgetbook_use_cases_split_panel.customResizerSize,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'nested panels',
+            builder:
+                _widgetbook_app_widgetbook_use_cases_split_panel.nestedPanels,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'vertical',
+            builder:
+                _widgetbook_app_widgetbook_use_cases_split_panel.vertical,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'with initial sizes',
+            builder:
+                _widgetbook_app_widgetbook_use_cases_split_panel.withInitialSizes,
           ),
         ],
       ),
