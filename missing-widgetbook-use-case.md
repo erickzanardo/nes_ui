@@ -4,7 +4,6 @@ The following widgets do not have a Widgetbook use case:
 
 ## Main Widgets
 
-- NesFileExplorer
 - NesFixedViewport
 - NesIcon16
 - NesIconButton
@@ -29,5 +28,6 @@ The following widgets do not have a Widgetbook use case:
 - NesContainerMiniSpritePainter
 - NesContainerRoundedBorderPainter
 - NesContainerSquareCornerPainter
+
 
 **Total: 15 main widgets missing widgetbook use cases.**

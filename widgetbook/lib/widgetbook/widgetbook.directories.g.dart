@@ -33,6 +33,8 @@ import 'package:widgetbook_app/widgetbook/use_cases/dropdown_menus.dart'
     as _widgetbook_app_widgetbook_use_cases_dropdown_menus;
 import 'package:widgetbook_app/widgetbook/use_cases/dropshadow.dart'
     as _widgetbook_app_widgetbook_use_cases_dropshadow;
+import 'package:widgetbook_app/widgetbook/use_cases/file_explorer.dart'
+    as _widgetbook_app_widgetbook_use_cases_file_explorer;
 import 'package:widgetbook_app/widgetbook/use_cases/icon_badge.dart'
     as _widgetbook_app_widgetbook_use_cases_icon_badge;
 import 'package:widgetbook_app/widgetbook/use_cases/icons.dart'
@@ -222,6 +224,20 @@ final directories = <_widgetbook.WidgetbookNode>[
           _widgetbook.WidgetbookUseCase(
             name: 'default',
             builder: _widgetbook_app_widgetbook_use_cases_dropshadow.normal,
+          ),
+        ],
+      ),
+      _widgetbook.WidgetbookComponent(
+        name: 'NesFileExplorer',
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'default',
+            builder: _widgetbook_app_widgetbook_use_cases_file_explorer.normal,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'with custom icons',
+            builder:
+                _widgetbook_app_widgetbook_use_cases_file_explorer.customIcons,
           ),
         ],
       ),
