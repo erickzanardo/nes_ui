@@ -238,3 +238,94 @@ Widget horizontalGrid(BuildContext context) {
     ),
   );
 }
+
+@widgetbook.UseCase(
+  name: 'page view',
+  type: NesVerticalCloseTransition,
+  path: 'screen_transitions',
+)
+Widget verticalClosePageView(BuildContext context) {
+  return _PageViewExample();
+}
+
+class _PageViewExample extends StatefulWidget {
+  @override
+  State<_PageViewExample> createState() => _PageViewExampleState();
+}
+
+class _PageViewExampleState extends State<_PageViewExample>
+    with SingleTickerProviderStateMixin {
+  late final PageController _pageController;
+  late final AnimationController _animationController;
+  late final Animation<double> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController();
+    _animationController = AnimationController(
+      duration: const Duration(milliseconds: 500),
+      vsync: this,
+    );
+    _animation = CurvedAnimation(
+      parent: _animationController,
+      curve: Curves.easeInOut,
+    );
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    _animationController.dispose();
+    super.dispose();
+  }
+
+  void _onPageChanged(int page) {
+    _animationController.forward(from: 0);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: Theme.of(context),
+      home: Scaffold(
+        body: ColoredBox(
+          color: const Color(0xffDCDCDC),
+          child: PageView(
+            controller: _pageController,
+            onPageChanged: _onPageChanged,
+            children: [
+              NesVerticalCloseTransition(
+                animation: _animation,
+                child: const ColoredBox(
+                  color: Color(0xffDCDCDC),
+                  child: Center(
+                    child: Text('Page 1', style: TextStyle(fontSize: 24)),
+                  ),
+                ),
+              ),
+              NesHorizontalCloseTransition(
+                animation: _animation,
+                child: const ColoredBox(
+                  color: Color(0xffE8E8E8),
+                  child: Center(
+                    child: Text('Page 2', style: TextStyle(fontSize: 24)),
+                  ),
+                ),
+              ),
+              NesHorizontalGridTransition(
+                animation: _animation,
+                child: const ColoredBox(
+                  color: Color(0xffD3D3D3),
+                  child: Center(
+                    child: Text('Page 3', style: TextStyle(fontSize: 24)),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
