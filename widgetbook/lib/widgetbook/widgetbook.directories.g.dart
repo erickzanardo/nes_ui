@@ -37,6 +37,8 @@ import 'package:widgetbook_app/widgetbook/use_cases/file_explorer.dart'
     as _widgetbook_app_widgetbook_use_cases_file_explorer;
 import 'package:widgetbook_app/widgetbook/use_cases/icon_badge.dart'
     as _widgetbook_app_widgetbook_use_cases_icon_badge;
+import 'package:widgetbook_app/widgetbook/use_cases/icon_button.dart'
+    as _widgetbook_app_widgetbook_use_cases_icon_button;
 import 'package:widgetbook_app/widgetbook/use_cases/icons.dart'
     as _widgetbook_app_widgetbook_use_cases_icons;
 import 'package:widgetbook_app/widgetbook/use_cases/input.dart'
@@ -306,6 +308,34 @@ final directories = <_widgetbook.WidgetbookNode>[
           _widgetbook.WidgetbookUseCase(
             name: 'default',
             builder: _widgetbook_app_widgetbook_use_cases_icon_badge.normal,
+          ),
+        ],
+      ),
+      _widgetbook.WidgetbookComponent(
+        name: 'NesIconButton',
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'custom colors',
+            builder:
+                _widgetbook_app_widgetbook_use_cases_icon_button.customColors,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'custom size',
+            builder:
+                _widgetbook_app_widgetbook_use_cases_icon_button.customSize,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'default',
+            builder:
+                _widgetbook_app_widgetbook_use_cases_icon_button.defaultUseCase,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'disabled',
+            builder: _widgetbook_app_widgetbook_use_cases_icon_button.disabled,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'with badge',
+            builder: _widgetbook_app_widgetbook_use_cases_icon_button.withBadge,
           ),
         ],
       ),
