@@ -14,8 +14,7 @@ Future<void> testExecutable(FutureOr<void> Function() testMain) async {
   return AlchemistConfig.runWithConfig(
     config: AlchemistConfig(
       theme: flutterNesTheme(),
-      platformGoldensConfig: AlchemistConfig.current()
-          .platformGoldensConfig
+      platformGoldensConfig: AlchemistConfig.current().platformGoldensConfig
           .copyWith(enabled: enablePlatformTests),
     ),
     run: testMain,
