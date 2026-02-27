@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, lines_longer_than_80_chars
 
+import 'package:flutter/material.dart';
 import 'package:nes_ui/nes_ui.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
@@ -7,12 +8,12 @@ import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
   name: 'default',
   type: NesSplitPanel,
 )
-Widget defaultCase(BuildContext context) => Center(
+Widget defaultCase(BuildContext context) => const Center(
       child: SizedBox(
         height: 200,
         width: 400,
         child: NesSplitPanel(
-          children: const [
+          children: [
             NesContainer(
               width: double.infinity,
               height: double.infinity,
@@ -36,13 +37,13 @@ Widget defaultCase(BuildContext context) => Center(
   name: 'vertical',
   type: NesSplitPanel,
 )
-Widget vertical(BuildContext context) => Center(
+Widget vertical(BuildContext context) => const Center(
       child: SizedBox(
         height: 300,
         width: 200,
         child: NesSplitPanel(
           orientation: Axis.vertical,
-          children: const [
+          children: [
             NesContainer(
               width: double.infinity,
               height: double.infinity,
@@ -96,7 +97,7 @@ Widget withInitialSizes(BuildContext context) => Center(
   name: 'nested panels',
   type: NesSplitPanel,
 )
-Widget nestedPanels(BuildContext context) => Center(
+Widget nestedPanels(BuildContext context) => const Center(
       child: SizedBox(
         height: 300,
         width: 400,
@@ -104,7 +105,7 @@ Widget nestedPanels(BuildContext context) => Center(
           orientation: Axis.vertical,
           children: [
             NesSplitPanel(
-              children: const [
+              children: [
                 NesContainer(
                   width: double.infinity,
                   height: double.infinity,
@@ -129,7 +130,7 @@ Widget nestedPanels(BuildContext context) => Center(
               ],
             ),
             NesSplitPanel(
-              children: const [
+              children: [
                 NesContainer(
                   width: double.infinity,
                   height: double.infinity,
@@ -155,13 +156,13 @@ Widget nestedPanels(BuildContext context) => Center(
   name: 'with custom resizer size',
   type: NesSplitPanel,
 )
-Widget customResizerSize(BuildContext context) => Center(
+Widget customResizerSize(BuildContext context) => const Center(
       child: SizedBox(
         height: 200,
         width: 400,
         child: NesSplitPanel(
           resizerSize: 32,
-          children: const [
+          children: [
             NesContainer(
               width: double.infinity,
               height: double.infinity,
