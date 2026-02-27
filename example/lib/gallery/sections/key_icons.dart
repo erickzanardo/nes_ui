@@ -29,12 +29,12 @@ class KeyIconsSection extends StatelessWidget {
 
 class _Toogler extends Phased<bool> {
   _Toogler()
-      : super(
-          state: PhasedState<bool>(
-            values: [true, false],
-            ticker: const Duration(milliseconds: 500),
-          ),
-        );
+    : super(
+        state: PhasedState<bool>(
+          values: [true, false],
+          ticker: const Duration(milliseconds: 500),
+        ),
+      );
 
   @override
   Widget build(BuildContext context) {

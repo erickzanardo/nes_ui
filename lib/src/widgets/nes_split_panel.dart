@@ -27,10 +27,10 @@ class NesSplitPanel extends StatefulWidget {
     this.resizerSize = 16,
     this.initialSizes,
   }) : assert(
-          initialSizes == null || initialSizes.length == children.length,
-          'The length of the initialSizes must match the length of the '
-          'children.',
-        );
+         initialSizes == null || initialSizes.length == children.length,
+         'The length of the initialSizes must match the length of the '
+         'children.',
+       );
 
   /// The widgets that will be split into multiple panes.
   final List<Widget> children;

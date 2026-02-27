@@ -30,8 +30,8 @@ class NesHorizontalCloseTransition extends NesOverlayTransitionWidget {
 
   @override
   Widget buildOverlay(BuildContext context, double value) {
-    final overlayTransitionTheme =
-        context.nesThemeExtension<NesOverlayTransitionTheme>();
+    final overlayTransitionTheme = context
+        .nesThemeExtension<NesOverlayTransitionTheme>();
     final width = MediaQuery.of(context).size.width;
     final half = width / 2;
 

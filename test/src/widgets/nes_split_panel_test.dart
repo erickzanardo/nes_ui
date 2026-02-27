@@ -78,19 +78,23 @@ void main() {
         ),
       );
 
-      final leftPanelText =
-          tester.widget<Text>(find.byKey(const Key('left_panel'))).data;
-      final rightPanelText =
-          tester.widget<Text>(find.byKey(const Key('right_panel'))).data;
+      final leftPanelText = tester
+          .widget<Text>(find.byKey(const Key('left_panel')))
+          .data;
+      final rightPanelText = tester
+          .widget<Text>(find.byKey(const Key('right_panel')))
+          .data;
 
       await tester.drag(find.byType(NesIcon), const Offset(-100, 0));
 
       await tester.pumpAndSettle();
 
-      final updatedLeftPanelText =
-          tester.widget<Text>(find.byKey(const Key('left_panel'))).data;
-      final updatedRightPanelText =
-          tester.widget<Text>(find.byKey(const Key('right_panel'))).data;
+      final updatedLeftPanelText = tester
+          .widget<Text>(find.byKey(const Key('left_panel')))
+          .data;
+      final updatedRightPanelText = tester
+          .widget<Text>(find.byKey(const Key('right_panel')))
+          .data;
 
       expect(leftPanelText, isNot(equals(updatedLeftPanelText)));
       expect(rightPanelText, isNot(equals(updatedRightPanelText)));
@@ -128,19 +132,23 @@ void main() {
         ),
       );
 
-      final leftPanelText =
-          tester.widget<Text>(find.byKey(const Key('left_panel'))).data;
-      final rightPanelText =
-          tester.widget<Text>(find.byKey(const Key('right_panel'))).data;
+      final leftPanelText = tester
+          .widget<Text>(find.byKey(const Key('left_panel')))
+          .data;
+      final rightPanelText = tester
+          .widget<Text>(find.byKey(const Key('right_panel')))
+          .data;
 
       await tester.drag(find.byType(NesIcon), const Offset(-100, 0));
 
       await tester.pumpAndSettle();
 
-      final updatedLeftPanelText =
-          tester.widget<Text>(find.byKey(const Key('left_panel'))).data;
-      final updatedRightPanelText =
-          tester.widget<Text>(find.byKey(const Key('right_panel'))).data;
+      final updatedLeftPanelText = tester
+          .widget<Text>(find.byKey(const Key('left_panel')))
+          .data;
+      final updatedRightPanelText = tester
+          .widget<Text>(find.byKey(const Key('right_panel')))
+          .data;
 
       expect(leftPanelText, isNot(equals(updatedLeftPanelText)));
       expect(rightPanelText, isNot(equals(updatedRightPanelText)));
@@ -178,19 +186,23 @@ void main() {
         ),
       );
 
-      final topPanelText =
-          tester.widget<Text>(find.byKey(const Key('top_panel'))).data;
-      final bottomPanelText =
-          tester.widget<Text>(find.byKey(const Key('bottom_panel'))).data;
+      final topPanelText = tester
+          .widget<Text>(find.byKey(const Key('top_panel')))
+          .data;
+      final bottomPanelText = tester
+          .widget<Text>(find.byKey(const Key('bottom_panel')))
+          .data;
 
       await tester.drag(find.byType(NesIcon), const Offset(0, -100));
 
       await tester.pumpAndSettle();
 
-      final updatedTopPanelText =
-          tester.widget<Text>(find.byKey(const Key('top_panel'))).data;
-      final updatedBottomPanelText =
-          tester.widget<Text>(find.byKey(const Key('bottom_panel'))).data;
+      final updatedTopPanelText = tester
+          .widget<Text>(find.byKey(const Key('top_panel')))
+          .data;
+      final updatedBottomPanelText = tester
+          .widget<Text>(find.byKey(const Key('bottom_panel')))
+          .data;
 
       expect(topPanelText, isNot(equals(updatedTopPanelText)));
       expect(bottomPanelText, isNot(equals(updatedBottomPanelText)));

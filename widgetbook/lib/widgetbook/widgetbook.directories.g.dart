@@ -67,6 +67,8 @@ import 'package:widgetbook_app/widgetbook/use_cases/running_texts.dart'
     as _widgetbook_app_widgetbook_use_cases_running_texts;
 import 'package:widgetbook_app/widgetbook/use_cases/screen_transitions.dart'
     as _widgetbook_app_widgetbook_use_cases_screen_transitions;
+import 'package:widgetbook_app/widgetbook/use_cases/scrollbar.dart'
+    as _widgetbook_app_widgetbook_use_cases_scrollbar;
 import 'package:widgetbook_app/widgetbook/use_cases/section_header.dart'
     as _widgetbook_app_widgetbook_use_cases_section_header;
 import 'package:widgetbook_app/widgetbook/use_cases/selection_list.dart'
@@ -460,6 +462,21 @@ final directories = <_widgetbook.WidgetbookNode>[
           _widgetbook.WidgetbookUseCase(
             name: 'default',
             builder: _widgetbook_app_widgetbook_use_cases_running_texts.lines,
+          ),
+        ],
+      ),
+      _widgetbook.WidgetbookComponent(
+        name: 'NesScrollbar',
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'default',
+            builder:
+                _widgetbook_app_widgetbook_use_cases_scrollbar.defaultScrollbar,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'horizontal',
+            builder: _widgetbook_app_widgetbook_use_cases_scrollbar
+                .horizontalScrollbar,
           ),
         ],
       ),
