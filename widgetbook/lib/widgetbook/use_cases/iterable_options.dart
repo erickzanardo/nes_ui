@@ -23,6 +23,7 @@ enum _CustomHeroClass {
 
 @widgetbook.UseCase(name: 'default', type: NesIterableOptions)
 Widget iterableOptionsDefault(BuildContext context) {
+  var value = 'Option 1';
   return Center(
     child: SizedBox(
       width: 250,
@@ -46,6 +47,7 @@ Widget iterableOptionsDefault(BuildContext context) {
 
 @widgetbook.UseCase(name: 'custom', type: NesIterableOptions)
 Widget iterableOptionsCustom(BuildContext context) {
+  var value = _CustomHeroClass.knight;
   return Center(
     child: SizedBox(
       width: 150,
