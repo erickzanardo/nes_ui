@@ -6,80 +6,80 @@ import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
 @widgetbook.UseCase(name: 'default', type: NesWindow)
 Widget defaultCase(BuildContext context) => const Center(
-  child: NesWindow(
-    width: 300,
-    height: 200,
-    title: 'Window Title',
-    child: Center(child: Text('Window Content')),
-  ),
-);
+      child: NesWindow(
+        width: 300,
+        height: 200,
+        title: 'Window Title',
+        child: Center(child: Text('Window Content')),
+      ),
+    );
 
 @widgetbook.UseCase(name: 'with icon', type: NesWindow)
 Widget withIcon(BuildContext context) => Center(
-  child: NesWindow(
-    width: 300,
-    height: 200,
-    title: 'Window Title',
-    icon: NesIcons.window,
-    child: const Center(child: Text('Window Content')),
-  ),
-);
+      child: NesWindow(
+        width: 300,
+        height: 200,
+        title: 'Window Title',
+        icon: NesIcons.window,
+        child: const Center(child: Text('Window Content')),
+      ),
+    );
 
 @widgetbook.UseCase(name: 'with actions', type: NesWindow)
 Widget withActions(BuildContext context) => Center(
-  child: NesWindow(
-    width: 300,
-    height: 200,
-    title: 'Window Title',
-    actions: [(NesIcons.add, () {}), (NesIcons.remove, () {})],
-    child: const Center(child: Text('Window Content')),
-  ),
-);
+      child: NesWindow(
+        width: 300,
+        height: 200,
+        title: 'Window Title',
+        actions: [(NesIcons.add, () {}), (NesIcons.remove, () {})],
+        child: const Center(child: Text('Window Content')),
+      ),
+    );
 
 @widgetbook.UseCase(name: 'with close button', type: NesWindow)
 Widget withCloseButton(BuildContext context) => Center(
-  child: NesWindow(
-    width: 300,
-    height: 200,
-    title: 'Window Title',
-    onClose: () {},
-    child: const Center(child: Text('Window Content')),
-  ),
-);
+      child: NesWindow(
+        width: 300,
+        height: 200,
+        title: 'Window Title',
+        onClose: () {},
+        child: const Center(child: Text('Window Content')),
+      ),
+    );
 
 @widgetbook.UseCase(name: 'with resize', type: NesWindow)
 Widget withResize(BuildContext context) => Center(
-  child: NesWindow(
-    width: 300,
-    height: 200,
-    title: 'Window Title',
-    onResize: (offset) {},
-    child: const Center(child: Text('Drag corners to resize')),
-  ),
-);
+      child: NesWindow(
+        width: 300,
+        height: 200,
+        title: 'Window Title',
+        onResize: (offset) {},
+        child: const Center(child: Text('Drag corners to resize')),
+      ),
+    );
 
 @widgetbook.UseCase(name: 'with move', type: NesWindow)
 Widget withMove(BuildContext context) => Center(
-  child: NesWindow(
-    width: 300,
-    height: 200,
-    title: 'Window Title',
-    onMove: (offset) {},
-    child: const Center(child: Text('Drag title bar to move')),
-  ),
-);
+      child: NesWindow(
+        width: 300,
+        height: 200,
+        title: 'Window Title',
+        onMove: (offset) {},
+        child: const Center(child: Text('Drag title bar to move')),
+      ),
+    );
 
 @widgetbook.UseCase(name: 'full featured', type: NesWindow)
 Widget fullFeatured(BuildContext context) => Center(
-  child: NesWindow(
-    width: 300,
-    height: 200,
-    title: 'Window Title',
-    icon: NesIcons.window,
-    actions: [(NesIcons.add, () {}), (NesIcons.remove, () {})],
-    onClose: () {},
-    onResize: (offset) {},
-    onMove: (offset) {},
-    child: const Center(child: Text('Full featured window')),
-  ),
-);
+      child: NesWindow(
+        width: 300,
+        height: 200,
+        title: 'Window Title',
+        icon: NesIcons.window,
+        actions: [(NesIcons.add, () {}), (NesIcons.remove, () {})],
+        onClose: () {},
+        onResize: (offset) {},
+        onMove: (offset) {},
+        child: const Center(child: Text('Full featured window')),
+      ),
+    );

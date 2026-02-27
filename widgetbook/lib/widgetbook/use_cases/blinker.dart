@@ -6,5 +6,5 @@ import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
 @widgetbook.UseCase(name: 'default', type: NesBlinker)
 Widget normal(BuildContext context) => Center(
-  child: NesBlinker(child: NesIcon(iconData: NesIcons.gamepad)),
-);
+      child: NesBlinker(child: NesIcon(iconData: NesIcons.gamepad)),
+    );
