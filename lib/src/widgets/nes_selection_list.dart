@@ -20,9 +20,9 @@ class NesSelectionList extends StatefulWidget {
     this.canCancelSelection = true,
     this.disabledItems = const [],
   }) : assert(
-          initialIndex == null || initialIndex < children.length,
-          'initialIndex must be less than children.length',
-        );
+         initialIndex == null || initialIndex < children.length,
+         'initialIndex must be less than children.length',
+       );
 
   /// A [WidgetBuilder] used to create the marker widget.
   ///
@@ -96,10 +96,12 @@ class _NesSelectionListState extends State<NesSelectionList> {
 
     _nesInputController = NesController.of(context);
 
-    final nextEvent =
-        widget.axis == Axis.vertical ? NesInputEvent.down : NesInputEvent.right;
-    final previousEvent =
-        widget.axis == Axis.vertical ? NesInputEvent.up : NesInputEvent.left;
+    final nextEvent = widget.axis == Axis.vertical
+        ? NesInputEvent.down
+        : NesInputEvent.right;
+    final previousEvent = widget.axis == Axis.vertical
+        ? NesInputEvent.up
+        : NesInputEvent.left;
 
     _nesInputController
       ..addListener(_focusNode, nextEvent, _next)
@@ -172,11 +174,12 @@ class _NesSelectionListState extends State<NesSelectionList> {
 
   @override
   Widget build(BuildContext context) {
-    final markerBuilder = widget.markerBuilder ??
+    final markerBuilder =
+        widget.markerBuilder ??
         (_, size) => NesIcon(iconData: NesIcons.handPointingRight, size: size);
 
-    final nesSelectionListTheme =
-        context.nesThemeExtension<NesSelectionListTheme>();
+    final nesSelectionListTheme = context
+        .nesThemeExtension<NesSelectionListTheme>();
 
     final markerSize = nesSelectionListTheme.markerSize;
     final marker = markerBuilder(context, markerSize);

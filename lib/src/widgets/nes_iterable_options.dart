@@ -62,7 +62,8 @@ class NesIterableOptions<T> extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         NesPressable(
-          child: leftIndicatorBuilder?.call(context) ??
+          child:
+              leftIndicatorBuilder?.call(context) ??
               NesIcon(iconData: NesIcons.leftArrowIndicator),
           onPress: () {
             _select(-1);
@@ -70,7 +71,8 @@ class NesIterableOptions<T> extends StatelessWidget {
         ),
         optionBuilder?.call(context, value) ?? Text(value.toString()),
         NesPressable(
-          child: rightIndicatorBuilder?.call(context) ??
+          child:
+              rightIndicatorBuilder?.call(context) ??
               NesIcon(iconData: NesIcons.rightArrowIndicator),
           onPress: () {
             _select(1);
