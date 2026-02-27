@@ -153,7 +153,12 @@ final directories = <_widgetbook.WidgetbookNode>[
             name: 'default',
             builder: _widgetbook_app_widgetbook_use_cases_screen_transitions
                 .verticalClose,
-          )
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'page view',
+            builder: _widgetbook_app_widgetbook_use_cases_screen_transitions
+                .verticalClosePageView,
+          ),
         ],
       ),
       _widgetbook.WidgetbookComponent(
