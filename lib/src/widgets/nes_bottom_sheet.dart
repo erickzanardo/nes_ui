@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:nes_ui/nes_ui.dart';
 
 /// Definition for a function that builds a [NesBottomSheetPainter].
-typedef NesBottomSheetPainterBuilder =
-    NesBottomSheetPainter Function({
-      required int pixelSize,
-      required Color backgroundColor,
-      required Color borderColor,
-    });
+typedef NesBottomSheetPainterBuilder = NesBottomSheetPainter Function({
+  required int pixelSize,
+  required Color backgroundColor,
+  required Color borderColor,
+});
 
 /// {@template nes_bottom_sheet_painter}
 /// Base class for [NesBottomSheetPainter] painters.

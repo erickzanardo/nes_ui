@@ -134,11 +134,9 @@ class NesContainerMiniSpritePainter extends NesContainerPainter {
     // Render the bottom bar
     final bottomBarWidth = bottomBar.pixels[0].length * pixelSize;
     final bottomBarHeight = bottomBar.pixels.length * pixelSize;
-    for (
-      var x = bottomBarWidth;
-      x < size.width - bottomBarWidth;
-      x += bottomBarWidth
-    ) {
+    for (var x = bottomBarWidth;
+        x < size.width - bottomBarWidth;
+        x += bottomBarWidth) {
       canvas
         ..save()
         ..translate(x.toDouble(), size.height - bottomBarHeight);
@@ -155,11 +153,9 @@ class NesContainerMiniSpritePainter extends NesContainerPainter {
 
     // Render the left bar
     final leftBarHeight = leftBar.pixels.length * pixelSize;
-    for (
-      var y = leftBarHeight;
-      y < size.height - leftBarHeight;
-      y += leftBarHeight
-    ) {
+    for (var y = leftBarHeight;
+        y < size.height - leftBarHeight;
+        y += leftBarHeight) {
       canvas
         ..save()
         ..translate(0, y.toDouble());
@@ -177,11 +173,9 @@ class NesContainerMiniSpritePainter extends NesContainerPainter {
     // Render the right bar
     final rightBarWidth = rightBar.pixels[0].length * pixelSize;
     final rightBarHeight = rightBar.pixels.length * pixelSize;
-    for (
-      var y = rightBarHeight;
-      y < size.height - rightBarHeight;
-      y += rightBarHeight
-    ) {
+    for (var y = rightBarHeight;
+        y < size.height - rightBarHeight;
+        y += rightBarHeight) {
       canvas
         ..save()
         ..translate(size.width - rightBarWidth, y.toDouble());
