@@ -22,8 +22,5 @@ Widget build() {
   );
 }
 
-@widgetbook.UseCase(
-  name: 'default',
-  type: NesCheckBox,
-)
+@widgetbook.UseCase(name: 'default', type: NesCheckBox)
 Widget checkbox(BuildContext context) => build();

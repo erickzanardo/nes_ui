@@ -242,7 +242,8 @@ class NesButtonTheme extends ThemeExtension<NesButtonTheme> {
       success: Color.lerp(success, other.success, t) ?? success,
       warning: Color.lerp(warning, other.warning, t) ?? warning,
       error: Color.lerp(error, other.error, t) ?? error,
-      lightLabelColor: Color.lerp(lightLabelColor, other.lightLabelColor, t) ??
+      lightLabelColor:
+          Color.lerp(lightLabelColor, other.lightLabelColor, t) ??
           lightLabelColor,
       darkLabelColor:
           Color.lerp(darkLabelColor, other.darkLabelColor, t) ?? darkLabelColor,
@@ -503,14 +504,15 @@ class NesSnackbarTheme extends ThemeExtension<NesSnackbarTheme> {
       error: Color.lerp(error, other.error, t) ?? error,
       normalTextStyle:
           TextStyle.lerp(normalTextStyle, other.normalTextStyle, t) ??
-              normalTextStyle,
+          normalTextStyle,
       successTextStyle:
           TextStyle.lerp(successTextStyle, other.successTextStyle, t) ??
-              successTextStyle,
+          successTextStyle,
       warningTextStyle:
           TextStyle.lerp(warningTextStyle, other.warningTextStyle, t) ??
-              warningTextStyle,
-      errorTextStyle: TextStyle.lerp(errorTextStyle, other.errorTextStyle, t) ??
+          warningTextStyle,
+      errorTextStyle:
+          TextStyle.lerp(errorTextStyle, other.errorTextStyle, t) ??
           errorTextStyle,
     );
   }
@@ -625,10 +627,12 @@ class NesContainerTheme extends ThemeExtension<NesContainerTheme> {
       return copyWith();
     }
     return NesContainerTheme(
-      backgroundColor: Color.lerp(backgroundColor, other.backgroundColor, t) ??
+      backgroundColor:
+          Color.lerp(backgroundColor, other.backgroundColor, t) ??
           backgroundColor,
       borderColor: Color.lerp(borderColor, other.borderColor, t) ?? borderColor,
-      labelTextStyle: TextStyle.lerp(labelTextStyle, other.labelTextStyle, t) ??
+      labelTextStyle:
+          TextStyle.lerp(labelTextStyle, other.labelTextStyle, t) ??
           labelTextStyle,
       padding: EdgeInsets.lerp(padding, other.padding, t) ?? padding,
       pixelSize: lerpInt(pixelSize ?? 1, other.pixelSize ?? 1, t),
@@ -699,7 +703,8 @@ class NesBottomSheetTheme extends ThemeExtension<NesBottomSheetTheme> {
       return copyWith();
     }
     return NesBottomSheetTheme(
-      backgroundColor: Color.lerp(backgroundColor, other.backgroundColor, t) ??
+      backgroundColor:
+          Color.lerp(backgroundColor, other.backgroundColor, t) ??
           backgroundColor,
       borderColor: Color.lerp(borderColor, other.borderColor, t) ?? borderColor,
       padding: EdgeInsets.lerp(padding, other.padding, t) ?? padding,
@@ -888,7 +893,8 @@ ThemeData flutterNesTheme({
   ),
   Iterable<ThemeExtension<dynamic>> customExtensions = const [],
 }) {
-  final iconTheme = nesIconTheme ??
+  final iconTheme =
+      nesIconTheme ??
       (brightness == Brightness.light
           ? const NesIconTheme(
               primary: Color(0xff000000),
@@ -903,7 +909,8 @@ ThemeData flutterNesTheme({
               shadow: Color(0xff9badb7),
             ));
 
-  final overlayTransitionTheme = nesOverlayTransitionTheme ??
+  final overlayTransitionTheme =
+      nesOverlayTransitionTheme ??
       (brightness == Brightness.light
           ? const NesOverlayTransitionTheme(color: Color(0xff0d0d0d))
           : const NesOverlayTransitionTheme(color: Color(0xff8c8c8c)));
@@ -915,35 +922,41 @@ ThemeData flutterNesTheme({
 
   final textTheme = GoogleFonts.pressStart2pTextTheme(themeData.textTheme);
 
-  final progressBarTheme = nesProgressBarTheme ??
+  final progressBarTheme =
+      nesProgressBarTheme ??
       NesProgressBarTheme(
         background: textTheme.bodyMedium?.color ?? Colors.black,
         color: themeData.colorScheme.primary,
       );
 
-  final toolTipTheme = nesTooltipTheme ??
+  final toolTipTheme =
+      nesTooltipTheme ??
       NesTooltipTheme(
         background: textTheme.bodyMedium?.color ?? Colors.black,
         textColor: themeData.colorScheme.surface,
       );
 
-  final containerTheme = nesContainerTheme ??
+  final containerTheme =
+      nesContainerTheme ??
       NesContainerTheme(
         backgroundColor: themeData.cardColor,
         borderColor: textTheme.labelMedium?.color ?? Colors.black,
         labelTextStyle: textTheme.labelMedium ?? const TextStyle(),
       );
 
-  final bottomSheetTheme = nesBottomSheetTheme ??
+  final bottomSheetTheme =
+      nesBottomSheetTheme ??
       NesBottomSheetTheme(
         backgroundColor: themeData.cardColor,
         borderColor: textTheme.labelMedium?.color ?? Colors.black,
       );
 
-  final linkTheme = nesLinkTheme ??
+  final linkTheme =
+      nesLinkTheme ??
       NesLinkTheme(
         linkColor: nesButtonTheme.primary,
-        disabledColor: textTheme.bodyMedium?.color?.withValues(alpha: .4) ??
+        disabledColor:
+            textTheme.bodyMedium?.color?.withValues(alpha: .4) ??
             Colors.black.withAlpha(150),
       );
 
@@ -972,7 +985,8 @@ ThemeData flutterNesTheme({
       labelStyle: nesInputDecorationTheme?.labelStyle,
       border: NesInputBorder(
         borderSide: BorderSide(
-          color: nesInputDecorationTheme?.borderColor ??
+          color:
+              nesInputDecorationTheme?.borderColor ??
               textTheme.bodyMedium?.color ??
               Colors.black,
           width: nesTheme.pixelSize.toDouble(),
@@ -980,7 +994,8 @@ ThemeData flutterNesTheme({
       ),
       enabledBorder: NesInputBorder(
         borderSide: BorderSide(
-          color: nesInputDecorationTheme?.enabledBorderColor ??
+          color:
+              nesInputDecorationTheme?.enabledBorderColor ??
               textTheme.bodyMedium?.color ??
               Colors.black,
           width: nesTheme.pixelSize.toDouble(),
@@ -989,21 +1004,24 @@ ThemeData flutterNesTheme({
       focusedBorder: NesInputBorder(
         borderSide: BorderSide(
           width: nesTheme.pixelSize.toDouble(),
-          color: nesInputDecorationTheme?.focusedBorderColor ??
+          color:
+              nesInputDecorationTheme?.focusedBorderColor ??
               themeData.colorScheme.primary,
         ),
       ),
       errorBorder: NesInputBorder(
         borderSide: BorderSide(
           width: nesTheme.pixelSize.toDouble(),
-          color: nesInputDecorationTheme?.errorBorderColor ??
+          color:
+              nesInputDecorationTheme?.errorBorderColor ??
               themeData.colorScheme.error,
         ),
       ),
       focusedErrorBorder: NesInputBorder(
         borderSide: BorderSide(
           width: nesTheme.pixelSize.toDouble(),
-          color: nesInputDecorationTheme?.focusedErrorBorderColor ??
+          color:
+              nesInputDecorationTheme?.focusedErrorBorderColor ??
               themeData.colorScheme.error,
         ),
       ),

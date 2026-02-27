@@ -60,12 +60,14 @@ class NesConfirmDialog extends StatefulWidget {
         shortcutsNotifier: notifier,
         buttonsWidth: buttonsWidth,
       ),
-      onShortcutClose: onShortcutClose ??
+      onShortcutClose:
+          onShortcutClose ??
           () {
             notifier.value = false;
             return true;
           },
-      onShortcutConfirm: onShortcutConfirm ??
+      onShortcutConfirm:
+          onShortcutConfirm ??
           () {
             notifier.value = true;
             return NesDialogConfirmAction.doNothing;
