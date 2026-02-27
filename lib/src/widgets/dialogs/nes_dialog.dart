@@ -171,42 +171,42 @@ class NesDialog extends StatelessWidget {
                     builder: (context) {
                       return switch (frame) {
                         NesBasicDialogFrame() => Stack(
-                          clipBehavior: Clip.none,
-                          children: [
-                            NesContainer(
-                              child: Padding(
-                                padding: const EdgeInsets.all(16),
-                                child: Center(child: child),
-                              ),
-                            ),
-                            if (showCloseButton)
-                              Positioned(
-                                right: -8,
-                                top: -8,
-                                child: NesButton(
-                                  type: NesButtonType.error,
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                  child: NesIcon(
-                                    size: const Size(16, 16),
-                                    iconData: NesIcons.close,
-                                  ),
+                            clipBehavior: Clip.none,
+                            children: [
+                              NesContainer(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(16),
+                                  child: Center(child: child),
                                 ),
                               ),
-                          ],
-                        ),
-                        NesWindowDialogFrame() => NesWindow(
-                          title: (frame as NesWindowDialogFrame).title ?? '',
-                          icon: (frame as NesWindowDialogFrame).leftIcon,
-                          onClose: () {
-                            Navigator.of(context).pop();
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.all(8),
-                            child: child,
+                              if (showCloseButton)
+                                Positioned(
+                                  right: -8,
+                                  top: -8,
+                                  child: NesButton(
+                                    type: NesButtonType.error,
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: NesIcon(
+                                      size: const Size(16, 16),
+                                      iconData: NesIcons.close,
+                                    ),
+                                  ),
+                                ),
+                            ],
                           ),
-                        ),
+                        NesWindowDialogFrame() => NesWindow(
+                            title: (frame as NesWindowDialogFrame).title ?? '',
+                            icon: (frame as NesWindowDialogFrame).leftIcon,
+                            onClose: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.all(8),
+                              child: child,
+                            ),
+                          ),
                       };
                     },
                   ),

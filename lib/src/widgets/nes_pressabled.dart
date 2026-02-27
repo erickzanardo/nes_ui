@@ -56,8 +56,7 @@ class _NesPressableState extends State<NesPressable> {
 
   @override
   Widget build(BuildContext context) {
-    final hasListeners =
-        widget.onPress != null ||
+    final hasListeners = widget.onPress != null ||
         widget.onPressStart != null ||
         widget.onPressEnd != null;
     final nesTheme = context.nesThemeExtension<NesTheme>();

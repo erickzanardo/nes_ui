@@ -250,9 +250,8 @@ class _Entry extends StatelessWidget {
               child: Row(
                 children: [
                   NesIcon(
-                    iconData: isOpen
-                        ? NesIcons.openFolder
-                        : NesIcons.closedFolder,
+                    iconData:
+                        isOpen ? NesIcons.openFolder : NesIcons.closedFolder,
                   ),
                   const SizedBox(width: 8),
                   Text(entry.name),

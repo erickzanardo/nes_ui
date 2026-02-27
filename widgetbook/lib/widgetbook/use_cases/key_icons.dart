@@ -14,17 +14,17 @@ Widget pressed(BuildContext context) =>
 
 @widgetbook.UseCase(name: 'various keys', type: NesKeyIcon)
 Widget variousKeys(BuildContext context) => const Center(
-  child: Wrap(
-    spacing: 8,
-    runSpacing: 8,
-    children: [
-      NesKeyIcon(buttonKey: 'A'),
-      NesKeyIcon(buttonKey: 'B'),
-      NesKeyIcon(buttonKey: 'X'),
-      NesKeyIcon(buttonKey: 'Y'),
-      NesKeyIcon(buttonKey: 'Z'),
-      NesKeyIcon(buttonKey: '1'),
-      NesKeyIcon(buttonKey: '2'),
-    ],
-  ),
-);
+      child: Wrap(
+        spacing: 8,
+        runSpacing: 8,
+        children: [
+          NesKeyIcon(buttonKey: 'A'),
+          NesKeyIcon(buttonKey: 'B'),
+          NesKeyIcon(buttonKey: 'X'),
+          NesKeyIcon(buttonKey: 'Y'),
+          NesKeyIcon(buttonKey: 'Z'),
+          NesKeyIcon(buttonKey: '1'),
+          NesKeyIcon(buttonKey: '2'),
+        ],
+      ),
+    );

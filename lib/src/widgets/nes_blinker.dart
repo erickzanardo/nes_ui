@@ -11,11 +11,11 @@ class NesBlinker extends Phased<bool> {
     required this.child,
     this.tickerDuration = const Duration(seconds: 1),
   }) : super(
-         state: PhasedState<bool>(
-           values: [true, false],
-           ticker: tickerDuration,
-         ),
-       );
+          state: PhasedState<bool>(
+            values: [true, false],
+            ticker: tickerDuration,
+          ),
+        );
 
   /// Duration of ticker, it changes the blink speed.
   final Duration? tickerDuration;

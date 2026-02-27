@@ -19,8 +19,7 @@ Widget normal(BuildContext context) {
               onPressed: () async {
                 final value = await NesConfirmDialog.show(
                   context: context,
-                  message:
-                      'Are you sure you want to proceed?\n'
+                  message: 'Are you sure you want to proceed?\n'
                       '(Use ENTER to confirm and ESC to cancel)',
                 );
                 setState(() {
