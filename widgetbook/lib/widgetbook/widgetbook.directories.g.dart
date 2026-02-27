@@ -39,6 +39,8 @@ import 'package:widgetbook_app/widgetbook/use_cases/icon_badge.dart'
     as _widgetbook_app_widgetbook_use_cases_icon_badge;
 import 'package:widgetbook_app/widgetbook/use_cases/icons.dart'
     as _widgetbook_app_widgetbook_use_cases_icons;
+import 'package:widgetbook_app/widgetbook/use_cases/input.dart'
+    as _widgetbook_app_widgetbook_use_cases_input;
 import 'package:widgetbook_app/widgetbook/use_cases/input_dialog.dart'
     as _widgetbook_app_widgetbook_use_cases_input_dialog;
 import 'package:widgetbook_app/widgetbook/use_cases/iterable_options.dart'
@@ -81,6 +83,32 @@ import 'package:widgetbook_app/widgetbook/use_cases/typography.dart'
     as _widgetbook_app_widgetbook_use_cases_typography;
 
 final directories = <_widgetbook.WidgetbookNode>[
+  _widgetbook.WidgetbookFolder(
+    name: 'material',
+    children: [
+      _widgetbook.WidgetbookComponent(
+        name: 'TextField',
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'default',
+            builder: _widgetbook_app_widgetbook_use_cases_input.defaultInput,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'error',
+            builder: _widgetbook_app_widgetbook_use_cases_input.error,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'read only',
+            builder: _widgetbook_app_widgetbook_use_cases_input.readOnly,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'with value',
+            builder: _widgetbook_app_widgetbook_use_cases_input.withValue,
+          ),
+        ],
+      )
+    ],
+  ),
   _widgetbook.WidgetbookFolder(
     name: 'screen_transitions',
     children: [
