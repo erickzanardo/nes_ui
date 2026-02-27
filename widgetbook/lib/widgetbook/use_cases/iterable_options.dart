@@ -26,10 +26,19 @@ Widget iterableOptionsDefault(BuildContext context) {
   return Center(
     child: SizedBox(
       width: 250,
-      child: NesIterableOptions<String>(
-        onChange: (_) {},
-        value: 'Option 1',
-        values: const ['Option 1', 'Option 2', 'Option 3'],
+      child: StatefulBuilder(
+        builder: (context, setState) {
+          String value = 'Option 1';
+          return NesIterableOptions<String>(
+            onChange: (newValue) {
+              setState(() {
+                value = newValue;
+              });
+            },
+            value: value,
+            values: const ['Option 1', 'Option 2', 'Option 3'],
+          );
+        },
       ),
     ),
   );
@@ -40,14 +49,24 @@ Widget iterableOptionsCustom(BuildContext context) {
   return Center(
     child: SizedBox(
       width: 150,
-      child: NesIterableOptions<_CustomHeroClass>(
-        onChange: (_) {},
-        leftIndicatorBuilder: (_) => NesIcon(iconData: NesIcons.thinArrowLeft),
-        rightIndicatorBuilder: (_) =>
-            NesIcon(iconData: NesIcons.thinArrowRight),
-        optionBuilder: (_, value) => NesIcon(iconData: value.toIcon()),
-        value: _CustomHeroClass.knight,
-        values: _CustomHeroClass.values,
+      child: StatefulBuilder(
+        builder: (context, setState) {
+          _CustomHeroClass value = _CustomHeroClass.knight;
+          return NesIterableOptions<_CustomHeroClass>(
+            onChange: (newValue) {
+              setState(() {
+                value = newValue;
+              });
+            },
+            leftIndicatorBuilder: (_) =>
+                NesIcon(iconData: NesIcons.thinArrowLeft),
+            rightIndicatorBuilder: (_) =>
+                NesIcon(iconData: NesIcons.thinArrowRight),
+            optionBuilder: (_, value) => NesIcon(iconData: value.toIcon()),
+            value: value,
+            values: _CustomHeroClass.values,
+          );
+        },
       ),
     ),
   );
