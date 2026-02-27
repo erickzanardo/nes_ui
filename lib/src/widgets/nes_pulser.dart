@@ -14,8 +14,8 @@ class NesPulser extends Phased<bool> {
     this.pulseScale = 1.1,
     Duration interval = const Duration(milliseconds: 250),
   }) : super(
-          state: PhasedState<bool>(values: [true, false], ticker: interval),
-        );
+         state: PhasedState<bool>(values: [true, false], ticker: interval),
+       );
 
   /// The value to scale the child by when pulsing.
   final double pulseScale;

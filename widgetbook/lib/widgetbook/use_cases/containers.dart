@@ -7,59 +7,59 @@ import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
 @widgetbook.UseCase(name: 'default', type: NesContainer)
 Widget normal(BuildContext context) => const Center(
-      child: NesContainer(
-        width: 200,
-        height: 200,
-        child: Center(child: Text('Hello World')),
-      ),
-    );
+  child: NesContainer(
+    width: 200,
+    height: 200,
+    child: Center(child: Text('Hello World')),
+  ),
+);
 
 @widgetbook.UseCase(name: 'with label', type: NesContainer)
 Widget label(BuildContext context) => const Center(
-      child: NesContainer(
-        width: 200,
-        height: 200,
-        label: 'Label',
-        child: Center(child: Text('Hello World')),
-      ),
-    );
+  child: NesContainer(
+    width: 200,
+    height: 200,
+    label: 'Label',
+    child: Center(child: Text('Hello World')),
+  ),
+);
 
 @widgetbook.UseCase(name: 'with square corner painter', type: NesContainer)
 Widget squareConer(BuildContext context) => const Center(
-      child: NesContainer(
-        painterBuilder: NesContainerSquareCornerPainter.new,
-        width: 200,
-        height: 200,
-        label: 'Label',
-        child: Center(child: Text('Hello World')),
-      ),
-    );
+  child: NesContainer(
+    painterBuilder: NesContainerSquareCornerPainter.new,
+    width: 200,
+    height: 200,
+    label: 'Label',
+    child: Center(child: Text('Hello World')),
+  ),
+);
 
 @widgetbook.UseCase(
   name: 'with corner inner square painter',
   type: NesContainer,
 )
 Widget cornerInnerSquare(BuildContext context) => const Center(
-      child: NesContainer(
-        painterBuilder: NesContainerCornerInnerSquarePainter.new,
-        width: 200,
-        height: 200,
-        label: 'Label',
-        child: Center(child: Text('Hello World')),
-      ),
-    );
+  child: NesContainer(
+    painterBuilder: NesContainerCornerInnerSquarePainter.new,
+    width: 200,
+    height: 200,
+    label: 'Label',
+    child: Center(child: Text('Hello World')),
+  ),
+);
 
 @widgetbook.UseCase(name: 'with mini sprite painter', type: NesContainer)
 Widget miniSpritePainer(BuildContext context) => Center(
-      child: NesContainer(
-        painterBuilder: ({
+  child: NesContainer(
+    painterBuilder:
+        ({
           required String? label,
           required int pixelSize,
           required TextStyle textStyle,
           required Color backgroundColor,
           required Color borderColor,
-        }) =>
-            NesContainerMiniSpritePainter(
+        }) => NesContainerMiniSpritePainter(
           label: label,
           pixelSize: pixelSize,
           textStyle: textStyle,
@@ -88,9 +88,9 @@ Widget miniSpritePainer(BuildContext context) => Center(
             '8,8;1,0;1,-1;1,0;5,-1;1,0;1,-1;1,0;5,-1;1,0;1,-1;1,0;5,-1;1,0;1,-1;2,0;4,-1;1,0;1,-1;2,0;4,-1;1,0;1,-1;1,0;5,-1;1,0;1,-1;1,0;5,-1;1,0;1,-1;1,0;5,-1',
           ),
         ),
-        width: 600,
-        height: 190,
-        label: 'Label',
-        child: const Center(child: Text('Hello World')),
-      ),
-    );
+    width: 600,
+    height: 190,
+    label: 'Label',
+    child: const Center(child: Text('Hello World')),
+  ),
+);

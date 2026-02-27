@@ -26,10 +26,10 @@ Widget terminal(BuildContext context) =>
   type: NesJumpingIconsLoadingIndicator,
 )
 Widget jumpingIcons(BuildContext context) => Center(
-      child: NesJumpingIconsLoadingIndicator(
-        icons: [NesIcons.sword, NesIcons.shield, NesIcons.axe],
-      ),
-    );
+  child: NesJumpingIconsLoadingIndicator(
+    icons: [NesIcons.sword, NesIcons.shield, NesIcons.axe],
+  ),
+);
 
 @widgetbook.UseCase(
   name: 'NesMutatingIconsLoadingIndicator',
@@ -37,10 +37,10 @@ Widget jumpingIcons(BuildContext context) => Center(
   type: NesMutatingIconsLoadingIndicator,
 )
 Widget mutatingIcons(BuildContext context) => Center(
-      child: NesMutatingIconsLoadingIndicator(
-        icons: [NesIcons.sword, NesIcons.shield, NesIcons.axe],
-      ),
-    );
+  child: NesMutatingIconsLoadingIndicator(
+    icons: [NesIcons.sword, NesIcons.shield, NesIcons.axe],
+  ),
+);
 
 @widgetbook.UseCase(
   name: 'NesPixelRowLoadingIndicator',

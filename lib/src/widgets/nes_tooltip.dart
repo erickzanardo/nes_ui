@@ -190,9 +190,9 @@ class _TooltipPainter extends CustomPainter {
   final TextPainter textPainter;
 
   Size get size => Size(
-        textPainter.size.width + pixelSize * 4,
-        textPainter.size.height + pixelSize * 2,
-      );
+    textPainter.size.width + pixelSize * 4,
+    textPainter.size.height + pixelSize * 2,
+  );
 
   @override
   void paint(Canvas canvas, Size childSize) {
