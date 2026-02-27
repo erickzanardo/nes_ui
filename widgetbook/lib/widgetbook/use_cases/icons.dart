@@ -11,7 +11,9 @@ Widget normal(BuildContext context) => SingleChildScrollView(
           _IconEntry(data: NesIcons.check, label: 'check'),
           _IconEntry(data: NesIcons.close, label: 'close'),
           _IconEntry(
-              data: NesIcons.handPointingRight, label: 'handPointingRight',),
+            data: NesIcons.handPointingRight,
+            label: 'handPointingRight',
+          ),
           _IconEntry(
             data: NesIcons.leftArrowIndicator,
             label: 'leftArrowIndicator',
@@ -21,7 +23,9 @@ Widget normal(BuildContext context) => SingleChildScrollView(
             label: 'rightArrowIndicator',
           ),
           _IconEntry(
-              data: NesIcons.topArrowIndicator, label: 'topArrowIndicator',),
+            data: NesIcons.topArrowIndicator,
+            label: 'topArrowIndicator',
+          ),
           _IconEntry(
             data: NesIcons.bottomArrowIndicator,
             label: 'bottomArrowIndicator',
@@ -47,12 +51,18 @@ Widget normal(BuildContext context) => SingleChildScrollView(
           _IconEntry(data: NesIcons.questionMark, label: 'questionMark'),
           _IconEntry(data: NesIcons.dartLang, label: 'dartLang'),
           _IconEntry(
-              data: NesIcons.bottomConnection, label: 'bottomConnection',),
+            data: NesIcons.bottomConnection,
+            label: 'bottomConnection',
+          ),
           _IconEntry(
-              data: NesIcons.middleConnection, label: 'middleConnection',),
+            data: NesIcons.middleConnection,
+            label: 'middleConnection',
+          ),
           _IconEntry(data: NesIcons.topConnection, label: 'topConnection'),
           _IconEntry(
-              data: NesIcons.threeVerticalDots, label: 'threeVerticalDots',),
+            data: NesIcons.threeVerticalDots,
+            label: 'threeVerticalDots',
+          ),
           _IconEntry(
             data: NesIcons.threeHorizontalDots,
             label: 'threeHorizontalDots',
@@ -74,7 +84,9 @@ Widget normal(BuildContext context) => SingleChildScrollView(
             label: 'exclamationMarkBlock',
           ),
           _IconEntry(
-              data: NesIcons.questionMarkBlock, label: 'questionMarkBlock',),
+            data: NesIcons.questionMarkBlock,
+            label: 'questionMarkBlock',
+          ),
           _IconEntry(data: NesIcons.leftHand, label: 'leftHand'),
           _IconEntry(data: NesIcons.rightHand, label: 'rightHand'),
           _IconEntry(data: NesIcons.helm, label: 'helm'),
@@ -91,7 +103,9 @@ Widget normal(BuildContext context) => SingleChildScrollView(
           _IconEntry(data: NesIcons.tv, label: 'tv'),
           _IconEntry(data: NesIcons.radio, label: 'radio'),
           _IconEntry(
-              data: NesIcons.hourglassTopFull, label: 'hourglassTopFull',),
+            data: NesIcons.hourglassTopFull,
+            label: 'hourglassTopFull',
+          ),
           _IconEntry(
             data: NesIcons.hourglassBottomFull,
             label: 'hourglassBottomFull',

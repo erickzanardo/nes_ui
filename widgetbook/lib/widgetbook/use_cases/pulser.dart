@@ -16,7 +16,9 @@ Widget withText(BuildContext context) =>
 @widgetbook.UseCase(name: 'with custom scale', type: NesPulser)
 Widget customScale(BuildContext context) => Center(
       child: NesPulser(
-          pulseScale: 1.5, child: NesIcon(iconData: NesIcons.gamepad),),
+        pulseScale: 1.5,
+        child: NesIcon(iconData: NesIcons.gamepad),
+      ),
     );
 
 @widgetbook.UseCase(name: 'with custom duration', type: NesPulser)
