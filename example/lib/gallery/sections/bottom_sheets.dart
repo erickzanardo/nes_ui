@@ -10,10 +10,7 @@ class BottomSheetsSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Bottom Sheets',
-          style: theme.textTheme.displayMedium,
-        ),
+        Text('Bottom Sheets', style: theme.textTheme.displayMedium),
         const SizedBox(height: 16),
         Row(
           children: [

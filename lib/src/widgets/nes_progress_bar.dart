@@ -108,10 +108,7 @@ class _ProgressBarPainter extends CustomPainter {
       ..color = color.isLight() ? color.darken(.4) : color;
     final highlightPaint = Paint()
       ..color = color.isLight() ? color : color.brighten(.4);
-    final size = Size(
-      width,
-      pixelSize * 3,
-    );
+    final size = Size(width, pixelSize * 3);
 
     final progressPerPixel = 1 / ((width / pixelSize) - 2);
 
@@ -166,19 +163,12 @@ class _ProgressBarPainter extends CustomPainter {
           : (size.width - (pixelSize * 4)) * value);
       canvas
         ..drawRect(
-          Offset(pixelLeft + pixelSize, 0) &
-              Size(
-                progressSize,
-                pixelSize,
-              ),
+          Offset(pixelLeft + pixelSize, 0) & Size(progressSize, pixelSize),
           highlightPaint,
         )
         ..drawRect(
           Offset(pixelLeft + pixelSize, pixelSize) &
-              Size(
-                progressSize,
-                pixelSize * 2,
-              ),
+              Size(progressSize, pixelSize * 2),
           progressPaint,
         );
     }

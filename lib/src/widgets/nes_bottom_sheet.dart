@@ -115,9 +115,7 @@ class NesBottomSheetRoundedBorderPainter extends NesBottomSheetPainter {
 }
 
 class _BottomSheetSlider extends StatefulWidget {
-  const _BottomSheetSlider({
-    required this.child,
-  });
+  const _BottomSheetSlider({required this.child});
 
   final Widget child;
 
@@ -157,10 +155,7 @@ class _BottomSheetSliderState extends State<_BottomSheetSlider> {
 /// {@endtemplate}
 class NesBottomSheet extends StatelessWidget {
   /// {@macro nes_bottom_sheet_theme}
-  const NesBottomSheet({
-    required this.child,
-    super.key,
-  });
+  const NesBottomSheet({required this.child, super.key});
 
   /// The child of the bottom sheet.
   final Widget child;
@@ -183,9 +178,7 @@ class NesBottomSheet extends StatelessWidget {
           cursor: nesTheme.basicCursor,
           child: SizedBox.expand(
             child: DecoratedBox(
-              decoration: const BoxDecoration(
-                image: NesCheckeredDecoration(),
-              ),
+              decoration: const BoxDecoration(image: NesCheckeredDecoration()),
               child: child,
             ),
           ),
@@ -202,9 +195,7 @@ class NesBottomSheet extends StatelessWidget {
               child: SizedBox(
                 height: mediaQuery.size.height * maxHeight,
                 child: _BottomSheetSlider(
-                  child: NesBottomSheet(
-                    child: builder(context),
-                  ),
+                  child: NesBottomSheet(child: builder(context)),
                 ),
               ),
             ),
@@ -212,10 +203,7 @@ class NesBottomSheet extends StatelessWidget {
         );
 
         if (scaling != null) {
-          return Transform.scale(
-            scale: scaling,
-            child: dialog,
-          );
+          return Transform.scale(scale: scaling, child: dialog);
         }
 
         return dialog;
@@ -233,10 +221,7 @@ class NesBottomSheet extends StatelessWidget {
         backgroundColor: bottomSheetTheme.backgroundColor,
         borderColor: bottomSheetTheme.borderColor,
       ),
-      child: Padding(
-        padding: bottomSheetTheme.padding,
-        child: child,
-      ),
+      child: Padding(padding: bottomSheetTheme.padding, child: child),
     );
   }
 }

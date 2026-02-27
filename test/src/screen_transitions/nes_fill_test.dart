@@ -20,10 +20,7 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           theme: flutterNesTheme(),
-          home: NesFillTransition(
-            animation: animation,
-            child: Text('Child'),
-          ),
+          home: NesFillTransition(animation: animation, child: Text('Child')),
         ),
       );
 
@@ -35,10 +32,7 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           theme: flutterNesTheme(),
-          home: NesFillTransition(
-            animation: animation,
-            child: Text('Child'),
-          ),
+          home: NesFillTransition(animation: animation, child: Text('Child')),
         ),
       );
 
@@ -50,10 +44,7 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           theme: flutterNesTheme(),
-          home: NesFillTransition(
-            animation: animation,
-            child: Text('Child'),
-          ),
+          home: NesFillTransition(animation: animation, child: Text('Child')),
         ),
       );
 

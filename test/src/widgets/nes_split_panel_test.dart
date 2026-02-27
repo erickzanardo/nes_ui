@@ -13,15 +13,9 @@ void main() {
             height: 300,
             child: NesSplitPanel(
               children: [
-                Container(
-                  color: Colors.red,
-                ),
-                Container(
-                  color: Colors.green,
-                ),
-                Container(
-                  color: Colors.blue,
-                ),
+                Container(color: Colors.red),
+                Container(color: Colors.green),
+                Container(color: Colors.blue),
               ],
             ),
           ),
@@ -41,15 +35,9 @@ void main() {
             child: NesSplitPanel(
               orientation: Axis.vertical,
               children: [
-                Container(
-                  color: Colors.red,
-                ),
-                Container(
-                  color: Colors.green,
-                ),
-                Container(
-                  color: Colors.blue,
-                ),
+                Container(color: Colors.red),
+                Container(color: Colors.green),
+                Container(color: Colors.blue),
               ],
             ),
           ),
@@ -95,10 +83,7 @@ void main() {
       final rightPanelText =
           tester.widget<Text>(find.byKey(const Key('right_panel'))).data;
 
-      await tester.drag(
-        find.byType(NesIcon),
-        const Offset(-100, 0),
-      );
+      await tester.drag(find.byType(NesIcon), const Offset(-100, 0));
 
       await tester.pumpAndSettle();
 
@@ -148,10 +133,7 @@ void main() {
       final rightPanelText =
           tester.widget<Text>(find.byKey(const Key('right_panel'))).data;
 
-      await tester.drag(
-        find.byType(NesIcon),
-        const Offset(-100, 0),
-      );
+      await tester.drag(find.byType(NesIcon), const Offset(-100, 0));
 
       await tester.pumpAndSettle();
 
@@ -201,10 +183,7 @@ void main() {
       final bottomPanelText =
           tester.widget<Text>(find.byKey(const Key('bottom_panel'))).data;
 
-      await tester.drag(
-        find.byType(NesIcon),
-        const Offset(0, -100),
-      );
+      await tester.drag(find.byType(NesIcon), const Offset(0, -100));
 
       await tester.pumpAndSettle();
 

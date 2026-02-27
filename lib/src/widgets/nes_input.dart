@@ -6,9 +6,7 @@ import 'package:flutter/material.dart';
 /// {@endtemplate}
 class NesInputBorder extends InputBorder {
   /// {@macro nes_input_border}
-  const NesInputBorder({
-    required super.borderSide,
-  });
+  const NesInputBorder({required super.borderSide});
 
   @override
   InputBorder copyWith({BorderSide? borderSide}) {
@@ -39,9 +37,7 @@ class NesInputBorder extends InputBorder {
     if (a is NesInputBorder) {
       return NesInputBorder(
         borderSide: BorderSide.lerp(
-          a.borderSide.copyWith(
-            width: borderSide.width,
-          ),
+          a.borderSide.copyWith(width: borderSide.width),
           borderSide,
           t,
         ),
@@ -56,9 +52,7 @@ class NesInputBorder extends InputBorder {
       return NesInputBorder(
         borderSide: BorderSide.lerp(
           borderSide,
-          b.borderSide.copyWith(
-            width: borderSide.width,
-          ),
+          b.borderSide.copyWith(width: borderSide.width),
           t,
         ),
       );
@@ -84,15 +78,9 @@ class NesInputBorder extends InputBorder {
     // top border
     canvas
       ..drawRect(
-        Rect.fromLTWH(
-          pixelSize,
-          0,
-          rect.width - pixelSize * 2,
-          pixelSize,
-        ),
+        Rect.fromLTWH(pixelSize, 0, rect.width - pixelSize * 2, pixelSize),
         paint,
       )
-
       // bottom border
       ..drawRect(
         Rect.fromLTWH(
@@ -105,12 +93,7 @@ class NesInputBorder extends InputBorder {
       )
       // left border
       ..drawRect(
-        Rect.fromLTWH(
-          0,
-          pixelSize,
-          pixelSize,
-          rect.height - pixelSize * 2,
-        ),
+        Rect.fromLTWH(0, pixelSize, pixelSize, rect.height - pixelSize * 2),
         paint,
       )
       // right border
@@ -126,12 +109,7 @@ class NesInputBorder extends InputBorder {
 
     if (gapStart != null && gapPercentage >= 0) {
       canvas.drawRect(
-        Rect.fromLTWH(
-          gapStart,
-          -1,
-          gapExtent * gapPercentage,
-          pixelSize * 2,
-        ),
+        Rect.fromLTWH(gapStart, -1, gapExtent * gapPercentage, pixelSize * 2),
         Paint()..blendMode = BlendMode.clear,
       );
     }
@@ -141,8 +119,6 @@ class NesInputBorder extends InputBorder {
 
   @override
   ShapeBorder scale(double t) {
-    return NesInputBorder(
-      borderSide: borderSide.scale(t),
-    );
+    return NesInputBorder(borderSide: borderSide.scale(t));
   }
 }

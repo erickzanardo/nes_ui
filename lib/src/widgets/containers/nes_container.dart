@@ -75,10 +75,7 @@ class NesContainer extends StatelessWidget {
       child: SizedBox(
         width: width,
         height: height,
-        child: Padding(
-          padding: padding,
-          child: child,
-        ),
+        child: Padding(padding: padding, child: child),
       ),
     );
   }
@@ -126,10 +123,7 @@ abstract class NesContainerPainter extends CustomPainter {
     if (label != null) {
       final painter = TextPainter(
         textDirection: TextDirection.ltr,
-        text: TextSpan(
-          text: label,
-          style: textStyle,
-        ),
+        text: TextSpan(text: label, style: textStyle),
       )..layout();
 
       canvas.drawRect(
@@ -142,10 +136,7 @@ abstract class NesContainerPainter extends CustomPainter {
         backgroundPaint,
       );
 
-      painter.paint(
-        canvas,
-        Offset(pixelSize * 8, 0),
-      );
+      painter.paint(canvas, Offset(pixelSize * 8, 0));
     }
   }
 

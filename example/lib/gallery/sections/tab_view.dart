@@ -10,17 +10,11 @@ class TabViewSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'TabView',
-          style: theme.textTheme.displayMedium,
-        ),
+        Text('TabView', style: theme.textTheme.displayMedium),
         const SizedBox(height: 16),
         const _Example(),
         const SizedBox(height: 16),
-        Text(
-          'Non closable TabView',
-          style: theme.textTheme.displayMedium,
-        ),
+        Text('Non closable TabView', style: theme.textTheme.displayMedium),
         const SizedBox(height: 16),
         const _NonClosableExample(),
       ],
@@ -36,11 +30,7 @@ class _Example extends StatefulWidget {
 }
 
 class _ExampleState extends State<_Example> {
-  List<String> tabs = [
-    'Tab 1',
-    'Tab 2',
-    'Tab 3',
-  ];
+  List<String> tabs = ['Tab 1', 'Tab 2', 'Tab 3'];
 
   int _tabIndex = 4;
 

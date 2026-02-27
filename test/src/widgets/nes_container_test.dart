@@ -11,9 +11,7 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           theme: flutterNesTheme(),
-          home: const NesContainer(
-            child: Text('The Child'),
-          ),
+          home: const NesContainer(child: Text('The Child')),
         ),
       );
 
@@ -29,22 +27,15 @@ void main() {
         children: [
           GoldenTestScenario(
             name: 'with child',
-            child: NesContainer(
-              child: Text('ListTile.title'),
-            ),
+            child: NesContainer(child: Text('ListTile.title')),
           ),
           GoldenTestScenario(
             name: 'with label',
-            child: NesContainer(
-              label: 'label',
-            ),
+            child: NesContainer(label: 'label'),
           ),
           GoldenTestScenario(
             name: 'with child and label',
-            child: NesContainer(
-              label: 'label',
-              child: Text('child'),
-            ),
+            child: NesContainer(label: 'label', child: Text('child')),
           ),
         ],
       ),

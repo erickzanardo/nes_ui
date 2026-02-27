@@ -78,10 +78,7 @@ class NesContainerMiniSpritePainter extends NesContainerPainter {
     final topRightCornerWidth = topRightCorner.pixels[0].length * pixelSize;
     canvas
       ..save()
-      ..translate(
-        size.width - topRightCornerWidth,
-        0,
-      );
+      ..translate(size.width - topRightCornerWidth, 0);
     _renderMiniSprite(
       sprite: topRightCorner,
       canvas: canvas,
@@ -93,10 +90,7 @@ class NesContainerMiniSpritePainter extends NesContainerPainter {
     final bottomSpriteHeight = bottomLeftCorner.pixels.length * pixelSize;
     canvas
       ..save()
-      ..translate(
-        0,
-        size.height - bottomSpriteHeight,
-      );
+      ..translate(0, size.height - bottomSpriteHeight);
     _renderMiniSprite(
       sprite: bottomLeftCorner,
       canvas: canvas,
@@ -125,10 +119,7 @@ class NesContainerMiniSpritePainter extends NesContainerPainter {
     for (var x = topBarWidth; x < size.width - topBarWidth; x += topBarWidth) {
       canvas
         ..save()
-        ..translate(
-          x.toDouble(),
-          0,
-        );
+        ..translate(x.toDouble(), 0);
 
       _renderMiniSprite(
         sprite: topBar,
@@ -148,10 +139,7 @@ class NesContainerMiniSpritePainter extends NesContainerPainter {
         x += bottomBarWidth) {
       canvas
         ..save()
-        ..translate(
-          x.toDouble(),
-          size.height - bottomBarHeight,
-        );
+        ..translate(x.toDouble(), size.height - bottomBarHeight);
 
       _renderMiniSprite(
         sprite: bottomBar,
@@ -170,10 +158,7 @@ class NesContainerMiniSpritePainter extends NesContainerPainter {
         y += leftBarHeight) {
       canvas
         ..save()
-        ..translate(
-          0,
-          y.toDouble(),
-        );
+        ..translate(0, y.toDouble());
 
       _renderMiniSprite(
         sprite: leftBar,
@@ -193,10 +178,7 @@ class NesContainerMiniSpritePainter extends NesContainerPainter {
         y += rightBarHeight) {
       canvas
         ..save()
-        ..translate(
-          size.width - rightBarWidth,
-          y.toDouble(),
-        );
+        ..translate(size.width - rightBarWidth, y.toDouble());
 
       _renderMiniSprite(
         sprite: rightBar,
@@ -226,12 +208,7 @@ class NesContainerMiniSpritePainter extends NesContainerPainter {
         final pixel = sprite.pixels[y][x];
         if (pixel >= 0 && pixel < paints.length) {
           canvas.drawRect(
-            Rect.fromLTWH(
-              x * pixelSize,
-              y * pixelSize,
-              pixelSize,
-              pixelSize,
-            ),
+            Rect.fromLTWH(x * pixelSize, y * pixelSize, pixelSize, pixelSize),
             paints[pixel],
           );
         }

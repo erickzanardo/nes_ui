@@ -8,10 +8,7 @@ import 'package:nes_ui/nes_ui.dart';
 /// {@endtemplate}
 class NesScaffoldMessenger extends StatefulWidget {
   /// {@macro nes_scaffold_messenger}
-  const NesScaffoldMessenger({
-    required this.body,
-    super.key,
-  });
+  const NesScaffoldMessenger({required this.body, super.key});
 
   /// The primary content of the scaffold.
   final Widget body;
@@ -88,22 +85,14 @@ class NesScaffoldMessengerState extends State<NesScaffoldMessenger> {
       id: _snackbarId++,
       snackbar: snackbar,
       alignment: alignment,
-      offset: Offset(
-        alignment.x + alignment.x,
-        alignment.y + alignment.y,
-      ),
+      offset: Offset(alignment.x + alignment.x, alignment.y + alignment.y),
     );
-    _snackbars.value = [
-      ..._snackbars.value,
-      message,
-    ];
+    _snackbars.value = [..._snackbars.value, message];
 
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       _snackbars.value = _snackbars.value.map((e) {
         if (e.id == message.id) {
-          return e.copyWith(
-            offset: Offset.zero,
-          );
+          return e.copyWith(offset: Offset.zero);
         }
         return e;
       }).toList();
@@ -176,9 +165,7 @@ class NesScaffoldMessengerState extends State<NesScaffoldMessenger> {
                             left: 16,
                             right: 16,
                           ),
-                          child: NesDropshadow(
-                            child: snackbars[i].snackbar,
-                          ),
+                          child: NesDropshadow(child: snackbars[i].snackbar),
                         ),
                       ),
                     ),
@@ -195,10 +182,7 @@ class NesScaffoldMessengerState extends State<NesScaffoldMessenger> {
 }
 
 class _NesScaffoldMessengerScope extends InheritedWidget {
-  const _NesScaffoldMessengerScope({
-    required super.child,
-    required this.state,
-  });
+  const _NesScaffoldMessengerScope({required super.child, required this.state});
 
   final NesScaffoldMessengerState state;
 
@@ -240,18 +224,13 @@ class _NesScaffoldMessengerScope extends InheritedWidget {
 /// {@endtemplate}
 class NesScaffold extends StatelessWidget {
   /// {@macro nes_scaffold}
-  const NesScaffold({
-    required this.body,
-    super.key,
-  });
+  const NesScaffold({required this.body, super.key});
 
   /// The primary content of the scaffold.
   final Widget body;
 
   @override
   Widget build(BuildContext context) {
-    return NesScaffoldMessenger(
-      body: body,
-    );
+    return NesScaffoldMessenger(body: body);
   }
 }

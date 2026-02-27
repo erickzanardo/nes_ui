@@ -14,12 +14,7 @@ extension ColorExtension on Color {
     assert(amount >= 0 && amount <= 1, 'Value must be between 0 and 1');
 
     final f = 1 - amount;
-    return Color.from(
-      alpha: a,
-      red: r * f,
-      green: g * f,
-      blue: b * f,
-    );
+    return Color.from(alpha: a, red: r * f, green: g * f, blue: b * f);
   }
 
   /// Brighten the shade of the color by the [amount].
@@ -112,11 +107,7 @@ extension ColorExtension on Color {
   /// will create a new [Random] object without a seed and use that.
   /// [base] can be used to get the random colors in only a lighter spectrum, it
   /// should be between 0 and 256.
-  static Color random({
-    double withAlpha = 1.0,
-    int base = 0,
-    Random? rng,
-  }) {
+  static Color random({double withAlpha = 1.0, int base = 0, Random? rng}) {
     assert(
       base >= 0 && base <= 256,
       'The base argument should be in the range 0..256',

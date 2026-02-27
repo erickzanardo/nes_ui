@@ -8,11 +8,7 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           theme: flutterNesTheme(),
-          home: Scaffold(
-            body: NesIcon(
-              iconData: NesIcons.check,
-            ),
-          ),
+          home: Scaffold(body: NesIcon(iconData: NesIcons.check)),
         ),
       );
 

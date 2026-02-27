@@ -29,10 +29,8 @@ class _TickerState extends State<Ticker> with SingleTickerProviderStateMixin {
   void initState() {
     super.initState();
 
-    _ticker = AnimationController(
-      vsync: this,
-      duration: widget.tickerDuration,
-    )..addListener(() {
+    _ticker = AnimationController(vsync: this, duration: widget.tickerDuration)
+      ..addListener(() {
         final now = DateTime.now();
         if (_lastUpdated == null ||
             now.millisecondsSinceEpoch - _lastUpdated!.millisecondsSinceEpoch >=

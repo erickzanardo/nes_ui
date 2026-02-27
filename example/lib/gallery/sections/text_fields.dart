@@ -9,20 +9,13 @@ class TextFieldsSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Text Fields',
-          style: theme.textTheme.displayMedium,
-        ),
+        Text('Text Fields', style: theme.textTheme.displayMedium),
         const SizedBox(height: 16),
         const Column(
           children: [
             TextField(),
             SizedBox(height: 16),
-            TextField(
-              decoration: InputDecoration(
-                label: Text('Label'),
-              ),
-            ),
+            TextField(decoration: InputDecoration(label: Text('Label'))),
             SizedBox(height: 16),
             TextField(
               decoration: InputDecoration(

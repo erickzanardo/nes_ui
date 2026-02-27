@@ -10,10 +10,7 @@ class ButtonsSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Buttons',
-          style: theme.textTheme.displayMedium,
-        ),
+        Text('Buttons', style: theme.textTheme.displayMedium),
         const SizedBox(height: 16),
         Wrap(
           children: [
@@ -50,10 +47,7 @@ class ButtonsSection extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 32),
-        Text(
-          'With icons',
-          style: theme.textTheme.displayMedium,
-        ),
+        Text('With icons', style: theme.textTheme.displayMedium),
         const SizedBox(height: 16),
         Wrap(
           children: [
@@ -85,10 +79,7 @@ class ButtonsSection extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 32),
-        Text(
-          'With material icons',
-          style: theme.textTheme.displayMedium,
-        ),
+        Text('With material icons', style: theme.textTheme.displayMedium),
         const SizedBox(height: 16),
         Wrap(
           children: [

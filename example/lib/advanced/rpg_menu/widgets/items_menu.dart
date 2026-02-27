@@ -4,11 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nes_ui/nes_ui.dart';
 
 class ItemsMenu extends StatefulWidget {
-  const ItemsMenu({
-    super.key,
-    required this.char,
-    required this.onBack,
-  });
+  const ItemsMenu({super.key, required this.char, required this.onBack});
 
   final Char char;
   final VoidCallback onBack;
@@ -99,10 +95,7 @@ class _ItemsMenuState extends State<ItemsMenu> {
                       ..canRequestFocus = true
                       ..requestFocus();
                   },
-                  children: const [
-                    Text('Yes'),
-                    Text('No'),
-                  ],
+                  children: const [Text('Yes'), Text('No')],
                 ),
               ),
             ),
@@ -113,10 +106,7 @@ class _ItemsMenuState extends State<ItemsMenu> {
 }
 
 class _Item extends StatelessWidget {
-  const _Item({
-    required this.count,
-    required this.label,
-  });
+  const _Item({required this.count, required this.label});
 
   final int count;
   final String label;
@@ -127,10 +117,7 @@ class _Item extends StatelessWidget {
       children: [
         SizedBox(
           width: 75,
-          child: Text(
-            '${count}x',
-            textAlign: TextAlign.right,
-          ),
+          child: Text('${count}x', textAlign: TextAlign.right),
         ),
         const SizedBox(width: 16),
         Text(label),

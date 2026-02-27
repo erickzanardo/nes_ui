@@ -19,10 +19,7 @@ class _ProgressBarsSectionState extends State<ProgressBarsSection> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Progress Bars',
-          style: theme.textTheme.displayMedium,
-        ),
+        Text('Progress Bars', style: theme.textTheme.displayMedium),
         const SizedBox(height: 16),
         Wrap(
           children: [
@@ -39,9 +36,9 @@ class _ProgressBarsSectionState extends State<ProgressBarsSection> {
                     const SizedBox(height: 8),
                     Text(
                       'Pixel',
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                            fontSize: 10,
-                          ),
+                      style: Theme.of(
+                        context,
+                      ).textTheme.bodySmall?.copyWith(fontSize: 10),
                     ),
                     const SizedBox(height: 16),
                     NesProgressBar(
@@ -51,9 +48,9 @@ class _ProgressBarsSectionState extends State<ProgressBarsSection> {
                     const SizedBox(height: 8),
                     Text(
                       'Smooth',
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                            fontSize: 10,
-                          ),
+                      style: Theme.of(
+                        context,
+                      ).textTheme.bodySmall?.copyWith(fontSize: 10),
                     ),
                   ],
                 ),
@@ -67,16 +64,13 @@ class _ProgressBarsSectionState extends State<ProgressBarsSection> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   spacing: 4,
                   children: [
-                    NesProgressBar(
-                      value: progress,
-                      width: 256,
-                    ),
+                    NesProgressBar(value: progress, width: 256),
                     const SizedBox(height: 8),
                     Text(
                       'Custom Width',
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                            fontSize: 10,
-                          ),
+                      style: Theme.of(
+                        context,
+                      ).textTheme.bodySmall?.copyWith(fontSize: 10),
                     ),
                   ],
                 ),
@@ -89,15 +83,12 @@ class _ProgressBarsSectionState extends State<ProgressBarsSection> {
           type: NesButtonType.normal,
           onPressed: () {
             setState(() => progress = 0);
-            Timer.periodic(
-              const Duration(milliseconds: 100),
-              (Timer timer) {
-                setState(() => progress += 0.01);
-                if (progress >= 1) {
-                  timer.cancel();
-                }
-              },
-            );
+            Timer.periodic(const Duration(milliseconds: 100), (Timer timer) {
+              setState(() => progress += 0.01);
+              if (progress >= 1) {
+                timer.cancel();
+              }
+            });
           },
           child: const Text('Start'),
         ),

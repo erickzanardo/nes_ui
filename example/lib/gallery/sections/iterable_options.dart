@@ -35,10 +35,7 @@ class _IterableOptionsSectionState extends State<IterableOptionsSection> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Iterable Options',
-          style: theme.textTheme.displayMedium,
-        ),
+        Text('Iterable Options', style: theme.textTheme.displayMedium),
         const SizedBox(height: 16),
         SizedBox(
           width: 250,
@@ -47,12 +44,7 @@ class _IterableOptionsSectionState extends State<IterableOptionsSection> {
               setState(() => value1 = value);
             },
             value: value1,
-            values: const [
-              null,
-              'Archer',
-              'Knight',
-              'Barbarian',
-            ],
+            values: const [null, 'Archer', 'Knight', 'Barbarian'],
           ),
         ),
         const SizedBox(height: 32),
@@ -64,12 +56,10 @@ class _IterableOptionsSectionState extends State<IterableOptionsSection> {
             onChange: (value) {
               setState(() => customValue = value);
             },
-            leftIndicatorBuilder: (_) => NesIcon(
-              iconData: NesIcons.thinArrowLeft,
-            ),
-            rightIndicatorBuilder: (_) => NesIcon(
-              iconData: NesIcons.thinArrowRight,
-            ),
+            leftIndicatorBuilder: (_) =>
+                NesIcon(iconData: NesIcons.thinArrowLeft),
+            rightIndicatorBuilder: (_) =>
+                NesIcon(iconData: NesIcons.thinArrowRight),
             optionBuilder: (_, value) => NesIcon(iconData: value.toIcon()),
             value: customValue,
             values: CustomHeroClass.values,

@@ -104,8 +104,10 @@ class _NesSplitPanelState extends State<NesSplitPanel> {
 
                           final maxClampSize =
                               (_sizePoints[i] + _sizePoints[i + 1]) - .05;
-                          final newClamppedSize =
-                              newSize.clamp(.05, maxClampSize);
+                          final newClamppedSize = newSize.clamp(
+                            .05,
+                            maxClampSize,
+                          );
 
                           final previousValue = _sizePoints[i];
                           _sizePoints[i] = newClamppedSize;

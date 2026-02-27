@@ -173,10 +173,7 @@ class _NesSelectionListState extends State<NesSelectionList> {
   @override
   Widget build(BuildContext context) {
     final markerBuilder = widget.markerBuilder ??
-        (_, size) => NesIcon(
-              iconData: NesIcons.handPointingRight,
-              size: size,
-            );
+        (_, size) => NesIcon(iconData: NesIcons.handPointingRight, size: size);
 
     final nesSelectionListTheme =
         context.nesThemeExtension<NesSelectionListTheme>();
@@ -227,9 +224,7 @@ class _NesSelectionListState extends State<NesSelectionList> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: children,
             )
-          : Row(
-              children: children,
-            ),
+          : Row(children: children),
     );
   }
 }
@@ -274,23 +269,12 @@ class _SelectionItem extends StatelessWidget {
       child: GestureDetector(
         onTap: disabled ? null : onTap,
         child: ConstrainedBox(
-          constraints: BoxConstraints(
-            minHeight: itemMinHeight,
-          ),
+          constraints: BoxConstraints(minHeight: itemMinHeight),
           child: Row(
             children: [
-              SizedBox(
-                width: markerSize.width,
-                child: itemMarker,
-              ),
+              SizedBox(width: markerSize.width, child: itemMarker),
               const SizedBox(width: 6),
-              if (disabled)
-                Opacity(
-                  opacity: 0.2,
-                  child: child,
-                )
-              else
-                child,
+              if (disabled) Opacity(opacity: 0.2, child: child) else child,
               const SizedBox(width: 16),
             ],
           ),

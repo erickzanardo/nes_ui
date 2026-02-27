@@ -9,10 +9,7 @@ void main() {
         MaterialApp(
           theme: flutterNesTheme(),
           home: Scaffold(
-            body: NesIconButton(
-              onPress: () {},
-              icon: NesIcons.add,
-            ),
+            body: NesIconButton(onPress: () {}, icon: NesIcons.add),
           ),
         ),
       );
@@ -27,10 +24,7 @@ void main() {
         MaterialApp(
           theme: flutterNesTheme(),
           home: Scaffold(
-            body: NesIconButton(
-              onPress: () => calls++,
-              icon: NesIcons.add,
-            ),
+            body: NesIconButton(onPress: () => calls++, icon: NesIcons.add),
           ),
         ),
       );
@@ -45,11 +39,7 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           theme: flutterNesTheme(),
-          home: Scaffold(
-            body: NesIconButton(
-              icon: NesIcons.add,
-            ),
-          ),
+          home: Scaffold(body: NesIconButton(icon: NesIcons.add)),
         ),
       );
 
@@ -64,10 +54,7 @@ void main() {
         MaterialApp(
           theme: flutterNesTheme(),
           home: Scaffold(
-            body: NesIconButton(
-              onPress: () {},
-              icon: NesIcons.add,
-            ),
+            body: NesIconButton(onPress: () {}, icon: NesIcons.add),
           ),
         ),
       );
@@ -78,38 +65,14 @@ void main() {
       expect(nesPressable.disabled, isFalse);
     });
 
-    testWidgets(
-      'is not disabled when there is is a onPressStart',
-      (tester) async {
-        await tester.pumpWidget(
-          MaterialApp(
-            theme: flutterNesTheme(),
-            home: Scaffold(
-              body: NesIconButton(
-                onPressStart: () {},
-                icon: NesIcons.add,
-              ),
-            ),
-          ),
-        );
-
-        final nesPressable = tester.widget<NesPressable>(
-          find.byType(NesPressable),
-        );
-        expect(nesPressable.disabled, isFalse);
-      },
-    );
-
-    testWidgets('is not disabled when there is is a onPressEnd',
-        (tester) async {
+    testWidgets('is not disabled when there is is a onPressStart', (
+      tester,
+    ) async {
       await tester.pumpWidget(
         MaterialApp(
           theme: flutterNesTheme(),
           home: Scaffold(
-            body: NesIconButton(
-              onPressEnd: () {},
-              icon: NesIcons.add,
-            ),
+            body: NesIconButton(onPressStart: () {}, icon: NesIcons.add),
           ),
         ),
       );
@@ -120,8 +83,27 @@ void main() {
       expect(nesPressable.disabled, isFalse);
     });
 
-    testWidgets('is disabled when there is is a listener but disabled = true',
-        (tester) async {
+    testWidgets('is not disabled when there is is a onPressEnd', (
+      tester,
+    ) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: flutterNesTheme(),
+          home: Scaffold(
+            body: NesIconButton(onPressEnd: () {}, icon: NesIcons.add),
+          ),
+        ),
+      );
+
+      final nesPressable = tester.widget<NesPressable>(
+        find.byType(NesPressable),
+      );
+      expect(nesPressable.disabled, isFalse);
+    });
+
+    testWidgets('is disabled when there is is a listener but disabled = true', (
+      tester,
+    ) async {
       await tester.pumpWidget(
         MaterialApp(
           theme: flutterNesTheme(),

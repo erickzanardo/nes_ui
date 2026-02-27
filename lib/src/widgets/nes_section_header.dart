@@ -25,10 +25,7 @@ class NesSectionHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: crossAxisAlignment,
       children: [
-        Text(
-          title,
-          style: Theme.of(context).textTheme.titleMedium,
-        ),
+        Text(title, style: Theme.of(context).textTheme.titleMedium),
         Padding(
           padding: EdgeInsets.symmetric(vertical: nesTheme.pixelSize * 2),
           child: const Divider(),

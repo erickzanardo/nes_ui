@@ -31,9 +31,7 @@ abstract class NesTransitionOverlayWidget extends StatelessWidget {
       children: [
         if (animation.value >= .5) Positioned.fill(child: child),
         if (animation.value <= .5)
-          Positioned.fill(
-            child: buildOverlay(context, animation.value * 2),
-          )
+          Positioned.fill(child: buildOverlay(context, animation.value * 2))
         else
           Positioned.fill(
             child: buildOverlay(context, (1 - animation.value) * 2),

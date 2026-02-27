@@ -96,8 +96,9 @@ class _NesSingleChildScrollViewState extends State<NesSingleChildScrollView> {
             return true;
           },
           child: ScrollConfiguration(
-            behavior:
-                ScrollConfiguration.of(context).copyWith(scrollbars: false),
+            behavior: ScrollConfiguration.of(
+              context,
+            ).copyWith(scrollbars: false),
             child: widget.direction == Axis.vertical
                 ? Row(
                     crossAxisAlignment: CrossAxisAlignment.start,

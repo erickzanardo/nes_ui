@@ -11,10 +11,7 @@ void main() {
           theme: flutterNesTheme(),
           home: Scaffold(
             body: NesSelectionList(
-              children: const [
-                Text('Items'),
-                Text('Quests'),
-              ],
+              children: const [Text('Items'), Text('Quests')],
               onSelect: (_) {},
             ),
           ),
@@ -32,10 +29,7 @@ void main() {
           home: Scaffold(
             body: NesSelectionList(
               axis: Axis.horizontal,
-              children: const [
-                Text('Items'),
-                Text('Quests'),
-              ],
+              children: const [Text('Items'), Text('Quests')],
               onSelect: (_) {},
             ),
           ),
@@ -52,10 +46,7 @@ void main() {
           theme: flutterNesTheme(),
           home: Scaffold(
             body: NesSelectionList(
-              children: const [
-                Text('Items'),
-                Text('Quests'),
-              ],
+              children: const [Text('Items'), Text('Quests')],
               onSelect: (_) {},
             ),
           ),
@@ -75,10 +66,7 @@ void main() {
           theme: flutterNesTheme(),
           home: Scaffold(
             body: NesSelectionList(
-              children: const [
-                Text('Items'),
-                Text('Quests'),
-              ],
+              children: const [Text('Items'), Text('Quests')],
               onSelect: (value) {
                 selected = value;
               },
@@ -101,10 +89,7 @@ void main() {
           home: Scaffold(
             body: NesSelectionList(
               canAutoFocus: false,
-              children: const [
-                Text('Items'),
-                Text('Quests'),
-              ],
+              children: const [Text('Items'), Text('Quests')],
               onSelect: (value) {
                 selected = value;
               },
@@ -126,10 +111,7 @@ void main() {
           theme: flutterNesTheme(),
           home: Scaffold(
             body: NesSelectionList(
-              children: const [
-                Text('Items'),
-                Text('Quests'),
-              ],
+              children: const [Text('Items'), Text('Quests')],
               onSelect: (value) {
                 selected = value;
               },
@@ -154,10 +136,7 @@ void main() {
           home: Scaffold(
             body: NesSelectionList(
               focusNode: node,
-              children: const [
-                Text('Items'),
-                Text('Quests'),
-              ],
+              children: const [Text('Items'), Text('Quests')],
               onCancelSelection: () {
                 called = true;
               },
@@ -174,36 +153,31 @@ void main() {
     });
 
     testWidgets(
-      'can not cancel the selection with the cancel key when '
-      'canCancelSelection is false',
-      (tester) async {
-        var called = false;
-        final node = FocusNode()..requestFocus();
-        await tester.pumpWidget(
-          MaterialApp(
-            theme: flutterNesTheme(),
-            home: Scaffold(
-              body: NesSelectionList(
-                focusNode: node,
-                canCancelSelection: false,
-                children: const [
-                  Text('Items'),
-                  Text('Quests'),
-                ],
-                onCancelSelection: () {
-                  called = true;
-                },
-                onSelect: (_) {},
-              ),
+        'can not cancel the selection with the cancel key when '
+        'canCancelSelection is false', (tester) async {
+      var called = false;
+      final node = FocusNode()..requestFocus();
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: flutterNesTheme(),
+          home: Scaffold(
+            body: NesSelectionList(
+              focusNode: node,
+              canCancelSelection: false,
+              children: const [Text('Items'), Text('Quests')],
+              onCancelSelection: () {
+                called = true;
+              },
+              onSelect: (_) {},
             ),
           ),
-        );
+        ),
+      );
 
-        await tester.sendKeyEvent(LogicalKeyboardKey.escape);
-        await tester.pump();
+      await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+      await tester.pump();
 
-        expect(called, isFalse);
-      },
-    );
+      expect(called, isFalse);
+    });
   });
 }

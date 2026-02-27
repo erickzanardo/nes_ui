@@ -8,9 +8,7 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           theme: flutterNesTheme(),
-          home: const Scaffold(
-            body: NesWindow(),
-          ),
+          home: const Scaffold(body: NesWindow()),
         ),
       );
 
@@ -21,11 +19,7 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           theme: flutterNesTheme(),
-          home: const Scaffold(
-            body: NesWindow(
-              title: 'Title',
-            ),
-          ),
+          home: const Scaffold(body: NesWindow(title: 'Title')),
         ),
       );
 
@@ -36,11 +30,7 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           theme: flutterNesTheme(),
-          home: Scaffold(
-            body: NesWindow(
-              icon: NesIcons.sword,
-            ),
-          ),
+          home: Scaffold(body: NesWindow(icon: NesIcons.sword)),
         ),
       );
 
@@ -51,60 +41,49 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           theme: flutterNesTheme(),
-          home: const Scaffold(
-            body: NesWindow(
-              child: Text('child'),
-            ),
-          ),
+          home: const Scaffold(body: NesWindow(child: Text('child'))),
         ),
       );
 
       expect(find.text('child'), findsOneWidget);
     });
 
-    testWidgets(
-      'renders the close icon when a onClose is provided',
-      (tester) async {
-        await tester.pumpWidget(
-          MaterialApp(
-            theme: flutterNesTheme(),
-            home: Scaffold(
-              body: NesWindow(
-                child: const Text('child'),
-                onClose: () {},
-              ),
+    testWidgets('renders the close icon when a onClose is provided', (
+      tester,
+    ) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: flutterNesTheme(),
+          home: Scaffold(
+            body: NesWindow(child: const Text('child'), onClose: () {}),
+          ),
+        ),
+      );
+
+      expect(find.byType(NesIconButton), findsOneWidget);
+    });
+
+    testWidgets('calls onClose when clicking the close icon', (tester) async {
+      var called = false;
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: flutterNesTheme(),
+          home: Scaffold(
+            body: NesWindow(
+              child: const Text('child'),
+              onClose: () {
+                called = true;
+              },
             ),
           ),
-        );
+        ),
+      );
 
-        expect(find.byType(NesIconButton), findsOneWidget);
-      },
-    );
+      await tester.tap(find.byType(NesIcon));
+      await tester.pump();
 
-    testWidgets(
-      'calls onClose when clicking the close icon',
-      (tester) async {
-        var called = false;
-        await tester.pumpWidget(
-          MaterialApp(
-            theme: flutterNesTheme(),
-            home: Scaffold(
-              body: NesWindow(
-                child: const Text('child'),
-                onClose: () {
-                  called = true;
-                },
-              ),
-            ),
-          ),
-        );
-
-        await tester.tap(find.byType(NesIcon));
-        await tester.pump();
-
-        expect(called, isTrue);
-      },
-    );
+      expect(called, isTrue);
+    });
 
     group('when is moveable and resizable', () {
       testWidgets('renders correctly', (tester) async {
@@ -112,10 +91,7 @@ void main() {
           MaterialApp(
             theme: flutterNesTheme(),
             home: Scaffold(
-              body: NesWindow(
-                onMove: (_) {},
-                onResize: (_) {},
-              ),
+              body: NesWindow(onMove: (_) {}, onResize: (_) {}),
             ),
           ),
         );
@@ -128,11 +104,7 @@ void main() {
           MaterialApp(
             theme: flutterNesTheme(),
             home: Scaffold(
-              body: NesWindow(
-                title: 'Title',
-                onMove: (_) {},
-                onResize: (_) {},
-              ),
+              body: NesWindow(title: 'Title', onMove: (_) {}, onResize: (_) {}),
             ),
           ),
         );

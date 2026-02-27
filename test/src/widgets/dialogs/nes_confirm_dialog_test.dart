@@ -14,9 +14,7 @@ extension NesConfirmDialogTest on WidgetTester {
             return NesButton(
               type: NesButtonType.normal,
               onPressed: () async {
-                final value = await NesConfirmDialog.show(
-                  context: context,
-                );
+                final value = await NesConfirmDialog.show(context: context);
                 completer?.complete(value);
               },
               child: const Text('Show'),

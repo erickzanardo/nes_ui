@@ -23,10 +23,7 @@ class NesVerticalCloseTransition extends NesOverlayTransitionWidget {
       reverseTransitionDuration: duration,
       transitionDuration: duration,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        return NesVerticalCloseTransition(
-          animation: animation,
-          child: child,
-        );
+        return NesVerticalCloseTransition(animation: animation, child: child);
       },
     );
   }

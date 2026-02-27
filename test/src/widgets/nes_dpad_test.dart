@@ -8,10 +8,7 @@ void main() {
   group('NesContainer', () {
     testWidgets('renders its child', (tester) async {
       await tester.pumpWidget(
-        MaterialApp(
-          theme: flutterNesTheme(),
-          home: const NesDpad(),
-        ),
+        MaterialApp(theme: flutterNesTheme(), home: const NesDpad()),
       );
 
       expect(find.byType(NesDpad), findsOneWidget);

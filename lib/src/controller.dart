@@ -29,18 +29,10 @@ enum NesInputEvent {
 class NesKeyboardKeyMapping {
   /// {@macro nes_keyboard_key_mapping}
   const NesKeyboardKeyMapping({
-    this.up = const [
-      LogicalKeyboardKey.arrowUp,
-    ],
-    this.down = const [
-      LogicalKeyboardKey.arrowDown,
-    ],
-    this.left = const [
-      LogicalKeyboardKey.arrowLeft,
-    ],
-    this.right = const [
-      LogicalKeyboardKey.arrowRight,
-    ],
+    this.up = const [LogicalKeyboardKey.arrowUp],
+    this.down = const [LogicalKeyboardKey.arrowDown],
+    this.left = const [LogicalKeyboardKey.arrowLeft],
+    this.right = const [LogicalKeyboardKey.arrowRight],
     this.confirm = const [
       LogicalKeyboardKey.enter,
       LogicalKeyboardKey.gameButtonA,
@@ -79,16 +71,10 @@ abstract class NesInputAdapter {
   NesInputAdapter();
 
   /// Adds a listener to the adapter.
-  void addListener(
-    FocusNode node,
-    NesInputEvent event,
-    VoidCallback callback,
-  );
+  void addListener(FocusNode node, NesInputEvent event, VoidCallback callback);
 
   /// Disposes all listeners on the adapater.
-  void disposeListeners(
-    FocusNode node,
-  );
+  void disposeListeners(FocusNode node);
 }
 
 /// {@template nes_keyboard_input_adapter}
@@ -96,9 +82,7 @@ abstract class NesInputAdapter {
 /// {@endtemplate}
 class NesKeyboardInputAdapter extends NesInputAdapter {
   /// {@macro nes_keyboard_input_adapter}
-  NesKeyboardInputAdapter({
-    required this.mapping,
-  });
+  NesKeyboardInputAdapter({required this.mapping});
 
   /// Key mapping.
   final NesKeyboardKeyMapping mapping;
@@ -163,28 +147,20 @@ class NesKeyboardInputAdapter extends NesInputAdapter {
 /// {@endtemplate}
 class NesInputController {
   /// {@macro nes_input_controller}
-  const NesInputController({
-    required this.adapters,
-  });
+  const NesInputController({required this.adapters});
 
   /// All adapters on this controller.
   final List<NesInputAdapter> adapters;
 
   /// Add a listener to the adapters.
-  void addListener(
-    FocusNode node,
-    NesInputEvent event,
-    VoidCallback callback,
-  ) {
+  void addListener(FocusNode node, NesInputEvent event, VoidCallback callback) {
     for (final adapter in adapters) {
       adapter.addListener(node, event, callback);
     }
   }
 
   /// Remove all listeners from the given [node].
-  void disposeListeners(
-    FocusNode node,
-  ) {
+  void disposeListeners(FocusNode node) {
     for (final adapter in adapters) {
       adapter.disposeListeners(node);
     }
@@ -219,9 +195,7 @@ class NesController extends InheritedWidget {
 
   /// Default instance.
   static final defaultController = NesInputController(
-    adapters: [
-      NesKeyboardInputAdapter(mapping: const NesKeyboardKeyMapping()),
-    ],
+    adapters: [NesKeyboardInputAdapter(mapping: const NesKeyboardKeyMapping())],
   );
 
   @override

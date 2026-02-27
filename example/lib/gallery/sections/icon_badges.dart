@@ -10,18 +10,10 @@ class IconBadgesSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Icon Badges',
-          style: theme.textTheme.displayMedium,
-        ),
+        Text('Icon Badges', style: theme.textTheme.displayMedium),
         const SizedBox(height: 16),
         Wrap(
-          children: [
-            _IconEntry(
-              data: NesIcons.download,
-              label: '1',
-            ),
-          ],
+          children: [_IconEntry(data: NesIcons.download, label: '1')],
         ),
       ],
     );
@@ -29,10 +21,7 @@ class IconBadgesSection extends StatelessWidget {
 }
 
 class _IconEntry extends StatelessWidget {
-  const _IconEntry({
-    required this.data,
-    required this.label,
-  });
+  const _IconEntry({required this.data, required this.label});
 
   final NesIconData data;
   final String label;
@@ -41,10 +30,7 @@ class _IconEntry extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8),
-      child: NesIconBadge(
-        iconData: data,
-        badge: label,
-      ),
+      child: NesIconBadge(iconData: data, badge: label),
     );
   }
 }

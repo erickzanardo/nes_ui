@@ -10,20 +10,14 @@ class SnackbarSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Snackbars',
-          style: theme.textTheme.displayMedium,
-        ),
+        Text('Snackbars', style: theme.textTheme.displayMedium),
         const SizedBox(height: 16),
         Wrap(
           children: [
             NesButton(
               type: NesButtonType.normal,
               onPressed: () {
-                NesSnackbar.show(
-                  context,
-                  text: 'Normal',
-                );
+                NesSnackbar.show(context, text: 'Normal');
               },
               child: const Text('Normal'),
             ),

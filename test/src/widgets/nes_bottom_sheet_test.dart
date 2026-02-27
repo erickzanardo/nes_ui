@@ -11,9 +11,7 @@ void main() {
         MaterialApp(
           theme: flutterNesTheme(),
           home: Scaffold(
-            body: NesBottomSheet(
-              child: const Text('Hello World'),
-            ),
+            body: NesBottomSheet(child: const Text('Hello World')),
           ),
         ),
       );

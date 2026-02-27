@@ -12,11 +12,7 @@ extension PumpNessRunningTextLines on WidgetTester {
     return pumpWidget(
       MaterialApp(
         theme: flutterNesTheme(),
-        home: NesRunningTextLines(
-          texts: texts,
-          running: running,
-          onEnd: onEnd,
-        ),
+        home: NesRunningTextLines(texts: texts, running: running, onEnd: onEnd),
       ),
     );
   }
@@ -100,13 +96,10 @@ void main() {
             builder: (context, setState) {
               return Column(
                 children: [
-                  NesRunningTextLines(
-                    texts: texts,
-                  ),
+                  NesRunningTextLines(texts: texts),
                   ElevatedButton(
-                    onPressed: () => setState(
-                      () => texts = ['Ramona', 'Salazar'],
-                    ),
+                    onPressed: () =>
+                        setState(() => texts = ['Ramona', 'Salazar']),
                     child: const Text('Start'),
                   ),
                 ],

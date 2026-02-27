@@ -114,9 +114,6 @@ class _NesRunningTextState extends State<NesRunningText>
     final theme = Theme.of(context);
     final style = widget.textStyle ?? theme.textTheme.bodyMedium;
 
-    return Text(
-      _characters.sublist(0, _currentChar).join(),
-      style: style,
-    );
+    return Text(_characters.sublist(0, _currentChar).join(), style: style);
   }
 }

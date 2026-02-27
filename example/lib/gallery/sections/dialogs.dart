@@ -10,10 +10,7 @@ class DialogsSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Dialogs',
-          style: theme.textTheme.displayMedium,
-        ),
+        Text('Dialogs', style: theme.textTheme.displayMedium),
         const SizedBox(height: 16),
         Wrap(
           children: [
@@ -42,10 +39,7 @@ class DialogsSection extends StatelessWidget {
               onPressed: () async {
                 void showSnack(String? inputData) {
                   if (inputData != null) {
-                    NesSnackbar.show(
-                      context,
-                      text: inputData,
-                    );
+                    NesSnackbar.show(context, text: inputData);
                   }
                 }
 
@@ -95,10 +89,7 @@ class DialogsSection extends StatelessWidget {
               onPressed: () async {
                 void showSnack(String? inputData) {
                   if (inputData != null) {
-                    NesSnackbar.show(
-                      context,
-                      text: inputData,
-                    );
+                    NesSnackbar.show(context, text: inputData);
                   }
                 }
 
@@ -118,9 +109,7 @@ class DialogsSection extends StatelessWidget {
                 NesDialog.show<void>(
                   context: context,
                   builder: (_) => const Text('Hello World'),
-                  frame: NesWindowDialogFrame(
-                    leftIcon: NesIcons.bell,
-                  ),
+                  frame: NesWindowDialogFrame(leftIcon: NesIcons.bell),
                 );
               },
             ),

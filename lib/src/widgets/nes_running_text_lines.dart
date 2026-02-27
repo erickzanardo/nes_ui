@@ -91,9 +91,7 @@ class _NesRunningTextLinesState extends State<NesRunningTextLines> {
   }
 
   void _initLines() {
-    _lines = {
-      for (var i = 0; i < widget.texts.length; i++) i: '',
-    };
+    _lines = {for (var i = 0; i < widget.texts.length; i++) i: ''};
   }
 
   void _next(int index) {

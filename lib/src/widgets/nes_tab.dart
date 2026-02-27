@@ -50,10 +50,7 @@ class NesTab extends StatelessWidget {
                   spacing: 16,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    if (tab.icon != null)
-                      NesIcon(
-                        iconData: tab.icon!,
-                      ),
+                    if (tab.icon != null) NesIcon(iconData: tab.icon!),
                     if (tab.label != null) Text(tab.label!),
                   ],
                 ),
@@ -76,10 +73,7 @@ class NesTab extends StatelessWidget {
     if (selected) {
       return child;
     } else {
-      return NesPressable(
-        onPress: onPressed,
-        child: child,
-      );
+      return NesPressable(onPress: onPressed, child: child);
     }
   }
 }
@@ -124,12 +118,7 @@ class _NesTabCustomPainter extends CustomPainter {
     if (!selected) {
       // Bottom border.
       canvas.drawRect(
-        Rect.fromLTWH(
-          0,
-          size.height - pixelSize,
-          size.width,
-          pixelSize,
-        ),
+        Rect.fromLTWH(0, size.height - pixelSize, size.width, pixelSize),
         paint,
       );
     }

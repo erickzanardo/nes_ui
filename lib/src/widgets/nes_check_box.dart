@@ -8,11 +8,7 @@ import 'package:nes_ui/nes_ui.dart';
 /// {@endtemplate}
 class NesCheckBox extends StatelessWidget {
   /// {@macro nes_check_box}
-  const NesCheckBox({
-    super.key,
-    required this.value,
-    this.onChange,
-  });
+  const NesCheckBox({super.key, required this.value, this.onChange});
 
   /// Value (Checked or not)
   final bool value;

@@ -57,6 +57,8 @@ import 'package:widgetbook_app/widgetbook/use_cases/running_texts.dart'
     as _widgetbook_app_widgetbook_use_cases_running_texts;
 import 'package:widgetbook_app/widgetbook/use_cases/screen_transitions.dart'
     as _widgetbook_app_widgetbook_use_cases_screen_transitions;
+import 'package:widgetbook_app/widgetbook/use_cases/section_header.dart'
+    as _widgetbook_app_widgetbook_use_cases_section_header;
 import 'package:widgetbook_app/widgetbook/use_cases/selection_list.dart'
     as _widgetbook_app_widgetbook_use_cases_selection_list;
 import 'package:widgetbook_app/widgetbook/use_cases/single_child_scroll_view.dart'
@@ -328,6 +330,20 @@ final directories = <_widgetbook.WidgetbookNode>[
             name: 'default',
             builder: _widgetbook_app_widgetbook_use_cases_running_texts.lines,
           )
+        ],
+      ),
+      _widgetbook.WidgetbookComponent(
+        name: 'NesSectionHeader',
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'default',
+            builder:
+                _widgetbook_app_widgetbook_use_cases_section_header.defaultCase,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'start',
+            builder: _widgetbook_app_widgetbook_use_cases_section_header.start,
+          ),
         ],
       ),
       _widgetbook.WidgetbookComponent(

@@ -11,7 +11,6 @@ The following widgets do not have a Widgetbook use case:
 - NesKeyIcon
 - NesPulser
 - NesScrollbar
-- NesSectionHeader
 
 ## Support widgets that don't need use cases
 

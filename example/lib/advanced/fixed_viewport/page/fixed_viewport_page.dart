@@ -5,9 +5,7 @@ class FixedViewportPage extends StatefulWidget {
   const FixedViewportPage({super.key});
 
   static Route<void> route() {
-    return MaterialPageRoute<void>(
-      builder: (_) => const FixedViewportPage(),
-    );
+    return MaterialPageRoute<void>(builder: (_) => const FixedViewportPage());
   }
 
   @override
@@ -18,31 +16,17 @@ class _FixedViewportPageState extends State<FixedViewportPage> {
   @override
   Widget build(BuildContext context) {
     final baseThemeData = flutterNesTheme(
-      nesTheme: const NesTheme(
-        pixelSize: 1,
-      ),
+      nesTheme: const NesTheme(pixelSize: 1),
     );
 
     final themeData = baseThemeData.copyWith(
       textTheme: baseThemeData.textTheme.copyWith(
-        bodyLarge: baseThemeData.textTheme.bodyLarge?.copyWith(
-          fontSize: 8,
-        ),
-        bodyMedium: baseThemeData.textTheme.bodyMedium?.copyWith(
-          fontSize: 6,
-        ),
-        bodySmall: baseThemeData.textTheme.bodySmall?.copyWith(
-          fontSize: 4,
-        ),
-        labelLarge: baseThemeData.textTheme.labelLarge?.copyWith(
-          fontSize: 8,
-        ),
-        labelMedium: baseThemeData.textTheme.labelMedium?.copyWith(
-          fontSize: 6,
-        ),
-        labelSmall: baseThemeData.textTheme.labelSmall?.copyWith(
-          fontSize: 4,
-        ),
+        bodyLarge: baseThemeData.textTheme.bodyLarge?.copyWith(fontSize: 8),
+        bodyMedium: baseThemeData.textTheme.bodyMedium?.copyWith(fontSize: 6),
+        bodySmall: baseThemeData.textTheme.bodySmall?.copyWith(fontSize: 4),
+        labelLarge: baseThemeData.textTheme.labelLarge?.copyWith(fontSize: 8),
+        labelMedium: baseThemeData.textTheme.labelMedium?.copyWith(fontSize: 6),
+        labelSmall: baseThemeData.textTheme.labelSmall?.copyWith(fontSize: 4),
         displayLarge: baseThemeData.textTheme.displayLarge?.copyWith(
           fontSize: 8,
         ),

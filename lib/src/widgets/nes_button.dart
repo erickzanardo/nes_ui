@@ -207,9 +207,7 @@ class _NesButtonState extends State<NesButton> {
           child: Padding(
             padding: EdgeInsets.all(pixelSize * 4),
             child: DefaultTextStyle(
-              style: textStyle.copyWith(
-                color: fontColor,
-              ),
+              style: textStyle.copyWith(color: fontColor),
               child: Theme(
                 data: materialTheme.copyWith(
                   iconTheme: materialIconData,
@@ -320,9 +318,7 @@ class NesDefaultButtonPainter extends CustomPainter {
           0,
           size.width,
           size.height,
-        ).deflate(
-          pixelSize.toDouble(),
-        ),
+        ).deflate(pixelSize.toDouble()),
         backgroundPaint,
       );
 
@@ -375,9 +371,7 @@ class NesDefaultButtonPainter extends CustomPainter {
           0,
           size.width,
           size.height,
-        ).deflate(
-          pixelSize.toDouble(),
-        ),
+        ).deflate(pixelSize.toDouble()),
         hoverPaint,
       );
     }

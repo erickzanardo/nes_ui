@@ -23,10 +23,7 @@ class NesHorizontalCloseTransition extends NesOverlayTransitionWidget {
       reverseTransitionDuration: duration,
       transitionDuration: duration,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        return NesHorizontalCloseTransition(
-          animation: animation,
-          child: child,
-        );
+        return NesHorizontalCloseTransition(animation: animation, child: child);
       },
     );
   }
@@ -45,16 +42,18 @@ class NesHorizontalCloseTransition extends NesOverlayTransitionWidget {
           bottom: 0,
           left: 0,
           width: half * value,
-          child:
-              NesHorizontalCloseColoredBox(color: overlayTransitionTheme.color),
+          child: NesHorizontalCloseColoredBox(
+            color: overlayTransitionTheme.color,
+          ),
         ),
         Positioned(
           top: 0,
           bottom: 0,
           right: 0,
           left: width - (half * value),
-          child:
-              NesHorizontalCloseColoredBox(color: overlayTransitionTheme.color),
+          child: NesHorizontalCloseColoredBox(
+            color: overlayTransitionTheme.color,
+          ),
         ),
       ],
     );

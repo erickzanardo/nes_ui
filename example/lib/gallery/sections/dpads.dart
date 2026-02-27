@@ -10,10 +10,7 @@ class DpadsSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Dpads',
-          style: theme.textTheme.displayMedium,
-        ),
+        Text('Dpads', style: theme.textTheme.displayMedium),
         const SizedBox(height: 16),
         const ControllingDpad(),
       ],
@@ -50,9 +47,7 @@ class _ControllingDpadState extends State<ControllingDpad> {
             },
           ),
           const SizedBox(height: 16),
-          Text(
-            'Direction: ${_direction?.name ?? 'none'}',
-          ),
+          Text('Direction: ${_direction?.name ?? 'none'}'),
         ],
       ),
     );

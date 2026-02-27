@@ -9,10 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nes_ui/nes_ui.dart';
 
 class NesExampleScaffold extends StatelessWidget {
-  const NesExampleScaffold({
-    super.key,
-    required this.child,
-  });
+  const NesExampleScaffold({super.key, required this.child});
 
   final Widget child;
 
@@ -27,9 +24,7 @@ class NesExampleScaffold extends StatelessWidget {
           NesButton(
             type: NesButtonType.normal,
             onPressed: () {
-              Navigator.of(context).push(
-                NesScaffoldExample.route(),
-              );
+              Navigator.of(context).push(NesScaffoldExample.route());
             },
             child: NesIcon(iconData: NesIcons.rail),
           ),
@@ -37,9 +32,7 @@ class NesExampleScaffold extends StatelessWidget {
           NesButton(
             type: NesButtonType.normal,
             onPressed: () {
-              Navigator.of(context).push(
-                ContainerPlaygroundPage.route(),
-              );
+              Navigator.of(context).push(ContainerPlaygroundPage.route());
             },
             child: NesIcon(iconData: NesIcons.gallery),
           ),
@@ -47,9 +40,7 @@ class NesExampleScaffold extends StatelessWidget {
           NesButton(
             type: NesButtonType.normal,
             onPressed: () {
-              Navigator.of(context).push(
-                FixedViewportPage.route(),
-              );
+              Navigator.of(context).push(FixedViewportPage.route());
             },
             child: NesIcon(iconData: NesIcons.tv),
           ),
@@ -57,9 +48,7 @@ class NesExampleScaffold extends StatelessWidget {
           NesButton(
             type: NesButtonType.normal,
             onPressed: () {
-              Navigator.of(context).push(
-                WindowManagerPage.route(),
-              );
+              Navigator.of(context).push(WindowManagerPage.route());
             },
             child: NesIcon(iconData: NesIcons.window),
           ),
@@ -67,9 +56,7 @@ class NesExampleScaffold extends StatelessWidget {
           NesButton(
             type: NesButtonType.normal,
             onPressed: () {
-              Navigator.of(context).push(
-                RpgMenuPage.route(),
-              );
+              Navigator.of(context).push(RpgMenuPage.route());
             },
             child: NesIcon(iconData: NesIcons.gamepad),
           ),

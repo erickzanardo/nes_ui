@@ -6,11 +6,7 @@ import 'package:nes_ui/nes_ui.dart';
 /// {@endtemplate}
 class NesLink extends StatelessWidget {
   /// @macro nes_link
-  const NesLink({
-    required this.label,
-    this.onPressed,
-    super.key,
-  });
+  const NesLink({required this.label, this.onPressed, super.key});
 
   /// The text to display in the link.
   final String label;

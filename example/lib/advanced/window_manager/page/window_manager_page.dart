@@ -5,9 +5,7 @@ class WindowManagerPage extends StatefulWidget {
   const WindowManagerPage({super.key});
 
   static Route<void> route() {
-    return MaterialPageRoute<void>(
-      builder: (_) => const WindowManagerPage(),
-    );
+    return MaterialPageRoute<void>(builder: (_) => const WindowManagerPage());
   }
 
   @override
@@ -24,9 +22,7 @@ class _Window {
 }
 
 class _WindowManagerPageState extends State<WindowManagerPage> {
-  final Map<String, _Window> _windows = {
-    'nes.txt': _Window(50, 50, 200, 200),
-  };
+  final Map<String, _Window> _windows = {'nes.txt': _Window(50, 50, 200, 200)};
 
   @override
   Widget build(BuildContext context) {

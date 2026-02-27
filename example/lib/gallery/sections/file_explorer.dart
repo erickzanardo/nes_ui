@@ -37,10 +37,7 @@ class _FileExplorerSectionState extends State<FileExplorerSection> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'NesFile Explorer',
-          style: theme.textTheme.displayMedium,
-        ),
+        Text('NesFile Explorer', style: theme.textTheme.displayMedium),
         const SizedBox(height: 16),
         NesContainer(
           height: 300,
@@ -49,10 +46,7 @@ class _FileExplorerSectionState extends State<FileExplorerSection> {
             children: [
               Positioned.fill(
                 child: NesSingleChildScrollView(
-                  child: NesFileExplorer(
-                    onOpenFile: (_) {},
-                    entries: _entries,
-                  ),
+                  child: NesFileExplorer(onOpenFile: (_) {}, entries: _entries),
                 ),
               ),
               if (!_wasAdded)

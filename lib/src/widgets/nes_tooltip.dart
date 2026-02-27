@@ -142,9 +142,7 @@ class _NesTooltipState extends State<NesTooltip>
             textDirection: TextDirection.ltr,
             text: TextSpan(
               text: widget.message,
-              style: textStyle.copyWith(
-                color: tooltipTheme.textColor,
-              ),
+              style: textStyle.copyWith(color: tooltipTheme.textColor),
             ),
           )..layout(),
         );
@@ -153,8 +151,11 @@ class _NesTooltipState extends State<NesTooltip>
           textDirection: TextDirection.ltr,
           start: _calculateStart(target.dx, painter.size.width),
           width: painter.size.width,
-          top:
-              _calculateTop(target.dy, painter.size.height, nesTheme.pixelSize),
+          top: _calculateTop(
+            target.dy,
+            painter.size.height,
+            nesTheme.pixelSize,
+          ),
           height: painter.size.height,
           child: CustomPaint(painter: painter),
         );
@@ -166,10 +167,7 @@ class _NesTooltipState extends State<NesTooltip>
         child: MouseRegion(
           onEnter: (_) => _showTooltip(),
           onExit: (_) => _dismissTooltip(),
-          child: Semantics(
-            tooltip: widget.message,
-            child: widget.child,
-          ),
+          child: Semantics(tooltip: widget.message, child: widget.child),
         ),
       ),
     );
@@ -221,10 +219,7 @@ class _TooltipPainter extends CustomPainter {
     canvas
       ..save()
       // Draw tooltip background.
-      ..drawRect(
-        Rect.fromLTWH(0, 0, size.width, size.height),
-        paint,
-      )
+      ..drawRect(Rect.fromLTWH(0, 0, size.width, size.height), paint)
       // Draw top and bottom borders.
       ..drawRect(
         Rect.fromLTWH(
