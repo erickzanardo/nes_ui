@@ -7,10 +7,10 @@ import 'package:nes_ui/nes_ui.dart';
 class NesDropshadow extends StatelessWidget {
   /// {@macro nes_dropshadow}
   const NesDropshadow({required this.child, this.x = 2, this.y = 2, super.key})
-    : assert(
-        x >= 0 && y >= 0,
-        'Negative dropshadow offsets are not supported.',
-      );
+      : assert(
+          x >= 0 && y >= 0,
+          'Negative dropshadow offsets are not supported.',
+        );
 
   /// The a mount of pixel's (in NES Ui units) to offset the shadow.
   final int x;
