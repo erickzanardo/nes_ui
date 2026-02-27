@@ -14,6 +14,7 @@
  - feat: adding `actions` to `NesWindow`
  - feat: adding `iconSize` to `NesButton.iconText`
  - feat: adding `NesIcons.currency`.
+ - feat: added parity of callbacks between `NesIconButton` and `NessPressable`
 
 # 0.27.0
  - feat: adding `buttonWidth` attribute to `NesButton.text` constructor.
