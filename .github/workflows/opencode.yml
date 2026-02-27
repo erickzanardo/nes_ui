@@ -25,6 +25,11 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+
       - name: Run opencode
         uses: anomalyco/opencode/github@latest
         env:
