@@ -29,7 +29,6 @@ Widget iterableOptionsDefault(BuildContext context) {
       width: 250,
       child: StatefulBuilder(
         builder: (context, setState) {
-          var value = 'Option 1';
           return NesIterableOptions<String>(
             onChange: (newValue) {
               setState(() {
@@ -53,7 +52,6 @@ Widget iterableOptionsCustom(BuildContext context) {
       width: 150,
       child: StatefulBuilder(
         builder: (context, setState) {
-          var value = _CustomHeroClass.knight;
           return NesIterableOptions<_CustomHeroClass>(
             onChange: (newValue) {
               setState(() {
