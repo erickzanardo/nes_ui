@@ -110,10 +110,8 @@ class NesJumpingIconsLoadingIndicator extends StatelessWidget {
 }
 
 class _JumpingIcons extends Phased<int> {
-  _JumpingIcons(
-    this.icons,
-    this.offset,
-  ) : super(
+  _JumpingIcons(this.icons, this.offset)
+      : super(
           state: PhasedState<int>(
             values: List.generate(icons.length + 2, (index) => index),
             ticker: const Duration(milliseconds: 200),
@@ -150,10 +148,7 @@ class _JumpingIcons extends Phased<int> {
 /// {@endtemplate}
 class NesMutatingIconsLoadingIndicator extends StatelessWidget {
   /// {@macro nes_jumping_icons_loading_indicator}
-  const NesMutatingIconsLoadingIndicator({
-    required this.icons,
-    super.key,
-  });
+  const NesMutatingIconsLoadingIndicator({required this.icons, super.key});
 
   /// The icons to display.
   final List<NesIconData> icons;
@@ -165,11 +160,13 @@ class NesMutatingIconsLoadingIndicator extends StatelessWidget {
 }
 
 class _MutatingIcon extends Phased<double> {
-  _MutatingIcon(
-    this.icons,
-  ) : super(
+  _MutatingIcon(this.icons)
+      : super(
           state: PhasedState<double>(
-            values: List.generate(icons.length, (index) => index.toDouble())
+            values: List.generate(
+              icons.length,
+              (index) => index.toDouble(),
+            )
                 .expand((element) => [element, element + .2, element + .4])
                 .toList(),
             ticker: const Duration(milliseconds: 500),
@@ -221,20 +218,13 @@ class NesPixelRowLoadingIndicator extends StatelessWidget {
     final size =
         this.size ?? context.nesThemeExtension<NesTheme>().pixelSize * 2;
 
-    return _PixelRow(
-      count: count,
-      color: color,
-      size: size,
-    );
+    return _PixelRow(count: count, color: color, size: size);
   }
 }
 
 class _PixelRow extends Phased<int> {
-  _PixelRow({
-    required this.count,
-    required this.color,
-    required this.size,
-  }) : super(
+  _PixelRow({required this.count, required this.color, required this.size})
+      : super(
           state: PhasedState<int>(
             values: List.generate(count, (index) => index),
             ticker: const Duration(milliseconds: 200),
@@ -259,11 +249,7 @@ class _PixelRow extends Phased<int> {
               child: SizedBox(
                 width: size.toDouble(),
                 height: size.toDouble(),
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: color,
-                  ),
-                ),
+                child: DecoratedBox(decoration: BoxDecoration(color: color)),
               ),
             ),
         ],

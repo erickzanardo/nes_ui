@@ -9,10 +9,7 @@ void main() {
         MaterialApp(
           theme: flutterNesTheme(),
           home: const Scaffold(
-            body: NesTooltip(
-              message: 'Test',
-              child: Text('Child'),
-            ),
+            body: NesTooltip(message: 'Test', child: Text('Child')),
           ),
         ),
       );
@@ -25,10 +22,7 @@ void main() {
         MaterialApp(
           theme: flutterNesTheme(),
           home: const Scaffold(
-            body: NesTooltip(
-              message: 'Test',
-              child: Text('Child'),
-            ),
+            body: NesTooltip(message: 'Test', child: Text('Child')),
           ),
         ),
       );

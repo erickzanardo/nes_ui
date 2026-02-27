@@ -5,9 +5,7 @@ class NesScaffoldExample extends StatefulWidget {
   const NesScaffoldExample({super.key});
 
   static Route<void> route() {
-    return MaterialPageRoute<void>(
-      builder: (_) => const NesScaffoldExample(),
-    );
+    return MaterialPageRoute<void>(builder: (_) => const NesScaffoldExample());
   }
 
   @override

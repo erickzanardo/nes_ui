@@ -10,10 +10,7 @@ class LoadingIndicatorsSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Loading Indicators',
-          style: theme.textTheme.displayMedium,
-        ),
+        Text('Loading Indicators', style: theme.textTheme.displayMedium),
         const SizedBox(height: 16),
         Wrap(
           children: [
@@ -59,10 +56,7 @@ class LoadingIndicatorsSection extends StatelessWidget {
 }
 
 class _Entry extends StatelessWidget {
-  const _Entry({
-    required this.child,
-    required this.label,
-  });
+  const _Entry({required this.child, required this.label});
 
   final Widget child;
   final String label;
@@ -80,9 +74,9 @@ class _Entry extends StatelessWidget {
             const SizedBox(height: 8),
             Text(
               label,
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    fontSize: 10,
-                  ),
+              style: Theme.of(
+                context,
+              ).textTheme.bodySmall?.copyWith(fontSize: 10),
             ),
           ],
         ),

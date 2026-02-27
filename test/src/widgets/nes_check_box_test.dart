@@ -26,10 +26,7 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           theme: flutterNesTheme(),
-          home: NesCheckBox(
-            value: true,
-            onChange: (_) {},
-          ),
+          home: NesCheckBox(value: true, onChange: (_) {}),
         ),
       );
 

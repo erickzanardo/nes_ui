@@ -45,10 +45,7 @@ class NesSnackbar extends StatelessWidget {
         elevation: 0,
         content: SizedBox(
           width: double.infinity,
-          child: NesSnackbar(
-            text: text,
-            type: type,
-          ),
+          child: NesSnackbar(text: text, type: type),
         ),
       ),
     );

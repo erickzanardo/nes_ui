@@ -3,41 +3,21 @@ import 'package:nes_ui/nes_ui.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  final baseThemeData = flutterNesTheme(
-    nesTheme: const NesTheme(
-      pixelSize: 1,
-    ),
-  );
+  final baseThemeData = flutterNesTheme(nesTheme: const NesTheme(pixelSize: 1));
 
   final themeData = baseThemeData.copyWith(
     textTheme: baseThemeData.textTheme.copyWith(
-      bodyLarge: baseThemeData.textTheme.bodyLarge?.copyWith(
-        fontSize: 8,
-      ),
-      bodyMedium: baseThemeData.textTheme.bodyMedium?.copyWith(
-        fontSize: 6,
-      ),
-      bodySmall: baseThemeData.textTheme.bodySmall?.copyWith(
-        fontSize: 4,
-      ),
-      labelLarge: baseThemeData.textTheme.labelLarge?.copyWith(
-        fontSize: 8,
-      ),
-      labelMedium: baseThemeData.textTheme.labelMedium?.copyWith(
-        fontSize: 6,
-      ),
-      labelSmall: baseThemeData.textTheme.labelSmall?.copyWith(
-        fontSize: 4,
-      ),
-      displayLarge: baseThemeData.textTheme.displayLarge?.copyWith(
-        fontSize: 8,
-      ),
+      bodyLarge: baseThemeData.textTheme.bodyLarge?.copyWith(fontSize: 8),
+      bodyMedium: baseThemeData.textTheme.bodyMedium?.copyWith(fontSize: 6),
+      bodySmall: baseThemeData.textTheme.bodySmall?.copyWith(fontSize: 4),
+      labelLarge: baseThemeData.textTheme.labelLarge?.copyWith(fontSize: 8),
+      labelMedium: baseThemeData.textTheme.labelMedium?.copyWith(fontSize: 6),
+      labelSmall: baseThemeData.textTheme.labelSmall?.copyWith(fontSize: 4),
+      displayLarge: baseThemeData.textTheme.displayLarge?.copyWith(fontSize: 8),
       displayMedium: baseThemeData.textTheme.displayMedium?.copyWith(
         fontSize: 6,
       ),
-      displaySmall: baseThemeData.textTheme.displaySmall?.copyWith(
-        fontSize: 4,
-      ),
+      displaySmall: baseThemeData.textTheme.displaySmall?.copyWith(fontSize: 4),
     ),
     extensions: [
       ...baseThemeData.extensions.values,
@@ -49,12 +29,7 @@ void main() {
       ),
     ],
   );
-  runApp(
-    MaterialApp(
-      theme: themeData,
-      home: const FixedViewportPage(),
-    ),
-  );
+  runApp(MaterialApp(theme: themeData, home: const FixedViewportPage()));
 }
 
 class FixedViewportPage extends StatefulWidget {

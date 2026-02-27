@@ -9,10 +9,7 @@ void main() {
         MaterialApp(
           theme: flutterNesTheme(),
           home: Scaffold(
-            body: NesIconBadge(
-              iconData: NesIcons.check,
-              badge: '1',
-            ),
+            body: NesIconBadge(iconData: NesIcons.check, badge: '1'),
           ),
         ),
       );

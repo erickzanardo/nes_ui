@@ -10,11 +10,7 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           theme: flutterNesTheme(),
-          home: Scaffold(
-            body: NesScaffold(
-              body: const Text('Hello World'),
-            ),
-          ),
+          home: Scaffold(body: NesScaffold(body: const Text('Hello World'))),
         ),
       );
 
@@ -33,11 +29,9 @@ void main() {
                   return ElevatedButton(
                     child: const Text('Show Snackbar'),
                     onPressed: () {
-                      NesScaffoldMessenger.of(context).showSnackBar(
-                        const NesSnackbar(
-                          text: 'Hello World',
-                        ),
-                      );
+                      NesScaffoldMessenger.of(
+                        context,
+                      ).showSnackBar(const NesSnackbar(text: 'Hello World'));
                     },
                   );
                 },

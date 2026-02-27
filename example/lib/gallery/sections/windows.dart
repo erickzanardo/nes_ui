@@ -10,14 +10,9 @@ class WindowsSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Windows',
-          style: theme.textTheme.displayMedium,
-        ),
+        Text('Windows', style: theme.textTheme.displayMedium),
         const SizedBox(height: 16),
-        const NesWindow(
-          child: Center(child: Text('Hello')),
-        ),
+        const NesWindow(child: Center(child: Text('Hello'))),
         const SizedBox(height: 16),
         const NesWindow(
           title: 'Title',

@@ -8,9 +8,7 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           theme: flutterNesTheme(),
-          home: const NesSnackbar(
-            text: 'Normal',
-          ),
+          home: const NesSnackbar(text: 'Normal'),
         ),
       );
 
@@ -52,10 +50,7 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           theme: flutterNesTheme(),
-          home: const NesSnackbar(
-            text: 'Error',
-            type: NesSnackbarType.error,
-          ),
+          home: const NesSnackbar(text: 'Error', type: NesSnackbarType.error),
         ),
       );
 

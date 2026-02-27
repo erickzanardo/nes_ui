@@ -14,10 +14,7 @@ void main() {
           theme: flutterNesTheme(),
           home: NesFileExplorer(
             onOpenFile: (_) {},
-            entries: const [
-              NesFolder('/assets'),
-              NesFile('/LICENSE'),
-            ],
+            entries: const [NesFolder('/assets'), NesFile('/LICENSE')],
           ),
         ),
       );
@@ -27,10 +24,7 @@ void main() {
     });
 
     testWidgets('entries can be added to the entries', (tester) async {
-      var entries = [
-        const NesFolder('/assets'),
-        const NesFile('/LICENSE'),
-      ];
+      var entries = [const NesFolder('/assets'), const NesFile('/LICENSE')];
       await tester.pumpWidget(
         MaterialApp(
           theme: flutterNesTheme(),
@@ -38,18 +32,12 @@ void main() {
             builder: (context, setState) {
               return Row(
                 children: [
-                  NesFileExplorer(
-                    onOpenFile: (_) {},
-                    entries: entries,
-                  ),
+                  NesFileExplorer(onOpenFile: (_) {}, entries: entries),
                   NesButton(
                     type: NesButtonType.primary,
                     onPressed: () {
                       setState(() {
-                        entries = [
-                          ...entries,
-                          const NesFile('/new_char'),
-                        ];
+                        entries = [...entries, const NesFile('/new_char')];
                       });
                     },
                     child: const Text('Add'),
@@ -76,10 +64,7 @@ void main() {
           theme: flutterNesTheme(),
           home: NesFileExplorer(
             onOpenFile: (value) => selectedFile = value,
-            entries: const [
-              NesFolder('/assets'),
-              NesFile('/LICENSE'),
-            ],
+            entries: const [NesFolder('/assets'), NesFile('/LICENSE')],
           ),
         ),
       );

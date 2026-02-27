@@ -5,19 +5,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nes_ui/nes_ui.dart';
 
 class CustomExampleExtension extends ThemeExtension<CustomExampleExtension> {
-  const CustomExampleExtension({
-    required this.card,
-  });
+  const CustomExampleExtension({required this.card});
 
   final Color? card;
 
   @override
-  ThemeExtension<CustomExampleExtension> copyWith({
-    Color? card,
-  }) {
-    return CustomExampleExtension(
-      card: card ?? this.card,
-    );
+  ThemeExtension<CustomExampleExtension> copyWith({Color? card}) {
+    return CustomExampleExtension(card: card ?? this.card);
   }
 
   @override
@@ -28,14 +22,10 @@ class CustomExampleExtension extends ThemeExtension<CustomExampleExtension> {
     if (other is! CustomExampleExtension) {
       return this;
     }
-    return CustomExampleExtension(
-      card: Color.lerp(card, other.card, t),
-    );
+    return CustomExampleExtension(card: Color.lerp(card, other.card, t));
   }
 
-  static const light = CustomExampleExtension(
-    card: Color(0XFF3F008C),
-  );
+  static const light = CustomExampleExtension(card: Color(0XFF3F008C));
 }
 
 class AppPage extends StatelessWidget {
@@ -71,9 +61,7 @@ class AppPage extends StatelessWidget {
                 ),
               ),
               brightness: state.lightMode ? Brightness.light : Brightness.dark,
-              customExtensions: [
-                CustomExampleExtension.light,
-              ],
+              customExtensions: [CustomExampleExtension.light],
             ),
             home: const GalleryPage(),
           );

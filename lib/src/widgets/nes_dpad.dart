@@ -189,10 +189,7 @@ Widget _defaultButtonBuilder(
     dimension: buttonSize,
     child: Transform.translate(
       offset: pressed ? const Offset(0, 4) : Offset.zero,
-      child: NesIcon(
-        iconData: iconData,
-        size: Size.square(buttonSize),
-      ),
+      child: NesIcon(iconData: iconData, size: Size.square(buttonSize)),
     ),
   );
 }

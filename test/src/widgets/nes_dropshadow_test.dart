@@ -8,9 +8,7 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           theme: flutterNesTheme(),
-          home: const Scaffold(
-            body: NesDropshadow(child: NesWindow()),
-          ),
+          home: const Scaffold(body: NesDropshadow(child: NesWindow())),
         ),
       );
 
@@ -21,9 +19,7 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           theme: flutterNesTheme(),
-          home: const Scaffold(
-            body: NesDropshadow(child: NesWindow()),
-          ),
+          home: const Scaffold(body: NesDropshadow(child: NesWindow())),
         ),
       );
 
@@ -32,20 +28,14 @@ void main() {
 
     testWidgets('does not support negative x values', (tester) async {
       expect(
-        () => NesDropshadow(
-          x: -1,
-          child: const Text(''),
-        ),
+        () => NesDropshadow(x: -1, child: const Text('')),
         throwsAssertionError,
       );
     });
 
     testWidgets('does not support negative y values', (tester) async {
       expect(
-        () => NesDropshadow(
-          y: -1,
-          child: const Text(''),
-        ),
+        () => NesDropshadow(y: -1, child: const Text('')),
         throwsAssertionError,
       );
     });

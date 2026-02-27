@@ -35,15 +35,7 @@ class NesContainerSquareCornerPainter extends NesContainerPainter {
         backgroundPaint,
       )
       // Top Left corner
-      ..drawRect(
-        Rect.fromLTWH(
-          0,
-          0,
-          pixelSize * 4,
-          pixelSize * 4,
-        ),
-        cornerPaint,
-      )
+      ..drawRect(Rect.fromLTWH(0, 0, pixelSize * 4, pixelSize * 4), cornerPaint)
       // Top Left corner center
       ..drawRect(
         Rect.fromLTWH(

@@ -23,10 +23,7 @@ class NesBasicDialogFrame extends NesDialogFrame {
 /// {@endtemplate}
 class NesWindowDialogFrame extends NesDialogFrame {
   /// {@macro nes_window_dialog_frame}
-  const NesWindowDialogFrame({
-    this.leftIcon,
-    this.title,
-  });
+  const NesWindowDialogFrame({this.leftIcon, this.title});
 
   /// The window leftIcon.
   final NesIconData? leftIcon;
@@ -104,13 +101,8 @@ class NesDialog extends StatelessWidget {
           cursor: nesTheme.basicCursor,
           child: SizedBox.expand(
             child: DecoratedBox(
-              decoration: const BoxDecoration(
-                image: NesCheckeredDecoration(),
-              ),
-              child: Transform.scale(
-                scaleY: animation.value,
-                child: child,
-              ),
+              decoration: const BoxDecoration(image: NesCheckeredDecoration()),
+              child: Transform.scale(scaleY: animation.value, child: child),
             ),
           ),
         );
@@ -128,10 +120,7 @@ class NesDialog extends StatelessWidget {
         );
 
         if (scaling != null) {
-          return Transform.scale(
-            scale: scaling,
-            child: dialog,
-          );
+          return Transform.scale(scale: scaling, child: dialog);
         }
 
         return dialog;
@@ -187,9 +176,7 @@ class NesDialog extends StatelessWidget {
                               NesContainer(
                                 child: Padding(
                                   padding: const EdgeInsets.all(16),
-                                  child: Center(
-                                    child: child,
-                                  ),
+                                  child: Center(child: child),
                                 ),
                               ),
                               if (showCloseButton)

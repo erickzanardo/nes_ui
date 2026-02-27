@@ -23,10 +23,7 @@ class NesVerticalGridTransition extends NesOverlayTransitionWidget {
       reverseTransitionDuration: duration,
       transitionDuration: duration,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        return NesVerticalGridTransition(
-          animation: animation,
-          child: child,
-        );
+        return NesVerticalGridTransition(animation: animation, child: child);
       },
     );
   }
@@ -38,10 +35,7 @@ class NesVerticalGridTransition extends NesOverlayTransitionWidget {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
 
-    final size = Size(
-      width / 10,
-      height / 10,
-    );
+    final size = Size(width / 10, height / 10);
 
     return Stack(
       children: [

@@ -15,10 +15,7 @@ class CharRow extends StatelessWidget {
           SizedBox(
             width: 100,
             height: 100,
-            child: Image.asset(
-              char.attributes.avatar,
-              fit: BoxFit.fill,
-            ),
+            child: Image.asset(char.attributes.avatar, fit: BoxFit.fill),
           ),
           const SizedBox(width: 64),
           Expanded(
@@ -44,10 +41,7 @@ class CharRow extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'HP',
-                        style: Theme.of(context).textTheme.bodySmall,
-                      ),
+                      Text('HP', style: Theme.of(context).textTheme.bodySmall),
                       const SizedBox(height: 8),
                       Text(
                         '${char.attributes.maxHp} / ${char.attributes.maxHp}',
@@ -60,10 +54,7 @@ class CharRow extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'MP',
-                        style: Theme.of(context).textTheme.bodySmall,
-                      ),
+                      Text('MP', style: Theme.of(context).textTheme.bodySmall),
                       const SizedBox(height: 8),
                       Text(
                         '${char.attributes.maxMp} / ${char.attributes.maxMp}',

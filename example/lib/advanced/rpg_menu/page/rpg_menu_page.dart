@@ -62,8 +62,9 @@ class _RpgMenuPageState extends State<RpgMenuPage> {
                                   canCancelSelection: false,
                                   focusNode: _categoryNode,
                                   onSelect: (value) {
-                                    cubit
-                                        .selectCategory(Category.values[value]);
+                                    cubit.selectCategory(
+                                      Category.values[value],
+                                    );
                                   },
                                   children: Category.values.map((v) {
                                     return Expanded(child: Text(v.name));
@@ -94,17 +95,11 @@ class _RpgMenuPageState extends State<RpgMenuPage> {
                             focusNode: _characterNode,
                             onCancelSelection: _categoryNode.requestFocus,
                             onSelect: (i) {
-                              cubit.selectChar(
-                                Char.values[i],
-                              );
+                              cubit.selectChar(Char.values[i]);
                             },
                             children: [
                               for (final char in Char.values)
-                                Expanded(
-                                  child: CharRow(
-                                    char: char,
-                                  ),
-                                ),
+                                Expanded(child: CharRow(char: char)),
                             ],
                           ),
                         ),

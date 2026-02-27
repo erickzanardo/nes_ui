@@ -12,11 +12,7 @@ extension PumpNessRunningText on WidgetTester {
     return pumpWidget(
       MaterialApp(
         theme: flutterNesTheme(),
-        home: NesRunningText(
-          text: text,
-          running: running,
-          onEnd: onEnd,
-        ),
+        home: NesRunningText(text: text, running: running, onEnd: onEnd),
       ),
     );
   }
@@ -25,9 +21,7 @@ extension PumpNessRunningText on WidgetTester {
 void main() {
   group('NesButton', () {
     testWidgets('renders', (tester) async {
-      await tester.pumpRunningText(
-        text: 'The Child',
-      );
+      await tester.pumpRunningText(text: 'The Child');
 
       await tester.pumpAndSettle();
       expect(find.text('The Child'), findsOneWidget);
@@ -46,10 +40,7 @@ void main() {
     });
 
     testWidgets('does not starts if playing is false', (tester) async {
-      await tester.pumpRunningText(
-        text: 'The Child',
-        running: false,
-      );
+      await tester.pumpRunningText(text: 'The Child', running: false);
 
       await tester.pumpAndSettle();
       expect(find.text('The Child'), findsNothing);
@@ -64,10 +55,7 @@ void main() {
             builder: (context, setState) {
               return Column(
                 children: [
-                  NesRunningText(
-                    text: 'The Child',
-                    running: running,
-                  ),
+                  NesRunningText(text: 'The Child', running: running),
                   ElevatedButton(
                     onPressed: () => setState(() => running = true),
                     child: const Text('Start'),
@@ -96,9 +84,7 @@ void main() {
             builder: (context, setState) {
               return Column(
                 children: [
-                  NesRunningText(
-                    text: text,
-                  ),
+                  NesRunningText(text: text),
                   ElevatedButton(
                     onPressed: () => setState(() => text = 'The Mandalorian'),
                     child: const Text('Start'),

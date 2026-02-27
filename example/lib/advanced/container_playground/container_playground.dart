@@ -16,10 +16,7 @@ class ContainerPlaygroundPage extends StatefulWidget {
 }
 
 class _Option {
-  const _Option({
-    required this.label,
-    required this.painterBuilder,
-  });
+  const _Option({required this.label, required this.painterBuilder});
 
   final String label;
   final NesContainerPainterBuilder painterBuilder;

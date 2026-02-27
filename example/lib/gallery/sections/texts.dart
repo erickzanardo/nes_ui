@@ -9,49 +9,19 @@ class TextSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Typography',
-          style: theme.textTheme.displayMedium,
-        ),
+        Text('Typography', style: theme.textTheme.displayMedium),
         const SizedBox(height: 16),
-        Text(
-          'Title Small',
-          style: theme.textTheme.titleSmall,
-        ),
-        Text(
-          'Title Medium',
-          style: theme.textTheme.titleMedium,
-        ),
-        Text(
-          'Title Large',
-          style: theme.textTheme.titleLarge,
-        ),
+        Text('Title Small', style: theme.textTheme.titleSmall),
+        Text('Title Medium', style: theme.textTheme.titleMedium),
+        Text('Title Large', style: theme.textTheme.titleLarge),
         const SizedBox(height: 16),
-        Text(
-          'Body Small',
-          style: theme.textTheme.bodySmall,
-        ),
-        Text(
-          'Body Medium',
-          style: theme.textTheme.bodyMedium,
-        ),
-        Text(
-          'Body Large',
-          style: theme.textTheme.bodyLarge,
-        ),
+        Text('Body Small', style: theme.textTheme.bodySmall),
+        Text('Body Medium', style: theme.textTheme.bodyMedium),
+        Text('Body Large', style: theme.textTheme.bodyLarge),
         const SizedBox(height: 16),
-        Text(
-          'Label Small',
-          style: theme.textTheme.labelSmall,
-        ),
-        Text(
-          'Label Medium',
-          style: theme.textTheme.labelMedium,
-        ),
-        Text(
-          'Label Large',
-          style: theme.textTheme.labelLarge,
-        ),
+        Text('Label Small', style: theme.textTheme.labelSmall),
+        Text('Label Medium', style: theme.textTheme.labelMedium),
+        Text('Label Large', style: theme.textTheme.labelLarge),
       ],
     );
   }

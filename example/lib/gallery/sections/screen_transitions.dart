@@ -10,10 +10,7 @@ class ScreenTransitionsSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Screen Transitions',
-          style: theme.textTheme.displayMedium,
-        ),
+        Text('Screen Transitions', style: theme.textTheme.displayMedium),
         const SizedBox(height: 16),
         Wrap(
           children: [

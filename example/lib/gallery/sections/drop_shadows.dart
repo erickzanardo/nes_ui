@@ -10,10 +10,7 @@ class DropShadowsSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'DropShadows',
-          style: theme.textTheme.displayMedium,
-        ),
+        Text('DropShadows', style: theme.textTheme.displayMedium),
         const SizedBox(height: 16),
         const NesDropshadow(
           child: NesWindow(

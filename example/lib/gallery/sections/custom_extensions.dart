@@ -10,10 +10,7 @@ class CustomExtensions extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Custom Extensions',
-          style: theme.textTheme.displayMedium,
-        ),
+        Text('Custom Extensions', style: theme.textTheme.displayMedium),
         const SizedBox(height: 16),
         Wrap(
           children: [
@@ -23,9 +20,7 @@ class CustomExtensions extends StatelessWidget {
                 padding: EdgeInsets.all(8),
                 child: Text(
                   'Card with a custom background color',
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
+                  style: TextStyle(color: Colors.white),
                 ),
               ),
             ),

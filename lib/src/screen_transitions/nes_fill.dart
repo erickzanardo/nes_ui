@@ -22,10 +22,7 @@ class NesFillTransition extends NesOverlayTransitionWidget {
       reverseTransitionDuration: duration,
       transitionDuration: duration,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        return NesFillTransition(
-          animation: animation,
-          child: child,
-        );
+        return NesFillTransition(animation: animation, child: child);
       },
     );
   }

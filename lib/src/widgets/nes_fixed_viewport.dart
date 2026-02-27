@@ -79,9 +79,7 @@ class NesFixedViewport extends StatelessWidget {
                     height: resolution.height,
                     child: NesFixedViewportScaling(
                       scale: scale,
-                      child: Builder(
-                        builder: builder,
-                      ),
+                      child: Builder(builder: builder),
                     ),
                   ),
                 ),

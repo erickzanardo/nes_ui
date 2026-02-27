@@ -18,10 +18,7 @@ class _SelectionListSectionState extends State<SelectionListSection> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Selection lists',
-          style: theme.textTheme.displayMedium,
-        ),
+        Text('Selection lists', style: theme.textTheme.displayMedium),
         const SizedBox(height: 16),
         // Improve layout
         NesContainer(
@@ -46,10 +43,7 @@ class _SelectionListSectionState extends State<SelectionListSection> {
             initialIndex: _horizontal,
             axis: Axis.horizontal,
             tickerDuration: const Duration(milliseconds: 100),
-            children: const [
-              Text('Yes'),
-              Text('No'),
-            ],
+            children: const [Text('Yes'), Text('No')],
             onSelect: (v) {
               setState(() => _horizontal = v);
             },

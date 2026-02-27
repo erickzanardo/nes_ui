@@ -76,10 +76,7 @@ class _NesDropdownMenuState<T> extends State<NesDropdownMenu<T>> {
 
     final selectedEntry = result.isNotEmpty ? result.first : null;
 
-    const padding = EdgeInsets.symmetric(
-      vertical: 8,
-      horizontal: 8,
-    );
+    const padding = EdgeInsets.symmetric(vertical: 8, horizontal: 8);
 
     final width = widget.width ?? 200;
 
@@ -103,51 +100,47 @@ class _NesDropdownMenuState<T> extends State<NesDropdownMenu<T>> {
                     child: NesSingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
-                        children: widget.entries.map(
-                          (entry) {
-                            final isSelected = entry.value == _selectedValue;
-                            return SizedBox(
-                              height: 18,
-                              child: Align(
-                                alignment: AlignmentDirectional.centerStart,
-                                child: Padding(
-                                  padding: const EdgeInsets.only(left: 8),
-                                  child: Opacity(
-                                    opacity: isSelected ? 0.5 : 1,
-                                    child: NesPressable(
-                                      onPress: !isSelected
-                                          ? () {
-                                              widget.onChanged?.call(
-                                                entry.value,
-                                              );
-                                              setState(() {
-                                                _selectedValue = entry.value;
-                                                _toggleMenu();
-                                              });
-                                            }
-                                          : null,
-                                      child: Row(
-                                        children: [
-                                          if (entry.icon != null)
-                                            Padding(
-                                              padding: const EdgeInsets.only(
-                                                right: 8,
-                                              ),
-                                              child: NesIcon(
-                                                iconData: entry.icon!,
-                                                size: const Size.square(18),
-                                              ),
+                        children: widget.entries.map((entry) {
+                          final isSelected = entry.value == _selectedValue;
+                          return SizedBox(
+                            height: 18,
+                            child: Align(
+                              alignment: AlignmentDirectional.centerStart,
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 8),
+                                child: Opacity(
+                                  opacity: isSelected ? 0.5 : 1,
+                                  child: NesPressable(
+                                    onPress: !isSelected
+                                        ? () {
+                                            widget.onChanged?.call(entry.value);
+                                            setState(() {
+                                              _selectedValue = entry.value;
+                                              _toggleMenu();
+                                            });
+                                          }
+                                        : null,
+                                    child: Row(
+                                      children: [
+                                        if (entry.icon != null)
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                              right: 8,
                                             ),
-                                          Text(entry.label),
-                                        ],
-                                      ),
+                                            child: NesIcon(
+                                              iconData: entry.icon!,
+                                              size: const Size.square(18),
+                                            ),
+                                          ),
+                                        Text(entry.label),
+                                      ],
                                     ),
                                   ),
                                 ),
                               ),
-                            );
-                          },
-                        ).toList(),
+                            ),
+                          );
+                        }).toList(),
                       ),
                     ),
                   ),
@@ -174,9 +167,7 @@ class _NesDropdownMenuState<T> extends State<NesDropdownMenu<T>> {
                 ),
               Expanded(
                 child: selectedEntry != null
-                    ? Text(
-                        selectedEntry.label,
-                      )
+                    ? Text(selectedEntry.label)
                     : const SizedBox(),
               ),
               const SizedBox(width: 8),

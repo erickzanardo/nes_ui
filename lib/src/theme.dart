@@ -321,20 +321,14 @@ class NesIconTheme extends ThemeExtension<NesIconTheme> {
 class NesOverlayTransitionTheme
     extends ThemeExtension<NesOverlayTransitionTheme> {
   /// {@macro nes_overlay_transition_theme}
-  const NesOverlayTransitionTheme({
-    required this.color,
-  });
+  const NesOverlayTransitionTheme({required this.color});
 
   /// Color of the overlay.
   final Color color;
 
   @override
-  NesOverlayTransitionTheme copyWith({
-    Color? color,
-  }) {
-    return NesOverlayTransitionTheme(
-      color: color ?? this.color,
-    );
+  NesOverlayTransitionTheme copyWith({Color? color}) {
+    return NesOverlayTransitionTheme(color: color ?? this.color);
   }
 
   @override
@@ -356,10 +350,7 @@ class NesOverlayTransitionTheme
 /// {@endtemplate}
 class NesProgressBarTheme extends ThemeExtension<NesProgressBarTheme> {
   /// {@macro nes_progress_bar_theme}
-  const NesProgressBarTheme({
-    required this.background,
-    required this.color,
-  });
+  const NesProgressBarTheme({required this.background, required this.color});
 
   /// The color for the progress bar background.
   /// Defaults to [TextTheme.bodyMedium]
@@ -370,10 +361,7 @@ class NesProgressBarTheme extends ThemeExtension<NesProgressBarTheme> {
   final Color color;
 
   @override
-  NesProgressBarTheme copyWith({
-    Color? background,
-    Color? color,
-  }) {
+  NesProgressBarTheme copyWith({Color? background, Color? color}) {
     return NesProgressBarTheme(
       background: background ?? this.background,
       color: color ?? this.color,
@@ -533,10 +521,7 @@ class NesSnackbarTheme extends ThemeExtension<NesSnackbarTheme> {
 /// {@endtemplate}
 class NesTooltipTheme extends ThemeExtension<NesTooltipTheme> {
   /// {@macro nes_tooltip_theme}
-  const NesTooltipTheme({
-    required this.background,
-    required this.textColor,
-  });
+  const NesTooltipTheme({required this.background, required this.textColor});
 
   /// The color for the tooltip background.
   /// Defaults to [TextTheme.bodyMedium].
@@ -547,10 +532,7 @@ class NesTooltipTheme extends ThemeExtension<NesTooltipTheme> {
   final Color textColor;
 
   @override
-  NesTooltipTheme copyWith({
-    Color? background,
-    Color? textColor,
-  }) {
+  NesTooltipTheme copyWith({Color? background, Color? textColor}) {
     return NesTooltipTheme(
       background: background ?? this.background,
       textColor: textColor ?? this.textColor,
@@ -770,10 +752,7 @@ class NesInputDecorationTheme {
 /// {@endtemplate}
 class NesLinkTheme extends ThemeExtension<NesLinkTheme> {
   /// {@macro nes_link_theme}
-  const NesLinkTheme({
-    required this.linkColor,
-    required this.disabledColor,
-  });
+  const NesLinkTheme({required this.linkColor, required this.disabledColor});
 
   /// The text color of the link.
   ///
@@ -817,20 +796,14 @@ class NesLinkTheme extends ThemeExtension<NesLinkTheme> {
 /// {@endtemplate}
 class NesRunningTextTheme extends ThemeExtension<NesRunningTextTheme> {
   /// {@macro nes_running_text_theme}
-  const NesRunningTextTheme({
-    required this.speed,
-  });
+  const NesRunningTextTheme({required this.speed});
 
   /// The speed of the text, in seconds.
   final double speed;
 
   @override
-  NesRunningTextTheme copyWith({
-    double? speed,
-  }) {
-    return NesRunningTextTheme(
-      speed: speed ?? this.speed,
-    );
+  NesRunningTextTheme copyWith({double? speed}) {
+    return NesRunningTextTheme(speed: speed ?? this.speed);
   }
 
   @override
@@ -841,9 +814,7 @@ class NesRunningTextTheme extends ThemeExtension<NesRunningTextTheme> {
     if (other is! NesRunningTextTheme) {
       return copyWith();
     }
-    return NesRunningTextTheme(
-      speed: lerpDouble(speed, other.speed, t),
-    );
+    return NesRunningTextTheme(speed: lerpDouble(speed, other.speed, t));
   }
 }
 
@@ -942,9 +913,7 @@ ThemeData flutterNesTheme({
     colorSchemeSeed: primaryColor,
   );
 
-  final textTheme = GoogleFonts.pressStart2pTextTheme(
-    themeData.textTheme,
-  );
+  final textTheme = GoogleFonts.pressStart2pTextTheme(themeData.textTheme);
 
   final progressBarTheme = nesProgressBarTheme ??
       NesProgressBarTheme(

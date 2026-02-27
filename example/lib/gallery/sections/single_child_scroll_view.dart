@@ -10,10 +10,7 @@ class SingleChildScrollViewSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Single Child ScrollView',
-          style: theme.textTheme.displayMedium,
-        ),
+        Text('Single Child ScrollView', style: theme.textTheme.displayMedium),
         const SizedBox(height: 16),
         Wrap(
           children: [
@@ -23,10 +20,7 @@ class SingleChildScrollViewSection extends StatelessWidget {
               child: NesSingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: List.generate(
-                    100,
-                    (index) => Text('Item $index'),
-                  ),
+                  children: List.generate(100, (index) => Text('Item $index')),
                 ),
               ),
             ),

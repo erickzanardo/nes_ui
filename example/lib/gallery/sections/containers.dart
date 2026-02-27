@@ -10,15 +10,9 @@ class ContainersSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Containers',
-          style: theme.textTheme.displayMedium,
-        ),
+        Text('Containers', style: theme.textTheme.displayMedium),
         const SizedBox(height: 16),
-        const NesContainer(
-          width: double.infinity,
-          child: Text('Hello'),
-        ),
+        const NesContainer(width: double.infinity, child: Text('Hello')),
         const SizedBox(height: 16),
         const NesContainer(
           width: double.infinity,

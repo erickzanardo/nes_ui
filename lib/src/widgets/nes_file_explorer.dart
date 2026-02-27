@@ -123,16 +123,11 @@ class _NesFileExplorerState extends State<NesFileExplorer> {
   void _onToggleFolder(NesFolder folder) {
     if (_openFolders.contains(folder.path)) {
       setState(() {
-        _openFolders = [
-          ..._openFolders.where((path) => path != folder.path),
-        ];
+        _openFolders = [..._openFolders.where((path) => path != folder.path)];
       });
     } else {
       setState(() {
-        _openFolders = [
-          folder.path,
-          ..._openFolders,
-        ];
+        _openFolders = [folder.path, ..._openFolders];
       });
     }
   }
@@ -233,9 +228,7 @@ class _Entry extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: Row(
               children: [
-                NesIcon(
-                  iconData: _fileIcon(entry as NesFile),
-                ),
+                NesIcon(iconData: _fileIcon(entry as NesFile)),
                 const SizedBox(width: 8),
                 Text(entry.name),
               ],

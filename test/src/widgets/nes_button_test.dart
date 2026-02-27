@@ -77,9 +77,7 @@ void main() {
       });
 
       testWidgets('when disabled', (tester) async {
-        await tester.pumpButton(
-          buttonType: NesButtonType.warning,
-        );
+        await tester.pumpButton(buttonType: NesButtonType.warning);
 
         expect(find.byType(NesButton), findsOneWidget);
       });

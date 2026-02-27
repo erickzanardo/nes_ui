@@ -8,11 +8,7 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           theme: flutterNesTheme(),
-          home: const Scaffold(
-            body: NesKeyIcon(
-              buttonKey: 'A',
-            ),
-          ),
+          home: const Scaffold(body: NesKeyIcon(buttonKey: 'A')),
         ),
       );
 
@@ -23,12 +19,7 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           theme: flutterNesTheme(),
-          home: const Scaffold(
-            body: NesKeyIcon(
-              buttonKey: 'A',
-              pressed: true,
-            ),
-          ),
+          home: const Scaffold(body: NesKeyIcon(buttonKey: 'A', pressed: true)),
         ),
       );
 

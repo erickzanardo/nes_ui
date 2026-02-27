@@ -81,9 +81,7 @@ class NesWindow extends StatelessWidget {
       width: double.infinity,
       height: titleBarHeight,
       child: DecoratedBox(
-        decoration: BoxDecoration(
-          color: nesContainerTheme.borderColor,
-        ),
+        decoration: BoxDecoration(color: nesContainerTheme.borderColor),
         child: Row(
           children: [
             SizedBox(width: titleBarPadding),
@@ -99,9 +97,7 @@ class NesWindow extends StatelessWidget {
                 child: Center(
                   child: Text(
                     title!,
-                    style: textStyle.copyWith(
-                      color: containerColor,
-                    ),
+                    style: textStyle.copyWith(color: containerColor),
                   ),
                 ),
               ),
@@ -155,9 +151,7 @@ class NesWindow extends StatelessWidget {
                 child: titleBar,
               ),
             ),
-          SizedBox(
-            height: nesTheme.pixelSize.toDouble(),
-          ),
+          SizedBox(height: nesTheme.pixelSize.toDouble()),
           if (child != null) child!,
         ],
       ),
@@ -182,16 +176,9 @@ class NesWindow extends StatelessWidget {
                 width: 12,
                 height: 12,
                 handleDelta: (offset) {
-                  onMove?.call(
-                    Offset(offset.dx, offset.dy),
-                  );
+                  onMove?.call(Offset(offset.dx, offset.dy));
 
-                  onResize?.call(
-                    Offset(
-                      offset.dx * -1,
-                      offset.dy * -1,
-                    ),
-                  );
+                  onResize?.call(Offset(offset.dx * -1, offset.dy * -1));
                 },
               ),
             ),
@@ -207,16 +194,9 @@ class NesWindow extends StatelessWidget {
                 width: 12,
                 height: 12,
                 handleDelta: (offset) {
-                  onMove?.call(
-                    Offset(0, offset.dy),
-                  );
+                  onMove?.call(Offset(0, offset.dy));
 
-                  onResize?.call(
-                    Offset(
-                      offset.dx,
-                      offset.dy * -1,
-                    ),
-                  );
+                  onResize?.call(Offset(offset.dx, offset.dy * -1));
                 },
               ),
             ),
@@ -232,16 +212,9 @@ class NesWindow extends StatelessWidget {
                 width: 12,
                 height: 12,
                 handleDelta: (offset) {
-                  onMove?.call(
-                    Offset(offset.dx, 0),
-                  );
+                  onMove?.call(Offset(offset.dx, 0));
 
-                  onResize?.call(
-                    Offset(
-                      offset.dx * -1,
-                      offset.dy,
-                    ),
-                  );
+                  onResize?.call(Offset(offset.dx * -1, offset.dy));
                 },
               ),
             ),
@@ -257,12 +230,7 @@ class NesWindow extends StatelessWidget {
                 width: 12,
                 height: 12,
                 handleDelta: (offset) {
-                  onResize?.call(
-                    Offset(
-                      offset.dx,
-                      offset.dy,
-                    ),
-                  );
+                  onResize?.call(Offset(offset.dx, offset.dy));
                 },
               ),
             ),
@@ -276,16 +244,9 @@ class NesWindow extends StatelessWidget {
                 width: double.infinity,
                 height: 12,
                 handleDelta: (offset) {
-                  onMove?.call(
-                    Offset(0, offset.dy),
-                  );
+                  onMove?.call(Offset(0, offset.dy));
 
-                  onResize?.call(
-                    Offset(
-                      0,
-                      offset.dy * -1,
-                    ),
-                  );
+                  onResize?.call(Offset(0, offset.dy * -1));
                 },
               ),
             ),
@@ -299,12 +260,7 @@ class NesWindow extends StatelessWidget {
                 width: double.infinity,
                 height: 12,
                 handleDelta: (offset) {
-                  onResize?.call(
-                    Offset(
-                      0,
-                      offset.dy,
-                    ),
-                  );
+                  onResize?.call(Offset(0, offset.dy));
                 },
               ),
             ),
@@ -318,16 +274,9 @@ class NesWindow extends StatelessWidget {
                 width: 12,
                 height: double.infinity,
                 handleDelta: (offset) {
-                  onMove?.call(
-                    Offset(offset.dx, 0),
-                  );
+                  onMove?.call(Offset(offset.dx, 0));
 
-                  onResize?.call(
-                    Offset(
-                      offset.dx * -1,
-                      0,
-                    ),
-                  );
+                  onResize?.call(Offset(offset.dx * -1, 0));
                 },
               ),
             ),
@@ -341,12 +290,7 @@ class NesWindow extends StatelessWidget {
                 width: 12,
                 height: double.infinity,
                 handleDelta: (offset) {
-                  onResize?.call(
-                    Offset(
-                      offset.dx,
-                      0,
-                    ),
-                  );
+                  onResize?.call(Offset(offset.dx, 0));
                 },
               ),
             ),
@@ -381,10 +325,7 @@ class _ResizeHandler extends StatelessWidget {
       },
       child: MouseRegion(
         cursor: cursor,
-        child: SizedBox(
-          width: width,
-          height: height,
-        ),
+        child: SizedBox(width: width, height: height),
       ),
     );
   }

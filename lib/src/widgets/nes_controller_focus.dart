@@ -7,11 +7,7 @@ import 'package:nes_ui/nes_ui.dart';
 /// {@endtemplate}
 class NesControllerFocus extends StatefulWidget {
   ///
-  const NesControllerFocus({
-    super.key,
-    required this.child,
-    this.focusNode,
-  });
+  const NesControllerFocus({super.key, required this.child, this.focusNode});
 
   /// Child of this controller.
   final Widget child;

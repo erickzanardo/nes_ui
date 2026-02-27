@@ -11,20 +11,10 @@ class RpgMenuCubit extends Cubit<RpgMenuState> {
   }
 
   void selectCategory(Category category) {
-    emit(
-      RpgMenuState(
-        category: category,
-        char: state.char,
-      ),
-    );
+    emit(RpgMenuState(category: category, char: state.char));
   }
 
   void selectChar(Char char) {
-    emit(
-      RpgMenuState(
-        category: state.category,
-        char: char,
-      ),
-    );
+    emit(RpgMenuState(category: state.category, char: char));
   }
 }

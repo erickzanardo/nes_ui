@@ -151,9 +151,7 @@ class NesIconCollection {
 
   /// A remove icon.
   late final remove = NesIconData(
-    MiniSprite.fromDataString(
-      '8,8;24,-1;16,0;24,-1',
-    ),
+    MiniSprite.fromDataString('8,8;24,-1;16,0;24,-1'),
   );
 
   /// A redo icon.
@@ -704,9 +702,7 @@ class NesIconCollection {
 
   /// Hamburger Menu
   late final hamburgerMenu = NesIconData(
-    MiniSprite.fromDataString(
-      '8,8;17,-1;6,0;10,-1;6,0;10,-1;6,0;9,-1',
-    ),
+    MiniSprite.fromDataString('8,8;17,-1;6,0;10,-1;6,0;10,-1;6,0;9,-1'),
   );
 
   /// Arrow cursor

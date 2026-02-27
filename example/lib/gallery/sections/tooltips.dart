@@ -10,10 +10,7 @@ class TooltipsSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Tooltips',
-          style: theme.textTheme.displayMedium,
-        ),
+        Text('Tooltips', style: theme.textTheme.displayMedium),
         const SizedBox(height: 16),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -21,22 +18,16 @@ class TooltipsSection extends StatelessWidget {
             NesTooltip(
               message: 'This is a top tooltip',
               arrowPlacement: NesTooltipArrowPlacement.left,
-              child: NesIcon(
-                iconData: NesIcons.exclamationMarkBlock,
-              ),
+              child: NesIcon(iconData: NesIcons.exclamationMarkBlock),
             ),
             NesTooltip(
               message: 'This is a top tooltip',
-              child: NesIcon(
-                iconData: NesIcons.exclamationMarkBlock,
-              ),
+              child: NesIcon(iconData: NesIcons.exclamationMarkBlock),
             ),
             NesTooltip(
               message: 'This is a top tooltip',
               arrowPlacement: NesTooltipArrowPlacement.right,
-              child: NesIcon(
-                iconData: NesIcons.exclamationMarkBlock,
-              ),
+              child: NesIcon(iconData: NesIcons.exclamationMarkBlock),
             ),
           ],
         ),
@@ -48,24 +39,18 @@ class TooltipsSection extends StatelessWidget {
               message: 'This is a bottom tooltip',
               arrowPlacement: NesTooltipArrowPlacement.left,
               arrowDirection: NesTooltipArrowDirection.bottom,
-              child: NesIcon(
-                iconData: NesIcons.exclamationMarkBlock,
-              ),
+              child: NesIcon(iconData: NesIcons.exclamationMarkBlock),
             ),
             NesTooltip(
               message: 'This is a bottom tooltip',
               arrowDirection: NesTooltipArrowDirection.bottom,
-              child: NesIcon(
-                iconData: NesIcons.exclamationMarkBlock,
-              ),
+              child: NesIcon(iconData: NesIcons.exclamationMarkBlock),
             ),
             NesTooltip(
               message: 'This is a bottom tooltip',
               arrowPlacement: NesTooltipArrowPlacement.right,
               arrowDirection: NesTooltipArrowDirection.bottom,
-              child: NesIcon(
-                iconData: NesIcons.exclamationMarkBlock,
-              ),
+              child: NesIcon(iconData: NesIcons.exclamationMarkBlock),
             ),
           ],
         ),

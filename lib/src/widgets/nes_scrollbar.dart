@@ -137,10 +137,7 @@ class _NesScrollbarState extends State<NesScrollbar> {
               ? NesScrollbar.scrollbarSize
               : constraintSize,
           decoration: BoxDecoration(
-            border: Border.all(
-              width: 4,
-              color: containerColor,
-            ),
+            border: Border.all(width: 4, color: containerColor),
           ),
           child: Stack(
             children: [

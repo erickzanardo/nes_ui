@@ -10,20 +10,13 @@ class CheckBoxesSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'CheckBoxes',
-          style: theme.textTheme.displayMedium,
-        ),
+        Text('CheckBoxes', style: theme.textTheme.displayMedium),
         const SizedBox(height: 16),
         const Wrap(
           children: [
-            NesCheckBox(
-              value: true,
-            ),
+            NesCheckBox(value: true),
             SizedBox(width: 16),
-            NesCheckBox(
-              value: false,
-            ),
+            NesCheckBox(value: false),
           ],
         ),
       ],

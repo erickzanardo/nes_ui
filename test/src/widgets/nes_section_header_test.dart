@@ -8,9 +8,7 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           theme: flutterNesTheme(),
-          home: const Scaffold(
-            body: NesSectionHeader(title: 'Title'),
-          ),
+          home: const Scaffold(body: NesSectionHeader(title: 'Title')),
         ),
       );
 

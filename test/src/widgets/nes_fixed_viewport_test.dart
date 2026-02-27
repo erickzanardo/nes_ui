@@ -9,9 +9,7 @@ void main() {
         MaterialApp(
           theme: flutterNesTheme(),
           home: Scaffold(
-            body: NesFixedViewport(
-              builder: (_) => const Text('Hello'),
-            ),
+            body: NesFixedViewport(builder: (_) => const Text('Hello')),
           ),
         ),
       );

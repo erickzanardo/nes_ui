@@ -10,10 +10,7 @@ class SplitPanelSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Nes Split Panel',
-          style: theme.textTheme.displayMedium,
-        ),
+        Text('Nes Split Panel', style: theme.textTheme.displayMedium),
         const SizedBox(height: 16),
         const SizedBox(
           height: 300,
@@ -23,16 +20,12 @@ class SplitPanelSection extends StatelessWidget {
               NesContainer(
                 width: double.infinity,
                 height: double.infinity,
-                child: Center(
-                  child: Text('Panel 1'),
-                ),
+                child: Center(child: Text('Panel 1')),
               ),
               NesContainer(
                 width: double.infinity,
                 height: double.infinity,
-                child: Center(
-                  child: Text('Panel 2'),
-                ),
+                child: Center(child: Text('Panel 2')),
               ),
             ],
           ),
@@ -51,23 +44,17 @@ class SplitPanelSection extends StatelessWidget {
                   NesContainer(
                     width: double.infinity,
                     height: double.infinity,
-                    child: Center(
-                      child: Text('Panel 1'),
-                    ),
+                    child: Center(child: Text('Panel 1')),
                   ),
                   NesContainer(
                     width: double.infinity,
                     height: double.infinity,
-                    child: Center(
-                      child: Text('Panel 2'),
-                    ),
+                    child: Center(child: Text('Panel 2')),
                   ),
                   NesContainer(
                     width: double.infinity,
                     height: double.infinity,
-                    child: Center(
-                      child: Text('Panel 3'),
-                    ),
+                    child: Center(child: Text('Panel 3')),
                   ),
                 ],
               ),
@@ -76,23 +63,17 @@ class SplitPanelSection extends StatelessWidget {
                   NesContainer(
                     width: double.infinity,
                     height: double.infinity,
-                    child: Center(
-                      child: Text('Panel 4'),
-                    ),
+                    child: Center(child: Text('Panel 4')),
                   ),
                   NesContainer(
                     width: double.infinity,
                     height: double.infinity,
-                    child: Center(
-                      child: Text('Panel 5'),
-                    ),
+                    child: Center(child: Text('Panel 5')),
                   ),
                   NesContainer(
                     width: double.infinity,
                     height: double.infinity,
-                    child: Center(
-                      child: Text('Panel 6'),
-                    ),
+                    child: Center(child: Text('Panel 6')),
                   ),
                 ],
               ),

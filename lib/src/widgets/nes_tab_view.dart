@@ -6,11 +6,8 @@ import 'package:nes_ui/nes_ui.dart';
 /// {@endtemplate}
 class NesTabItem {
   /// {@macro nes_tab_item}
-  const NesTabItem({
-    required this.child,
-    this.label,
-    this.icon,
-  }) : assert(
+  const NesTabItem({required this.child, this.label, this.icon})
+      : assert(
           label != null || icon != null,
           'Either label or icon must be provided',
         );
@@ -80,28 +77,26 @@ class _NesTabViewState extends State<NesTabView> {
     final nesTheme = context.nesThemeExtension<NesTheme>();
     final nesContainerTheme = context.nesThemeExtension<NesContainerTheme>();
 
-    final tabs = widget.tabs.map(
-      (tab) {
-        final index = widget.tabs.indexOf(tab);
-        return Expanded(
-          child: NesTab(
-            tab: tab,
-            selected: _selectedIndex == index,
-            onPressed: () {
-              setState(() {
-                _selectedIndex = index;
-              });
-              widget.onTabChanged?.call(index);
-            },
-            onClosed: widget.onTabClosed != null
-                ? () {
-                    widget.onTabClosed?.call(index);
-                  }
-                : null,
-          ),
-        );
-      },
-    ).toList();
+    final tabs = widget.tabs.map((tab) {
+      final index = widget.tabs.indexOf(tab);
+      return Expanded(
+        child: NesTab(
+          tab: tab,
+          selected: _selectedIndex == index,
+          onPressed: () {
+            setState(() {
+              _selectedIndex = index;
+            });
+            widget.onTabChanged?.call(index);
+          },
+          onClosed: widget.onTabClosed != null
+              ? () {
+                  widget.onTabClosed?.call(index);
+                }
+              : null,
+        ),
+      );
+    }).toList();
 
     return Column(
       children: [
@@ -136,10 +131,7 @@ class _NesTabViewState extends State<NesTabView> {
 }
 
 class _NesTabViewPainter extends CustomPainter {
-  _NesTabViewPainter({
-    required this.color,
-    required this.pixelSize,
-  });
+  _NesTabViewPainter({required this.color, required this.pixelSize});
 
   final double pixelSize;
   final Color color;
@@ -149,10 +141,7 @@ class _NesTabViewPainter extends CustomPainter {
     final paint = Paint()..color = color;
     // Left border
     canvas
-      ..drawRect(
-        Rect.fromLTWH(0, 0, pixelSize, size.height - pixelSize),
-        paint,
-      )
+      ..drawRect(Rect.fromLTWH(0, 0, pixelSize, size.height - pixelSize), paint)
       // Right border
       ..drawRect(
         Rect.fromLTWH(

@@ -106,10 +106,7 @@ class _NesInputDialogState extends State<NesInputDialog> {
       children: [
         Text(widget.message),
         const SizedBox(height: 16),
-        TextField(
-          controller: _controller,
-          autofocus: true,
-        ),
+        TextField(controller: _controller, autofocus: true),
         const SizedBox(height: 16),
         Row(
           mainAxisSize: MainAxisSize.min,

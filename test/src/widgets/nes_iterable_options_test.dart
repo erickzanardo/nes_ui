@@ -18,10 +18,7 @@ void main() {
         ),
       );
 
-      expect(
-        find.byType(NesIterableOptions<String>),
-        findsOneWidget,
-      );
+      expect(find.byType(NesIterableOptions<String>), findsOneWidget);
     });
 
     testWidgets('cycles left', (tester) async {
@@ -60,10 +57,7 @@ void main() {
       await tester.tap(leftButton);
       await tester.pumpAndSettle();
 
-      expect(
-        values,
-        equals(['C', 'B', 'A']),
-      );
+      expect(values, equals(['C', 'B', 'A']));
     });
 
     testWidgets('cycles right', (tester) async {
@@ -102,10 +96,7 @@ void main() {
       await tester.tap(rightButton);
       await tester.pumpAndSettle();
 
-      expect(
-        values,
-        equals(['B', 'C', 'A']),
-      );
+      expect(values, equals(['B', 'C', 'A']));
     });
   });
 }

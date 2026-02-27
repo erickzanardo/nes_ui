@@ -10,10 +10,7 @@ class DropDownMenusSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Drop Down Menus',
-          style: theme.textTheme.displayMedium,
-        ),
+        Text('Drop Down Menus', style: theme.textTheme.displayMedium),
         const SizedBox(height: 16),
         const NesDropdownMenu<String>(
           initialValue: 'Option 1',

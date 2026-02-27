@@ -9,10 +9,7 @@ class SectionHeaderSection extends StatelessWidget {
     final theme = Theme.of(context);
     return Column(
       children: [
-        Text(
-          'Section Header',
-          style: theme.textTheme.displayMedium,
-        ),
+        Text('Section Header', style: theme.textTheme.displayMedium),
         const SizedBox(height: 16),
         const NesContainer(child: NesSectionHeader(title: 'Center (default)')),
         const SizedBox(height: 16),

@@ -11,14 +11,8 @@ void main() {
           home: const Scaffold(
             body: NesTabView(
               tabs: [
-                NesTabItem(
-                  label: 'Tab 1',
-                  child: Text('Tab 1 content'),
-                ),
-                NesTabItem(
-                  label: 'Tab 2',
-                  child: Text('Tab 2 content'),
-                ),
+                NesTabItem(label: 'Tab 1', child: Text('Tab 1 content')),
+                NesTabItem(label: 'Tab 2', child: Text('Tab 2 content')),
               ],
             ),
           ),
@@ -42,14 +36,8 @@ void main() {
               body: NesTabView(
                 initialTabIndex: 99,
                 tabs: [
-                  NesTabItem(
-                    label: 'Tab 1',
-                    child: Text('Tab 1 content'),
-                  ),
-                  NesTabItem(
-                    label: 'Tab 2',
-                    child: Text('Tab 2 content'),
-                  ),
+                  NesTabItem(label: 'Tab 1', child: Text('Tab 1 content')),
+                  NesTabItem(label: 'Tab 2', child: Text('Tab 2 content')),
                 ],
               ),
             ),
@@ -72,14 +60,8 @@ void main() {
             body: NesTabView(
               initialTabIndex: 1,
               tabs: [
-                NesTabItem(
-                  label: 'Tab 1',
-                  child: Text('Tab 1 content'),
-                ),
-                NesTabItem(
-                  label: 'Tab 2',
-                  child: Text('Tab 2 content'),
-                ),
+                NesTabItem(label: 'Tab 1', child: Text('Tab 1 content')),
+                NesTabItem(label: 'Tab 2', child: Text('Tab 2 content')),
               ],
             ),
           ),
@@ -100,14 +82,8 @@ void main() {
           home: const Scaffold(
             body: NesTabView(
               tabs: [
-                NesTabItem(
-                  label: 'Tab 1',
-                  child: Text('Tab 1 content'),
-                ),
-                NesTabItem(
-                  label: 'Tab 2',
-                  child: Text('Tab 2 content'),
-                ),
+                NesTabItem(label: 'Tab 1', child: Text('Tab 1 content')),
+                NesTabItem(label: 'Tab 2', child: Text('Tab 2 content')),
               ],
             ),
           ),
