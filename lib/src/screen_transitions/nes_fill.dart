@@ -29,8 +29,8 @@ class NesFillTransition extends NesOverlayTransitionWidget {
 
   @override
   Widget buildOverlay(BuildContext context, double value) {
-    final overlayTransitionTheme =
-        context.nesThemeExtension<NesOverlayTransitionTheme>();
+    final overlayTransitionTheme = context
+        .nesThemeExtension<NesOverlayTransitionTheme>();
 
     final size = MediaQuery.of(context).size;
 
