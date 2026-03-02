@@ -67,6 +67,8 @@ import 'package:widgetbook_app/widgetbook/use_cases/running_texts.dart'
     as _widgetbook_app_widgetbook_use_cases_running_texts;
 import 'package:widgetbook_app/widgetbook/use_cases/screen_transitions.dart'
     as _widgetbook_app_widgetbook_use_cases_screen_transitions;
+import 'package:widgetbook_app/widgetbook/use_cases/scrollbar.dart'
+    as _widgetbook_app_widgetbook_use_cases_scrollbar;
 import 'package:widgetbook_app/widgetbook/use_cases/section_header.dart'
     as _widgetbook_app_widgetbook_use_cases_section_header;
 import 'package:widgetbook_app/widgetbook/use_cases/selection_list.dart'
@@ -110,7 +112,7 @@ final directories = <_widgetbook.WidgetbookNode>[
             builder: _widgetbook_app_widgetbook_use_cases_input.withValue,
           ),
         ],
-      ),
+      )
     ],
   ),
   _widgetbook.WidgetbookFolder(
@@ -123,7 +125,7 @@ final directories = <_widgetbook.WidgetbookNode>[
             name: 'default',
             builder:
                 _widgetbook_app_widgetbook_use_cases_screen_transitions.fill,
-          ),
+          )
         ],
       ),
       _widgetbook.WidgetbookComponent(
@@ -133,7 +135,7 @@ final directories = <_widgetbook.WidgetbookNode>[
             name: 'default',
             builder: _widgetbook_app_widgetbook_use_cases_screen_transitions
                 .horizontalClose,
-          ),
+          )
         ],
       ),
       _widgetbook.WidgetbookComponent(
@@ -143,7 +145,7 @@ final directories = <_widgetbook.WidgetbookNode>[
             name: 'default',
             builder: _widgetbook_app_widgetbook_use_cases_screen_transitions
                 .horizontalGrid,
-          ),
+          )
         ],
       ),
       _widgetbook.WidgetbookComponent(
@@ -153,7 +155,7 @@ final directories = <_widgetbook.WidgetbookNode>[
             name: 'default',
             builder: _widgetbook_app_widgetbook_use_cases_screen_transitions
                 .verticalClose,
-          ),
+          )
         ],
       ),
       _widgetbook.WidgetbookComponent(
@@ -163,7 +165,7 @@ final directories = <_widgetbook.WidgetbookNode>[
             name: 'default',
             builder: _widgetbook_app_widgetbook_use_cases_screen_transitions
                 .verticalGrid,
-          ),
+          )
         ],
       ),
     ],
@@ -177,7 +179,7 @@ final directories = <_widgetbook.WidgetbookNode>[
           _widgetbook.WidgetbookUseCase(
             name: 'default',
             builder: _widgetbook_app_widgetbook_use_cases_blinker.normal,
-          ),
+          )
         ],
       ),
       _widgetbook.WidgetbookComponent(
@@ -186,7 +188,7 @@ final directories = <_widgetbook.WidgetbookNode>[
           _widgetbook.WidgetbookUseCase(
             name: 'default',
             builder: _widgetbook_app_widgetbook_use_cases_bottom_sheets.normal,
-          ),
+          )
         ],
       ),
       _widgetbook.WidgetbookComponent(
@@ -220,7 +222,7 @@ final directories = <_widgetbook.WidgetbookNode>[
           _widgetbook.WidgetbookUseCase(
             name: 'default',
             builder: _widgetbook_app_widgetbook_use_cases_checkboxes.checkbox,
-          ),
+          )
         ],
       ),
       _widgetbook.WidgetbookComponent(
@@ -230,7 +232,7 @@ final directories = <_widgetbook.WidgetbookNode>[
             name: 'default',
             builder: _widgetbook_app_widgetbook_use_cases_checkered_decoration
                 .normal,
-          ),
+          )
         ],
       ),
       _widgetbook.WidgetbookComponent(
@@ -417,7 +419,7 @@ final directories = <_widgetbook.WidgetbookNode>[
           _widgetbook.WidgetbookUseCase(
             name: 'default',
             builder: _widgetbook_app_widgetbook_use_cases_pressable.normal,
-          ),
+          )
         ],
       ),
       _widgetbook.WidgetbookComponent(
@@ -451,7 +453,7 @@ final directories = <_widgetbook.WidgetbookNode>[
           _widgetbook.WidgetbookUseCase(
             name: 'default',
             builder: _widgetbook_app_widgetbook_use_cases_running_texts.normal,
-          ),
+          )
         ],
       ),
       _widgetbook.WidgetbookComponent(
@@ -460,6 +462,21 @@ final directories = <_widgetbook.WidgetbookNode>[
           _widgetbook.WidgetbookUseCase(
             name: 'default',
             builder: _widgetbook_app_widgetbook_use_cases_running_texts.lines,
+          )
+        ],
+      ),
+      _widgetbook.WidgetbookComponent(
+        name: 'NesScrollbar',
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'default',
+            builder:
+                _widgetbook_app_widgetbook_use_cases_scrollbar.defaultScrollbar,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'horizontal',
+            builder: _widgetbook_app_widgetbook_use_cases_scrollbar
+                .horizontalScrollbar,
           ),
         ],
       ),
@@ -639,7 +656,7 @@ final directories = <_widgetbook.WidgetbookNode>[
           _widgetbook.WidgetbookUseCase(
             name: 'default',
             builder: _widgetbook_app_widgetbook_use_cases_tooltips.normal,
-          ),
+          )
         ],
       ),
       _widgetbook.WidgetbookComponent(
@@ -734,7 +751,7 @@ final directories = <_widgetbook.WidgetbookNode>[
                     _widgetbook_app_widgetbook_use_cases_containers.squareConer,
               ),
             ],
-          ),
+          )
         ],
       ),
       _widgetbook.WidgetbookFolder(
@@ -747,7 +764,7 @@ final directories = <_widgetbook.WidgetbookNode>[
                 name: 'default',
                 builder:
                     _widgetbook_app_widgetbook_use_cases_confirm_dialog.normal,
-              ),
+              )
             ],
           ),
           _widgetbook.WidgetbookComponent(
@@ -781,7 +798,7 @@ final directories = <_widgetbook.WidgetbookNode>[
                 name: 'default',
                 builder:
                     _widgetbook_app_widgetbook_use_cases_input_dialog.normal,
-              ),
+              )
             ],
           ),
         ],
@@ -796,7 +813,7 @@ final directories = <_widgetbook.WidgetbookNode>[
                 name: 'NesHourglassLoadingIndicator',
                 builder: _widgetbook_app_widgetbook_use_cases_loading_indicator
                     .hourglass,
-              ),
+              )
             ],
           ),
           _widgetbook.WidgetbookComponent(
@@ -806,7 +823,7 @@ final directories = <_widgetbook.WidgetbookNode>[
                 name: 'NesJumpingIconsLoadingIndicator',
                 builder: _widgetbook_app_widgetbook_use_cases_loading_indicator
                     .jumpingIcons,
-              ),
+              )
             ],
           ),
           _widgetbook.WidgetbookComponent(
@@ -816,7 +833,7 @@ final directories = <_widgetbook.WidgetbookNode>[
                 name: 'NesMutatingIconsLoadingIndicator',
                 builder: _widgetbook_app_widgetbook_use_cases_loading_indicator
                     .mutatingIcons,
-              ),
+              )
             ],
           ),
           _widgetbook.WidgetbookComponent(
@@ -826,7 +843,7 @@ final directories = <_widgetbook.WidgetbookNode>[
                 name: 'NesPixelRowLoadingIndicator',
                 builder: _widgetbook_app_widgetbook_use_cases_loading_indicator
                     .pixelRow,
-              ),
+              )
             ],
           ),
           _widgetbook.WidgetbookComponent(
@@ -836,7 +853,7 @@ final directories = <_widgetbook.WidgetbookNode>[
                 name: 'NesTerminalLoadingIndicator',
                 builder: _widgetbook_app_widgetbook_use_cases_loading_indicator
                     .terminal,
-              ),
+              )
             ],
           ),
         ],
@@ -858,7 +875,7 @@ final directories = <_widgetbook.WidgetbookNode>[
                     _widgetbook_app_widgetbook_use_cases_progress_bar.smooth,
               ),
             ],
-          ),
+          )
         ],
       ),
     ],
