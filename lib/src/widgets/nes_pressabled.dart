@@ -12,6 +12,9 @@ class NesPressable extends StatefulWidget {
     this.onPressStart,
     this.onPressEnd,
     this.onPress,
+    this.onTapDown,
+    this.onTapUp,
+    this.onTapCancel,
     this.disabled,
     this.behavior,
     super.key,
@@ -25,6 +28,15 @@ class NesPressable extends StatefulWidget {
 
   /// Called when the press input has happened.
   final VoidCallback? onPress;
+
+  /// Called when a tap down event occurs.
+  final VoidCallback? onTapDown;
+
+  /// Called when a tap up event occurs.
+  final VoidCallback? onTapUp;
+
+  /// Called when a tap is cancelled.
+  final VoidCallback? onTapCancel;
 
   /// Disabled pressable component
   final bool? disabled;
@@ -64,18 +76,21 @@ class _NesPressableState extends State<NesPressable> {
             widget.onPress?.call();
           },
           onTapDown: (_) {
+            widget.onTapDown?.call();
             widget.onPressStart?.call();
             setState(() {
               _pressed = true;
             });
           },
           onTapUp: (_) {
+            widget.onTapUp?.call();
             widget.onPressEnd?.call();
             setState(() {
               _pressed = false;
             });
           },
           onTapCancel: () {
+            widget.onTapCancel?.call();
             widget.onPressEnd?.call();
             if (_pressed) {
               setState(() {

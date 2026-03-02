@@ -12,6 +12,9 @@ class NesIconButton extends StatelessWidget {
     this.onPress,
     this.onPressStart,
     this.onPressEnd,
+    this.onTapDown,
+    this.onTapUp,
+    this.onTapCancel,
     this.size,
     this.primaryColor,
     this.secondaryColor,
@@ -30,6 +33,15 @@ class NesIconButton extends StatelessWidget {
 
   /// Called when pressed has ended.
   final VoidCallback? onPressEnd;
+
+  /// Called when a tap down event occurs.
+  final VoidCallback? onTapDown;
+
+  /// Called when a tap up event occurs.
+  final VoidCallback? onTapUp;
+
+  /// Called when a tap is cancelled.
+  final VoidCallback? onTapCancel;
 
   /// Optional primary color for the icon.
   /// Will use value from the theme if none is provided.
@@ -58,6 +70,9 @@ class NesIconButton extends StatelessWidget {
       onPress: onPress,
       onPressStart: onPressStart,
       onPressEnd: onPressEnd,
+      onTapDown: onTapDown,
+      onTapUp: onTapUp,
+      onTapCancel: onTapCancel,
       disabled: _isDisabled(),
       child: Opacity(
         opacity: _isDisabled() ? .2 : 1.0,
