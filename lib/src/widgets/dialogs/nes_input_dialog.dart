@@ -53,14 +53,12 @@ class NesInputDialog extends StatefulWidget {
         shortcutsNotifier: notifier,
       ),
       frame: frame,
-      onShortcutClose:
-          onShortcutClose ??
+      onShortcutClose: onShortcutClose ??
           () {
             notifier.value = false;
             return true;
           },
-      onShortcutConfirm:
-          onShortcutConfirm ??
+      onShortcutConfirm: onShortcutConfirm ??
           () {
             notifier.value = true;
             return NesDialogConfirmAction.doNothing;

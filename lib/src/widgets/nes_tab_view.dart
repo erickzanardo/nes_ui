@@ -7,10 +7,10 @@ import 'package:nes_ui/nes_ui.dart';
 class NesTabItem {
   /// {@macro nes_tab_item}
   const NesTabItem({required this.child, this.label, this.icon})
-    : assert(
-        label != null || icon != null,
-        'Either label or icon must be provided',
-      );
+      : assert(
+          label != null || icon != null,
+          'Either label or icon must be provided',
+        );
 
   /// The widget to display tab contents.
   final Widget child;
@@ -60,8 +60,8 @@ class _NesTabViewState extends State<NesTabView> {
     _selectedIndex = widget.initialTabIndex >= widget.tabs.length
         ? widget.tabs.length - 1
         : widget.initialTabIndex < 0
-        ? 0
-        : widget.initialTabIndex;
+            ? 0
+            : widget.initialTabIndex;
   }
 
   @override

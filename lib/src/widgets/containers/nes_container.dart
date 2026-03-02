@@ -82,14 +82,13 @@ class NesContainer extends StatelessWidget {
 }
 
 /// Definition for a function that builds a [NesContainerPainter].
-typedef NesContainerPainterBuilder =
-    NesContainerPainter Function({
-      required String? label,
-      required int pixelSize,
-      required TextStyle textStyle,
-      required Color backgroundColor,
-      required Color borderColor,
-    });
+typedef NesContainerPainterBuilder = NesContainerPainter Function({
+  required String? label,
+  required int pixelSize,
+  required TextStyle textStyle,
+  required Color backgroundColor,
+  required Color borderColor,
+});
 
 /// {@template nes_container_painter}
 /// Base class for [NesContainer] painters.

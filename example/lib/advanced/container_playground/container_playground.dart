@@ -47,8 +47,7 @@ class _ContainerPlaygroundPageState extends State<ContainerPlaygroundPage> {
         nesContainerTheme:
             context.nesThemeExtension<NesContainerTheme>().copyWith(
                   painter: _option.painterBuilder,
-                )
-                as NesContainerTheme,
+                ) as NesContainerTheme,
       ),
       child: Scaffold(
         body: SingleChildScrollView(

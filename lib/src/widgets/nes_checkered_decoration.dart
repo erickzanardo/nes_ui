@@ -6,13 +6,13 @@ import 'package:flutter/material.dart';
 class NesCheckeredDecoration extends DecorationImage {
   /// {@macro nes_checkered_decoration}
   const NesCheckeredDecoration()
-    : super(
-        image: const AssetImage(
-          'assets/checkered_pattern.png',
-          package: 'nes_ui',
-        ),
-        repeat: ImageRepeat.repeat,
-        filterQuality: FilterQuality.none,
-        isAntiAlias: false,
-      );
+      : super(
+          image: const AssetImage(
+            'assets/checkered_pattern.png',
+            package: 'nes_ui',
+          ),
+          repeat: ImageRepeat.repeat,
+          filterQuality: FilterQuality.none,
+          isAntiAlias: false,
+        );
 }

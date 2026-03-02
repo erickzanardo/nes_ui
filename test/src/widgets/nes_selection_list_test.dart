@@ -152,7 +152,8 @@ void main() {
       expect(called, isTrue);
     });
 
-    testWidgets('can not cancel the selection with the cancel key when '
+    testWidgets(
+        'can not cancel the selection with the cancel key when '
         'canCancelSelection is false', (tester) async {
       var called = false;
       final node = FocusNode()..requestFocus();
