@@ -39,6 +39,30 @@ void main() {
       expect(pressed, isTrue);
     });
 
+    testWidgets('wraps child in SizedBox when buttonWidth is provided',
+        (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: flutterNesTheme(),
+          home: const NesButton(
+            type: NesButtonType.normal,
+            buttonWidth: 200,
+            child: Text('Fixed Width'),
+          ),
+        ),
+      );
+
+      expect(
+        find.descendant(
+          of: find.byType(NesButton),
+          matching: find.byWidgetPredicate(
+            (widget) => widget is SizedBox && widget.width == 200,
+          ),
+        ),
+        findsOneWidget,
+      );
+    });
+
     group('renders correctly based on the NesButtonType', () {
       testWidgets('when [NesButtonType.normal]', (tester) async {
         await tester.pumpButton(

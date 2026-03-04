@@ -44,6 +44,7 @@ class NesButton extends StatefulWidget {
     super.key,
     required this.type,
     required this.child,
+    this.buttonWidth,
     this.onPressed,
     this.onPressDown,
     this.onPressUp,
@@ -128,6 +129,11 @@ class NesButton extends StatefulWidget {
 
   /// The "label" of the button.
   final Widget child;
+
+  /// Optional fixed width for the button's child.
+  ///
+  /// When provided, the child is wrapped in a [SizedBox] with this width.
+  final double? buttonWidth;
 
   /// The callback called the button is pressed.
   final VoidCallback? onPressed;
@@ -216,7 +222,12 @@ class _NesButtonState extends State<NesButton> {
                     nesIconTheme,
                   ],
                 ),
-                child: widget.child,
+                child: widget.buttonWidth != null
+                    ? SizedBox(
+                        width: widget.buttonWidth,
+                        child: widget.child,
+                      )
+                    : widget.child,
               ),
             ),
           ),
