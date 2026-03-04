@@ -58,6 +58,7 @@ class NesButton extends StatefulWidget {
     Key? key,
     required NesButtonType type,
     required NesIconData icon,
+    double? buttonWidth,
     VoidCallback? onPressed,
     VoidCallback? onPressDown,
     VoidCallback? onPressUp,
@@ -65,6 +66,7 @@ class NesButton extends StatefulWidget {
   }) : this(
           key: key,
           type: type,
+          buttonWidth: buttonWidth,
           child: NesIcon(iconData: icon, size: iconSize),
           onPressed: onPressed,
           onPressDown: onPressDown,
@@ -85,12 +87,8 @@ class NesButton extends StatefulWidget {
   }) : this(
           key: key,
           type: type,
-          child: buttonWidth != null
-              ? SizedBox(
-                  width: buttonWidth,
-                  child: Center(child: Text(text)),
-                )
-              : Text(text),
+          buttonWidth: buttonWidth,
+          child: Text(text),
           onPressed: onPressed,
           onPressDown: onPressDown,
           onPressUp: onPressUp,
@@ -104,6 +102,7 @@ class NesButton extends StatefulWidget {
     required NesButtonType type,
     required NesIconData icon,
     required String text,
+    double? buttonWidth,
     VoidCallback? onPressed,
     VoidCallback? onPressDown,
     VoidCallback? onPressUp,
@@ -111,6 +110,7 @@ class NesButton extends StatefulWidget {
   }) : this(
           key: key,
           type: type,
+          buttonWidth: buttonWidth,
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
