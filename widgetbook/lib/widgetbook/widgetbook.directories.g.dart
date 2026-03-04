@@ -199,6 +199,14 @@ final directories = <_widgetbook.WidgetbookNode>[
             builder: _widgetbook_app_widgetbook_use_cases_buttons.error,
           ),
           _widgetbook.WidgetbookUseCase(
+            name: 'icon',
+            builder: _widgetbook_app_widgetbook_use_cases_buttons.icon,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'icon text',
+            builder: _widgetbook_app_widgetbook_use_cases_buttons.iconText,
+          ),
+          _widgetbook.WidgetbookUseCase(
             name: 'normal',
             builder: _widgetbook_app_widgetbook_use_cases_buttons.normal,
           ),
@@ -209,6 +217,10 @@ final directories = <_widgetbook.WidgetbookNode>[
           _widgetbook.WidgetbookUseCase(
             name: 'success',
             builder: _widgetbook_app_widgetbook_use_cases_buttons.success,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'text',
+            builder: _widgetbook_app_widgetbook_use_cases_buttons.text,
           ),
           _widgetbook.WidgetbookUseCase(
             name: 'warning',

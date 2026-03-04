@@ -56,3 +56,137 @@ Widget withFixedWidth(BuildContext context) => Center(
         ],
       ),
     );
+
+@widgetbook.UseCase(name: 'text', type: NesButton)
+Widget text(BuildContext context) => Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          NesButton.text(
+            onPressed: () {},
+            type: NesButtonType.normal,
+            buttonWidth: 150,
+            text: 'Normal',
+          ),
+          const SizedBox(height: 8),
+          NesButton.text(
+            onPressed: () {},
+            type: NesButtonType.primary,
+            buttonWidth: 150,
+            text: 'Primary',
+          ),
+          const SizedBox(height: 8),
+          NesButton.text(
+            onPressed: () {},
+            type: NesButtonType.success,
+            buttonWidth: 150,
+            text: 'Success',
+          ),
+          const SizedBox(height: 8),
+          NesButton.text(
+            onPressed: () {},
+            type: NesButtonType.warning,
+            buttonWidth: 150,
+            text: 'Warning',
+          ),
+          const SizedBox(height: 8),
+          NesButton.text(
+            onPressed: () {},
+            type: NesButtonType.error,
+            buttonWidth: 150,
+            text: 'Error',
+          ),
+        ],
+      ),
+    );
+
+@widgetbook.UseCase(name: 'icon', type: NesButton)
+Widget icon(BuildContext context) => Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          NesButton.icon(
+            onPressed: () {},
+            type: NesButtonType.normal,
+            buttonWidth: 150,
+            icon: NesIcons.check,
+          ),
+          const SizedBox(height: 8),
+          NesButton.icon(
+            onPressed: () {},
+            type: NesButtonType.primary,
+            buttonWidth: 150,
+            icon: NesIcons.check,
+          ),
+          const SizedBox(height: 8),
+          NesButton.icon(
+            onPressed: () {},
+            type: NesButtonType.success,
+            buttonWidth: 150,
+            icon: NesIcons.check,
+          ),
+          const SizedBox(height: 8),
+          NesButton.icon(
+            onPressed: () {},
+            type: NesButtonType.warning,
+            buttonWidth: 150,
+            icon: NesIcons.exclamationMarkBlock,
+          ),
+          const SizedBox(height: 8),
+          NesButton.icon(
+            onPressed: () {},
+            type: NesButtonType.error,
+            buttonWidth: 150,
+            icon: NesIcons.close,
+          ),
+        ],
+      ),
+    );
+
+@widgetbook.UseCase(name: 'icon text', type: NesButton)
+Widget iconText(BuildContext context) => Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          NesButton.iconText(
+            onPressed: () {},
+            type: NesButtonType.normal,
+            buttonWidth: 150,
+            icon: NesIcons.check,
+            text: 'Confirm',
+          ),
+          const SizedBox(height: 8),
+          NesButton.iconText(
+            onPressed: () {},
+            type: NesButtonType.primary,
+            buttonWidth: 150,
+            icon: NesIcons.saveFile,
+            text: 'Save',
+          ),
+          const SizedBox(height: 8),
+          NesButton.iconText(
+            onPressed: () {},
+            type: NesButtonType.success,
+            buttonWidth: 150,
+            icon: NesIcons.check,
+            text: 'Success',
+          ),
+          const SizedBox(height: 8),
+          NesButton.iconText(
+            onPressed: () {},
+            type: NesButtonType.warning,
+            buttonWidth: 150,
+            icon: NesIcons.exclamationMarkBlock,
+            text: 'Warning',
+          ),
+          const SizedBox(height: 8),
+          NesButton.iconText(
+            onPressed: () {},
+            type: NesButtonType.error,
+            buttonWidth: 150,
+            icon: NesIcons.close,
+            text: 'Delete',
+          ),
+        ],
+      ),
+    );
