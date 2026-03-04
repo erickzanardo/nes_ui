@@ -27,3 +27,32 @@ Widget warning(BuildContext context) =>
 @widgetbook.UseCase(name: 'error', type: NesButton)
 Widget error(BuildContext context) =>
     build(type: NesButtonType.error, text: 'Error');
+
+@widgetbook.UseCase(name: 'with fixed width', type: NesButton)
+Widget withFixedWidth(BuildContext context) => Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          NesButton(
+            onPressed: () {},
+            type: NesButtonType.normal,
+            buttonWidth: 150,
+            child: const Text('Normal'),
+          ),
+          const SizedBox(height: 8),
+          NesButton(
+            onPressed: () {},
+            type: NesButtonType.primary,
+            buttonWidth: 150,
+            child: const Text('Primary'),
+          ),
+          const SizedBox(height: 8),
+          NesButton(
+            onPressed: () {},
+            type: NesButtonType.success,
+            buttonWidth: 150,
+            child: const Text('Success'),
+          ),
+        ],
+      ),
+    );

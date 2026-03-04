@@ -214,6 +214,11 @@ final directories = <_widgetbook.WidgetbookNode>[
             name: 'warning',
             builder: _widgetbook_app_widgetbook_use_cases_buttons.warning,
           ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'with fixed width',
+            builder:
+                _widgetbook_app_widgetbook_use_cases_buttons.withFixedWidth,
+          ),
         ],
       ),
       _widgetbook.WidgetbookComponent(
