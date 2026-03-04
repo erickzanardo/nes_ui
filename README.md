@@ -105,27 +105,121 @@ If you need any help or have suggestions, join our [Discord](https://discord.gg/
 
 ## Material Customized Widgets
 
-Nes UI tries to use the most out of material that it can, customizing its looks to fit
-the package's desired look, for example, here is a list of some of the widgets that Nes ui customizes:
+Nes UI customizes Material widgets to fit the retro aesthetic:
 
- - Text
- - TextField/TextFormField
- - Divider
- - ...
+ - Text (styled with Press Start 2P font)
+ - TextField/TextFormField (pixelated borders)
+ - Divider (pixelated thickness)
 
 ## Custom Widgets
 
-Some widgets are too different from the Material look and structure, making the customization of the material widget not really possible, so many widgets are built from scratch, here is a list of some of the widgets that Nes UI
-provides:
+Nes UI provides many custom widgets built from scratch:
 
- - NesButton
- - NesCheckbox
- - NesContainer
- - NesConfirmDialog
- - NesIcon
- - NesSelectionList
- - NesIterableOptions
- - ...
+### Buttons & Inputs
+ - **NesButton** - Retro styled button with press effects
+```dart
+NesButton(
+  onPressed: () {},
+  child: Text('Click me'),
+)
+```
+ - **NesIconButton** - Icon button with retro styling
+```dart
+NesIconButton(
+  icon: NesIcons.instance.close,
+  onPressed: () {},
+)
+```
+ - **NesInput** - Text input field with pixelated borders
+```dart
+NesInput(
+  controller: controller,
+  label: 'Name',
+)
+```
+ - **NesCheckbox** - Retro styled checkbox
+```dart
+NesCheckbox(
+  value: checked,
+  onChanged: (value) {},
+)
+```
+
+### Display
+ - **NesContainer** - Decorative container with various border styles
+```dart
+NesContainer(
+  child: Text('Content'),
+)
+```
+ - **NesIcon** - Pixel art icon display
+```dart
+NesIcon(NesIcons.instance.error)
+```
+ - **NesIcon16** - 16x16 pixel icon variant
+ - **NesIconBadge** - Icon with badge overlay
+ - **NesLoadingIndicator** - Retro loading spinner
+```dart
+NesLoadingIndicator()
+```
+ - **NesProgressBar** - Horizontal progress bar
+```dart
+NesProgressBar(value: 0.5)
+```
+ - **NesSectionHeader** - Section title header
+```dart
+NesSectionHeader(title: 'Section')
+```
+ - **NesWindow** - Window-style container
+ - **NesTooltip** - Hover tooltip with retro style
+ - **NesKeyIcon** - Keyboard key icon
+
+### Lists & Selection
+ - **NesSelectionList** - List with selection highlighting
+```dart
+NesSelectionList(
+  items: ['Option 1', 'Option 2'],
+  onSelected: (index) {},
+)
+```
+ - **NesIterableOptions** - Scrollable options list
+ - **NesDropdownMenu** - Dropdown selection menu
+ - **NesTabView** - Tabbed content view
+ - **NesTab** - Individual tab widget
+
+### Navigation & Layout
+ - **NesScaffold** - Base scaffold with retro styling
+ - **NesSingleChildScrollView** - Scrollable container
+ - **NesScrollbar** - Custom pixelated scrollbar
+ - **NesSplitPanel** - Resizable split view
+ - **NesFixedViewport** - Fixed size viewport
+ - **NesDpad** - D-pad navigation control
+
+### Feedback & Effects
+ - **NesBlinker** - Text blinking effect
+ - **NesPulser** - Pulsing animation
+ - **NesDropshadow** - Pixel shadow effect
+ - **NesSnackbar** - Retro styled snackbar
+ - **NesBottomSheet** - Bottom sheet overlay
+ - **NesConfirmDialog** - Confirmation dialog
+```dart
+NesConfirmDialog(
+  title: 'Confirm',
+  message: 'Are you sure?',
+  onConfirm: () {},
+)
+```
+ - **NesInputDialog** - Input dialog
+ - **NesDialog** - Base dialog component
+
+### Animation & Text
+ - **NesRunningText** - Scrolling text animation
+ - **NesRunningTextLines** - Multi-line scrolling text
+ - **NesPressable** - Clickable wrapper with effects
+ - **NesControllerFocus** - Focus highlight for controllers
+ - **NesLink** - Hyperlink styled text
+ - **NesCheckeredDecoration** - Checkered background
+ - **NesFileExplorer** - File/folder browser UI
 
 ## Custom Extension
 
