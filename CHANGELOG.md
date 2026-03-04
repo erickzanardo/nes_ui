@@ -1,4 +1,5 @@
 # 0.28.0
+ - feat: adding `buttonWidth` to `NesButton.icon` and `NesButton.iconText` constructors.
  - feat: adding `NesIcons.waterCan`.
  - feat: add `buttonsWidth` to `NesConfirmDialog`
  - fix: Fixes for Flutter 3.38.x
