@@ -225,7 +225,7 @@ class _NesButtonState extends State<NesButton> {
                 child: widget.buttonWidth != null
                     ? SizedBox(
                         width: widget.buttonWidth,
-                        child: widget.child,
+                        child: Center(child: widget.child),
                       )
                     : widget.child,
               ),
