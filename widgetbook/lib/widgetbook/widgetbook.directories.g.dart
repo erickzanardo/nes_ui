@@ -754,6 +754,11 @@ final directories = <_widgetbook.WidgetbookNode>[
                     .cornerInnerSquare,
               ),
               _widgetbook.WidgetbookUseCase(
+                name: 'with decoration',
+                builder: _widgetbook_app_widgetbook_use_cases_containers
+                    .withDecoration,
+              ),
+              _widgetbook.WidgetbookUseCase(
                 name: 'with label',
                 builder: _widgetbook_app_widgetbook_use_cases_containers.label,
               ),
