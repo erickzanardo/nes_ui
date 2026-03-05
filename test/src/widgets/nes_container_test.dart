@@ -17,6 +17,63 @@ void main() {
 
       expect(find.text('The Child'), findsOneWidget);
     });
+
+    testWidgets('renders with decoration', (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: flutterNesTheme(),
+          home: const NesContainer(
+            decoration: BoxDecoration(color: Colors.red),
+            child: Text('The Child'),
+          ),
+        ),
+      );
+
+      expect(find.text('The Child'), findsOneWidget);
+    });
+
+    testWidgets('uses theme decoration when no decoration provided', (
+      tester,
+    ) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: flutterNesTheme(
+            nesContainerTheme: const NesContainerTheme(
+              backgroundColor: Colors.white,
+              borderColor: Colors.black,
+              labelTextStyle: TextStyle(fontSize: 12),
+              decoration: BoxDecoration(color: Colors.blue),
+            ),
+          ),
+          home: const NesContainer(child: Text('The Child')),
+        ),
+      );
+
+      expect(find.text('The Child'), findsOneWidget);
+    });
+
+    testWidgets('widget decoration takes priority over theme decoration', (
+      tester,
+    ) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: flutterNesTheme(
+            nesContainerTheme: const NesContainerTheme(
+              backgroundColor: Colors.white,
+              borderColor: Colors.black,
+              labelTextStyle: TextStyle(fontSize: 12),
+              decoration: BoxDecoration(color: Colors.blue),
+            ),
+          ),
+          home: const NesContainer(
+            decoration: BoxDecoration(color: Colors.red),
+            child: Text('The Child'),
+          ),
+        ),
+      );
+
+      expect(find.text('The Child'), findsOneWidget);
+    });
   });
 
   group('NesContainer golden tests', () {

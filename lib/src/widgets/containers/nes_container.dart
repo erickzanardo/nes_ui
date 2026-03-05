@@ -16,6 +16,7 @@ class NesContainer extends StatelessWidget {
     this.borderColor,
     this.padding,
     this.painterBuilder,
+    this.decoration,
   });
 
   /// An optional label for the container.
@@ -48,6 +49,12 @@ class NesContainer extends StatelessWidget {
   /// When omitted, defaults to [NesContainerTheme.painter].
   final NesContainerPainterBuilder? painterBuilder;
 
+  /// An optional decoration to apply to the container.
+  ///
+  /// When omitted, defaults to null.
+  /// When informed, takes priority over [NesContainerTheme.decoration].
+  final BoxDecoration? decoration;
+
   @override
   Widget build(BuildContext context) {
     final nesContainerTheme = context.nesThemeExtension<NesContainerTheme>();
@@ -64,7 +71,9 @@ class NesContainer extends StatelessWidget {
 
     final painter = painterBuilder ?? nesContainerTheme.painter;
 
-    return CustomPaint(
+    final effectiveDecoration = decoration ?? nesContainerTheme.decoration;
+
+    final container = CustomPaint(
       painter: painter(
         label: label,
         pixelSize: pixelSize,
@@ -78,6 +87,12 @@ class NesContainer extends StatelessWidget {
         child: Padding(padding: padding, child: child),
       ),
     );
+
+    if (effectiveDecoration != null) {
+      return DecoratedBox(decoration: effectiveDecoration, child: container);
+    }
+
+    return container;
   }
 }
 

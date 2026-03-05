@@ -85,12 +85,25 @@ Widget miniSpritePainer(BuildContext context) => Center(
             '8,8;5,-1;1,0;1,-1;1,0;5,-1;1,0;1,-1;1,0;5,-1;1,0;1,-1;1,0;4,-1;2,0;1,-1;1,0;4,-1;2,0;1,-1;1,0;5,-1;1,0;1,-1;1,0;5,-1;1,0;1,-1;1,0;5,-1;1,0;1,-1;1,0',
           ),
           leftBar: MiniSprite.fromDataString(
-            '8,8;1,0;1,-1;1,0;5,-1;1,0;1,-1;1,0;5,-1;1,0;1,-1;1,0;5,-1;1,0;1,-1;2,0;4,-1;1,0;1,-1;2,0;4,-1;1,0;1,-1;1,0;5,-1;1,0;1,-1;1,0;5,-1;1,0;1,-1;1,0;5,-1',
+            '8,8;1,0;1,-1;1,0;5,-1;1,0;1,-1;1,0;5,-1;1,0;1,-1;1,0;5,-1;1,0;1,-1;2,0;4,-1;1,0;1,-1;2,0;4,-1;1,0;1,-1;1,0;5,-1;1,0;1,-1;1,0;5,-1;1,0;1,-1;1,0;5,-1;1,0;1,-1;1,0',
           ),
         ),
         width: 600,
         height: 190,
         label: 'Label',
         child: const Center(child: Text('Hello World')),
+      ),
+    );
+
+@widgetbook.UseCase(name: 'with decoration', type: NesContainer)
+Widget withDecoration(BuildContext context) => const Center(
+      child: NesContainer(
+        width: 200,
+        height: 200,
+        decoration: BoxDecoration(
+          color: Colors.red,
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+        ),
+        child: Center(child: Text('Hello World')),
       ),
     );
