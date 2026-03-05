@@ -1,3 +1,5 @@
+# 0.29.0
+
 # 0.28.0
  - feat: Add an optional `decoration` parameter to `NesContainer`
  - feat: adding `buttonWidth` to `NesButton.icon` and `NesButton.iconText` constructors.
