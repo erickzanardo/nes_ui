@@ -851,7 +851,7 @@ extension NesBuildContext on BuildContext {
 /// Creates a Flutter Nes [ThemeData].
 ///
 /// Use [textTheme] to override the default Press Start 2P font
-/// for non-Latin locales.
+/// for non-Latin locales or just to use a different, custom `TextTheme`.
 ThemeData flutterNesTheme({
   Color primaryColor = const Color(0xffb4b6f6),
   Brightness brightness = Brightness.light,

@@ -1,4 +1,5 @@
 # 0.29.0
+ - feat: Add `textTheme` parameter to `flutterNesTheme()` to allow custom text themes.
 
 # 0.28.0
  - feat: Add an optional `decoration` parameter to `NesContainer`
