@@ -849,10 +849,14 @@ extension NesBuildContext on BuildContext {
 }
 
 /// Creates a Flutter Nes [ThemeData].
+///
+/// Use [textTheme] to override the default Press Start 2P font
+/// for non-Latin locales.
 ThemeData flutterNesTheme({
   Color primaryColor = const Color(0xffb4b6f6),
   Brightness brightness = Brightness.light,
   NesTheme nesTheme = const NesTheme(pixelSize: 4),
+  TextTheme? textTheme,
   NesButtonTheme nesButtonTheme = const NesButtonTheme(
     normal: Color(0xffffffff),
     primary: Color(0xff209cee),
@@ -922,42 +926,43 @@ ThemeData flutterNesTheme({
     colorSchemeSeed: primaryColor,
   );
 
-  final textTheme = GoogleFonts.pressStart2pTextTheme(themeData.textTheme);
+  final resolvedTextTheme =
+      textTheme ?? GoogleFonts.pressStart2pTextTheme(themeData.textTheme);
 
   final progressBarTheme = nesProgressBarTheme ??
       NesProgressBarTheme(
-        background: textTheme.bodyMedium?.color ?? Colors.black,
+        background: resolvedTextTheme.bodyMedium?.color ?? Colors.black,
         color: themeData.colorScheme.primary,
       );
 
   final toolTipTheme = nesTooltipTheme ??
       NesTooltipTheme(
-        background: textTheme.bodyMedium?.color ?? Colors.black,
+        background: resolvedTextTheme.bodyMedium?.color ?? Colors.black,
         textColor: themeData.colorScheme.surface,
       );
 
   final containerTheme = nesContainerTheme ??
       NesContainerTheme(
         backgroundColor: themeData.cardColor,
-        borderColor: textTheme.labelMedium?.color ?? Colors.black,
-        labelTextStyle: textTheme.labelMedium ?? const TextStyle(),
+        borderColor: resolvedTextTheme.labelMedium?.color ?? Colors.black,
+        labelTextStyle: resolvedTextTheme.labelMedium ?? const TextStyle(),
       );
 
   final bottomSheetTheme = nesBottomSheetTheme ??
       NesBottomSheetTheme(
         backgroundColor: themeData.cardColor,
-        borderColor: textTheme.labelMedium?.color ?? Colors.black,
+        borderColor: resolvedTextTheme.labelMedium?.color ?? Colors.black,
       );
 
   final linkTheme = nesLinkTheme ??
       NesLinkTheme(
         linkColor: nesButtonTheme.primary,
-        disabledColor: textTheme.bodyMedium?.color?.withValues(alpha: .4) ??
+        disabledColor: resolvedTextTheme.bodyMedium?.color?.withValues(alpha: .4) ??
             Colors.black.withAlpha(150),
       );
 
   return themeData.copyWith(
-    textTheme: textTheme,
+    textTheme: resolvedTextTheme,
     extensions: [
       nesTheme,
       nesButtonTheme,
@@ -975,14 +980,14 @@ ThemeData flutterNesTheme({
     ],
     dividerTheme: DividerThemeData(
       thickness: nesTheme.pixelSize.toDouble(),
-      color: textTheme.bodyMedium?.color,
+      color: resolvedTextTheme.bodyMedium?.color,
     ),
     inputDecorationTheme: InputDecorationTheme(
       labelStyle: nesInputDecorationTheme?.labelStyle,
       border: NesInputBorder(
         borderSide: BorderSide(
           color: nesInputDecorationTheme?.borderColor ??
-              textTheme.bodyMedium?.color ??
+              resolvedTextTheme.bodyMedium?.color ??
               Colors.black,
           width: nesTheme.pixelSize.toDouble(),
         ),
@@ -990,7 +995,7 @@ ThemeData flutterNesTheme({
       enabledBorder: NesInputBorder(
         borderSide: BorderSide(
           color: nesInputDecorationTheme?.enabledBorderColor ??
-              textTheme.bodyMedium?.color ??
+              resolvedTextTheme.bodyMedium?.color ??
               Colors.black,
           width: nesTheme.pixelSize.toDouble(),
         ),
