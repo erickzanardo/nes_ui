@@ -957,8 +957,9 @@ ThemeData flutterNesTheme({
   final linkTheme = nesLinkTheme ??
       NesLinkTheme(
         linkColor: nesButtonTheme.primary,
-        disabledColor: resolvedTextTheme.bodyMedium?.color?.withValues(alpha: .4) ??
-            Colors.black.withAlpha(150),
+        disabledColor:
+            resolvedTextTheme.bodyMedium?.color?.withValues(alpha: .4) ??
+                Colors.black.withAlpha(150),
       );
 
   return themeData.copyWith(
