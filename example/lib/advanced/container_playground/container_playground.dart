@@ -22,16 +22,16 @@ class _Option {
   final NesContainerPainterBuilder painterBuilder;
 }
 
-const _options = [
-  _Option(
+final _options = [
+  const _Option(
     label: 'Rounded Border',
     painterBuilder: NesContainerRoundedBorderPainter.new,
   ),
-  _Option(
+  const _Option(
     label: 'Square Corner',
     painterBuilder: NesContainerSquareCornerPainter.new,
   ),
-  _Option(
+  const _Option(
     label: 'Corner Inner Square',
     painterBuilder: NesContainerCornerInnerSquarePainter.new,
   ),
