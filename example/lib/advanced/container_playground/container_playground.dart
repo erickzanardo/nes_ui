@@ -35,6 +35,18 @@ const _options = [
     label: 'Corner Inner Square',
     painterBuilder: NesContainerCornerInnerSquarePainter.new,
   ),
+  _Option(
+    label: 'Multi Step Corner (2 steps)',
+    painterBuilder: NesContainerMultiStepCornerPainter.builder(
+      cornerSteps: 2,
+    ),
+  ),
+  _Option(
+    label: 'Multi Step Corner (3 steps)',
+    painterBuilder: NesContainerMultiStepCornerPainter.builder(
+      cornerSteps: 3,
+    ),
+  ),
 ];
 
 class _ContainerPlaygroundPageState extends State<ContainerPlaygroundPage> {

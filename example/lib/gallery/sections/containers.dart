@@ -33,6 +33,24 @@ class ContainersSection extends StatelessWidget {
           backgroundColor: Colors.blue.shade100,
           child: const Text('Hello'),
         ),
+        const SizedBox(height: 16),
+        NesContainer(
+          width: double.infinity,
+          painterBuilder: NesContainerMultiStepCornerPainter.builder(
+            cornerSteps: 2,
+          ),
+          label: 'Multi step corner (2 steps)',
+          child: const Text('Hello'),
+        ),
+        const SizedBox(height: 16),
+        NesContainer(
+          width: double.infinity,
+          painterBuilder: NesContainerMultiStepCornerPainter.builder(
+            cornerSteps: 3,
+          ),
+          label: 'Multi step corner (3 steps)',
+          child: const Text('Hello'),
+        ),
       ],
     );
   }
