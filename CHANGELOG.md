@@ -1,3 +1,5 @@
+# 0.30.0
+
 # 0.29.0
  - feat: Add `textTheme` parameter to `flutterNesTheme()` to allow custom text themes.
 
