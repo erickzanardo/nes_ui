@@ -768,6 +768,16 @@ final directories = <_widgetbook.WidgetbookNode>[
                     .miniSpritePainer,
               ),
               _widgetbook.WidgetbookUseCase(
+                name: 'with multi step corner painter (2 steps)',
+                builder: _widgetbook_app_widgetbook_use_cases_containers
+                    .multiStepCorner2,
+              ),
+              _widgetbook.WidgetbookUseCase(
+                name: 'with multi step corner painter (3 steps)',
+                builder: _widgetbook_app_widgetbook_use_cases_containers
+                    .multiStepCorner3,
+              ),
+              _widgetbook.WidgetbookUseCase(
                 name: 'with square corner painter',
                 builder:
                     _widgetbook_app_widgetbook_use_cases_containers.squareConer,

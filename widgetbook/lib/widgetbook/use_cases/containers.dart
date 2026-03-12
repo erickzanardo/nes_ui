@@ -36,6 +36,38 @@ Widget squareConer(BuildContext context) => const Center(
     );
 
 @widgetbook.UseCase(
+  name: 'with multi step corner painter (2 steps)',
+  type: NesContainer,
+)
+Widget multiStepCorner2(BuildContext context) => Center(
+      child: NesContainer(
+        painterBuilder: NesContainerMultiStepCornerPainter.builder(
+          cornerSteps: 2,
+        ),
+        width: 200,
+        height: 200,
+        label: 'Label',
+        child: const Center(child: Text('Hello World')),
+      ),
+    );
+
+@widgetbook.UseCase(
+  name: 'with multi step corner painter (3 steps)',
+  type: NesContainer,
+)
+Widget multiStepCorner3(BuildContext context) => Center(
+      child: NesContainer(
+        painterBuilder: NesContainerMultiStepCornerPainter.builder(
+          cornerSteps: 3,
+        ),
+        width: 200,
+        height: 200,
+        label: 'Label',
+        child: const Center(child: Text('Hello World')),
+      ),
+    );
+
+@widgetbook.UseCase(
   name: 'with corner inner square painter',
   type: NesContainer,
 )
