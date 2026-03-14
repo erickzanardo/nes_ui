@@ -1,5 +1,6 @@
 # 0.30.0
  - feat: Add `NesContainerMultiStepCornerPainter` with configurable `cornerSteps` for multi-step pixel-rounded corners.
+ - feat: Add `mainAxisSize` parameter to `NesSelectionList`.
 
 # 0.29.0
  - feat: Add `textTheme` parameter to `flutterNesTheme()` to allow custom text themes.
