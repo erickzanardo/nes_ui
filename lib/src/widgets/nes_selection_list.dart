@@ -18,6 +18,7 @@ class NesSelectionList extends StatefulWidget {
     this.onCancelSelection,
     this.tickerDuration,
     this.canCancelSelection = true,
+    this.mainAxisSize = MainAxisSize.max,
     this.disabledItems = const [],
   }) : assert(
           initialIndex == null || initialIndex < children.length,
@@ -62,6 +63,11 @@ class NesSelectionList extends StatefulWidget {
 
   /// Duration of ticker, it changes the blink speed.
   final Duration? tickerDuration;
+
+  /// How much space should be occupied in the main axis.
+  ///
+  /// Defaults to [MainAxisSize.max].
+  final MainAxisSize mainAxisSize;
 
   /// List of indexes that are disabled.
   final List<int> disabledItems;
@@ -212,6 +218,7 @@ class _NesSelectionListState extends State<NesSelectionList> {
           marker: marker,
           markerSize: markerSize,
           hasFocus: _hasFocus,
+          mainAxisSize: widget.mainAxisSize,
           disabled: widget.disabledItems.contains(i),
           child: widget.children[i],
         ),
@@ -221,10 +228,14 @@ class _NesSelectionListState extends State<NesSelectionList> {
       focusNode: _focusNode,
       child: widget.axis == Axis.vertical
           ? Column(
+              mainAxisSize: widget.mainAxisSize,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: children,
             )
-          : Row(children: children),
+          : Row(
+              mainAxisSize: widget.mainAxisSize,
+              children: children,
+            ),
     );
   }
 }
@@ -240,6 +251,7 @@ class _SelectionItem extends StatelessWidget {
     required this.markerSize,
     required this.itemMinHeight,
     required this.hasFocus,
+    required this.mainAxisSize,
     this.tickerDuration,
     this.disabled = false,
   });
@@ -253,6 +265,7 @@ class _SelectionItem extends StatelessWidget {
   final Widget child;
   final double itemMinHeight;
   final bool hasFocus;
+  final MainAxisSize mainAxisSize;
   final Duration? tickerDuration;
   final bool disabled;
 
@@ -271,6 +284,7 @@ class _SelectionItem extends StatelessWidget {
         child: ConstrainedBox(
           constraints: BoxConstraints(minHeight: itemMinHeight),
           child: Row(
+            mainAxisSize: mainAxisSize,
             children: [
               SizedBox(width: markerSize.width, child: itemMarker),
               const SizedBox(width: 6),
