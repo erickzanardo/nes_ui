@@ -20,7 +20,7 @@ class BottomSheetsSection extends StatelessWidget {
               onPressed: () {
                 NesBottomSheet.show<void>(
                   context: context,
-                  maxHeight: .2,
+                  height: 200,
                   builder: (_) => Column(
                     children: [
                       const Expanded(child: Text('Hello World')),
