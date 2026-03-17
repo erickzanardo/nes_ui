@@ -1,5 +1,6 @@
 # 0.31.0
  - chore: Update `google_fonts` to latest
+ - feat: Allow NesBottomSheet to have absolute height
 
 # 0.30.0
  - feat: Add `NesShakeEffect` widget with declarative `shaking` bool and optional `NesShakeEffectController`.
