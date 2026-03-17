@@ -155,16 +155,26 @@ class _BottomSheetSliderState extends State<_BottomSheetSlider> {
 /// {@endtemplate}
 class NesBottomSheet extends StatelessWidget {
   /// {@macro nes_bottom_sheet_theme}
-  const NesBottomSheet({required this.child, super.key});
+  const NesBottomSheet({required this.child, this.height, super.key});
 
   /// The child of the bottom sheet.
   final Widget child;
+
+  /// The height of the bottom sheet.
+  ///
+  /// If null, the bottom sheet will take half of the screen height.
+  /// When provided, this absolute value will be used for the height.
+  final double? height;
 
   /// A shortcut method that can be used to show this bottom sheet.
   static Future<T?> show<T>({
     required BuildContext context,
     required WidgetBuilder builder,
+    @Deprecated(
+      'Use height instead. This attribute will be removed in a future version.',
+    )
     double maxHeight = .5,
+    double? height,
   }) {
     final nesTheme = context.nesThemeExtension<NesTheme>();
 
@@ -186,6 +196,8 @@ class NesBottomSheet extends StatelessWidget {
       },
       pageBuilder: (_, __, ___) {
         final mediaQuery = MediaQuery.of(context);
+        final bottomSheetHeight =
+            height ?? (mediaQuery.size.height * maxHeight);
         final dialog = Theme(
           data: Theme.of(context),
           child: Material(
@@ -193,7 +205,7 @@ class NesBottomSheet extends StatelessWidget {
             child: Align(
               alignment: Alignment.bottomCenter,
               child: SizedBox(
-                height: mediaQuery.size.height * maxHeight,
+                height: bottomSheetHeight,
                 child: _BottomSheetSlider(
                   child: NesBottomSheet(child: builder(context)),
                 ),

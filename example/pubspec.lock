@@ -87,10 +87,10 @@ packages:
     dependency: transitive
     description:
       name: google_fonts
-      sha256: e20ff62b158b96f392bfc8afe29dee1503c94fbea2cbe8186fd59b756b8ae982
+      sha256: db9df7a5898d894eeda4c78143f35c30a243558be439518972366880b80bf88e
       url: "https://pub.dev"
     source: hosted
-    version: "5.1.0"
+    version: "8.0.2"
   http:
     dependency: transitive
     description:
@@ -137,7 +137,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.29.0"
+    version: "0.30.1"
   nested:
     dependency: transitive
     description:
@@ -384,5 +384,5 @@ packages:
     source: hosted
     version: "1.0.3"
 sdks:
-  dart: ">=3.9.0-0 <4.0.0"
-  flutter: ">=3.19.0"
+  dart: ">=3.9.0 <4.0.0"
+  flutter: ">=3.35.0"
