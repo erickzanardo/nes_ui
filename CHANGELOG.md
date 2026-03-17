@@ -1,3 +1,5 @@
+# 0.31.0
+
 # 0.30.0
  - feat: Add `NesShakeEffect` widget with declarative `shaking` bool and optional `NesShakeEffectController`.
  - feat: Add `NesContainerMultiStepCornerPainter` with configurable `cornerSteps` for multi-step pixel-rounded corners.
