@@ -73,6 +73,8 @@ import 'package:widgetbook_app/widgetbook/use_cases/section_header.dart'
     as _widgetbook_app_widgetbook_use_cases_section_header;
 import 'package:widgetbook_app/widgetbook/use_cases/selection_list.dart'
     as _widgetbook_app_widgetbook_use_cases_selection_list;
+import 'package:widgetbook_app/widgetbook/use_cases/shake_effect.dart'
+    as _widgetbook_app_widgetbook_use_cases_shake_effect;
 import 'package:widgetbook_app/widgetbook/use_cases/single_child_scroll_view.dart'
     as _widgetbook_app_widgetbook_use_cases_single_child_scroll_view;
 import 'package:widgetbook_app/widgetbook/use_cases/snackbar.dart'
@@ -528,6 +530,26 @@ final directories = <_widgetbook.WidgetbookNode>[
             name: 'with disabled items',
             builder: _widgetbook_app_widgetbook_use_cases_selection_list
                 .withDisabledItems,
+          ),
+        ],
+      ),
+      _widgetbook.WidgetbookComponent(
+        name: 'NesShakeEffect',
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'default (declarative)',
+            builder:
+                _widgetbook_app_widgetbook_use_cases_shake_effect.defaultShake,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'with controller',
+            builder: _widgetbook_app_widgetbook_use_cases_shake_effect
+                .withController,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'with custom intensity',
+            builder: _widgetbook_app_widgetbook_use_cases_shake_effect
+                .customIntensity,
           ),
         ],
       ),

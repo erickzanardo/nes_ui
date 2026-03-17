@@ -29,6 +29,7 @@ export 'nes_scaffold.dart';
 export 'nes_scrollbar.dart';
 export 'nes_section_header.dart';
 export 'nes_selection_list.dart';
+export 'nes_shake_effect.dart';
 export 'nes_single_child_scroll_view.dart';
 export 'nes_snackbar.dart';
 export 'nes_split_panel.dart';

@@ -1,8 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:nes_ui/nes_ui.dart';
 
-class EffectsSection extends StatelessWidget {
+class EffectsSection extends StatefulWidget {
   const EffectsSection({super.key});
+
+  @override
+  State<EffectsSection> createState() => _EffectsSectionState();
+}
+
+class _EffectsSectionState extends State<EffectsSection> {
+  final _shakeController = NesShakeEffectController();
+
+  @override
+  void dispose() {
+    _shakeController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +36,15 @@ class EffectsSection extends StatelessWidget {
             SizedBox(
               height: 40,
               child: NesPulser(child: const Text('NES Pulser')),
+            ),
+            const SizedBox(width: 16),
+            NesShakeEffect(
+              controller: _shakeController,
+              child: NesButton(
+                type: NesButtonType.normal,
+                onPressed: _shakeController.shake,
+                child: const Text('Shake!'),
+              ),
             ),
           ],
         ),
