@@ -43,6 +43,7 @@ class NesShakeEffect extends StatefulWidget {
     this.controller,
     this.intensity = 4.0,
     this.duration = const Duration(milliseconds: 300),
+    @visibleForTesting this.seed,
     required this.child,
   });
 
@@ -66,6 +67,13 @@ class NesShakeEffect extends StatefulWidget {
   /// The child widget to shake.
   final Widget child;
 
+  /// Optional seed for the random number generator.
+  ///
+  /// This is intended for testing only, to make the shake
+  /// effect deterministic.
+  @visibleForTesting
+  final int? seed;
+
   @override
   State<NesShakeEffect> createState() => NesShakeEffectState();
 }
@@ -74,7 +82,7 @@ class NesShakeEffect extends StatefulWidget {
 class NesShakeEffectState extends State<NesShakeEffect>
     with SingleTickerProviderStateMixin {
   late final AnimationController _animationController;
-  final Random _random = Random();
+  late final Random _random;
 
   NesShakeEffectController? _internalController;
 
@@ -90,6 +98,7 @@ class NesShakeEffectState extends State<NesShakeEffect>
   void initState() {
     super.initState();
 
+    _random = Random(widget.seed);
     _animationController = AnimationController(
       vsync: this,
       duration: widget.duration,
