@@ -1,7 +1,5 @@
-# 0.32.0
- - feat: Add `NesBadge` widget that can display a badge indicator on any widget.
-
 # 0.31.0
+ - feat: Add `NesBadge` widget that can display a badge indicator on any widget.
  - chore: Update `google_fonts` to latest
  - feat: Allow NesBottomSheet to have absolute height
  - feat: Add `NesIcons.cisel`.
