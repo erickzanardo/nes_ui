@@ -1,5 +1,6 @@
 export 'containers/containers.dart';
 export 'dialogs/dialogs.dart';
+export 'nes_badge.dart';
 export 'nes_blinker.dart';
 export 'nes_bottom_sheet.dart';
 export 'nes_button.dart';
