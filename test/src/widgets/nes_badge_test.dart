@@ -9,7 +9,7 @@ void main() {
         MaterialApp(
           theme: flutterNesTheme(),
           home: const Scaffold(
-            body: NesBadge(child: Icon(Icons.star), badge: '5'),
+            body: NesBadge(badge: '5', child: Icon(Icons.star)),
           ),
         ),
       );
@@ -23,10 +23,10 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           theme: flutterNesTheme(),
-          home: const Scaffold(
+          home: Scaffold(
             body: NesBadge(
-              child: NesIcon(iconData: NesIcons.heart),
               badge: '99+',
+              child: NesIcon(iconData: NesIcons.heart),
             ),
           ),
         ),

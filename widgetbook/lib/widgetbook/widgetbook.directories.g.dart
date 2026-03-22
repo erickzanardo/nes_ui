@@ -11,6 +11,8 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:widgetbook/widgetbook.dart' as _widgetbook;
+import 'package:widgetbook_app/widgetbook/use_cases/badge.dart'
+    as _widgetbook_app_widgetbook_use_cases_badge;
 import 'package:widgetbook_app/widgetbook/use_cases/blinker.dart'
     as _widgetbook_app_widgetbook_use_cases_blinker;
 import 'package:widgetbook_app/widgetbook/use_cases/bottom_sheets.dart'
@@ -175,6 +177,15 @@ final directories = <_widgetbook.WidgetbookNode>[
   _widgetbook.WidgetbookFolder(
     name: 'widgets',
     children: [
+      _widgetbook.WidgetbookComponent(
+        name: 'NesBadge',
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'default',
+            builder: _widgetbook_app_widgetbook_use_cases_badge.normal,
+          )
+        ],
+      ),
       _widgetbook.WidgetbookComponent(
         name: 'NesBlinker',
         useCases: [

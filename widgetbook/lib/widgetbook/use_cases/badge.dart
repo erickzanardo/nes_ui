@@ -6,13 +6,11 @@ import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
 @widgetbook.UseCase(name: 'default', type: NesBadge)
 Widget normal(BuildContext context) => const Center(
-  child: NesBadge(child: Icon(Icons.star), badge: '5'),
-);
-
-@widgetbook.UseCase(name: 'with NesIcon', type: NesBadge)
-Widget withNesIcon(BuildContext context) => const Center(
-  child: NesBadge(
-    child: NesIcon(iconData: NesIcons.heart),
-    badge: '99+',
-  ),
-);
+      child: NesBadge(
+        badge: '5',
+        child: NesButton(
+          type: NesButtonType.primary,
+          child: Text('Button'),
+        ),
+      ),
+    );
