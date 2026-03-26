@@ -2,22 +2,34 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:nes_ui/nes_ui.dart';
 
+const _testColors = [
+  Color(0xff000000),
+  Color(0xff111111),
+  Color(0xff333333),
+  Color(0xff555555),
+  Color(0xff777777),
+  Color(0xff999999),
+  Color(0xffbbbbbb),
+  Color(0xffdddddd),
+];
+
 void main() {
-  group('NesColorPicker', () {
+  group('NesPalette', () {
     testWidgets('renders correctly', (tester) async {
       await tester.pumpWidget(
         MaterialApp(
           theme: flutterNesTheme(),
           home: Scaffold(
-            body: NesColorPicker(
+            body: NesPalette(
               value: const Color(0xff209cee),
+              colors: _testColors,
               onChanged: (color) {},
             ),
           ),
         ),
       );
 
-      expect(find.byType(NesColorPicker), findsOneWidget);
+      expect(find.byType(NesPalette), findsOneWidget);
       expect(find.byType(TextField), findsOneWidget);
     });
 
@@ -28,7 +40,11 @@ void main() {
         MaterialApp(
           theme: flutterNesTheme(),
           home: Scaffold(
-            body: NesColorPicker(value: testColor, onChanged: (color) {}),
+            body: NesPalette(
+              value: testColor,
+              colors: _testColors,
+              onChanged: (color) {},
+            ),
           ),
         ),
       );
@@ -51,8 +67,9 @@ void main() {
         MaterialApp(
           theme: flutterNesTheme(),
           home: Scaffold(
-            body: NesColorPicker(
+            body: NesPalette(
               value: const Color(0xff209cee),
+              colors: _testColors,
               onChanged: (color) {
                 selectedColor = color;
               },
@@ -77,7 +94,11 @@ void main() {
           home: Scaffold(
             body: StatefulBuilder(
               builder: (context, setState) {
-                return NesColorPicker(value: testColor, onChanged: (color) {});
+                return NesPalette(
+                  value: testColor,
+                  colors: _testColors,
+                  onChanged: (color) {},
+                );
               },
             ),
           ),
@@ -89,7 +110,7 @@ void main() {
       expect(textFieldWidget.controller?.text, contains('#'));
     });
 
-    testWidgets('respects presetColors parameter', (tester) async {
+    testWidgets('respects colors parameter', (tester) async {
       const customColors = [
         Colors.red,
         Colors.green,
@@ -100,10 +121,10 @@ void main() {
         MaterialApp(
           theme: flutterNesTheme(),
           home: Scaffold(
-            body: NesColorPicker(
+            body: NesPalette(
               value: Colors.red,
+              colors: customColors,
               onChanged: (color) {},
-              presetColors: customColors,
             ),
           ),
         ),
@@ -117,12 +138,12 @@ void main() {
         MaterialApp(
           theme: flutterNesTheme(),
           home: Scaffold(
-            body: NesColorPicker(
+            body: NesPalette(
               value: Colors.red,
+              colors: customColors,
               onChanged: (color) {
                 selectedColor = color;
               },
-              presetColors: customColors,
             ),
           ),
         ),
@@ -144,8 +165,9 @@ void main() {
         MaterialApp(
           theme: flutterNesTheme(),
           home: Scaffold(
-            body: NesColorPicker(
+            body: NesPalette(
               value: const Color(0xff209cee),
+              colors: _testColors,
               onChanged: (color) {},
               columnCount: 4,
             ),
@@ -153,7 +175,7 @@ void main() {
         ),
       );
 
-      expect(find.byType(NesColorPicker), findsOneWidget);
+      expect(find.byType(NesPalette), findsOneWidget);
     });
 
     testWidgets('respects size parameter', (tester) async {
@@ -161,8 +183,9 @@ void main() {
         MaterialApp(
           theme: flutterNesTheme(),
           home: Scaffold(
-            body: NesColorPicker(
+            body: NesPalette(
               value: const Color(0xff209cee),
+              colors: _testColors,
               onChanged: (color) {},
               size: 48,
             ),
@@ -170,7 +193,7 @@ void main() {
         ),
       );
 
-      expect(find.byType(NesColorPicker), findsOneWidget);
+      expect(find.byType(NesPalette), findsOneWidget);
     });
 
     testWidgets('hides hex input when enableCustomInput is false', (
@@ -180,8 +203,9 @@ void main() {
         MaterialApp(
           theme: flutterNesTheme(),
           home: Scaffold(
-            body: NesColorPicker(
+            body: NesPalette(
               value: const Color(0xff209cee),
+              colors: _testColors,
               onChanged: (color) {},
               enableCustomInput: false,
             ),
@@ -197,8 +221,9 @@ void main() {
         MaterialApp(
           theme: flutterNesTheme(),
           home: Scaffold(
-            body: NesColorPicker(
+            body: NesPalette(
               value: const Color(0xff209cee),
+              colors: _testColors,
               onChanged: (color) {},
             ),
           ),
@@ -213,8 +238,9 @@ void main() {
         MaterialApp(
           theme: flutterNesTheme(),
           home: Scaffold(
-            body: NesColorPicker(
+            body: NesPalette(
               value: const Color(0xff209cee),
+              colors: _testColors,
               onChanged: (color) {},
             ),
           ),
