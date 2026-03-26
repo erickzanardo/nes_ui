@@ -6,6 +6,7 @@ export 'nes_bottom_sheet.dart';
 export 'nes_button.dart';
 export 'nes_check_box.dart';
 export 'nes_checkered_decoration.dart';
+export 'nes_color_picker.dart';
 export 'nes_controller_focus.dart';
 export 'nes_dpad.dart';
 export 'nes_dropdown_menu.dart';
