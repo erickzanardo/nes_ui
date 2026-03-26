@@ -21,6 +21,7 @@ export 'nes_iterable_options.dart';
 export 'nes_key_icon.dart';
 export 'nes_link.dart';
 export 'nes_loading_indicator.dart';
+export 'nes_palette.dart';
 export 'nes_pressabled.dart';
 export 'nes_progress_bar.dart';
 export 'nes_pulser.dart';

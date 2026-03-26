@@ -59,6 +59,8 @@ import 'package:widgetbook_app/widgetbook/use_cases/loading_indicator.dart'
     as _widgetbook_app_widgetbook_use_cases_loading_indicator;
 import 'package:widgetbook_app/widgetbook/use_cases/nes_window.dart'
     as _widgetbook_app_widgetbook_use_cases_nes_window;
+import 'package:widgetbook_app/widgetbook/use_cases/palette.dart'
+    as _widgetbook_app_widgetbook_use_cases_palette;
 import 'package:widgetbook_app/widgetbook/use_cases/pressable.dart'
     as _widgetbook_app_widgetbook_use_cases_pressable;
 import 'package:widgetbook_app/widgetbook/use_cases/progress_bar.dart'
@@ -440,6 +442,30 @@ final directories = <_widgetbook.WidgetbookNode>[
           _widgetbook.WidgetbookUseCase(
             name: 'normal',
             builder: _widgetbook_app_widgetbook_use_cases_links.normal,
+          ),
+        ],
+      ),
+      _widgetbook.WidgetbookComponent(
+        name: 'NesPalette',
+        useCases: [
+          _widgetbook.WidgetbookUseCase(
+            name: 'default',
+            builder:
+                _widgetbook_app_widgetbook_use_cases_palette.defaultPalette,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'with color selector dialog',
+            builder: _widgetbook_app_widgetbook_use_cases_palette
+                .withColorSelectorDialog,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'with custom colors',
+            builder: _widgetbook_app_widgetbook_use_cases_palette.customColors,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'without custom input',
+            builder:
+                _widgetbook_app_widgetbook_use_cases_palette.withoutCustomInput,
           ),
         ],
       ),
