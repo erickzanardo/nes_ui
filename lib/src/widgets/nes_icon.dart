@@ -581,6 +581,13 @@ class NesIconCollection {
     ),
   );
 
+  /// A fill bucket icon.
+  late final fillBucket = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;4,-1;2,0;5,-1;2,0;1,-1;1,0;3,-1;2,0;1,-1;1,0;3,-1;2,0;1,-1;1,0;1,-1;1,0;2,-1;1,0;3,-1;2,1;4,0;3,1;1,0;1,-1;2,0;1,-1;1,0;1,1;1,0;3,-1;2,0;1,-1;1,0;3,-1',
+    ),
+  );
+
   /// Hammer
   late final hammer = NesIconData(
     MiniSprite.fromDataString(
