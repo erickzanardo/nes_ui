@@ -124,6 +124,7 @@ Widget normal(BuildContext context) => SingleChildScrollView(
           _IconEntry(data: NesIcons.fruit, label: 'fruit'),
           _IconEntry(data: NesIcons.fatArrowUp, label: 'fatArrowUp'),
           _IconEntry(data: NesIcons.fatArrowDown, label: 'fatArrowDown'),
+          _IconEntry(data: NesIcons.fillBucket, label: 'fillBucket'),
           _IconEntry(data: NesIcons.hammer, label: 'hammer'),
           _IconEntry(data: NesIcons.owl, label: 'owl'),
           _IconEntry(data: NesIcons.letter, label: 'letter'),

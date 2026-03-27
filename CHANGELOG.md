@@ -1,10 +1,11 @@
 # 0.31.0
- - feat: Add `NesBadge` widget that can display a badge indicator on any widget.
- - chore: Update `google_fonts` to latest
- - feat: Allow NesBottomSheet to have absolute height
- - feat: Add `NesIcons.cisel`.
- - feat: Add `NesIcons.eyedropper`.
- - feat: Add the `NesPalette` widget.
+  - feat: Add `NesBadge` widget that can display a badge indicator on any widget.
+  - chore: Update `google_fonts` to latest
+  - feat: Allow NesBottomSheet to have absolute height
+  - feat: Add `NesIcons.cisel`.
+  - feat: Add `NesIcons.eyedropper`.
+  - feat: Add the `NesPalette` widget.
+  - feat: Add `NesIcons.fillBucket`.
 
 # 0.30.0
  - feat: Add `NesShakeEffect` widget with declarative `shaking` bool and optional `NesShakeEffectController`.
