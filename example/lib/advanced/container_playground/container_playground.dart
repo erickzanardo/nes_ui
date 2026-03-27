@@ -37,15 +37,11 @@ final _options = [
   ),
   _Option(
     label: 'Multi Step Corner (2 steps)',
-    painterBuilder: NesContainerMultiStepCornerPainter.builder(
-      cornerSteps: 2,
-    ),
+    painterBuilder: NesContainerMultiStepCornerPainter.builder(cornerSteps: 2),
   ),
   _Option(
     label: 'Multi Step Corner (3 steps)',
-    painterBuilder: NesContainerMultiStepCornerPainter.builder(
-      cornerSteps: 3,
-    ),
+    painterBuilder: NesContainerMultiStepCornerPainter.builder(cornerSteps: 3),
   ),
 ];
 
