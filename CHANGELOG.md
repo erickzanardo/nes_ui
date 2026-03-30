@@ -6,6 +6,7 @@
   - feat: Add `NesIcons.eyedropper`.
   - feat: Add the `NesPalette` widget.
   - feat: Add `NesIcons.fillBucket`.
+  - feat: Add `NesIcons.transform`.
 
 # 0.30.0
  - feat: Add `NesShakeEffect` widget with declarative `shaking` bool and optional `NesShakeEffectController`.
