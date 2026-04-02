@@ -935,6 +935,13 @@ class NesIconCollection {
       '8,8;2,0;1,-1;2,0;1,-1;3,0;6,-1;1,0;8,-1;1,0;6,-1;2,0;6,-1;1,0;8,-1;1,0;6,-1;3,0;1,-1;2,0;1,-1;2,0',
     ),
   );
+
+  /// Rotate flipped icon.
+  late final rotateFlipped = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;1,-1;5,0;7,-1;2,0;7,-1;2,0;2,-1;1,0;2,-1;3,0;1,-1;14,0;2,-1;4,0;5,-1;1,0;5,-1',
+    ),
+  );
 }
 
 /// {@template nes_icon}
