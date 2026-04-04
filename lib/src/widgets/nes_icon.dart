@@ -943,6 +943,7 @@ class NesIconCollection {
     ),
   );
 
+  // Palette icon.
   late final palette = NesIconData(
     MiniSprite.fromDataString(
       '8,8;1,-1;6,0;1,-1;2,0;1,1;2,0;1,1;11,0;1,1;4,0;1,1;11,0;1,1;3,0;1,-1;1,0;1,-1;7,0;2,-1;5,0;1,-1',
