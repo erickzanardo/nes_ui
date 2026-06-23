@@ -175,6 +175,7 @@ Widget normal(BuildContext context) => SingleChildScrollView(
           _IconEntry(data: NesIcons.shrink, label: 'shrink'),
           _IconEntry(data: NesIcons.selection, label: 'selection'),
           _IconEntry(data: NesIcons.rotateFlipped, label: 'rotateFlipped'),
+          _IconEntry(data: NesIcons.palette, label: 'palette'),
         ],
       ),
     );
