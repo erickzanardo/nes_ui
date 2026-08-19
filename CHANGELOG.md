@@ -1,7 +1,5 @@
-# 0.32.0
-  - feat: Add `NesIcons.trophy`.
-
 # 0.31.0
+  - feat: Add `NesIcons.trophy`.
   - feat: Add `NesBadge` widget that can display a badge indicator on any widget.
   - feat: Add `NesIcons.selection`.
   - feat: Add `NesIcons.rotateFlipped`.
