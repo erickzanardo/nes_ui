@@ -77,6 +77,7 @@ Widget normal(BuildContext context) => SingleChildScrollView(
           _IconEntry(data: NesIcons.upload, label: 'upload'),
           _IconEntry(data: NesIcons.zoomIn, label: 'zoomIn'),
           _IconEntry(data: NesIcons.zoomOut, label: 'zoomOut'),
+          _IconEntry(data: NesIcons.magnifier, label: 'magnifier'),
           _IconEntry(data: NesIcons.yamlFile, label: 'yamlFile'),
           _IconEntry(data: NesIcons.xmlFile, label: 'xmlFile'),
           _IconEntry(

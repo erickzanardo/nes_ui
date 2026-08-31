@@ -336,6 +336,13 @@ class NesIconCollection {
     ),
   );
 
+  /// Magnifier
+  late final magnifier = NesIconData(
+    MiniSprite.fromDataString(
+      '8,8;2,-1;3,0;4,-1;1,0;3,1;1,0;2,-1;1,0;1,1;3,-1;1,1;1,0;1,-1;1,0;5,-1;1,0;1,-1;1,0;1,1;3,-1;1,1;1,0;2,-1;1,0;3,1;1,0;4,-1;3,0;1,-1;1,0;8,-1;1,0',
+    ),
+  );
+
   /// Yaml file
   late final yamlFile = NesIconData(
     MiniSprite.fromDataString(
