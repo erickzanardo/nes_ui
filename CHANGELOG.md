@@ -1,3 +1,6 @@
+# 0.32.1
+  - chore: Bump `mini_sprite` to `^0.2.0` and `flutter_mini_sprite` to `^0.1.0`.
+
 # 0.32.0
   - feat: Add `NesIcons.magnifier`.
 

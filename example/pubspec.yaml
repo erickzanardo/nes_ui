@@ -8,11 +8,11 @@ environment:
   flutter: ">=3.10.0"
 
 dependencies:
-  equatable: ^2.0.5
+  equatable: ^3.0.0
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.1
-  mini_sprite: ^0.1.0
+  mini_sprite: ^0.2.0
   nes_ui:
     path: ../
   phased: ^0.0.3
