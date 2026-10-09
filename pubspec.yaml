@@ -11,13 +11,13 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_mini_sprite: ^0.1.0
-  google_fonts: ^8.0.2
+  google_fonts: ">=8.0.2 <10.0.0"
   mini_sprite: ^0.2.0
   phased: ^0.0.3
   universal_platform: ^1.1.0
 
 dev_dependencies:
-  alchemist: 0.12.1
+  alchemist: 0.14.1
   flutter_test:
     sdk: flutter
   mocktail: ">=0.3.0 <2.0.0"
